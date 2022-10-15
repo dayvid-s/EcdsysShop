@@ -1,10 +1,13 @@
 {
+  "expo.plugins": [['./plugins/withDisableForcedDarkModeAndroid.js']],
   "expo": {
     "name": "EcdsysShop",
     "slug": "EcdsysShop",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
+    "android": {
+      "userInterfaceStyle": "automatic" },
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
@@ -17,13 +20,16 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#FFFFFF"
-      }
+    // },
+    // "android": {
+    //   "adaptiveIcon": {
+    //     "backgroundColor": "#FFFFFF",
+    //   },
+    //   "userInterfaceStyle": "light" ,
     },
     "web": {
     }
+    
   }
+  
 }

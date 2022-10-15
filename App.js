@@ -7,13 +7,13 @@ import themes from './src/theme'
 
 export default function App() {
   const deviceTheme = useColorScheme();
-  
+  console.log(deviceTheme)
   const theme = themes[deviceTheme] || theme.dark
   return (
       <ThemeProvider theme={theme}>
         <NavigationContainer>
           <MainStack></MainStack>
         </NavigationContainer>
-      </ThemeProvider>
+        </ThemeProvider>
   );
 }

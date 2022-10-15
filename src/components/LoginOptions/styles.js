@@ -21,12 +21,14 @@ export const OptionText = styled.Text`
 export const WrapperIcons = styled.TouchableOpacity`
     padding: 15px;
     flex: 1
-    background-color: ${props => props.theme.backGround}
+    background-color: ${props => props.theme.secondary};
     align-items: center;
     justify-content: center;
     border-radius: 20px;
     margin-right : 10px
     elevation : 30
-    border-width :2px
-    border-color : #fff 
+    border-width :1px
+    border-color : ${props => props.theme.gray300}
+    margin-bottom: 40px
+    
     `

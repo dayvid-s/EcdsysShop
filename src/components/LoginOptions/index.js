@@ -13,10 +13,10 @@ export default () =>{
 
         <LoginIconsArea>
             <WrapperIcons>
-            <Zocial name="facebook" size={24} color="black" />
+            <Zocial name="facebook" size={24} color="white" />
                 </WrapperIcons>
             <WrapperIcons>
-                <AntDesign name="google" size={24} color="black" />
+                <AntDesign name="google" size={24} color="white" />
             </WrapperIcons>
         
         </LoginIconsArea>   
