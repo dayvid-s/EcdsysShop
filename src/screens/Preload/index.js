@@ -11,7 +11,7 @@ export default ({})=> {
 
 
     const advance =()=>{
-        navigation.navigate('SignInAndSignUp')
+        navigation.navigate('SignIn')
     }
     return (
         <View style={{flex:1 , alignSelf:'center', backgroundColor:'green'}}>

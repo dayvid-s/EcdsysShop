@@ -1,11 +1,20 @@
 import React from 'react';
-import {InputArea} from './styles'
+import {InputArea,TextInfo,Container,AreaText,Input  } from './styles'
 
-export default ({IconSvg}) =>{
+export default ({Text,IconSvg,placeholder}) =>{
     return(
-    <InputArea>
-        {/* <IconSvg width={24} height={24} fill="red" /> */}
-    </InputArea>
+        <Container>
+            <AreaText>
+                <TextInfo>{Text}</TextInfo>
+            </AreaText>
+            <InputArea>
+                {IconSvg? 
+                <IconSvg opacity="0.4" width="20" height="20" fill="#FFF" />
+                : null   }
+                <Input placeholder={placeholder} placeholderTextColor={'gray'}  ></Input>
+            
+            </InputArea>
+         </Container>
 
     )
 }

@@ -12,9 +12,14 @@ import {
   } from './styles'
 import LoginOptions from '../../components/LoginOptions'
 import SignInput from '../../components/SignInput'
-// import EmailIcon from '../../assets/email-svgrepo-com.svg'
-import Chilli from '../../assets/chilli.svg'
+import EmailIcon from '../../assets/email.svg'
+import Lock from '../../assets/lock.svg'
+import User from '../../assets/user.svg'
+
 export default () => {
+
+  const handleMessageButtonClick = () => {}
+  
   return (
     <Container>
       <HeaderArea>
@@ -24,18 +29,16 @@ export default () => {
       <LoginOptions></LoginOptions>    
       
       <InputArea>
-        {/* <SignInput IconSvg={EmailIcon} ></SignInput> */}
-        {/* <EmailIcon width={200} height={500} fill="red" /> */}
-        <SignInput></SignInput>
-        <SignInput></SignInput>
-        <Chilli width={200} height={200} fill="black" />
+        <SignInput placeholder="Juliana" Text='Nome' IconSvg={User} ></SignInput>
+        <SignInput placeholder= "tim@apple.com" Text='Email' IconSvg={EmailIcon} ></SignInput>
+        <SignInput Text="Senha" placeholder="Escolha uma senha forte" IconSvg={Lock} ></SignInput>
         
         <CustomButton>
           <CustomButtonText>Criar Conta</CustomButtonText>
         </CustomButton>
       </InputArea>
 
-      <SignMessageButton>
+      <SignMessageButton onPress={handleMessageButtonClick}>
         <SignMessageButtonText>Já possui uma conta? </SignMessageButtonText>
         <SignMessageButtonTextBold>Faça login</SignMessageButtonTextBold>
       </SignMessageButton>

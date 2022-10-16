@@ -4,6 +4,10 @@ import { Zocial } from '@expo/vector-icons';
 import { LoginIconsArea, WrapperIcons, OptionText, Container,
  AreaText
 } from './styles';
+import Facebook from '../../assets/facebook'
+import Google from '../../assets/google.svg'
+
+
 export default () =>{
   return (
     <Container>
@@ -13,10 +17,17 @@ export default () =>{
 
         <LoginIconsArea>
             <WrapperIcons>
-            <Zocial name="facebook" size={24} color="white" />
-                </WrapperIcons>
+                
+                {Facebook? 
+                <Facebook width="24" height="24" fill="#FFF" />
+                : null   }
+            </WrapperIcons>
             <WrapperIcons>
-                <AntDesign name="google" size={24} color="white" />
+                
+            {Google? 
+                <Google width="24" height="24" fill="#FFF" />
+                : null   }
+                {/* <AntDesign name="google" size={24} color="white" /> */}
             </WrapperIcons>
         
         </LoginIconsArea>   
