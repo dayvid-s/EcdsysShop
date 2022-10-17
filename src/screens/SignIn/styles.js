@@ -18,6 +18,10 @@ export const HeaderText = styled.Text`
     margin-left: 20px;
     color: ${props => props.theme.onBackGround};
 `
+export const HeaderTextLittle = styled(HeaderText)`
+    font-weight: 400;
+    font-size: 20px;
+`
 
 export const LoginIconsArea = styled.View`
     margin-top: 20%;

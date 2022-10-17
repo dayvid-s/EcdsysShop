@@ -1,18 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {InputArea,TextInfo,Container,AreaText,Input  } from './styles'
 
-export default ({Text,IconSvg,placeholder}) =>{
+export default ({
+    inputRef,
+    Text,
+    Icon,
+    placeholder,
+    secureTextEntry,
+    onSubmitEditing,
+    returnKeyType
+    }) =>{
+    
+    const [inputBorderColor, setInputBorderColor] = useState('#2222')
+
+    const handleOnFocus=()=>{
+        setInputBorderColor('#938d')
+      }
+    const handleOnBlur=()=>{
+        setInputBorderColor('#2222')
+      }
+      
+    
     return(
         <Container>
             <AreaText>
                 <TextInfo>{Text}</TextInfo>
             </AreaText>
-            <InputArea>
-                {IconSvg? 
-                <IconSvg opacity="0.4" width="20" height="20" fill="#FFF" />
+            <InputArea custom={inputBorderColor} >
+                {Icon?   
+                    <Icon opacity="0.4" width="20" height="20" fill="#FFF" />
                 : null   }
-                <Input placeholder={placeholder} placeholderTextColor={'gray'}  ></Input>
-            
+                <Input 
+                    onFocus={handleOnFocus}
+                    onBlur={handleOnBlur}  
+                    placeholder={placeholder} 
+                    ref={inputRef} 
+                    placeholderTextColor={'gray'}  
+                    secureTextEntry={secureTextEntry}
+                    onSubmitEditing={onSubmitEditing}
+                    returnKeyType={returnKeyType}
+                />
             </InputArea>
          </Container>
 

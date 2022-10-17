@@ -12,6 +12,7 @@ export const LoginIconsArea = styled.View`
     ` 
 export const AreaText = styled.View`
     margin-top: 10%;
+    margin-left: 3%
     ` 
 export const OptionText = styled.Text`
     font-weight:500;

@@ -17,7 +17,8 @@ export const InputArea = styled.View`
     flex-direction: row;
     padding-left: 15px;
     justify-content:space-around;
-
+    border-width: 2px
+    border-color: ${(props) => props.custom}
 `
 export const AreaText = styled.View`
     margin-left: 15px;

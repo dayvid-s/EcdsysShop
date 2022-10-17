@@ -1,6 +1,4 @@
 import React from 'react'
-import { AntDesign } from '@expo/vector-icons';
-import { Zocial } from '@expo/vector-icons';
 import { LoginIconsArea, WrapperIcons, OptionText, Container,
  AreaText
 } from './styles';
@@ -8,11 +6,11 @@ import Facebook from '../../assets/facebook'
 import Google from '../../assets/google.svg'
 
 
-export default () =>{
+export default ({Text}) =>{
   return (
     <Container>
         <AreaText>
-            <OptionText>Cadastre-se com uma das seguintes opções.</OptionText>
+            <OptionText>{Text}</OptionText>
         </AreaText>
 
         <LoginIconsArea>
