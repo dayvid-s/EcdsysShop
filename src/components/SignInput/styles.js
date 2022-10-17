@@ -20,12 +20,10 @@ export const InputArea = styled.View`
     border-width: 2px
     border-color: ${(props) => props.custom}
 `
-export const AreaText = styled.View`
-    margin-left: 15px;
-    margin-bottom: 8px
-`
 
 export const TextInfo = styled.Text `
+    margin-left: 15px;
+    margin-bottom: 8px
     font-size:18px
     opacity:0.5
     color: ${props => props.theme.onBackGround};
@@ -35,5 +33,10 @@ export const Input = styled.TextInput`
     flex:1;
     font-size:16px;
     color: ${props => props.theme.onBackGround};
-    margin-left: 20px;
+    margin-left: 10px;
+    /* max-width: 80%; */
+`
+export const TouchabeOpacity = styled.TouchableOpacity `
+    margin-right:10px
+
 `

@@ -28,7 +28,7 @@ export const WrapperIcons = styled.TouchableOpacity`
     border-radius: 20px;
     margin-right : 10px
     elevation : 30
-    border-width :1px
+    border-width :2px
     border-color : ${props => props.theme.gray300}
     margin-bottom: 40px
     

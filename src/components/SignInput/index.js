@@ -1,5 +1,13 @@
-import React, { useState } from 'react';
-import {InputArea,TextInfo,Container,AreaText,Input  } from './styles'
+import React, { useEffect, useState } from 'react';
+import {
+    InputArea,
+    TextInfo,
+    Container,
+    Input,
+    TouchabeOpacity
+} from './styles'
+import Hide from '../../assets/eyeClosed.svg'
+import ShowPassword from '../../assets/eyePassword.svg'
 
 export default ({
     inputRef,
@@ -8,24 +16,33 @@ export default ({
     placeholder,
     secureTextEntry,
     onSubmitEditing,
-    returnKeyType
+    returnKeyType,
+    passWord
     }) =>{
     
-    const [inputBorderColor, setInputBorderColor] = useState('#2222')
+    const [inputBorderColor, setInputBorderColor] = useState('#434344')
+    const [showPassword, setShowPassword] = useState(false)
+
+    useEffect(()=>{
+        if(secureTextEntry== true){
+            setShowPassword(true)
+        }    else{
+            setShowPassword(false)
+        }
+    },[])
 
     const handleOnFocus=()=>{
-        setInputBorderColor('#938d')
-      }
+        setInputBorderColor('#5c1e85')}
+
     const handleOnBlur=()=>{
-        setInputBorderColor('#2222')
-      }
-      
-    
+        setInputBorderColor('#434344')}
+
+    const handleShowAndHidePassword=()=>{
+        setShowPassword(!showPassword)}
+
     return(
         <Container>
-            <AreaText>
-                <TextInfo>{Text}</TextInfo>
-            </AreaText>
+            <TextInfo>{Text}</TextInfo>
             <InputArea custom={inputBorderColor} >
                 {Icon?   
                     <Icon opacity="0.4" width="20" height="20" fill="#FFF" />
@@ -36,12 +53,22 @@ export default ({
                     placeholder={placeholder} 
                     ref={inputRef} 
                     placeholderTextColor={'gray'}  
-                    secureTextEntry={secureTextEntry}
+                    secureTextEntry={showPassword}
                     onSubmitEditing={onSubmitEditing}
                     returnKeyType={returnKeyType}
                 />
+                
+                {passWord==true?
+                    <TouchabeOpacity onPress={handleShowAndHidePassword}>
+                        {showPassword==false ?
+                            <Hide opacity="0.4" width="24" height="24" fill="#FFF" />
+                            :   
+                            <ShowPassword opacity="0.4" width="24" height="24" fill="#FFF" />}
+                    </TouchabeOpacity>  
+                :null
+                } 
             </InputArea>
-         </Container>
+        </Container>
 
     )
 }

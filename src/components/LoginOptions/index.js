@@ -25,7 +25,6 @@ export default ({Text}) =>{
             {Google? 
                 <Google width="24" height="24" fill="#FFF" />
                 : null   }
-                {/* <AntDesign name="google" size={24} color="white" /> */}
             </WrapperIcons>
         
         </LoginIconsArea>   

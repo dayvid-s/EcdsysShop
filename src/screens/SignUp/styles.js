@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Container = styled.View`
+export const TouchableWithoutFeedback = styled.TouchableWithoutFeedback`
+`
+export const Container = styled.KeyboardAvoidingView`
     background-color: ${props => props.theme.backGround}
 
     flex:1;
@@ -23,7 +25,7 @@ export const LoginIconsArea = styled.View`
     margin-top: 20%;
     margin-left: 10% ;
     `
-export const InputArea = styled.View`
+export const SubmitArea = styled.View`
 
 `
 export const CustomButton = styled.TouchableOpacity`
