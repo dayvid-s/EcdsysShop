@@ -3,7 +3,9 @@ export default {
     backGround: 'black', //or 'black, i will choose soon'
     onBackGround:'#FFF' ,
     secondary: '#222222',
-    gray300: '#434344'
+    gray300: '#434344',
+    rose:'#6c1e85',
+    roseBlue:'#7159c1'   
 
 }
 

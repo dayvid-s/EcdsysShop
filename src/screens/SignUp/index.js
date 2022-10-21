@@ -67,7 +67,11 @@ export default () => {
             passWord={true}
             />
           
-          <CustomButton>
+          <CustomButton onPress={() =>navigation.reset({
+              index: 0,
+              routes: [{ name: 'Home' }],
+            })}
+            >
             <CustomButtonText>Criar Conta</CustomButtonText>
           </CustomButton>
         </SubmitArea>

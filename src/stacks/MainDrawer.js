@@ -5,6 +5,7 @@ import Preload from '../../src/screens/Preload';
 import SignUp from '../screens/SignUp';
 import SignIn from '../screens/SignIn';
 import Cart from '../../src/screens/Cart';
+import SearchProduct from '../../src/screens/SearchProduct';
 
 
 const Drawer = createDrawerNavigator();
@@ -15,6 +16,7 @@ export default () => (
         <Drawer.Screen name ='SignUp' component={SignUp}></Drawer.Screen>
         <Drawer.Screen name ='SignIn' component={SignIn}></Drawer.Screen>
         <Drawer.Screen name ='Home' component={Home}></Drawer.Screen>
+        <Drawer.Screen name ='SearchProduct' component={SearchProduct} ></Drawer.Screen>
         <Drawer.Screen name ='Cart' component={Cart} ></Drawer.Screen>
     </Drawer.Navigator>
     )

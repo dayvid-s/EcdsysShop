@@ -3,19 +3,23 @@ import React from 'react'
 import Cart from '../../assets/shopping-cart-svgrepo-com.svg'
 import Menu from '../../assets/menu-svgrepo-com (1).svg'
 import { IconsArea, IconsWrapper } from './styles'
-export default () => {
-  return (
+import { useTheme } from 'styled-components'
+import { useNavigation } from '@react-navigation/native'
 
-      <IconsArea >
+export default () => {
+  const theme = useTheme()
+  const navigation = useNavigation()
+  return (
+    <IconsArea >
         {Menu?
-        <IconsWrapper>
-          <Menu  width={24} height={24} fill="#FFF" ></Menu>
+        <IconsWrapper onPress={() => navigation.openDrawer()}>
+          <Menu  width={24} height={24} fill={theme.onBackGround} ></Menu>
         </IconsWrapper>
         : null}
 
         {Cart?
-        <IconsWrapper>
-          <Cart  width={24} height={24} fill="#FFF" ></Cart>
+        <IconsWrapper onPress={() => navigation.push('Cart')} >
+          <Cart  width={24} height={24} fill={theme.onBackGround} ></Cart>
         </IconsWrapper>
         : null}
         

@@ -33,6 +33,11 @@ export default () => {
     navigation.navigate('SignUp')
   }
   const handleGoHome = () => {
+      navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    })
+
     navigation.navigate('Home')
   }
   return (
