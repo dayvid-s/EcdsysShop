@@ -1,3 +1,6 @@
+//TODO: animated, like nubank preload.
+
+
 import { View, Text, Button } from 'react-native'
 import React, { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'

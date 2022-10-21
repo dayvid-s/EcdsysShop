@@ -1,5 +1,5 @@
 //TODO: Solve keyboard avoiding view
-
+//TODO: on send file, buttom stay with scroll indicator, 'app barber' maybe.
 import React, { useRef } from 'react'
 import {
     TouchableWithoutFeedback,

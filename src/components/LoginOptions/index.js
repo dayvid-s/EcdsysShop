@@ -1,6 +1,10 @@
 import React from 'react'
-import { LoginIconsArea, WrapperIcons, OptionText, Container,
- AreaText
+import { 
+    LoginIconsArea,
+    WrapperIcons, 
+    OptionText, 
+    Container,
+    AreaText
 } from './styles';
 import Facebook from '../../assets/facebook'
 import Google from '../../assets/google.svg'
