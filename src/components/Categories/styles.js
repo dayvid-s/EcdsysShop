@@ -24,8 +24,8 @@ export const CategoriesArea =styled.View`
 export const WrapperCategories = styled.TouchableOpacity`
     justify-content:center
     align-items:center
-    padding-right: 10px
-    padding-left:13px
+    padding-right: 5px
+    padding-left:5px
     /* margin-right:2px */
    
     `
