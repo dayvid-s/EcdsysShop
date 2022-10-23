@@ -6,7 +6,7 @@ import {
   SearchInputText,
   SearchIconWrapper,
  } from './styles';
- import SearchIcon from '../../assets/search-svgrepo-com.svg'
+ import SearchIcon from '../../assets/icons/search-svgrepo-com.svg'
 import { useTheme } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
 

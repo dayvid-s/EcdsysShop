@@ -6,8 +6,8 @@ import {
     Container,
     AreaText
 } from './styles';
-import Facebook from '../../assets/facebook'
-import Google from '../../assets/google.svg'
+import Facebook from '../../assets/icons/facebook'
+import Google from '../../assets/icons/google.svg'
 
 
 export default ({Text}) =>{

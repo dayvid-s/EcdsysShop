@@ -15,9 +15,9 @@ import {
   } from './styles'
 import LoginOptions from '../../components/LoginOptions'
 import SignInput from '../../components/SignInput'
-import EmailIcon from '../../assets/email.svg'
-import Lock from '../../assets/lock.svg'
-import User from '../../assets/user.svg'
+import EmailIcon from '../../assets/icons/email.svg'
+import Lock from '../../assets/icons/lock.svg'
+import User from '../../assets/icons/user.svg'
 import { useNavigation } from '@react-navigation/native'
 import { Keyboard, KeyboardAvoidingView, Platform } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';

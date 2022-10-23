@@ -6,7 +6,7 @@ export const Title = styled.Text`
     color: ${props => props.theme.onBackGround}
     margin-left:8%
     font-size:34px
-    margin-top: 7%
+    margin-top: 1%
     font-weight:600
     `
     export const SearchInputArea =styled.TouchableOpacity`

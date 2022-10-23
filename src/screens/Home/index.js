@@ -5,6 +5,7 @@ import {
   }from './styles'
 import HomeHeader from '../../components/HomeHeader'
 import SearchProduct from '../../components/SearchProduct'
+import Categories from '../../components/Categories'
 import ViewProducts from '../../components/ViewProducts'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import { Text } from 'react-native'
@@ -12,16 +13,15 @@ import { Text } from 'react-native'
 export default () => {
   return (
     <Container>
-      <KeyboardAwareScrollView> 
+      {/* <KeyboardAwareScrollView>  */}
       
         <HomeHeader > </HomeHeader>  
         
           
         <SearchProduct> </SearchProduct> 
-        {/*search and text: what are u doing today?, this it's a componente.  */}
 
 
-        {/* <SearchProduct> </SearchProduct>  */}
+        <Categories> </Categories> 
         {/*scrollable horizontal area, with all types of productd ( indiano 
           will hellp you on that. )   */}
       
@@ -49,7 +49,7 @@ export default () => {
         {/* Visto recentemente  */}
 
     
-      </KeyboardAwareScrollView>
+      {/* </KeyboardAwareScrollView> */}
     </Container>
     )
 }

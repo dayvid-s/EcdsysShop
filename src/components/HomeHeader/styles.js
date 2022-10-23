@@ -1,6 +1,5 @@
 import styled from "styled-components"
 export const IconsArea = styled.View`
-    flex: 1
     flex-direction: row;
     justify-content: space-between;
     margin-right : 20px

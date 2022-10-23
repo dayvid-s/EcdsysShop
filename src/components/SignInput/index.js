@@ -6,8 +6,8 @@ import {
     Input,
     TouchabeOpacity
 } from './styles'
-import Hide from '../../assets/eyeClosed.svg'
-import ShowPassword from '../../assets/eyePassword.svg'
+import Hide from '../../assets/icons/eyeClosed.svg'
+import ShowPassword from '../../assets/icons/eyePassword.svg'
 
 export default ({
     inputRef,

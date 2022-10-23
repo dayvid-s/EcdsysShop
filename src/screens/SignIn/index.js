@@ -1,4 +1,6 @@
 //TODO: Solve keyboard avoiding view
+//TODO: put icons with all kind of color.
+//TODO: see if toogle keyboard its right, or its another way
 
 
 import React, { useRef } from 'react'
@@ -18,9 +20,9 @@ import {
   } from './styles'
 import LoginOptions from '../../components/LoginOptions'
 import SignInput from '../../components/SignInput'
-import EmailIcon from '../../assets/email.svg'
-import Lock from '../../assets/lock.svg'
-import IconBack from '../../assets/IconBack.svg'
+import EmailIcon from '../../assets/icons/email.svg'
+import Lock from '../../assets/icons/lock.svg'
+import IconBack from '../../assets/icons/IconBack.svg'
 import { useNavigation } from '@react-navigation/native'
 import { Keyboard } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
