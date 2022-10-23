@@ -21,6 +21,7 @@ export default () => {
       <Title>Categorias </Title>
           <FlatlistArea>
       <FlatList
+      showsHorizontalScrollIndicator={false}
         horizontal={true}
         data={files}
         renderItem={({item}) =>(

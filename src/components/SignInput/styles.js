@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Container = styled.View`
     margin-left:5%
     margin-right:5%
@@ -17,7 +16,6 @@ export const InputArea = styled.View`
     flex-direction: row;
     padding-left: 15px;
     justify-content:space-around;
-    border-width: 2px
     border-color: ${(props) => props.custom}
 `
 
@@ -25,8 +23,9 @@ export const TextInfo = styled.Text `
     margin-left: 15px;
     margin-bottom: 8px
     font-size:18px
-    opacity:0.5
+    /* opacity:0.5 */
     color: ${props => props.theme.onBackGround};
+    /* font-family: 'Ultra' */
     `
 
 export const Input = styled.TextInput`

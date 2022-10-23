@@ -1,16 +1,20 @@
 export default {
     // backGround: '#121212', //or 'black, i will choose soon'
-    backGround: '#100E11', //or 'black, i will choose soon'
-    // backGround: 'black', //or 'black, i will choose soon'
-    onBackGround:'#FFF' ,
-    secondary: '#222222',
-    gray300: '#434344',
-    rose:'#6c1e85',
-    roseBlue:'#7159c1'   
-
+    // backGround: '#100E11', //or 'black, i will choose soon'
+    color: {
+        backGround: 'black', //or 'black, i will choose soon'
+        onBackGround:'#FFF' ,
+        secondary: '#121212',
+        gray300: '#434344',
+        rose:'#6c1e85',
+        roseBlue:'#7159c1'   
+},
+    fonts:{
+        text: 'Easy',
+        text2: 'Medium',
+        title: 'Hard',
 }
-
-
+}
 // const darkTheme = {
 //     PRIMARY_COLOR: '#000',
 //     SECONDARY_COLOR: '#73737d',

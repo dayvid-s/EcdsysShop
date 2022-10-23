@@ -23,7 +23,7 @@ export const Title = styled.Text`
 export const SearchInputText =styled.Text`
     color: ${props => props.theme.onBackGround}
     font-weight:600
-    margin-left:30px
+    margin-left:15px
     font-size:18px
     opacity:0.5
 `
