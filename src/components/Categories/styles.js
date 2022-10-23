@@ -19,18 +19,20 @@ export const CategoriesArea =styled.View`
     flex-direction: row
     align-items: center
     justify-content: center
+
     `
 
 export const WrapperCategories = styled.TouchableOpacity`
     justify-content:center
     align-items:center
-    padding-right: 5px
-    padding-left:5px
+    /* padding-right: 5px */
+    /* padding-left:5px */
     /* margin-right:2px */
-   
+    /* margin-left: 12px */
+    
     `
 
-export const CategoriesText =styled.Text`
+    export const CategoriesText =styled.Text`
     color: ${props => props.theme.onBackGround}
     font-weight:600
     font-size:12px
@@ -46,4 +48,8 @@ export const CategoriesIconWrapper =styled.View`
     max-height:50px
     max-width:50px
     border-radius:50px
+    /* margin-left: 12px */
     `
+export const FlatlistArea = styled.View`
+    margin-left: 14px;
+`

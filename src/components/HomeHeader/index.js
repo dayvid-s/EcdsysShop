@@ -13,13 +13,13 @@ export default () => {
     <IconsArea >
         {Menu?
         <IconsWrapper onPress={() => navigation.openDrawer()}>
-          <Menu  width={24} height={24} fill={theme.onBackGround} ></Menu>
+          <Menu opacity={0.6}  width={24} height={24} fill={theme.onBackGround} ></Menu>
         </IconsWrapper>
         : null}
 
         {Cart?
         <IconsWrapper onPress={() => navigation.push('Cart')} >
-          <Cart  width={24} height={24} fill={theme.onBackGround} ></Cart>
+          <Cart  opacity={0.6} width={24} height={24} fill={theme.onBackGround} ></Cart>
         </IconsWrapper>
         : null}
         
