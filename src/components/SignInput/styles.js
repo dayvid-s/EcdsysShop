@@ -25,7 +25,6 @@ export const TextInfo = styled.Text `
     font-size:18px
     /* opacity:0.5 */
     color: ${props => props.theme.onBackGround};
-    /* font-family: 'Ultra' */
     `
 
 export const Input = styled.TextInput`

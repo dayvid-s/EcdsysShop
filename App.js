@@ -14,8 +14,8 @@ export default function App() {
   const theme = themes[deviceTheme] || theme.dark
   let [fontsLoaded,error] = useFonts({
       'Hard': require('./src/assets/fonts/AvenirLTStd-Black.otf'),
-      'Medium': require('./src/assets/fonts/AvenirLTStd-Book.otf'),
-      'Easy': require('./src/assets/fonts/AvenirLTStd-Roman.otf')
+      'Medium': require('./src/assets/fonts/AvenirLTStd-Roman.otf'),
+      'Easy': require('./src/assets/fonts/AvenirLTStd-Book.otf')
   })
 
   
