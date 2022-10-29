@@ -7,48 +7,37 @@ import {
   ProductPriceText,
   ProductArea,
   WrapperProducts,
+  BackgroundImage,
 
 } from './styles'
+import {Items} from '../../data/products'
 
 export default () => {
   return (
     <Container>
       <TextInfo>Produtos recomendados</TextInfo>
       <ProductArea>
-        <WrapperProducts>
-
-        <Image
-        source={require('../../assets/images/XboxOne.jpg')}
-        // source={'../../assets/images/XboxOne.jpg'}
-        style={{
-          width:120,
-          height:120,
-          resizeMode:'contain',
-              // amanha: entender mais sobre images em react native
-          }}
-          ></Image>
-        
-        <ProductInfoText>Xbox 360</ProductInfoText>
-        <ProductPriceText>R$99,69</ProductPriceText>
-          </WrapperProducts>
-        <WrapperProducts>
-
-        
-        <Image
-        source={require('../../assets/images/XboxOne.jpg')}
-        // source={'../../assets/images/XboxOne.jpg'}
-        style={{
-          width:120,
-          height:120,
-          resizeMode:'contain',
-          // amanha: entender mais sobre images em react native
-        }}
-        ></Image>
-        
-        <ProductInfoText>Xbox 360</ProductInfoText>
-        <ProductPriceText>R$99,69</ProductPriceText>
-          </WrapperProducts>
-      </ProductArea>
+        {Items.map((item,id) =>{
+          return(  
+            <WrapperProducts key={id} >
+              <BackgroundImage>
+                <Image
+                // source={}
+                source={item.productImage}
+                style={{
+                  borderRadius:10,
+                  width:160,
+                  height:220,
+                  resizeMode:'contain',
+                  // amanha: entender mais sobre images em react native
+                }}
+                ></Image>
+              </BackgroundImage>
+              <ProductInfoText></ProductInfoText>
+              <ProductInfoText>{item.productName}</ProductInfoText>
+              <ProductPriceText>{item.productPrice}</ProductPriceText>
+            </WrapperProducts>
+        )})}
+      </ProductArea>  
     </Container>
-    )
-}
+)}

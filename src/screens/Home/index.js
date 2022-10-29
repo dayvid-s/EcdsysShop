@@ -8,12 +8,12 @@ import SearchProduct from '../../components/SearchProduct'
 import Categories from '../../components/Categories'
 import ViewProducts from '../../components/ViewProducts'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import { Text } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 
 export default () => {
   return (
     <Container>
-      <KeyboardAwareScrollView> 
+      <ScrollView> 
       
         <HomeHeader > </HomeHeader>  
         
@@ -49,7 +49,7 @@ export default () => {
         {/* Visto recentemente  */}
 
     
-      </KeyboardAwareScrollView>
+      </ScrollView>
     </Container>
     )
 }
