@@ -16,6 +16,7 @@ export default {
 //     SECONDARY_COLOR: '#73737d',
 //     TITLE_COLOR: '#fff',
 //     BACKGROUND_COLOR: '#111216',
+// rgb(12, 12, 32)
 //     BUTTON_COLOR: '#fff',
 // };
 // const lightTheme = {

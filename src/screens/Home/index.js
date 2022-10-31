@@ -1,3 +1,4 @@
+//TODO: when i want use gradient, i will need use two views
 import React from 'react'
 import {
     Container,
@@ -7,23 +8,15 @@ import HomeHeader from '../../components/HomeHeader'
 import SearchProduct from '../../components/SearchProduct'
 import Categories from '../../components/Categories'
 import ViewProducts from '../../components/ViewProducts'
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import { ScrollView, Text } from 'react-native'
+import { ScrollView } from 'react-native'
 
 export default () => {
   return (
     <Container>
       <ScrollView> 
-      
-        <HomeHeader > </HomeHeader>  
-        
-          
-        <SearchProduct> </SearchProduct> 
-
-
-        <Categories> </Categories> 
-        {/*scrollable horizontal area, with all types of productd ( indiano 
-          will hellp you on that. )   */}
+        <HomeHeader/>  
+        <SearchProduct/> 
+        <Categories/> 
       
         {/* <ViewProducts> </ViewProducts>  */}
       {/* conditional render, com base na sua pesquisa em [nome da pesquisa]
@@ -31,19 +24,16 @@ export default () => {
       */}
 
 
-        <ViewProducts> </ViewProducts> 
-        {/* Produtos recomendados
-        */}
+        <ViewProducts   Text='Produtos recomendados' width={160} height={160} /> 
+        <ViewProducts DayOffer Text="Oferta do dia" width={360} height={360} /> 
+
         {/* <ViewProducts> </ViewProducts>  */}
         {/* view concreta, talves você se interesse. componente externo
         que se passa o tipo de produto que terá que renderizar, o texto, e só
         casó ja tenha pesquisa, ele mostra algo relacionado a pesquisa, senao, ele 
         mostra um item aleatorio
-        */}
+        */} 
 
-
-        {/* <ViewProducts> </ViewProducts>  */}
-        {/* Oferta do dia,   */}
         
         {/* <ViewProducts> </ViewProducts>  */}
         {/* Visto recentemente  */}

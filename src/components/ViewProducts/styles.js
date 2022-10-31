@@ -1,4 +1,4 @@
-
+import LinearGradient from 'react-native-linear-gradient'
 import styled from 'styled-components';
 
 
@@ -20,11 +20,10 @@ export const WrapperProducts = styled.TouchableOpacity`
     margin-top:10px;
 
     `
-export const BackgroundImage = styled.View`
-    background-color:#121212
+/* export const BackgroundImage = styled(LinearGradient)`
     border-radius:12px
 
-    `
+    ` */
 
 export const TextInfo = styled.Text`
     color: ${props => props.theme.onBackGround}
@@ -37,15 +36,17 @@ export const TextInfo = styled.Text`
 
 export const ProductInfoText = styled.Text`
     color: ${props => props.theme.onBackGround}
-    /* margin-top:10px */
-    font-size:15px
+    font-size:${props => props.DayOffer ? '20px' : '15px'};
     font-weight: 400
+    margin-left:${props => props.DayOffer ? '25px' : 0};
     `
     
     export const ProductPriceText = styled.Text`
     margin-top:4px
     color: ${props => props.theme.onBackGround}
-    font-size:13px
+    font-size:${props => props.DayOffer ? '13px' : '13px'};
     font-weight: 400
     color:gray    
+    margin-left:${props => props.DayOffer ? '25px' : 0};
+
 `

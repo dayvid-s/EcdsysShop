@@ -7,35 +7,58 @@ import {
   ProductPriceText,
   ProductArea,
   WrapperProducts,
-  BackgroundImage,
-
 } from './styles'
-import {Items} from '../../data/products'
+import {Products} from '../../data/products'
+import {LinearGradient} from 'expo-linear-gradient'
 
-export default () => {
+export default ({DayOffer, Text, height, width, }) => {
+  const recommendedProducts = Products.filter(checkProducts);
+  function checkProducts(product) {
+    if(DayOffer ==true){
+      if( product.isDayOffer == true)
+      
+      {
+        return product ;
+      }
+
+    }else{
+
+      if( product.isRecomended == true)
+      
+      {
+        return product ;
+      }
+    }
+  }
+
+
   return (
     <Container>
-      <TextInfo>Produtos recomendados</TextInfo>
+      <TextInfo>{Text}</TextInfo>
       <ProductArea>
-        {Items.map((item,id) =>{
-          return(  
+        {             // aqui vai ser uma renderização condicional, mas de uma f
+        recommendedProducts.map((item,id) =>{     //forma diferente, pois eu passo como props
+          return(                   // o item que vai ser mapeado 
             <WrapperProducts key={id} >
-              <BackgroundImage>
+              <LinearGradient style={{borderRadius:12,zIndex: 0}}
+                colors={["#circle at 10% 20%, rgb(30, 30, 30) 0%", "rgb(5, 5, 5) 90.2%)"]}
+                // colors={["#to right", "#434343 0% ","black 100%"]}
+              >
                 <Image
                 // source={}
                 source={item.productImage}
                 style={{
                   borderRadius:10,
-                  width:160,
-                  height:220,
+                  width:width,
+                  height:height,
                   resizeMode:'contain',
                   // amanha: entender mais sobre images em react native
                 }}
                 ></Image>
-              </BackgroundImage>
+              </LinearGradient>
               <ProductInfoText></ProductInfoText>
-              <ProductInfoText>{item.productName}</ProductInfoText>
-              <ProductPriceText>{item.productPrice}</ProductPriceText>
+              <ProductInfoText DayOffer={DayOffer} >{item.productName}</ProductInfoText>
+              <ProductPriceText DayOffer={DayOffer} >{item.productPrice}</ProductPriceText>
             </WrapperProducts>
         )})}
       </ProductArea>  
