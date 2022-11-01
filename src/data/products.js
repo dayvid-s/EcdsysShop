@@ -50,11 +50,11 @@ export const Products = [
     productImage: {uri:'https://www.jbl.com.br/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw021189f9/1.JBL_TUNE_710BT_Product%20Image_Hero_White.png'},
     isAvailable: true,
     isRecomended: true,
-    // productImageList: [
-      // require('../assets/images/Mi1.png'),
-      // require('../assets/images/Mi2.png'),
-      // require('../assets/images/Mi3.png'),
-    // ],
+    productImageList: [
+      require('../assets/images/boat1.png'),
+      require('../assets/images/boat1.png'),
+      require('../assets/images/boat1.png'),
+    ],
   },
   {
     id: 20,

@@ -5,6 +5,7 @@ import Preload from '../../src/screens/Preload';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import Cart from '../../src/screens/Cart';
+import About from '../screens/About';
 import MainDrawer from './MainDrawer'; 
 import SearchProduct from '../../src/screens/SearchProduct';
 
@@ -19,5 +20,6 @@ export default () => (
         <Stack.Screen name ='Home' component={Home}></Stack.Screen>
         <Stack.Screen name ='SearchProduct' component={SearchProduct} ></Stack.Screen>
         <Stack.Screen name ='Cart' component={Cart} ></Stack.Screen>
+        <Stack.Screen name ='About' component={About} ></Stack.Screen>
     </Stack.Navigator>
     )

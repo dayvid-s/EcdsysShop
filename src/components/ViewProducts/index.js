@@ -10,27 +10,19 @@ import {
 } from './styles'
 import {Products} from '../../data/products'
 import {LinearGradient} from 'expo-linear-gradient'
+import { useNavigation } from '@react-navigation/native'
 
 export default ({DayOffer, Text, height, width, }) => {
+  const navigation= useNavigation()
   const recommendedProducts = Products.filter(checkProducts);
+  
   function checkProducts(product) {
     if(DayOffer ==true){
-      if( product.isDayOffer == true)
-      
-      {
-        return product ;
-      }
-
+      if( product.isDayOffer == true){
+        return product };
     }else{
-
-      if( product.isRecomended == true)
-      
-      {
-        return product ;
-      }
-    }
-  }
-
+      if( product.isRecomended == true){
+        return product }}};
 
   return (
     <Container>
@@ -39,7 +31,11 @@ export default ({DayOffer, Text, height, width, }) => {
         {             // aqui vai ser uma renderização condicional, mas de uma f
         recommendedProducts.map((item,id) =>{     //forma diferente, pois eu passo como props
           return(                   // o item que vai ser mapeado 
-            <WrapperProducts key={id} >
+            <WrapperProducts key={id} 
+            onPress={()=>{  navigation.navigate('About', {
+              item: item,
+            });}}
+            >
               <LinearGradient style={{borderRadius:12,zIndex: 0}}
                 colors={["#circle at 10% 20%, rgb(30, 30, 30) 0%", "rgb(5, 5, 5) 90.2%)"]}
                 // colors={["#to right", "#434343 0% ","black 100%"]}
