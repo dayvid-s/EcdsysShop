@@ -1,7 +1,7 @@
 export default {
     // backGround: '#121212', //or 'black, i will choose soon'
     // backGround: '#100E11', //or 'black, i will choose soon'
-    backGround: 'black', //or 'black, i will choose soon'
+    backGround: '#rgb(20, 20, 20)', //or 'black, i will choose soon'
     onBackGround:'#FFF' ,
     secondary: '#121212',
     gray300: '#434344',

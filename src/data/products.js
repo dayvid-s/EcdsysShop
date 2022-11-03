@@ -8,7 +8,7 @@ export const Products = [
     id: 1,
     category: 'product',
     productName: 'MacBook Pro',
-    productPrice: 'R$ 21.779,10',
+    productPrice: '21.779,10',
     description:
       'Criado para todos os tipos de criativos, incluindo desenvolvedores, fotógrafos, cineastas, artistas 3D, produtores musicais e muito mais, o MacBook Pro de 14,2" da Apple com M1 Pro Chip é a estação de trabalho móvel profissional definitiva para o usuário final.O sistema possui o chip Apple M1 Pro 8-Core, que fornece a potência e o desempenho necessários para lidar com seus fluxos de trabalho profissionais.',
     isOff: true,
@@ -24,7 +24,7 @@ export const Products = [
     id: 2,
     category: 'product',
     productName: 'Boat Partypal 50',
-    productPrice: 'R$ 3.190,00',
+    productPrice: '3.190,00',
     description:
       'Mergulhe no som estéreo de 20 W RMS com o poderoso alto-falante Bluetooth Party Pal 50. Defina as vibrações da festa da maneira certa com os LEDs RGB. Mantenha as preocupações afastadas e festeje à beira da piscina com IPX5 resistente a respingos! Get, set, grooving como Party Pal 50 vem com uma reprodução poderosa de 4,5 horas. Acesse o Instant Voice Assistant e aproveite os vários modos de conectividade - USB, AUX, Bluetooth v5.1 e FM.',
     isOff: true,
@@ -42,7 +42,9 @@ export const Products = [
     id: 2,
     category: 'product',
     productName: 'Fone JBL Tune 710BT',
-    productPrice: 'R$ 320,00',
+    productPrice: '320,00',
+    rating: 4.5,
+    evaluationsTotal : 234,
     description:
       'Mergulhe no som estéreo de 20 W RMS com o poderoso alto-falante Bluetooth Party Pal 50. Defina as vibrações da festa da maneira certa com os LEDs RGB. Mantenha as preocupações afastadas e festeje à beira da piscina com IPX5 resistente a respingos! Get, set, grooving como Party Pal 50 vem com uma reprodução poderosa de 4,5 horas. Acesse o Instant Voice Assistant e aproveite os vários modos de conectividade - USB, AUX, Bluetooth v5.1 e FM.',
     isOff: true,
@@ -60,7 +62,7 @@ export const Products = [
     id: 20,
     category: 'product',
     productName: 'Notebook Acer Nitro 5',
-    productPrice: 'R$ 4.099,00',
+    productPrice: '4.099,00',
     description:
       'Um trem expresso direto para o centro da ação está chegando. O notebook gamer Acer Aspire Nitro 5 é a nova geração, com uma configuração que não treme para os jogos mais pesados. Embarque agora e prepare-se para a potência máxima.       Processador Intel Core i5 10ª Geração ',
     isOff: true,
@@ -78,7 +80,7 @@ export const Products = [
     id: 4,
     category: 'product',
     productName: 'Playstation 5',
-    productPrice: 'R$ 4.599,00',
+    productPrice: '4.599,00',
     productImage: require('../assets/images/ps5.png'),
     description:
         'Um trem expresso direto para o centro da ação está chegando. O notebook gamer Acer Aspire Nitro 5 é a nova geração, com uma configuração que não treme para os jogos mais pesados. Embarque agora e prepare-se para a potência máxima.Processador Intel Core i5 10ª Geração ',

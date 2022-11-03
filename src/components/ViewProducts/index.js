@@ -22,7 +22,8 @@ export default ({DayOffer, Text, height, width, }) => {
         return product };
     }else{
       if( product.isRecomended == true){
-        return product }}};
+        return product }}}
+
 
   return (
     <Container>
@@ -54,7 +55,7 @@ export default ({DayOffer, Text, height, width, }) => {
               </LinearGradient>
               <ProductInfoText></ProductInfoText>
               <ProductInfoText DayOffer={DayOffer} >{item.productName}</ProductInfoText>
-              <ProductPriceText DayOffer={DayOffer} >{item.productPrice}</ProductPriceText>
+              <ProductPriceText DayOffer={DayOffer} >R$ {item.productPrice}</ProductPriceText>
             </WrapperProducts>
         )})}
       </ProductArea>  
