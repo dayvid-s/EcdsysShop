@@ -14,5 +14,5 @@ export const AnimatedLines = styled.View`
     justify-content: center;
     margin-bottom: 16px;
     margin-top:32px;
-    background-color:#1222;
+    background-color:${props => props.theme.backGround}
     `

@@ -4,7 +4,7 @@ import {
     TextInfo,
     Container,
     Input,
-    TouchabeOpacity
+    TouchableOpacity
 } from './styles'
 import Hide from '../../assets/icons/eyeClosed.svg'
 import ShowPassword from '../../assets/icons/eyePassword.svg'
@@ -59,12 +59,12 @@ export default ({
                 />
                 
                 {passWord==true?
-                    <TouchabeOpacity onPress={handleShowAndHidePassword}>
+                    <TouchableOpacity onPress={handleShowAndHidePassword}>
                         {showPassword==false ?
                             <Hide opacity="0.4" width="24" height="24" fill="#FFF" />
                             :   
                             <ShowPassword opacity="0.4" width="24" height="24" fill="#FFF" />}
-                    </TouchabeOpacity>  
+                    </TouchableOpacity>  
                 :null
                 } 
             </InputArea>

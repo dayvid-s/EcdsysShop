@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export const Container = styled.View`
-    margin-left: 6%;
+    margin-left: 5%;
     margin-right : 12px;
 ` 
 

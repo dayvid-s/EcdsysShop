@@ -4,7 +4,7 @@ export const Container = styled.View`
 `
 export const Title = styled.Text`
     color: ${props => props.theme.onBackGround}
-    margin-left:8%
+    margin-left:5%
     font-size:18px
     margin-top:10px
     font-weight:600

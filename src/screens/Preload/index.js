@@ -8,9 +8,6 @@ import { useNavigation } from '@react-navigation/native'
 export default ({})=> {
     const navigation = useNavigation()
     
-    useEffect(() =>{
-        setTimeout(advance,3000)
-    },[])
 
 
     const advance =()=>{

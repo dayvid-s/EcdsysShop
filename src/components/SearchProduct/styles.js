@@ -4,7 +4,7 @@ export const Container = styled.View`
 `
 export const Title = styled.Text`
     color: ${props => props.theme.onBackGround}
-    margin-left:8%
+    margin-left:5%
     font-size:34px
     margin-top: 1%
     font-weight:600
@@ -12,7 +12,7 @@ export const Title = styled.Text`
     export const SearchInputArea =styled.TouchableOpacity`
     margin-top: 5%
     margin-right: 5%;
-    margin-left: 6%;
+    margin-left: 5%;
     background-color: ${props => props.theme.secondary}
     padding:5px
     border-radius:20px

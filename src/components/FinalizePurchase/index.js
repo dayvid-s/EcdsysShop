@@ -15,10 +15,10 @@ export default ()=> {
   
   return (
     <ButtonsWrapper>
-        
+              
       <Button>
         <LinearGradient style={{
-          padding:20,
+          padding:16,
           borderRadius: 8,
           marginLeft: 20,
           marginRight: 20,
@@ -28,12 +28,12 @@ export default ()=> {
           flexDirection:'row'
       }}
         colors={["#circle at 10% 20%, rgb(61, 0, 131) 0%", "rgb(83, 03, 121) 90.2%)"]}>
-          <ButtonText>Comprar Agora</ButtonText>
+          <ButtonText>Comprar agora</ButtonText>
         </LinearGradient>
           </Button>
     
       <ButtonSendToCart>
-        <ButtonText purple={true} >Adicionar No Carrinho</ButtonText>
+        <ButtonText purple={true} >Adicionar no carrinho</ButtonText>
       </ButtonSendToCart>
   
     

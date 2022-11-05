@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.View`
     margin-top:50px
     margin-bottom:20px
-    margin-left:20px
+    margin-left:5%
     flex-direction: row
     align-items: center
 `

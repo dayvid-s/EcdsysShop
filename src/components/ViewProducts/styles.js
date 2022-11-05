@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 export const Container = styled.View`
     flex:1
-    margin-left: 7%
-    margin-right: 7%
+    margin-left: 5%
+    margin-right: 5%
 `
 export const ProductArea = styled.View`
     flex-direction: row;
@@ -28,7 +28,7 @@ export const WrapperProducts = styled.TouchableOpacity`
 export const TextInfo = styled.Text`
     color: ${props => props.theme.onBackGround}
     margin-top:2%
-    font-size:20px
+    font-size:18px
     font-weight: 400
     color:gray
     

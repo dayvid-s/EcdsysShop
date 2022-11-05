@@ -46,12 +46,13 @@ export const Products = [
     rating: 4.5,
     evaluationsTotal : 234,
     description:
-      'Mergulhe no som estéreo de 20 W RMS com o poderoso alto-falante Bluetooth Party Pal 50. Defina as vibrações da festa da maneira certa com os LEDs RGB. Mantenha as preocupações afastadas e festeje à beira da piscina com IPX5 resistente a respingos! Get, set, grooving como Party Pal 50 vem com uma reprodução poderosa de 4,5 horas. Acesse o Instant Voice Assistant e aproveite os vários modos de conectividade - USB, AUX, Bluetooth v5.1 e FM.',
+    'Mergulhe no som estéreo de 20 W RMS com o poderoso alto-falante Bluetooth Party Pal 50. Defina as vibrações da festa da maneira certa com os LEDs RGB. Mantenha as preocupações afastadas e festeje à beira da piscina com IPX5 resistente a respingos! Get, set, grooving como Party Pal 50 vem com uma reprodução poderosa de 4,5 horas. Acesse o Instant Voice Assistant e aproveite os vários modos de conectividade - USB, AUX, Bluetooth v5.1 e FM.',
     isOff: true,
     offPercentage: 10,
     productImage: {uri:'https://www.jbl.com.br/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw021189f9/1.JBL_TUNE_710BT_Product%20Image_Hero_White.png'},
     isAvailable: true,
     isRecomended: true,
+    specifications: ['Branco', 'Preto'],
     productImageList: [
       require('../assets/images/boat1.png'),
       require('../assets/images/boat1.png'),
@@ -70,6 +71,7 @@ export const Products = [
     productImage: require('../assets/images/notebookAcer05.png'),
     isAvailable: true,
     isRecomended: true,
+    specifications: ['Branco', 'Preto']
     // productImageList: [
       // require('../assets/images/Mi1.png'),
       // require('../assets/images/Mi2.png'),

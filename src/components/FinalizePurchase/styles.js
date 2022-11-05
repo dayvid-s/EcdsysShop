@@ -12,9 +12,9 @@ export const ButtonsWrapper = styled.View`
     `
     export const ButtonSendToCart = styled.TouchableOpacity`
     flex-direction: row; 
-    padding: 20px; 
+    padding: 16px; 
     border-radius: 8px;
-    margin-left: 20px;
+    margin-left: 5%;
     margin-right: 20px;
     justify-content: center;
     align-items: center;  

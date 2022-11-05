@@ -24,7 +24,7 @@ export default () => {
       */}
 
 
-        <ViewProducts   Text='Produtos recomendados' width={160} height={160} /> 
+        <ViewProducts   Text='Produtos recomendados' width={170} height={170} /> 
         <ViewProducts DayOffer Text="Oferta do dia" width={360} height={360} /> 
 
         {/* <ViewProducts> </ViewProducts>  */}

@@ -34,7 +34,7 @@ export const Input = styled.TextInput`
     margin-left: 10px;
     /* max-width: 80%; */
 `
-export const TouchabeOpacity = styled.TouchableOpacity `
+export const TouchableOpacity = styled.TouchableOpacity `
     margin-right:10px
 
 `

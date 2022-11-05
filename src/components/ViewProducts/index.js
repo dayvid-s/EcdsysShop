@@ -33,7 +33,7 @@ export default ({DayOffer, Text, height, width, }) => {
         recommendedProducts.map((item,id) =>{     //forma diferente, pois eu passo como props
           return(                   // o item que vai ser mapeado 
             <WrapperProducts key={id} 
-            onPress={()=>{  navigation.navigate('About', {
+            onPress={()=>{  navigation.push('About', {
               item: item,
             });}}
             >

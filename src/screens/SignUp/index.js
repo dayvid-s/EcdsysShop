@@ -1,5 +1,6 @@
 //TODO: Solve keyboard avoiding view
 //TODO: on send file, buttom stay with scroll indicator, 'app barber' maybe.
+//TODO: animation on out of the page. like nubank
 import React, { useRef } from 'react'
 import {
     TouchableWithoutFeedback,
