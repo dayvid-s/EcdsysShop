@@ -49,7 +49,6 @@ export default ({DayOffer, Text, height, width, }) => {
                   width:width,
                   height:height,
                   resizeMode:'contain',
-                  // amanha: entender mais sobre images em react native
                 }}
                 ></Image>
               </LinearGradient>
