@@ -1,43 +1,59 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { 
   AntDesign, 
   FontAwesome,
   Entypo, 
   MaterialIcons    
 } from '@expo/vector-icons'; 
+
 import {
   Container,
   HeaderArea,
   InputArea,
   TextInputToSearch,
   SearchHistoryArea,
-  TextWithSearches
+  TextWithSearches,
 } from './styles'
+import { useTheme } from 'styled-components'
+import { StatusBar } from 'react-native';
+
+
 export default ()=> {
-  const userSearches= ['eae','seloco', 'se']
+
+  const userSearches= [ 'Geladeira consul',' Ventilador 40CM coluna','Geladeira',]
+  const theme = useTheme()
+  const searchRef = useRef()
+  
+
+    setTimeout(()=>{searchRef.current.focus()},100)
+
   return (
   
   <Container>
+    {/* <StatusBar backgroundColor = "#7159c1"   ></StatusBar> */}
     <HeaderArea>
-      <AntDesign name="arrowleft" size={24} color="black" />
+      <AntDesign 
+        style={{marginTop:3, opacity:0.8, marginLeft:6,marginRight:6}}
+      name="arrowleft" size={30} color="#FFF" />
       <InputArea>
-        <FontAwesome name="search" size={24} color="black" />
-        <TextInputToSearch></TextInputToSearch>  
+        <FontAwesome style={{opacity:0.7}} name="search" size={24} color="#FFF" />
+        <TextInputToSearch
+          ref={searchRef}
+        ></TextInputToSearch>
+          {/*on focus pra here  */}
       </InputArea>
     </HeaderArea>
-
 
     {userSearches.map((item,index) =>{   
       return(                  
         <SearchHistoryArea key={index}>
-          <Entypo name="cross" size={24} color="black" />
+          <Entypo name="cross" size={27} color="gray" />
           <TextWithSearches>
           {item}
           </TextWithSearches>
-          <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+          <MaterialIcons name="keyboard-arrow-right" size={32} color="gray" />
       </SearchHistoryArea>
     )})}
-
 
   </Container>
 

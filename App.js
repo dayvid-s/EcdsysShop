@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {useColorScheme, View} from 'react-native'
+import {useColorScheme} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import MainStack from './src/stacks/MainStack';
 import { ThemeProvider } from 'styled-components';
@@ -38,7 +38,11 @@ export default function App() {
   
   return (
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
+        <NavigationContainer
+        theme={{ colors: { background: deviceTheme === 'dark' ? '#121212' : '#fff'}}}
+        // I already have a theme with styled components, but this is to solve 
+        //when the page stays flickering at navigation.
+        >
           <MainStack></MainStack>
         </NavigationContainer>
         </ThemeProvider>

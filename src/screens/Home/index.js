@@ -9,10 +9,13 @@ import SearchProduct from '../../components/SearchProduct'
 import Categories from '../../components/Categories'
 import ViewProducts from '../../components/ViewProducts'
 import { ScrollView } from 'react-native'
+import { StatusBar } from 'react-native';
 
 export default () => {
   return (
+    
     <Container>
+      <StatusBar animated={true} backgroundColor = "black"   ></StatusBar>
       <ScrollView> 
         <HomeHeader/>  
         <SearchProduct/> 
