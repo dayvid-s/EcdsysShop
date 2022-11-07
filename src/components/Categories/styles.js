@@ -3,12 +3,11 @@ import styled from "styled-components";
 export const Container = styled.View`
 `
 export const Title = styled.Text`
-    color: ${props => props.theme.onBackGround}
-    margin-left:5%
-    font-size:18px
+    color: #rgb(178,180,183)
+    font-size:20px
     margin-top:10px
     font-weight:600
-    opacity:0.4
+    /* opacity:0.4 */
     `
 export const CategoriesArea =styled.View`
     margin-top: 2%
@@ -52,4 +51,5 @@ export const CategoriesIconWrapper =styled.View`
     `
 export const FlatlistArea = styled.View`
     margin-left: 14px;
+    margin-top:8px
 `

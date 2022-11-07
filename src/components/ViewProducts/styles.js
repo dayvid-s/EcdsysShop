@@ -13,25 +13,18 @@ export const ProductArea = styled.View`
     position: relative
     justify-content: space-around;
     
-
-
     `
 export const WrapperProducts = styled.TouchableOpacity`
     margin-top:10px;
 
     `
-/* export const BackgroundImage = styled(LinearGradient)`
-    border-radius:12px
-
-    ` */
 
 export const TextInfo = styled.Text`
     color: ${props => props.theme.onBackGround}
     margin-top:2%
     font-size:18px
-    font-weight: 400
-    color:gray
-    
+    font-weight: 500
+    color:#rgb(178,180,183)
 `
 
 export const ProductInfoText = styled.Text`
