@@ -18,6 +18,10 @@ export default ()=> {
         <ProductInfoPrice>R$ 2.290</ProductInfoPrice>
       </CheckoutWrapper>
       <CheckoutWrapper>
+        <ProductInfoText>Custo de envio</ProductInfoText>
+        <ProductInfoPrice>R$ 20.21</ProductInfoPrice>
+      </CheckoutWrapper>
+      <CheckoutWrapper>
         <TotalText>Total</TotalText>
         <TotalText>R$ 2.290</TotalText>
       </CheckoutWrapper>
