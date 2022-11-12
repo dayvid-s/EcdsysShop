@@ -1,10 +1,22 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import {
+  Container, ScrollView,
+
+}from './styles'
+import CartPageHeader from '../../components/CartPageHeader'
+import CartProductsList  from '../../components/CartProductsList'
+import Checkout from '../../components/Checkout'
 
 export default ()=> {
+  
   return (
-    <View>
-      <Text>Cart</Text>
-    </View>
+    <Container >
+      <CartPageHeader></CartPageHeader>
+      <ScrollView>
+        <CartProductsList></CartProductsList> 
+        <Checkout></Checkout>
+      </ScrollView>
+    </Container>
   )
 }

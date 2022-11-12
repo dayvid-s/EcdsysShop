@@ -39,7 +39,7 @@ export default function App() {
   return (
       <ThemeProvider theme={theme}>
         <NavigationContainer
-        theme={{ colors: { background: deviceTheme === 'dark' ? '#121212' : '#fff'}}}
+        theme={{ colors: { background: deviceTheme === 'dark' ? '#000' : '#fff'}}}
         // I already have a theme with styled components, but this is to solve 
         //when the page stays flickering at navigation.
         >

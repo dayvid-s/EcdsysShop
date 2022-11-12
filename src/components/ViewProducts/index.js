@@ -38,7 +38,7 @@ export default ({DayOffer, Text, height, width, }) => {
             });}}
             >
               <LinearGradient style={{borderRadius:12,zIndex: 0}}
-                colors={["#circle at 10% 20%, rgb(24,25,26) 0%", "rgb(20,20, 20) 90.2%)"]}
+                colors={["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"]}
               >
                 <Image
                 // source={}

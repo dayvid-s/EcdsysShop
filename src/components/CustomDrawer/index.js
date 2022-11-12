@@ -23,7 +23,7 @@ const CustomDrawer = props => {
     <Container >
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{flex:1,backgroundColor: '#18191A'}}>
+        contentContainerStyle={{flex:1,backgroundColor: '#171717'}}>
         <HeaderArea>
           <GreetingsText>Olá, Carlos Santana</GreetingsText>
 

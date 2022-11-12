@@ -68,10 +68,7 @@ export default () => {
             passWord={true}
             />
           
-          <CustomButton onPress={() =>navigation.reset({
-              index: 0,
-              routes: [{ name: 'Home' }],
-            })}
+          <CustomButton onPress={() =>navigation.navigate('Home')}
             >
             <CustomButtonText>Criar Conta</CustomButtonText>
           </CustomButton>

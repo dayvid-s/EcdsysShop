@@ -13,13 +13,14 @@ const Stack = createStackNavigator();
 
 export default () => (
     <Stack.Navigator 
+    // initialRouteName='Cart'
     screenOptions={{headerShown: false}}
-        
+      
     > 
-        <Stack.Screen name ='MainDrawer' component={MainDrawer} ></Stack.Screen>
         <Stack.Screen name ='SignUp' component={SignUp}></Stack.Screen>
+        <Stack.Screen name ='MainDrawer' component={MainDrawer} ></Stack.Screen>
+        <Stack.Screen name ='SignIn' component= {SignIn}></Stack.Screen>
         <Stack.Screen name ='Preload' component={Preload}></Stack.Screen>
-        <Stack.Screen name ='SignIn' component={SignIn}></Stack.Screen>
         <Stack.Screen name ='Home' component={Home}></Stack.Screen>
         <Stack.Screen name ='SearchProduct' component={SearchProduct} ></Stack.Screen>
         <Stack.Screen name ='Cart' component={Cart} ></Stack.Screen>

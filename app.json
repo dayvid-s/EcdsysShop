@@ -23,8 +23,8 @@
     // },
     // "android": {
     //   "adaptiveIcon": {
-    //     "backgroundColor": "#FFFFFF",
-    //   },
+      //     "backgroundColor": "#FFFFFF",
+      //   },
     //   "userInterfaceStyle": "light" ,
     },
     "web": {

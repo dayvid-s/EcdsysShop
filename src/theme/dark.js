@@ -3,8 +3,10 @@ export default {
     // backGround: '#100E11', //or 'black, i will choose soon'
     // backGround: '#0E0E0E', //or 'black, i will choose soon'
     backGround: '#18191A', //or 'black, i will choose soon'
+    backGround: '#000000', //or 'black, i will choose soon'
     onBackGround:'#FFF' ,
     secondary: '#121212',
+    secondary: '#171717',
     gray300: '#434344',
     rose:'#6c1e85',
     roseBlue:'#7159c1'   

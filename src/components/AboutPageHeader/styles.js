@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.View`
-    margin-top:50px
+    margin-top:20px
     margin-bottom:20px
     margin-left:5%
     flex-direction: row
@@ -9,7 +9,6 @@ export const Container = styled.View`
 `
 export const FirstIcon = styled.View`
     flex:1    
-
     opacity:0.6
     padding-right:10px
     `

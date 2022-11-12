@@ -9,7 +9,7 @@ export const InputArea = styled.View`
     background-color:${props => props.theme.secondary}
     height:60px;
     border-radius: 20px;
-    border-width: 1px;
+    border-width: 2px;
     border-color: ${props => props.theme.gray300};
     margin-bottom: 10px;
     align-items: center;

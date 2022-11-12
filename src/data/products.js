@@ -24,7 +24,7 @@ export const Products = [
     id: 2,
     category: 'product',
     productName: 'Boat Partypal 50',
-    productPrice: '3.190,00',
+    productPrice: '3.190',
     description:
       'Mergulhe no som estéreo de 20 W RMS com o poderoso alto-falante Bluetooth Party Pal 50. Defina as vibrações da festa da maneira certa com os LEDs RGB. Mantenha as preocupações afastadas e festeje à beira da piscina com IPX5 resistente a respingos! Get, set, grooving como Party Pal 50 vem com uma reprodução poderosa de 4,5 horas. Acesse o Instant Voice Assistant e aproveite os vários modos de conectividade - USB, AUX, Bluetooth v5.1 e FM.',
     isOff: true,
@@ -42,7 +42,7 @@ export const Products = [
     id: 2,
     category: 'product',
     productName: 'Fone JBL Tune 710BT',
-    productPrice: '320,00',
+    productPrice: '320',
     rating: 4.5,
     evaluationsTotal : 234,
     description:
@@ -63,7 +63,7 @@ export const Products = [
     id: 20,
     category: 'product',
     productName: 'Notebook Acer Nitro 5',
-    productPrice: '4.099,00',
+    productPrice: '4.099',
     description:
       'Um trem expresso direto para o centro da ação está chegando. O notebook gamer Acer Aspire Nitro 5 é a nova geração, com uma configuração que não treme para os jogos mais pesados. Embarque agora e prepare-se para a potência máxima.       Processador Intel Core i5 10ª Geração ',
     isOff: true,
@@ -82,7 +82,7 @@ export const Products = [
     id: 4,
     category: 'product',
     productName: 'Playstation 5',
-    productPrice: '4.599,00',
+    productPrice: '4.599',
     productImage: require('../assets/images/ps5.png'),
     description:
         'Um trem expresso direto para o centro da ação está chegando. O notebook gamer Acer Aspire Nitro 5 é a nova geração, com uma configuração que não treme para os jogos mais pesados. Embarque agora e prepare-se para a potência máxima.Processador Intel Core i5 10ª Geração ',
@@ -101,7 +101,7 @@ export const Products = [
         id: 5,
         category: 'product',
       productName: 'Iphone 11',
-      productPrice: '2.799,00',
+      productPrice: '2.799',
       description:
       'Up to 20 hours battery life | Super powerful Bass | 40mm dynamic driver | Pressure less ear muffs | Bluetooth 5.0 | Voice control',
       isDayOffer: true,

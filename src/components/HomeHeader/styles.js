@@ -4,7 +4,7 @@ export const IconsArea = styled.View`
     justify-content: space-between;
     margin-right : 20px
     margin-left : 5%
-    margin-top: 50px
+    margin-top: 20px
     
     `
 export const IconsWrapper = styled.TouchableOpacity`
