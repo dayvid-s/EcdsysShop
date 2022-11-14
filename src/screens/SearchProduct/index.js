@@ -16,14 +16,14 @@ import {
 } from './styles'
 import { useTheme } from 'styled-components'
 import { StatusBar } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 
 export default ()=> {
 
   const userSearches= [ 'Geladeira consul',' Ventilador 40CM coluna','Geladeira',]
   const theme = useTheme()
   const searchRef = useRef()
-  
+  const navigation = useNavigation()
 
     setTimeout(()=>{searchRef.current.focus()},100)
 
@@ -32,7 +32,7 @@ export default ()=> {
   <Container>
     {/* <StatusBar backgroundColor = "#7159c1"   ></StatusBar> */}
     <HeaderArea>
-      <AntDesign 
+      <AntDesign onPress={()=>{navigation.goBack()}}
         style={{marginTop:3, opacity:0.8, marginLeft:6,marginRight:6}}
       name="arrowleft" size={30} color="#FFF" />
       <InputArea>

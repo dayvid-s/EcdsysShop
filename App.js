@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import themes from './src/theme'
 import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 
 
@@ -37,6 +38,7 @@ export default function App() {
 
   
   return (
+    <PaperProvider>
       <ThemeProvider theme={theme}>
         <NavigationContainer
         theme={{ colors: { background: deviceTheme === 'dark' ? '#000' : '#fff'}}}
@@ -45,6 +47,7 @@ export default function App() {
         >
           <MainStack></MainStack>
         </NavigationContainer>
-        </ThemeProvider>
+      </ThemeProvider>
+    </PaperProvider>
   );
 }

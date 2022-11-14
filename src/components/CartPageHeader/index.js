@@ -18,7 +18,7 @@ export default () => {
   const navigation = useNavigation()
   return (
     <IconsArea >
-        <IconsWrapper onPress={() => navigation.openDrawer()}>
+        <IconsWrapper onPress={() => navigation.goBack()}>
           <AntDesign name="left" size={25} color="#FFF" />
         </IconsWrapper>
         

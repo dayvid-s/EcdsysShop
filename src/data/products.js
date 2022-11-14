@@ -13,7 +13,8 @@ export const Products = [
       'Criado para todos os tipos de criativos, incluindo desenvolvedores, fotógrafos, cineastas, artistas 3D, produtores musicais e muito mais, o MacBook Pro de 14,2" da Apple com M1 Pro Chip é a estação de trabalho móvel profissional definitiva para o usuário final.O sistema possui o chip Apple M1 Pro 8-Core, que fornece a potência e o desempenho necessários para lidar com seus fluxos de trabalho profissionais.',
     isOff: true,
     offPercentage: 10,
-    productImage:  require('../assets/images/mbp14.png'),
+    // productImage:  require('../assets/images/mbp14.png'),
+    productImage:  require('../assets/images/nathan.png'),
     isAvailable: true,
     // productImageList: [
       // require('../assets/images/Mi1.png'),
