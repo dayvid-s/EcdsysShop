@@ -59,7 +59,7 @@ export default () => {
       
       </UserInfoArea>
 
-      <DescriptionArea></DescriptionArea>
+      {/* <DescriptionArea></DescriptionArea> */}
       <TouchableArea>
 
       <SignOutArea>

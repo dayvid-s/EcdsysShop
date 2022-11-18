@@ -39,15 +39,6 @@ export default () => {
   };
   return (
     <Container >
-        <Modal
-        style={{backgroundColor:'#2121', flex:1, marginTop:0, zIndex:1}}
-        dismissable={true}
-        transparent={true}
-        visible={modalVisibility} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-          <HeaderTitle>Editar Nome</HeaderTitle>
-          <HeaderTitle>Editar Nome</HeaderTitle>
-          <HeaderTitle>Editar Nome</HeaderTitle>
-        </Modal>
     <IconsArea >
         <IconsWrapper onPress={() => navigation.goBack()}>
           <AntDesign name="left" size={22} color="#FFF" />
@@ -57,10 +48,8 @@ export default () => {
           <HeaderTitle>Minha Conta</HeaderTitle>
         </TitleArea>
 
-        <IconsWrapper 
-        onPress={()=>{setModalVisibility(true)}}
-        >
-          <Entypo  name="dots-three-vertical" size={22} color="#FFF" />
+        <IconsWrapper>
+          {/* <Entypo  name="dots-three-vertical" size={22} color="#FFF" /> */}
         </IconsWrapper>
       </IconsArea>
 

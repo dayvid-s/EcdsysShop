@@ -71,5 +71,5 @@ export const ProductName = styled.Text`
     align-items: center
     justify-content: center
     border-width:2px
-    border-color: ${props => props.state ? "#5159c1" : '#rgb(20, 20, 20)'};
+    border-color: ${props => props.state ? "#5159c1" : '#000'};
     `

@@ -11,6 +11,8 @@ import {
 import {Products} from '../../data/products'
 import {LinearGradient} from 'expo-linear-gradient'
 import { useNavigation } from '@react-navigation/native'
+import {useDispatch} from 'react-redux'
+
 
 export default ({DayOffer, Text, height, width, }) => {
   const navigation= useNavigation()
@@ -24,6 +26,10 @@ export default ({DayOffer, Text, height, width, }) => {
       if( product.isRecomended == true){
         return product }}}
 
+  const dispatch = useDispatch()
+  const selectItem = (item) => dispatch({
+    type: 'ADD_TO_CART', payload:item,
+  })
 
   return (
     <Container>
@@ -33,9 +39,10 @@ export default ({DayOffer, Text, height, width, }) => {
         recommendedProducts.map((item,id) =>{     //forma diferente, pois eu passo como props
           return(                   // o item que vai ser mapeado 
             <WrapperProducts key={id} 
-            onPress={()=>{  navigation.push('About', {
-              item: item,
-            });}}
+            // onPress={()=>{  navigation.push('About', {
+            //   item: item,
+            // });}}
+            onPress={()=>{selectItem(item) }}
             >
               <LinearGradient style={{borderRadius:12,zIndex: 0}}
                 colors={["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"]}
@@ -53,7 +60,7 @@ export default ({DayOffer, Text, height, width, }) => {
               </LinearGradient>
               <ProductInfoText></ProductInfoText>
               <ProductInfoText DayOffer={DayOffer} >{item.productName}</ProductInfoText>
-              <ProductPriceText DayOffer={DayOffer} >R$ {item.productPrice}</ProductPriceText>
+              <ProductPriceText DayOffer={DayOffer} >R${item.productPrice}</ProductPriceText>
             </WrapperProducts>
         )})}
       </ProductArea>  

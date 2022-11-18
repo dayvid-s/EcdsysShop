@@ -22,6 +22,7 @@ import { useRoute } from '@react-navigation/native'
 import FullStar from '../../assets/icons/star-svgrepo-com.svg'
 import HalfStar from '../../assets/icons/half-star-svgrepo-com.svg'
 import ProductSpecifications from '../ProductSpecifications'
+
 export default ({item})=> {
   const [state00,setState00 ] = useState(false)
   const [state01,setState01 ] = useState(false)
@@ -38,6 +39,7 @@ export default ({item})=> {
   if(remainder >0 ){
     stars[i] = 1 ;
   }
+
 
   return (
     <Container>

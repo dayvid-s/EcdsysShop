@@ -7,8 +7,9 @@ import themes from './src/theme'
 import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 import { Provider as PaperProvider } from 'react-native-paper';
-
-
+import { Provider as ReduxProvider } from 'react-redux'
+import configureStore from './redux/store'
+const store =configureStore();
 
 export default function App() {
   const deviceTheme = useColorScheme();
@@ -38,6 +39,8 @@ export default function App() {
 
   
   return (
+    
+  <ReduxProvider store={store} >
     <PaperProvider>
       <ThemeProvider theme={theme}>
         <NavigationContainer
@@ -49,5 +52,6 @@ export default function App() {
         </NavigationContainer>
       </ThemeProvider>
     </PaperProvider>
+  </ReduxProvider>
   );
 }
