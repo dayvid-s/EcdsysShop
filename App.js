@@ -8,8 +8,7 @@ import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as ReduxProvider } from 'react-redux'
-import configureStore from './redux/store'
-const store =configureStore();
+import store from './redux/store'
 
 export default function App() {
   const deviceTheme = useColorScheme();

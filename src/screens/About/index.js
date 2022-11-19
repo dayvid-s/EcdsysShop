@@ -27,7 +27,7 @@ export default ()=> {
         <AnimatedImages item={item}></AnimatedImages>
         {/* i need put 8 times that he is dividido 8 sem juros, more one data at products */} 
         <ProductInfo item={item} />
-        <FinalizePurchase/>
+        <FinalizePurchase item={item}/>
         <BottomOfThePageAbout item={item} ></BottomOfThePageAbout>
         {/* i will put the frete page here. frete like lum */}
         

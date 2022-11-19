@@ -1,8 +1,11 @@
-import {createStore} from 'redux'
+import {configureStore} from '@reduxjs/toolkit'
+import cartReducer from '../src/features/cartSlice'
 
-import reducer from './reducers'
+export default configureStore({
+    reducer: {
+        cart: cartReducer
+    }
+  })
 
-export default function configureStore(initialState){
-    const store = createStore(reducer,initialState)
-    return store;
-}
+//Isso cria uma loja Redux e também configura automaticamente a 
+//extensão Redux DevTools para que você possa inspecionar a loja durante o desenvolvimento.

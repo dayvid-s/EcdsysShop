@@ -10,13 +10,16 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
-
-export default ()=> {
-  
+import {useDispatch} from 'react-redux'
+import { addToCart } from '../../features/cartSlice'
+export default ({item})=> {
+  const dispatch = useDispatch()
+  const handleAddToCart = (product)=>{
+    dispatch(addToCart(product))}
   return (
     <ButtonsWrapper>
               
-      <Button>
+      <Button onPress={()=>{handleAddToCart(item) }}>
         <LinearGradient style={{
           padding:16,
           borderRadius: 8,

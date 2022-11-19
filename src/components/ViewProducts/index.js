@@ -12,7 +12,7 @@ import {Products} from '../../data/products'
 import {LinearGradient} from 'expo-linear-gradient'
 import { useNavigation } from '@react-navigation/native'
 import {useDispatch} from 'react-redux'
-
+import { addTask } from '../../../redux/reducers/taskSlice'
 
 export default ({DayOffer, Text, height, width, }) => {
   const navigation= useNavigation()
@@ -30,6 +30,15 @@ export default ({DayOffer, Text, height, width, }) => {
   const selectItem = (item) => dispatch({
     type: 'ADD_TO_CART', payload:item,
   })
+  const onSubmitTask = (item) => {
+
+    dispatch(
+      addTask({
+        task: item,
+      })
+    );
+  };
+
 
   return (
     <Container>
@@ -39,10 +48,10 @@ export default ({DayOffer, Text, height, width, }) => {
         recommendedProducts.map((item,id) =>{     //forma diferente, pois eu passo como props
           return(                   // o item que vai ser mapeado 
             <WrapperProducts key={id} 
-            // onPress={()=>{  navigation.push('About', {
-            //   item: item,
-            // });}}
-            onPress={()=>{selectItem(item) }}
+            onPress={()=>{  navigation.push('About', {
+              item: item,
+            });}}
+            // onPress={()=>{onSubmitTask(item) }}
             >
               <LinearGradient style={{borderRadius:12,zIndex: 0}}
                 colors={["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"]}

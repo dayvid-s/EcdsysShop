@@ -18,11 +18,12 @@ import {
   FontAwesome5
  } from '@expo/vector-icons';
 import { Image } from 'react-native';
-
+import { useSelector} from 'react-redux'
 
 
 export default () => {
-  const Products = [
+  const cart = useSelector((state) => state.cart); 
+  const Productsz = [
     
       {
         id: 1,
@@ -35,26 +36,6 @@ export default () => {
         offPercentage: 10,
         productImage:  require('../../assets/images/boat2.png'),
         isAvailable: true,
-        // productImageList: [
-          // require('../assets/images/Mi1.png'),
-          // require('../assets/images/Mi2.png'),
-          // require('../assets/images/Mi3.png'),
-        // ],
-      },{ id: 1,
-        category: 'product',
-        productName: 'Apple Macbook Air 13 Chip M1 256gb De Ssd 8gb Cinza-espacial',
-        productPrice: '21.779,10',
-        description:
-          'Criado para todos os tipos de criativos, incluindo desenvolvedores, fotógrafos, cineastas, artistas 3D, produtores musicais e muito mais, o MacBook Pro de 14,2" da Apple com M1 Pro Chip é a estação de trabalho móvel profissional definitiva para o usuário final.O sistema possui o chip Apple M1 Pro 8-Core, que fornece a potência e o desempenho necessários para lidar com seus fluxos de trabalho profissionais.',
-        isOff: true,
-        offPercentage: 10,
-        productImage:  require('../../assets/images/boat2.png'),
-        isAvailable: true,
-        // productImageList: [
-          // require('../assets/images/Mi1.png'),
-          // require('../assets/images/Mi2.png'),
-          // require('../assets/images/Mi3.png'),
-        // ],require('../assets/images/Mi3.png'),
       }]
   const theme = useTheme()
   const navigation = useNavigation()
@@ -62,7 +43,7 @@ export default () => {
    
     <Container>
     {             // aqui vai ser uma renderização condicional, mas de uma f
-    Products.map((item,id) =>{     //forma diferente, pois eu passo como props
+      cart.cartItems?.map((item,id) =>{     //forma diferente, pois eu passo como props
       return(                   // o item que vai ser mapeado 
         <ProductsWrapper key={id} 
         >
@@ -97,7 +78,7 @@ export default () => {
             </BottomIconsArea>
             </ProductInfoWrapper>
         </ProductsWrapper>
-    )})}
+    )})} 
   </Container>
   )
 }
