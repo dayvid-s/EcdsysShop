@@ -21,15 +21,14 @@ export default ({item})=> {
   const scrollX = new Animated.Value(0);
 
   let position = Animated.divide(scrollX, width);
-
   return (
     <ImageWrapper>
     <ImageList
-      data={item.productImageList ? item.productImageList : null}
+      data={item.secondaryPhotos ? item.secondaryPhotos : null}
       horizontal
       renderItem={
         ({item}) =>(
-          <Image source={item} 
+          <Image source={{uri:item}} 
           style={{
             width:385,
             height:260,
@@ -48,8 +47,8 @@ export default ({item})=> {
             />
   
       <AnimatedLines>
-        {item.productImageList
-          ? item.productImageList.map((data, index) => {
+        {item.secondaryPhotos
+          ? item.secondaryPhotos.map((data, index) => {
               let opacity = position.interpolate({
                 inputRange: [index - 1, index, index + 1],
                 outputRange: [0.2, 1, 0.2],
@@ -61,7 +60,7 @@ export default ({item})=> {
                   style={{
                     width: '16%',
                     height: 2.4,
-                    backgroundColor: '#FFF',
+                    backgroundColor: 'gray',
                     opacity,
                     marginHorizontal: 4,
                     borderRadius: 100,

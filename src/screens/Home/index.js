@@ -1,5 +1,5 @@
 //TODO: when i want use gradient, i will need use two views
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     Container,
   
@@ -12,6 +12,7 @@ import { ScrollView } from 'react-native'
 import { StatusBar } from 'react-native';
 
 export default () => {
+
   return (
     
     <Container>

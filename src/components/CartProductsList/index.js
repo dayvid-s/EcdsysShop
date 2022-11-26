@@ -20,7 +20,6 @@ import {
 import { Image } from 'react-native';
 import { useSelector} from 'react-redux'
 
-
 export default () => {
   const cart = useSelector((state) => state.cart); 
   const Productsz = [
@@ -49,7 +48,7 @@ export default () => {
         >
             <Image
             // source={}
-            source={item.productImage}
+            source={item.mainPhoto}
             style={{
               borderRadius:10, width:130,
               height:100, resizeMode:'contain',
@@ -58,9 +57,9 @@ export default () => {
             ></Image>
             <ProductInfoWrapper>
             <ProductTextWrapper>
-              <ProductInfoText  >{item.productName}</ProductInfoText>
+              <ProductInfoText  >{item.name}</ProductInfoText>
             </ProductTextWrapper>
-              <ProductPriceText  >R$ {item.productPrice}</ProductPriceText>
+              <ProductPriceText  >R$ {item.price}</ProductPriceText>
             <BottomIconsArea>
               <TouchableIconArea>
                 <AntDesign 

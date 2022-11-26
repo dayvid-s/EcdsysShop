@@ -31,8 +31,8 @@ export default ({item})=> {
   let stars= [0,0,0,0,0]
   let ratingInDecimal = Math.floor(item.rating)
   let remainder = item.rating - ratingInDecimal
-  var shippingCost= ((4/100)* (parseInt(item.productPrice))).toString().replace('.',',')
-  var oldProductValue= ((20/100)* (parseInt(item.productPrice))).toFixed(2).toString().replace('.',',')
+  var shippingCost= ((4/100)* (parseInt(item.price))).toString().replace('.',',')
+  var oldProductValue= ((20/100)+ (item.price)).toString().replace('.',',')
   for(var i =0; i<ratingInDecimal ; i++){
     stars[i]=2;
   }
@@ -44,7 +44,7 @@ export default ({item})=> {
   return (
     <Container>
       <ProductName>
-        {item.productName}
+        {item.name}
       </ProductName>
       <ProductRatingArea>
         {stars.map((star,index) =>{
@@ -62,43 +62,47 @@ export default ({item})=> {
         <TotalUserRatings>{item.evaluationsTotal} avaliações do produto </TotalUserRatings>
       </ProductRatingArea >
         <OldProductValue>R$ {oldProductValue}</OldProductValue>
-      
+      {console.log(item.price)}
       <ProductPriceArea>
-        <ProductPriceText>R$ {item.productPrice}</ProductPriceText>
+        <ProductPriceText>R$ {item.price}</ProductPriceText>
         <ShippingValueText>+R$ {shippingCost} de envio </ShippingValueText>
       </ProductPriceArea>
-  
-      <ProductSpecText>Especificações do produto:</ProductSpecText>
-      {/* very gambiarra, and I know this. */}
-      <ProductSpecsArea>
-        <ProductSpecsWrapper state={state00}  onPress={()=>{
-          setState00(true),setState01(false),setState02(false),setState03(false)}}>
-          
-          <ProductSpecifications specification={item.specifications[0]}  ></ProductSpecifications>
-        </ProductSpecsWrapper>
-        <ProductSpecsWrapper state={state01} onPress={()=>{
-          setState00(false) ,setState01(true),setState02(false),setState03(false)
-        }}
-      
-        >
-          <ProductSpecifications specification={item.specifications[1]} 
-          ></ProductSpecifications>
-        </ProductSpecsWrapper  >
-          {item.specifications[2] != undefined   &&
-        <ProductSpecsWrapper state={state02} onPress={()=>{
-          setState00(false) ,setState01(false),setState02(true),setState03(false)
-          }} >
-            <ProductSpecifications specification={item.specifications[2]}></ProductSpecifications>  
-        </ProductSpecsWrapper>
-          }
-        {item.specifications[3] != undefined   &&
-          <ProductSpecsWrapper state={state03} onPress={()=>{
-            setState00(false) ,setState01(false),setState02(false),setState03(true)
-            }} >
-          <ProductSpecifications specification={item.specifications[3]}></ProductSpecifications>  
-          </ProductSpecsWrapper>
-        }
-      </ProductSpecsArea>
+      {item.specifications !=null &&(
+        <>
+              <ProductSpecText>Especificações do produto:</ProductSpecText>
+              {/* very gambiarra, and I know this. */}
+              <ProductSpecsArea>
+                <ProductSpecsWrapper state={state00}  onPress={()=>{
+                  setState00(true),setState01(false),setState02(false),setState03(false)}}>
+                  
+                  <ProductSpecifications specification={item.specifications[0]}  ></ProductSpecifications>
+                </ProductSpecsWrapper>
+                <ProductSpecsWrapper state={state01} onPress={()=>{
+                  setState00(false) ,setState01(true),setState02(false),setState03(false)
+                }}
+              
+                >
+                  <ProductSpecifications specification={item.specifications[1]} 
+                  ></ProductSpecifications>
+                </ProductSpecsWrapper  >
+                  {item.specifications[2] != undefined   &&
+                <ProductSpecsWrapper state={state02} onPress={()=>{
+                  setState00(false) ,setState01(false),setState02(true),setState03(false)
+                  }} >
+                    <ProductSpecifications specification={item.specifications[2]}></ProductSpecifications>  
+                </ProductSpecsWrapper>
+                  }
+                {item.specifications[3] != undefined   &&
+                  <ProductSpecsWrapper state={state03} onPress={()=>{
+                    setState00(false) ,setState01(false),setState02(false),setState03(true)
+                    }} >
+                  <ProductSpecifications specification={item.specifications[3]}></ProductSpecifications>  
+                  </ProductSpecsWrapper>
+                }
+              </ProductSpecsArea>
+        
+        </>
+      )}
     </Container>
   )
 }
