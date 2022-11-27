@@ -11,7 +11,7 @@ import {
 import {LinearGradient} from 'expo-linear-gradient'
 import { useNavigation } from '@react-navigation/native'
 import {useDispatch} from 'react-redux'
-import { productsFetch } from '../../features/productsSlice'
+import { productsFetch } from '../../redux/features/productsSlice'
 import api from '../../services/api'
 import { useSelector} from 'react-redux'
 export default ({DayOffer, Text, height, width, }) => {
@@ -27,14 +27,12 @@ const navigation= useNavigation()
 const products = useSelector((state) => state.products);
 const productsz = ['.12.12','21'] 
 const recommendedProducts = products.items.filter(checkProducts);
-console.log(recommendedProducts)
 function checkProducts(product) {
   if(DayOffer ==true){
     if( product.isDayOffer == true){
         return product };
       }else{
         if( product.isRecommended == true){
-        {console.log(product)}
         return product }}}
 
   const dispatch = useDispatch()

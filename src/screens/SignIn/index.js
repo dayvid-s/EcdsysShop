@@ -3,7 +3,7 @@
 //TODO: see if toogle keyboard its right, or its another way
 
 
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import {
     TouchableWithoutFeedback,
     Container,
@@ -26,21 +26,29 @@ import IconBack from '../../assets/icons/IconBack.svg'
 import { useNavigation } from '@react-navigation/native'
 import { Keyboard } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from '../../services/firebase-config'
 
 export default () => {
   const navigation = useNavigation()
   const passwordRef = useRef()
-  
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const handleGoSignUp = () => {
     navigation.navigate('SignUp')
   }
-  const handleGoHome = () => {
-      navigation.reset({
-      index: 0,
-      routes: [{ name: 'Home' }],
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("user login sucessfully")
+      navigation.replace("Home")
     })
-
-    navigation.navigate('Home')
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });  
   }
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
@@ -58,6 +66,8 @@ export default () => {
 
         <SubmitArea>
           <SignInput
+            value={email}
+            onChangeText={text=>setEmail(text)}
             placeholder="tim@apple.com"
             Text='Email'
             Icon={EmailIcon}
@@ -65,18 +75,20 @@ export default () => {
             secureTextEntry={false} 
             onSubmitEditing={()=> passwordRef.current.focus()}
             />
-          <SignInput 
+          <SignInput
+            value={password}
+            onChangeText={text=>setPassword(text)}
             inputRef={passwordRef}
             Text="Senha"
             placeholder="Entre com sua senha" 
             Icon={Lock}
             returnKeyType='done'
             secureTextEntry={true} 
-            // onSubmitEditing={handleGoHome}
+            // onSubmitEditing={handleSignIn}
             passWord={true}
             />
 
-          <CustomButton onPress={handleGoHome}>
+          <CustomButton onPress={()=> handleSignIn()}>
             <CustomButtonText>Entrar</CustomButtonText>
           </CustomButton>
         </SubmitArea>

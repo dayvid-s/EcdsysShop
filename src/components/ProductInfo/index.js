@@ -62,7 +62,6 @@ export default ({item})=> {
         <TotalUserRatings>{item.evaluationsTotal} avaliações do produto </TotalUserRatings>
       </ProductRatingArea >
         <OldProductValue>R$ {oldProductValue}</OldProductValue>
-      {console.log(item.price)}
       <ProductPriceArea>
         <ProductPriceText>R$ {item.price}</ProductPriceText>
         <ShippingValueText>+R$ {shippingCost} de envio </ShippingValueText>

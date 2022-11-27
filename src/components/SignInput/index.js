@@ -8,6 +8,13 @@ import {
 } from './styles'
 import Hide from '../../assets/icons/eyeClosed.svg'
 import ShowPassword from '../../assets/icons/eyePassword.svg'
+// import {
+//     getAuth, 
+//     createUserWithEmailAndPassword,
+//     signInWithEmailAndPassword
+// } from 'firebase/auth'
+// import { initializeApp } from 'firebase/app';
+// import { firebaseConfig } from './../../services/firebase-config';
 
 export default ({
     inputRef,
@@ -17,12 +24,14 @@ export default ({
     secureTextEntry,
     onSubmitEditing,
     returnKeyType,
-    passWord
+    passWord,
+    value,
+    onChangeText
     }) =>{
-    
+    // const app = initializeApp(firebaseConfig);
     const [inputBorderColor, setInputBorderColor] = useState('#434344')
     const [showPassword, setShowPassword] = useState(false)
-
+    
     useEffect(()=>{
         if(secureTextEntry== true){
             setShowPassword(true)
@@ -48,6 +57,8 @@ export default ({
                     <Icon opacity="0.4" width="20" height="20" fill="#FFF" />
                 : null   }
                 <Input 
+                    onChangeText={onChangeText}
+                    value={value}
                     onFocus={handleOnFocus}
                     onBlur={handleOnBlur}  
                     placeholder={placeholder} 
@@ -56,6 +67,7 @@ export default ({
                     secureTextEntry={showPassword}
                     onSubmitEditing={onSubmitEditing}
                     returnKeyType={returnKeyType}
+                    
                 />
                 
                 {passWord==true?

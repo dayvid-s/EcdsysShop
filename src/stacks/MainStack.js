@@ -17,10 +17,10 @@ export default () => (
     screenOptions={{headerShown: false}}
     // to solve the problem of openDrawer, put a token and two routes.
     > 
-        <Stack.Screen name ='MainDrawer' component={MainDrawer} ></Stack.Screen>
         <Stack.Screen name ='SignUp' component={SignUp}></Stack.Screen>
         <Stack.Screen name ='SignIn' component= {SignIn}></Stack.Screen>
         <Stack.Screen name ='Preload' component={Preload}></Stack.Screen>
+        <Stack.Screen name ='MainDrawer' component={MainDrawer} ></Stack.Screen>
         <Stack.Screen name ='Home' component={Home}></Stack.Screen>
         <Stack.Screen name ='SearchProduct' component={SearchProduct} ></Stack.Screen>
         <Stack.Screen name ='Cart' component={Cart} ></Stack.Screen>

@@ -8,7 +8,8 @@ import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as ReduxProvider } from 'react-redux'
-import store from './redux/store'
+import store from './src/redux/store'
+import Preload from './src/screens/Preload';
 
 export default function App() {
   const deviceTheme = useColorScheme();
@@ -35,10 +36,15 @@ export default function App() {
   } else {
     SplashScreen.hideAsync();
   }
-
+  const signed= false;
+  const loading = false;
   
+  if(loading){
+    return <Preload></Preload>
+  }
+
   return (
-    
+    // signed? 
   <ReduxProvider store={store} >
     <PaperProvider>
       <ThemeProvider theme={theme}>

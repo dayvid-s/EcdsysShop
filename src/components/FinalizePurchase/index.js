@@ -11,7 +11,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import {useDispatch} from 'react-redux'
-import { addToCart } from '../../features/cartSlice'
+import { addToCart } from '../../redux/features/cartSlice'
 export default ({item})=> {
   const dispatch = useDispatch()
   const handleAddToCart = (product)=>{
