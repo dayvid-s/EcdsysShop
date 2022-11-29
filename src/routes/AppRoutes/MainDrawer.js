@@ -1,17 +1,17 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Home from '../../src/screens/Home'
-import Preload from '../../src/screens/Preload';
-import SignUp from '../screens/SignUp';
-import SignIn from '../screens/SignIn';
-import Cart from '../../src/screens/Cart';
-import Profile from '../../src/screens/Profile';
-import Favorites from '../../src/screens/Favorites';
-import Settings from '../../src/screens/Settings';
-import HelpScreen from '../../src/screens/HelpScreen';
-import SearchProduct from '../../src/screens/SearchProduct';
+import Home from '../../screens/Home'
+import Preload from '../../screens/Preload';
+import SignUp from '../../screens/SignUp';
+import SignIn from '../../screens/SignIn';
+import Cart from '../../screens/Cart';
+import Profile from '../../screens/Profile';
+import Favorites from '../../screens/Favorites';
+import Settings from '../../screens/Settings';
+import HelpScreen from '../../screens/HelpScreen';
+import SearchProduct from '../../screens/SearchProduct';
 // drawer navigator it's oppening in sign in and sign up page
-import CustomDrawer from '../components/CustomDrawer'
+import CustomDrawer from '../../components/CustomDrawer'
 import { 
     Ionicons,
     FontAwesome5, 

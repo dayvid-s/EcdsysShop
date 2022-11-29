@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {useColorScheme} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-import MainStack from './src/stacks/MainStack';
+import MainStack from './src/routes/AppRoutes/MainStack';
 import { ThemeProvider } from 'styled-components';
 import themes from './src/theme'
 import {useFonts} from 'expo-font'
@@ -9,7 +9,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as ReduxProvider } from 'react-redux'
 import store from './src/redux/store'
-import Preload from './src/screens/Preload';
+import Routes from './src/routes';
 
 export default function App() {
   const deviceTheme = useColorScheme();
@@ -36,15 +36,8 @@ export default function App() {
   } else {
     SplashScreen.hideAsync();
   }
-  const signed= false;
-  const loading = false;
-  
-  if(loading){
-    return <Preload></Preload>
-  }
 
   return (
-    // signed? 
   <ReduxProvider store={store} >
     <PaperProvider>
       <ThemeProvider theme={theme}>
@@ -53,7 +46,7 @@ export default function App() {
         // I already have a theme with styled components, but this is to solve 
         //when the page stays flickering at navigation.
         >
-          <MainStack></MainStack>
+          <Routes></Routes>
         </NavigationContainer>
       </ThemeProvider>
     </PaperProvider>
