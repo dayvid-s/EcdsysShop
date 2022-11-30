@@ -14,7 +14,7 @@ export default ({})=> {
         navigation.navigate('SignIn')
     }
     return (
-        <View style={{flex:1 , alignSelf:'center', backgroundColor:'green'}}>
+        <View style={{flex:1 , backgroundColor:'black'}}>
             <Text>Preload</Text>
         </View>
     )}

@@ -1,8 +1,6 @@
 //TODO: Solve keyboard avoiding view
 //TODO: put icons with all kind of color.
 //TODO: see if toogle keyboard its right, or its another way
-
-
 import React, { useRef, useState } from 'react'
 import {
     TouchableWithoutFeedback,
@@ -28,26 +26,39 @@ import { Keyboard } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from '../../services/firebase-config'
+import { ActivityIndicator } from 'react-native-paper'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import {useDispatch} from 'react-redux'
+import {changeUserAuthentication} from '../../redux/features/authSlice'
 
 export default () => {
   const navigation = useNavigation()
   const passwordRef = useRef()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loadingAuth, setAuthLoading] = useState(false)
+  const dispatch = useDispatch()
+
+  const storageUser = async (data) =>{
+    await AsyncStorage.setItem('userAuth', JSON.stringify(data))
+  }
 
   const handleGoSignUp = () => {
     navigation.navigate('SignUp')
   }
   const handleSignIn = () => {
+    setAuthLoading(true)
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      alert("user login sucessfully")
-      navigation.replace("Home")
+      storageUser(auth.currentUser)
+      dispatch(changeUserAuthentication(true))
+      setAuthLoading(false)
     })
     .catch((error) => {
+      setAuthLoading(false)
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      alert("Senha ou email incorretos");
     });  
   }
   return (
@@ -89,7 +100,14 @@ export default () => {
             />
 
           <CustomButton onPress={()=> handleSignIn()}>
-            <CustomButtonText>Entrar</CustomButtonText>
+          {
+              loadingAuth?
+                <ActivityIndicator
+                animating={true} color={"#7159c1"} 
+                ></ActivityIndicator>
+                :
+                <CustomButtonText>Entrar</CustomButtonText>
+            }
           </CustomButton>
         </SubmitArea>
 

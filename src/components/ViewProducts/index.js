@@ -12,23 +12,15 @@ import {LinearGradient} from 'expo-linear-gradient'
 import { useNavigation } from '@react-navigation/native'
 import {useDispatch} from 'react-redux'
 import { productsFetch } from '../../redux/features/productsSlice'
-import api from '../../services/api'
 import { useSelector} from 'react-redux'
 export default ({DayOffer, Text, height, width, }) => {
-const navigation= useNavigation()
-// useEffect(() => {
-  //   async function response() {
-//     const response = await api.get('/products')
-//     setProducts(response.data)
-//     }
-//     response()
-//   }, 
-//   []);
-const products = useSelector((state) => state.products);
-const productsz = ['.12.12','21'] 
-const recommendedProducts = products.items.filter(checkProducts);
-function checkProducts(product) {
-  if(DayOffer ==true){
+
+  const navigation= useNavigation()
+  const products = useSelector((state) => state.products);
+  const recommendedProducts = products.items.filter(checkProducts);
+
+  function checkProducts(product) {
+    if(DayOffer ==true){
     if( product.isDayOffer == true){
         return product };
       }else{

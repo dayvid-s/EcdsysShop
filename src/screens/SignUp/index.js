@@ -22,8 +22,12 @@ import User from '../../assets/icons/user.svg'
 import { useNavigation } from '@react-navigation/native'
 import { Keyboard, KeyboardAvoidingView, Platform } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../../services/firebase-config'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import {firebase} from '../../services/firebase-config'
+import { ActivityIndicator } from 'react-native-paper'
+import {useDispatch} from 'react-redux'
+import {changeUserAuthentication} from '../../redux/features/authSlice'
+
 export default () => {
   const navigation = useNavigation()
   const emailRef = useRef()
@@ -31,29 +35,49 @@ export default () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  const [loadingAuth, setAuthLoading] = useState(false)
+  const dispatch = useDispatch()
+      
   const handleGoSignIn = () => {
     navigation.navigate('SignIn')
   }
-  const handleSignUp =()=>{
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      navigation.replace("Home")
-      // ...
+  const handleSignUp = async (email, password, name)=>{
+    setAuthLoading(true)
+    await firebase.auth().createUserWithEmailAndPassword(email,password)
+    .then(()=>{
+      storageUser(name)
+      dispatch(changeUserAuthentication(true))
+      firebase.auth().currentUser.sendEmailVerification({
+        handleCodeInApp: true,
+        url:'https://ecdysshop.firebaseapp.com',
+      }).then(()=>{
+        firebase.firestore().collection('users')
+        .doc(firebase.auth().currentUser.uid)
+        .set({
+          name,
+          email
+        })
+      }).catch((error)=>{
+        setAuthLoading(false)
+        alert(error.message)
+      })
     })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-    })};
+    .catch((error=>{
+      setAuthLoading(false)
+      alert(error.message)
+    }))}
+
+    
+    const storageUser = async (data) =>{
+      await AsyncStorage.setItem('userAuth', JSON.stringify(data))
+  }
 
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
       <Container >
       <KeyboardAwareScrollView >
         <HeaderArea>
-          <HeaderText> Cadastrar</HeaderText>
+          <HeaderText>Cadastrar</HeaderText>
         </HeaderArea> 
 
         <LoginOptions Text={'Cadastre-se com uma das seguintes opções.'} ></LoginOptions>    
@@ -90,9 +114,15 @@ export default () => {
             passWord={true}
             />
           {/* tava moscando por causa das chavrs */}
-          <CustomButton onPress={()=>handleSignUp()}
-            >
-            <CustomButtonText>Criar Conta</CustomButtonText>
+          <CustomButton onPress={()=>{ handleSignUp(email,password, name)}}>
+            {
+              loadingAuth?
+                <ActivityIndicator
+                animating={true} color={"#7159c1"} 
+                ></ActivityIndicator>
+                :
+                <CustomButtonText>Criar Conta</CustomButtonText>
+            }
           </CustomButton>
         </SubmitArea>
 
