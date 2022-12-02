@@ -11,7 +11,7 @@ import Settings from '../../screens/Settings';
 import HelpScreen from '../../screens/HelpScreen';
 import SearchProduct from '../../screens/SearchProduct';
 // drawer navigator it's oppening in sign in and sign up page
-import CustomDrawer from '../../components/CustomDrawer'
+import {CustomDrawer } from '../../components/CustomDrawer'
 import { 
     Ionicons,
     FontAwesome5, 
@@ -27,7 +27,7 @@ const Drawer = createDrawerNavigator();
 export default () => (
     <Drawer.Navigator 
         
-        drawerContent={props => <CustomDrawer{...props}/>}
+        drawerContent={(props) => <CustomDrawer {...props}/>}
         screenOptions={{
             headerShown: false,
             drawerActiveBackgroundColor:'#18212A',

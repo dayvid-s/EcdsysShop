@@ -25,12 +25,12 @@ import { useNavigation } from '@react-navigation/native'
 import { Keyboard } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {signInWithEmailAndPassword} from "firebase/auth";
-import { auth } from '../../services/firebase-config'
+import { auth, firestore } from '../../services/firebase-config'
 import { ActivityIndicator } from 'react-native-paper'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {useDispatch} from 'react-redux'
-import {changeUserAuthentication} from '../../redux/features/authSlice'
-
+import {changeUserInfo} from '../../redux/features/userSlice'
+import {firebase} from '../../services/firebase-config'
 export default () => {
   const navigation = useNavigation()
   const passwordRef = useRef()
@@ -40,7 +40,7 @@ export default () => {
   const dispatch = useDispatch()
 
   const storageUser = async (data) =>{
-    await AsyncStorage.setItem('userAuth', JSON.stringify(data))
+    await AsyncStorage.setItem('userData', JSON.stringify(data))
   }
 
   const handleGoSignUp = () => {
@@ -50,17 +50,30 @@ export default () => {
     setAuthLoading(true)
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      storageUser(auth.currentUser)
-      dispatch(changeUserAuthentication(true))
-      setAuthLoading(false)
+      let uid = auth.currentUser.uid
+      firebase.firestore().collection('users')
+      .doc(uid).get()
+      .then((snapshot) =>{        
+        if(snapshot.exists){
+          let data = 
+            snapshot.data()
+            storageUser(data)
+            dispatch(changeUserInfo(data))  
+            setAuthLoading(false)
+          }else{ 
+         {console.log("User does not exist")} 
+        }
+      })
     })
     .catch((error) => {
       setAuthLoading(false)
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("Senha ou email incorretos");
+      alert(errorMessage);
     });  
   }
+
+
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
       <Container>

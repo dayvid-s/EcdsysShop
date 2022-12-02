@@ -10,9 +10,12 @@ import Categories from '../../components/Categories'
 import ViewProducts from '../../components/ViewProducts'
 import { ScrollView } from 'react-native'
 import { StatusBar } from 'react-native';
+import { useSelector } from 'react-redux'
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
 
 export default () => {
-
+  const user = useSelector((state) => state.user)
+  // AsyncStorage.clear()
   return (
     
     <Container>

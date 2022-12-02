@@ -5,30 +5,40 @@ import Preload from '../screens/Preload'
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux'
 import { useSelector} from 'react-redux'
-import {changeUserAuthentication} from '../redux/features/authSlice'
-
+import {changeUserInfo} from '../redux/features/userSlice'
+import {firebase} from '../services/firebase-config'
 export default() =>{
-    const auth = useSelector((state) => state.auth);
-    const [loading, setLoading ]= useState(false)
+    const user = useSelector((state) => state.user);
+    const [loadingAuth, setLoadingAuth ]= useState(false)
     const dispatch = useDispatch()
-    const [user, setUser] = useState()  // vou criar uma variavel global no redux, com os
-            //dados do usuario.
+    
    
     useEffect (() =>{
-        setLoading(true)
-        const verifyUser = async ()=>{
-            const storageUser = await AsyncStorage.getItem('userAuth');
-            if(storageUser){
-                dispatch(changeUserAuthentication(true))   //its passing a payload that authenticates the user 
-                setLoading(false)
-            }
-            setLoading(false)}
+    setLoadingAuth(true)
+    const verifyUser = async ()=>{
+        const storageUser = await AsyncStorage.getItem('userData')
+        if(storageUser){
+            dispatch(changeUserInfo(JSON.parse(storageUser)))   //its passing a payload that authenticates the user 
+            setLoadingAuth(false)
+        }
+        setLoadingAuth(false)}
         verifyUser()
     },[])
 
-    if(loading) return <Preload/>
+    // function onAuthStateChanged(user){
+    //     {console.log(user,"user da autenticação")}
+    //     dispatch(changeUserInfo(user))
+    //     if(loadingAuth) setLoadingAuth(false);
+    // }
+
+    // useEffect(()=>{
+    //     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged)
+    //     return subscriber;
+    // },[])
     
-    return (auth.isUserAuthenticated?  //here should be user.  
+    if(loadingAuth) return <Preload/>
+
+    return (user.userData !=null?  //here should be user.  
     <MainStack/> : <AuthRoutes/>
         )}
 

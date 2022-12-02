@@ -25,12 +25,14 @@ export const BottomArea = styled.View`
     border-top-color: #ccc
     background-color:#101010
 `
-export const LogoutArea = styled.TouchableOpacity`
+export const LogoutArea = styled.View`
     padding-top:15px
-`
+    `
 export const LogoutWrapper = styled.TouchableOpacity`
     flex-direction: row; 
     align-items: center
+    /* padding-right:20px */
+    max-width: 50%    
 `
 export const LogoutText = styled.Text`
     font-size: 15px

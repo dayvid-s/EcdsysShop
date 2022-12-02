@@ -9,16 +9,25 @@ import {
   LogoutWrapper,
   LogoutText
 } from './styles' 
-
+import {firebase} from '../../services/firebase-config'
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import { 
-    Ionicons,
-  } from '@expo/vector-icons'; 
+  Ionicons,
+} from '@expo/vector-icons'; 
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
+import {useDispatch} from 'react-redux'
+import {changeUserInfo} from '../../redux/features/userSlice'
 
-const CustomDrawer = props => {
+export function CustomDrawer(props) {
+  const dispatch = useDispatch()
+  const handleLogout= ()=> {
+    AsyncStorage.clear()
+    firebase.auth().signOut()
+    dispatch(changeUserInfo(null))
+  }
   return (
     <Container >
       <DrawerContentScrollView
@@ -35,16 +44,16 @@ const CustomDrawer = props => {
 
         
       <BottomArea>
-        <LogoutArea onPress={() => {}}>
-          <LogoutWrapper>
+        <LogoutArea>
+          <LogoutWrapper onPress={handleLogout} >
             <Ionicons name="exit-outline" size={25} color={'#rgb(178,180,183)'} />
             <LogoutText>Sair da conta</LogoutText>
           </LogoutWrapper>
         </LogoutArea>
       </BottomArea>
-                  </DrawerContentScrollView>
+      </DrawerContentScrollView>
     </Container>
   );
 };
 
-export default CustomDrawer;
+// export default CustomDrawer;

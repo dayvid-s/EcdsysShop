@@ -1,6 +1,8 @@
 //TODO: Solve keyboard avoiding view
 //TODO: on send file, buttom stay with scroll indicator, 'app barber' maybe.
 //TODO: animation on out of the page. like nubank
+//TODO: put some comments explaining firebase, cuz stood a little bit complex
+
 import React, { useRef, useState } from 'react'
 import {
     TouchableWithoutFeedback,
@@ -26,7 +28,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import {firebase} from '../../services/firebase-config'
 import { ActivityIndicator } from 'react-native-paper'
 import {useDispatch} from 'react-redux'
-import {changeUserAuthentication} from '../../redux/features/authSlice'
+import {changeUserInfo} from '../../redux/features/userSlice'
+import { useSelector } from 'react-redux'
 
 export default () => {
   const navigation = useNavigation()
@@ -37,26 +40,38 @@ export default () => {
   const [password, setPassword] = useState('')
   const [loadingAuth, setAuthLoading] = useState(false)
   const dispatch = useDispatch()
-      
+  
+  const storageUser = async (data) =>{
+    await AsyncStorage.setItem('userData', JSON.stringify(data))}
+
   const handleGoSignIn = () => {
-    navigation.navigate('SignIn')
-  }
+    navigation.navigate('SignIn')}
+
   const handleSignUp = async (email, password, name)=>{
     setAuthLoading(true)
     await firebase.auth().createUserWithEmailAndPassword(email,password)
     .then(()=>{
-      storageUser(name)
-      dispatch(changeUserAuthentication(true))
       firebase.auth().currentUser.sendEmailVerification({
         handleCodeInApp: true,
         url:'https://ecdysshop.firebaseapp.com',
       }).then(()=>{
-        firebase.firestore().collection('users')
-        .doc(firebase.auth().currentUser.uid)
-        .set({
-          name,
-          email
+        let uid = firebase.auth().currentUser.uid
+        firebase.firestore().collection('users')  //creating a collection at firestore
+        .doc(uid)  //its getting the uid of user to match with firestore
+        .set({           
+          name: name,
+          email: email
         })
+        .then(()=>{
+          let data={
+            uid:uid,
+            name:name,
+            email: email
+          }
+          dispatch(changeUserInfo(data))   //saving user data at redux for be global
+          storageUser(data)               
+          })
+
       }).catch((error)=>{
         setAuthLoading(false)
         alert(error.message)
@@ -67,15 +82,10 @@ export default () => {
       alert(error.message)
     }))}
 
-    
-    const storageUser = async (data) =>{
-      await AsyncStorage.setItem('userAuth', JSON.stringify(data))
-  }
-
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
       <Container >
-      <KeyboardAwareScrollView >
+      {/* <KeyboardAwareScrollView > */}
         <HeaderArea>
           <HeaderText>Cadastrar</HeaderText>
         </HeaderArea> 
@@ -130,7 +140,7 @@ export default () => {
           <SignMessageButtonText>Já possui uma conta? </SignMessageButtonText>
           <SignMessageButtonTextBold>Faça login</SignMessageButtonTextBold>
         </SignMessageButton>
-        </KeyboardAwareScrollView>
+        {/* </KeyboardAwareScrollView> */}
       </Container>
     </TouchableWithoutFeedback>
   )
