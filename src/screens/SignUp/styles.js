@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const TouchableWithoutFeedback = styled.TouchableWithoutFeedback`
 `
-export const Container = styled.KeyboardAvoidingView`
+export const Container = styled.View`
     background-color: ${props => props.theme.backGround}
 
     flex:1;
@@ -28,6 +28,21 @@ export const LoginIconsArea = styled.View`
 export const SubmitArea = styled.View`
 
 `
+export const ErrorArea = styled.TouchableOpacity`
+    /* margin-top:10px */
+    margin-bottom:-25px
+    margin-right:20px
+    `
+
+export const ErrorText = styled.Text`
+    color:red 
+    align-self: flex-end
+    font-weight:600
+    font-family: 'Medium'
+    opacity:0.8
+`
+
+
 export const CustomButton = styled.TouchableOpacity`
     background-color:#6c1e85;
     padding: 20px;

@@ -14,7 +14,11 @@ import {
     SignMessageButtonText,
     SignMessageButtonTextBold,
     SubmitArea,
-    HeaderTextLittle
+    HeaderTextLittle,
+    ErrorArea,
+    ErrorText,
+    ForgotPasswordArea,
+    ForgotPasswordText
   } from './styles'
 import LoginOptions from '../../components/LoginOptions'
 import SignInput from '../../components/SignInput'
@@ -37,40 +41,66 @@ export default () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loadingAuth, setAuthLoading] = useState(false)
+  const [errorEmail, setErrorEmail] = useState(null)
+  const [errorPassword, setPasswordError] = useState(null)
+  
+  
+  const validate = () => {
+    {console.log}
+    let error = false
+    setErrorEmail(null)
+    setPasswordError(null)
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (!re.test(String(email).toLowerCase())){
+      setErrorEmail("Preencha seu e-mail corretamente")
+      error = true
+    }
+    if (password === ''){
+      setPasswordError("Preencha sua senha")
+      error = true
+    }
+    return !error
+  }
   const dispatch = useDispatch()
 
   const storageUser = async (data) =>{
     await AsyncStorage.setItem('userData', JSON.stringify(data))
   }
 
+
+
   const handleGoSignUp = () => {
     navigation.navigate('SignUp')
   }
   const handleSignIn = () => {
-    setAuthLoading(true)
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      let uid = auth.currentUser.uid
-      firebase.firestore().collection('users')
-      .doc(uid).get()
-      .then((snapshot) =>{        
-        if(snapshot.exists){
-          let data = 
-            snapshot.data()
-            storageUser(data)
-            dispatch(changeUserInfo(data))  
+    if(validate()){
+      setAuthLoading(true)
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        let uid = auth.currentUser.uid
+        firebase.firestore().collection('users')
+        .doc(uid).get()
+        .then((snapshot) =>{        
+          if(snapshot.exists){
+            let data = 
+              snapshot.data()
+              storageUser(data)
+              dispatch(changeUserInfo(data))  
+              setAuthLoading(false)
+            }else{ 
+            setErrorEmail("Email ou senha incorretos.")
+            {console.log("User does not exist")} 
             setAuthLoading(false)
-          }else{ 
-         {console.log("User does not exist")} 
-        }
+          }
+        })
       })
-    })
-    .catch((error) => {
-      setAuthLoading(false)
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage);
-    });  
+      .catch((error) => {
+        setAuthLoading(false)
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorEmail("Email ou senha incorretos.")
+        console.log(errorMessage)
+    })};  
   }
 
 
@@ -89,9 +119,13 @@ export default () => {
         <LoginOptions  Text={'Faça login com uma das seguintes opções'}></LoginOptions>    
 
         <SubmitArea>
+          <ErrorArea >
+            <ErrorText > {errorEmail} </ErrorText>
+          </ErrorArea>
           <SignInput
             value={email}
-            onChangeText={text=>setEmail(text)}
+            setText={setEmail}
+            setError= {setErrorEmail}
             placeholder="tim@apple.com"
             Text='Email'
             Icon={EmailIcon}
@@ -99,9 +133,13 @@ export default () => {
             secureTextEntry={false} 
             onSubmitEditing={()=> passwordRef.current.focus()}
             />
+          <ErrorArea>
+            <ErrorText > {errorPassword} </ErrorText>
+          </ErrorArea>
           <SignInput
             value={password}
-            onChangeText={text=>setPassword(text)}
+            setText={setPassword}
+            setError= {setPasswordError}
             inputRef={passwordRef}
             Text="Senha"
             placeholder="Entre com sua senha" 
@@ -111,6 +149,9 @@ export default () => {
             // onSubmitEditing={handleSignIn}
             passWord={true}
             />
+          <ForgotPasswordArea onPress={()=>{navigation.navigate("ForgotPassword")}}>
+            <ForgotPasswordText> Esqueceu a senha? </ForgotPasswordText>
+          </ForgotPasswordArea>
 
           <CustomButton onPress={()=> handleSignIn()}>
           {

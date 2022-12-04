@@ -14,7 +14,9 @@ import {
     SignMessageButton,
     SignMessageButtonText,
     SignMessageButtonTextBold,
-    SubmitArea
+    SubmitArea,
+    ErrorArea,
+    ErrorText
   } from './styles'
 import LoginOptions from '../../components/LoginOptions'
 import SignInput from '../../components/SignInput'
@@ -22,7 +24,7 @@ import EmailIcon from '../../assets/icons/email.svg'
 import Lock from '../../assets/icons/lock.svg'
 import User from '../../assets/icons/user.svg'
 import { useNavigation } from '@react-navigation/native'
-import { Keyboard, KeyboardAvoidingView, Platform } from 'react-native'
+import { Keyboard, KeyboardAvoidingView, Platform, View } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {firebase} from '../../services/firebase-config'
@@ -30,6 +32,7 @@ import { ActivityIndicator } from 'react-native-paper'
 import {useDispatch} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
 import { useSelector } from 'react-redux'
+import { ScrollView } from 'react-native-gesture-handler'
 
 export default () => {
   const navigation = useNavigation()
@@ -38,8 +41,35 @@ export default () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorEmail, setErrorEmail] = useState(null)
+  const [errorName, setErrorName] = useState(null)
+  const [errorPassword, setPasswordError] = useState(null)
   const [loadingAuth, setAuthLoading] = useState(false)
   const dispatch = useDispatch()
+  const validate = () => {
+    let error = false
+    setErrorEmail(null)
+    setPasswordError(null)
+    setErrorName(null)
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (!re.test(String(email).toLowerCase())){
+      setErrorEmail("Preencha seu e-mail corretamente")
+      error = true
+    }
+    if (name == null){
+      setErrorName("Preencha o seu nome")
+      error = true
+    }
+    if (name.length <= 2){
+      setErrorName("Preencha o seu nome")
+      error = true
+    }
+    if (password.length <= 4){
+      setPasswordError("Sua senha precisa ter mais de 4 digitos")
+      error = true
+    }
+    return !error
+  }
   
   const storageUser = async (data) =>{
     await AsyncStorage.setItem('userData', JSON.stringify(data))}
@@ -48,10 +78,12 @@ export default () => {
     navigation.navigate('SignIn')}
 
   const handleSignUp = async (email, password, name)=>{
-    setAuthLoading(true)
-    await firebase.auth().createUserWithEmailAndPassword(email,password)
-    .then(()=>{
-      firebase.auth().currentUser.sendEmailVerification({
+    if(validate()){
+
+      setAuthLoading(true)
+      await firebase.auth().createUserWithEmailAndPassword(email,password)
+      .then(()=>{
+        firebase.auth().currentUser.sendEmailVerification({
         handleCodeInApp: true,
         url:'https://ecdysshop.firebaseapp.com',
       }).then(()=>{
@@ -74,74 +106,93 @@ export default () => {
 
       }).catch((error)=>{
         setAuthLoading(false)
-        alert(error.message)
+        {console.log(error)}
       })
     })
     .catch((error=>{
       setAuthLoading(false)
-      alert(error.message)
-    }))}
-
+      {console.log(error)}
+    }))}}    
   return (
-    <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
-      <Container >
-      {/* <KeyboardAwareScrollView > */}
-        <HeaderArea>
-          <HeaderText>Cadastrar</HeaderText>
-        </HeaderArea> 
+    // <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
+       <KeyboardAvoidingView
+      // behavior={Platform.OS == "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={80}  style={{flex:1}}
+      
+      > 
+      <ScrollView>
 
-        <LoginOptions Text={'Cadastre-se com uma das seguintes opções.'} ></LoginOptions>    
-        <SubmitArea>
-          <SignInput 
-            value={name}
-            onChangeText={text=>setName(text) }
-            placeholder="Seu primeiro nome"
-            Text='Nome'
-            returnKeyType='next'
-            secureTextEntry={false} 
-            onSubmitEditing={()=> emailRef.current.focus()}
-            IconSvg={User}
-            />
-          <SignInput
-            value={email}
-            onChangeText={text=>setEmail(text)}
-            inputRef={emailRef}
-            Text='Email'
-            placeholder= "tim@apple.com"
-            IconSvg={EmailIcon}
-            returnKeyType='next'
-            onSubmitEditing={()=> passwordRef.current.focus()}
-            />
-          <SignInput
-            value={password}
-            onChangeText={text=>setPassword(text)}
-            inputRef={passwordRef}
-            Text="Senha"
-            placeholder="Escolha uma senha forte"
-            IconSvg={Lock}
-            returnKeyType='done'
-            secureTextEntry={true}
-            passWord={true}
-            />
-          {/* tava moscando por causa das chavrs */}
-          <CustomButton onPress={()=>{ handleSignUp(email,password, name)}}>
-            {
-              loadingAuth?
-                <ActivityIndicator
-                animating={true} color={"#7159c1"} 
-                ></ActivityIndicator>
-                :
-                <CustomButtonText>Criar Conta</CustomButtonText>
-            }
-          </CustomButton>
-        </SubmitArea>
+        {/* <Container > */}
+          <HeaderArea>
+            <HeaderText>Cadastrar</HeaderText>
+          </HeaderArea> 
 
-        <SignMessageButton onPress={handleGoSignIn}>
-          <SignMessageButtonText>Já possui uma conta? </SignMessageButtonText>
-          <SignMessageButtonTextBold>Faça login</SignMessageButtonTextBold>
-        </SignMessageButton>
-        {/* </KeyboardAwareScrollView> */}
-      </Container>
-    </TouchableWithoutFeedback>
+          <LoginOptions Text={'Cadastre-se com uma das seguintes opções.'} ></LoginOptions>    
+          <SubmitArea>
+            <ErrorArea >
+              <ErrorText > {errorName} </ErrorText>
+            </ErrorArea>
+            <SignInput 
+              value={name}
+              setText={setName}
+              setError= {setErrorName}
+              placeholder="Seu primeiro nome"
+              Text='Nome'
+              returnKeyType='next'
+              secureTextEntry={false} 
+              onSubmitEditing={()=> emailRef.current.focus()}
+              IconSvg={User}
+              />
+            <ErrorArea>
+              <ErrorText > {errorEmail} </ErrorText>
+            </ErrorArea>
+            <SignInput
+              value={email}
+              setText={setEmail}
+              setError= {setErrorEmail}
+              inputRef={emailRef}
+              Text='Email'
+              placeholder= "tim@apple.com"
+              IconSvg={EmailIcon}
+              returnKeyType='next'
+              onSubmitEditing={()=> passwordRef.current.focus()}
+              />
+            <ErrorArea>
+              <ErrorText > {errorPassword} </ErrorText>
+            </ErrorArea>
+            <SignInput
+              
+              value={password}
+              setText={setPassword}
+              setError= {setPasswordError}
+              inputRef={passwordRef}
+              Text="Senha"
+              placeholder="Escolha uma senha forte"
+              IconSvg={Lock}
+              returnKeyType='done'
+              secureTextEntry={true}
+              passWord={true}
+              />
+            {/* tava moscando por causa das chavrs */}
+            <CustomButton onPress={()=>{ handleSignUp(email,password, name)}}>
+              {
+                loadingAuth?
+                  <ActivityIndicator
+                  animating={true} color={"#7159c1"} 
+                  ></ActivityIndicator>
+                  :
+                  <CustomButtonText>Criar Conta</CustomButtonText>
+              }
+            </CustomButton>
+          </SubmitArea>
+
+          <SignMessageButton onPress={handleGoSignIn}>
+            <SignMessageButtonText>Já possui uma conta? </SignMessageButtonText>
+            <SignMessageButtonTextBold>Faça login</SignMessageButtonTextBold>
+          </SignMessageButton>
+        {/* </Container> */}
+      </ScrollView>
+      </KeyboardAvoidingView>
+    // </TouchableWithoutFeedback>
   )
 }

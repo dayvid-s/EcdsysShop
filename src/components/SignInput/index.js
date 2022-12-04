@@ -8,13 +8,6 @@ import {
 } from './styles'
 import Hide from '../../assets/icons/eyeClosed.svg'
 import ShowPassword from '../../assets/icons/eyePassword.svg'
-// import {
-//     getAuth, 
-//     createUserWithEmailAndPassword,
-//     signInWithEmailAndPassword
-// } from 'firebase/auth'
-// import { initializeApp } from 'firebase/app';
-// import { firebaseConfig } from './../../services/firebase-config';
 
 export default ({
     inputRef,
@@ -26,12 +19,13 @@ export default ({
     returnKeyType,
     passWord,
     value,
-    onChangeText
+    setText,
+    setError,
     }) =>{
     // const app = initializeApp(firebaseConfig);
     const [inputBorderColor, setInputBorderColor] = useState('#434344')
     const [showPassword, setShowPassword] = useState(false)
-    
+    // const [errorEmail, setErrorEmail] = useState(null)
     useEffect(()=>{
         if(secureTextEntry== true){
             setShowPassword(true)
@@ -57,7 +51,14 @@ export default ({
                     <Icon opacity="0.4" width="20" height="20" fill="#FFF" />
                 : null   }
                 <Input 
-                    onChangeText={onChangeText}
+                    onChangeText={text => {
+                        setText(text)
+                        setError(null)
+                    //     // this is calling two functions at the change text of textInput.
+                    //     // its like passing props for the father... but we are just changing 
+                    //     // the state of the father component.
+                    }}
+
                     value={value}
                     onFocus={handleOnFocus}
                     onBlur={handleOnBlur}  
@@ -73,9 +74,9 @@ export default ({
                 {passWord==true?
                     <TouchableOpacity onPress={handleShowAndHidePassword}>
                         {showPassword==false ?
-                            <Hide opacity="0.4" width="24" height="24" fill="#FFF" />
+                            <Hide opacity="0.4" width="28" height="28" fill="#FFF" />
                             :   
-                            <ShowPassword opacity="0.4" width="24" height="24" fill="#FFF" />}
+                            <ShowPassword opacity="0.4" width="33" height="33" fill="#FFF" />}
                     </TouchableOpacity>  
                 :null
                 } 
