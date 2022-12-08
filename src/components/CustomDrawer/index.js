@@ -20,6 +20,7 @@ import {
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
+import { retrieveCart } from '../../redux/features/cartSlice';
 
 export function CustomDrawer(props) {
   const dispatch = useDispatch()
@@ -27,6 +28,8 @@ export function CustomDrawer(props) {
     AsyncStorage.clear()
     firebase.auth().signOut()
     dispatch(changeUserInfo(null))
+    dispatch(retrieveCart(null))
+
   }
   return (
     <Container >

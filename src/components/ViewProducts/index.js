@@ -42,7 +42,7 @@ return (
     <TextInfo>{Text}</TextInfo>
     <ProductArea>
       {             // aqui vai ser uma renderização condicional, mas de uma f
-      recommendedProducts.map((item,id) =>{     //forma diferente, pois eu passo como props
+      recommendedProducts?.map((item,id) =>{     //forma diferente, pois eu passo como props
         return(                   // o item que vai ser mapeado 
           <WrapperProducts key={id} 
           onPress={()=>{  navigation.push('About', {

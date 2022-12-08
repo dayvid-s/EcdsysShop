@@ -13,9 +13,12 @@ const cartSlice = createSlice({
         addToCart(state, action){
             state.cartItems.push(action.payload);
         },
+        retrieveCart(state,action){
+            state.cartItems= action.payload
+        }
     },
 })
 
-export const {addToCart} = cartSlice.actions
+export const {addToCart, retrieveCart} = cartSlice.actions
 
 export default cartSlice.reducer;

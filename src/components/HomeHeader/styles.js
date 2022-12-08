@@ -9,6 +9,8 @@ export const IconsArea = styled.View`
     `
 export const IconsWrapper = styled.TouchableOpacity`
     padding:15px
+    /* background-color:${props => props.theme.roseBlue} */ 
+     /* just in case white theme. */
     background-color:#111010
     border-radius: 12px
     `

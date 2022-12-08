@@ -14,26 +14,40 @@ import {useDispatch} from 'react-redux'
 import { addToCart } from '../../redux/features/cartSlice'
 import { firebase } from './../../services/firebase-config';
 import { useSelector } from 'react-redux'
+import { Alert } from 'react-native'
 
 export default ({item})=> {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user); 
+  const user = useSelector((state) => state.user.userData); 
+  const cart = useSelector((state) => state.cart.cartItems);
+
   // const handleAddToCart = (product)=>{
-  //   dispatch(addToCart(product))}
-  {console.log(user)}
-
+    //   }
     const handleAddToCart = (product)=>{
-
-    let uid = firebase.auth().currentUser.uid
-        firebase.firestore().collection('cartItems')  //creating a collection at firestore
-        .add({
-          uid: uid,
-          product: product
-        })
-          // dispatch(changeUserInfo(data))   //saving user data at redux for be global
-          // storageUser(data)               
-    
+      // Alert.alert(product.id)
+      cart.forEach(element => {
+        if(element.product.id == product.id){
+          // console.log(product.id,'é igual', element.product.id)
+          //significa que já tem o produto no carrinho
+          
+          
+          
+        }else{
+          // console.log(product.id,'é diferente de ', element.product.id)
+          // significa que não tem o produto no carrinho.
+          let uid = user.uid
+            firebase.firestore().collection('cartItems')  
+            .add({
+              uid: uid,
+              product: product,
+              quantity:1
+            })
+              dispatch(addToCart(product))
       }
+    });
+    Alert.alert(product.id)  
+    // if(product.id)
+  }
 
   return (
     <ButtonsWrapper>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Container,
   TextInfo,
@@ -18,37 +18,44 @@ import {
   FontAwesome5
  } from '@expo/vector-icons';
 import { Image } from 'react-native';
+import {firebase} from '../../services/firebase-config'
 import { useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
+import { retrieveCart } from '../../redux/features/cartSlice';
+
+
 
 export default () => {
-  const cart = useSelector((state) => state.cart); 
-  const Productsz = [
-    
-      {
-        id: 1,
-        category: 'product',
-        productName: 'MacBook Pro',
-        productPrice: '21.779,10',
-        description:
-          'Criado para todos os tipos de criativos, incluindo desenvolvedores, fotógrafos, cineastas, artistas 3D, produtores musicais e muito mais, o MacBook Pro de 14,2" da Apple com M1 Pro Chip é a estação de trabalho móvel profissional definitiva para o usuário final.O sistema possui o chip Apple M1 Pro 8-Core, que fornece a potência e o desempenho necessários para lidar com seus fluxos de trabalho profissionais.',
-        isOff: true,
-        offPercentage: 10,
-        productImage:  require('../../assets/images/boat2.png'),
-        isAvailable: true,
-      }]
   const theme = useTheme()
   const navigation = useNavigation()
+  const dispatch = useDispatch()
+  const cart = useSelector((state) => state.cart.cartItems); 
+  const user = useSelector((state) => state.user.userData)
+  useEffect(()=>{
+    firebase.firestore().collection('cartItems')
+    .where('uid', '==', user.uid)
+    .onSnapshot(snapshot =>{          // this onSnapshot it means that the firebase will be 
+      const cartProducts= []          // locking for data on realtime
+      snapshot.forEach( doc =>{       // and snapshot its all the data.
+        cartProducts.push({
+          ...doc.data(),
+          id:doc.id
+        })
+      })
+        dispatch(retrieveCart(cartProducts))
+    })
+
+
+  },[])
   return (
    
     <Container>
     {             // aqui vai ser uma renderização condicional, mas de uma f
-      cart.cartItems?.map((item,id) =>{     //forma diferente, pois eu passo como props
+      cart?.map((item,id) =>{     //forma diferente, pois eu passo como props
       return(                   // o item que vai ser mapeado 
-        <ProductsWrapper key={id} 
-        >
+        <ProductsWrapper key={id}>
             <Image
-            // source={}
-            source={item.mainPhoto}
+            source={{uri:item.product.mainPhoto}}
             style={{
               borderRadius:10, width:130,
               height:100, resizeMode:'contain',
@@ -57,9 +64,9 @@ export default () => {
             ></Image>
             <ProductInfoWrapper>
             <ProductTextWrapper>
-              <ProductInfoText  >{item.name}</ProductInfoText>
+              <ProductInfoText  >{item.product.name}</ProductInfoText>
             </ProductTextWrapper>
-              <ProductPriceText  >R$ {item.price}</ProductPriceText>
+              <ProductPriceText  >R$ {item.product.price}</ProductPriceText>
             <BottomIconsArea>
               <TouchableIconArea>
                 <AntDesign 

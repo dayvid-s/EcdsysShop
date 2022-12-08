@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { 
   AntDesign, 
   FontAwesome,
@@ -24,15 +24,21 @@ export default ()=> {
   const theme = useTheme()
   const searchRef = useRef()
   const navigation = useNavigation()
-
-    setTimeout(()=>{searchRef.current.focus()},100)
-
+  const [statusBarColor,setStatusBarColor]= useState('#7159c1')
+  const goBack=()=>{
+      //this is to solve the bug of status bar delay in change color.
+    setStatusBarColor('#010101')
+    navigation.goBack()
+  }
+  
+  setTimeout(()=>{searchRef.current.focus()},100)
+  
   return (
   
   <Container>
-    {/* <StatusBar backgroundColor = "#7159c1"   ></StatusBar> */}
+    <StatusBar backgroundColor = {statusBarColor}   ></StatusBar>
     <HeaderArea>
-      <AntDesign onPress={()=>{navigation.goBack()}}
+      <AntDesign onPress={()=>{goBack()}}
         style={{marginTop:3, opacity:0.8, marginLeft:6,marginRight:6}}
       name="arrowleft" size={30} color="#FFF" />
       <InputArea>

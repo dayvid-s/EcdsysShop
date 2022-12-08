@@ -82,8 +82,12 @@ export default () => {
         .doc(uid).get()
         .then((snapshot) =>{        
           if(snapshot.exists){
-            let data = 
-              snapshot.data()
+            let data = {
+              uid:uid,
+              name: snapshot.data().name,
+              email:snapshot.data().email
+              
+            }
               storageUser(data)
               dispatch(changeUserInfo(data))  
               setAuthLoading(false)
