@@ -1,7 +1,7 @@
 
 [
     {
-        "id": "1",
+        "productId": "1",
         "category":"pc",
         "name":"MacBook Pro",
         "price": 21.779,
@@ -20,7 +20,7 @@
         "isRecommended": false   
     },
     {
-        "id": "2",
+        "productId": "2",
         "category":"eletronic",
         "name":"Boat Partypal 50",
         "price": 3.199,
@@ -39,7 +39,7 @@
         "isRecommended": true   
     },
     {
-        "id": "3",
+        "productId": "3",
         "category":"gamer",
         "name":"Playstation 5",
         "price": 4.599,
@@ -54,7 +54,7 @@
         "isRecommended": true   
     },
     {
-        "id": "4",
+        "productId": "4",
         "category":"cellPhone",
         "name":"Iphone 11",
         "price": 2.799,

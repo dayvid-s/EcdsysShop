@@ -11,11 +11,13 @@ import {
 import { useTheme } from 'styled-components'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons';
+import { useSelector} from 'react-redux'
 
 
 export default () => {
   const theme = useTheme()
   const navigation = useNavigation()
+  const cart = useSelector((state) => state.cart.cartItems); 
   return (
     <IconsArea >
         <IconsWrapper onPress={() => navigation.goBack()}>
@@ -25,7 +27,11 @@ export default () => {
         <HeaderTitle></HeaderTitle>
         <TitleArea>
           <HeaderTitle>{'Meu carrinho'}</HeaderTitle>
-          <SmallTitle>{'2 items'}</SmallTitle>
+          {cart.length>1 ?
+            <SmallTitle>{cart.length} items</SmallTitle>
+            :
+            <SmallTitle>{cart.length} item</SmallTitle>
+          }
         </TitleArea>
       </IconsArea>
   )

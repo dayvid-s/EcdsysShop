@@ -5,11 +5,20 @@ import styled from 'styled-components';
 export const Container = styled.View`
     margin-left: 5%;
     `
-export const ProductsWrapper = styled.TouchableOpacity`
+export const ProductArea = styled.View`
+    /* margin-left: 5%; */
+    `
+export const ProductsWrapper = styled.View`
+    /* background-color:rgba(255,0,0,.6) */
     flex-direction: row;
     margin-top:20px;
     margin-right: 5%;
     border-radius: 8px;
+    /* opacity:0.4 */
+    opacity:${props => props.loading ==true ? '0.4' : '10'};
+
+    `
+export const ImageWrapper = styled.TouchableOpacity`
     `
 
 export const ProductTextWrapper = styled.View`
@@ -23,9 +32,13 @@ export const BottomIconsArea = styled.View`
 export const ProductInfoWrapper = styled.View`
     align-items: flex-start
     padding-right:40%
-    
     `
-export const TouchableIconArea = styled.View`
+export const InfoWrapper = styled.TouchableOpacity`
+    /* background-color :blue ; */
+    padding-right: 80px;
+    flex:1
+`
+export const TouchableIconArea = styled.TouchableOpacity`
     margin-top:8px
     padding:5px
     border-radius:32px
@@ -40,26 +53,28 @@ export const TextInfo = styled.Text`
     font-weight: 500
     color:#rgb(178,180,183)
 `
-export const RemoveProductText = styled.Text`
-    color: ${props => props.theme.roseBlue}
-    font-size:15px
-    margin-left: 30%
-    font-weight: 700
-`
 
 export const ProductInfoText = styled.Text`
-    color: ${props => props.theme.onBackGround}
-    font-family:'Medium'
-    font-size:17px
-    font-weight: 400
-    
-    `
+color: ${props => props.theme.onBackGround}
+font-family:'Medium'
+font-size:17px
+font-weight: 400
+
+`
     
     export const ProductPriceText = styled.Text`
-    flex:1
+    /* flex:1 */
     color: ${props => props.theme.onBackGround}
     opacity:0.5
     font-size:15px
     font-weight:600
     
-`
+    `
+    export const ProductRemoveWrapper = styled.TouchableOpacity`
+    `
+    export const RemoveProductText = styled.Text`
+        color: ${props => props.theme.roseBlue}
+        font-size:15px
+        margin-left: 30%
+        font-weight: 700
+    `

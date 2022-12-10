@@ -13,21 +13,21 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
 
-export default ({item})=> {
+export default ({product})=> {
   const navigation= useNavigation()
   const route= useRoute()
   const width = Dimensions.get('window').width;
-
+  // console.log(product.secondaryPhotos)
   const scrollX = new Animated.Value(0);
-
   let position = Animated.divide(scrollX, width);
   return (
     <ImageWrapper>
     <ImageList
-      data={item.secondaryPhotos ? item.secondaryPhotos : null}
+      data={product.secondaryPhotos ? product.secondaryPhotos : null}
       horizontal
       renderItem={
-        ({item}) =>(
+        ({item}) =>(    //in this item, it's the url of secondary photos. they were saved at 
+                          // data of flatlist.
           <Image source={{uri:item}} 
           style={{
             width:385,
@@ -47,8 +47,8 @@ export default ({item})=> {
             />
   
       <AnimatedLines>
-        {item.secondaryPhotos
-          ? item.secondaryPhotos.map((data, index) => {
+        {product.secondaryPhotos
+          ? product.secondaryPhotos?.map((data, index) => {
               let opacity = position.interpolate({
                 inputRange: [index - 1, index, index + 1],
                 outputRange: [0.2, 1, 0.2],

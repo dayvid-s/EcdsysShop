@@ -19,16 +19,18 @@ import ViewProducts from '../../components/ViewProducts'
 export default ()=> {
   const navigation= useNavigation()
   const route= useRoute()
-  const { item } = route.params;
+  // {console.log(product)}
+  const { product } = route.params;
+  // {console.log(product)}
   return (
     <ScrollView>
       <Container>
         <AboutPageHeader/>
-        <AnimatedImages item={item}></AnimatedImages>
+        <AnimatedImages product={product}></AnimatedImages>
         {/* i need put 8 times that he is dividido 8 sem juros, more one data at products */} 
-        <ProductInfo item={item} />
-        <FinalizePurchase item={item}/>
-        <BottomOfThePageAbout item={item} ></BottomOfThePageAbout>
+        <ProductInfo product={product} />
+        <FinalizePurchase product={product}/>
+        <BottomOfThePageAbout product={product} ></BottomOfThePageAbout>
         {/* i will put the frete page here. frete like lum */}
         
         {/* i need create a horizontal scrollabe here. */}

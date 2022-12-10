@@ -23,16 +23,16 @@ import FullStar from '../../assets/icons/star-svgrepo-com.svg'
 import HalfStar from '../../assets/icons/half-star-svgrepo-com.svg'
 import ProductSpecifications from '../ProductSpecifications'
 
-export default ({item})=> {
+export default ({product})=> {
   const [state00,setState00 ] = useState(false)
   const [state01,setState01 ] = useState(false)
   const [state02,setState02 ] = useState(false)
   const [state03,setState03 ] = useState(false)
   let stars= [0,0,0,0,0]
-  let ratingInDecimal = Math.floor(item.rating)
-  let remainder = item.rating - ratingInDecimal
-  var shippingCost= ((4/100)* (parseInt(item.price))).toString().replace('.',',')
-  var oldProductValue= ((20/100)+ (item.price)).toString().replace('.',',')
+  let ratingInDecimal = Math.floor(product.rating)
+  let remainder = product.rating - ratingInDecimal
+  var shippingCost= ((4/100)* (parseInt(product.price))).toString().replace('.',',')
+  var oldProductValue= ((20/100)+ (product.price)).toString().replace('.',',')
   for(var i =0; i<ratingInDecimal ; i++){
     stars[i]=2;
   }
@@ -44,7 +44,7 @@ export default ({item})=> {
   return (
     <Container>
       <ProductName>
-        {item.name}
+        {product.name}
       </ProductName>
       <ProductRatingArea>
         {stars.map((star,index) =>{
@@ -59,14 +59,14 @@ export default ({item})=> {
             </StarWrapper>
             )})}
 
-        <TotalUserRatings>{item.evaluationsTotal} avaliações do produto </TotalUserRatings>
+        <TotalUserRatings>{product.evaluationsTotal} avaliações do produto </TotalUserRatings>
       </ProductRatingArea >
         <OldProductValue>R$ {oldProductValue}</OldProductValue>
       <ProductPriceArea>
-        <ProductPriceText>R$ {item.price}</ProductPriceText>
+        <ProductPriceText>R$ {product.price}</ProductPriceText>
         <ShippingValueText>+R$ {shippingCost} de envio </ShippingValueText>
       </ProductPriceArea>
-      {item.specifications !=null &&(
+      {product.specifications !=null &&(
         <>
               <ProductSpecText>Especificações do produto:</ProductSpecText>
               {/* very gambiarra, and I know this. */}
@@ -74,28 +74,28 @@ export default ({item})=> {
                 <ProductSpecsWrapper state={state00}  onPress={()=>{
                   setState00(true),setState01(false),setState02(false),setState03(false)}}>
                   
-                  <ProductSpecifications specification={item.specifications[0]}  ></ProductSpecifications>
+                  <ProductSpecifications specification={product.specifications[0]}  ></ProductSpecifications>
                 </ProductSpecsWrapper>
                 <ProductSpecsWrapper state={state01} onPress={()=>{
                   setState00(false) ,setState01(true),setState02(false),setState03(false)
                 }}
               
                 >
-                  <ProductSpecifications specification={item.specifications[1]} 
+                  <ProductSpecifications specification={product.specifications[1]} 
                   ></ProductSpecifications>
                 </ProductSpecsWrapper  >
-                  {item.specifications[2] != undefined   &&
+                  {product.specifications[2] != undefined   &&
                 <ProductSpecsWrapper state={state02} onPress={()=>{
                   setState00(false) ,setState01(false),setState02(true),setState03(false)
                   }} >
-                    <ProductSpecifications specification={item.specifications[2]}></ProductSpecifications>  
+                    <ProductSpecifications specification={product.specifications[2]}></ProductSpecifications>  
                 </ProductSpecsWrapper>
                   }
-                {item.specifications[3] != undefined   &&
+                {product.specifications[3] != undefined   &&
                   <ProductSpecsWrapper state={state03} onPress={()=>{
                     setState00(false) ,setState01(false),setState02(false),setState03(true)
                     }} >
-                  <ProductSpecifications specification={item.specifications[3]}></ProductSpecifications>  
+                  <ProductSpecifications specification={product.specifications[3]}></ProductSpecifications>  
                   </ProductSpecsWrapper>
                 }
               </ProductSpecsArea>

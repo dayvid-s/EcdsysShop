@@ -28,8 +28,8 @@ export default ({DayOffer, Text, height, width, }) => {
         return product }}}
 
   const dispatch = useDispatch()
-  const selectItem = (item) => dispatch({
-    type: 'ADD_TO_CART', payload:item,
+  const selectItem = (product) => dispatch({
+    type: 'ADD_TO_CART', payload:product,
   })
     
   useEffect(() => {
@@ -42,19 +42,18 @@ return (
     <TextInfo>{Text}</TextInfo>
     <ProductArea>
       {             // aqui vai ser uma renderização condicional, mas de uma f
-      recommendedProducts?.map((item,id) =>{     //forma diferente, pois eu passo como props
-        return(                   // o item que vai ser mapeado 
+      recommendedProducts?.map((product,id) =>{     //forma diferente, pois eu passo como props
+        return(                   // o product que vai ser mapeado 
           <WrapperProducts key={id} 
           onPress={()=>{  navigation.push('About', {
-            item: item,
+            product: product,
           });}}
-          // onPress={()=>{onSubmitTask(item) }}
           >
             <LinearGradient style={{borderRadius:12,zIndex: 0}}
               colors={["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"]}
             >
               <Image
-              source={{uri:item.mainPhoto}}
+              source={{uri:product.mainPhoto}}
               style={{
                 borderRadius:10,
                 width:width,
@@ -64,8 +63,8 @@ return (
               ></Image>
             </LinearGradient>
             <ProductInfoText></ProductInfoText>
-            <ProductInfoText DayOffer={DayOffer} >{item.name}</ProductInfoText>
-            <ProductPriceText DayOffer={DayOffer} >R${item.price}</ProductPriceText>
+            <ProductInfoText DayOffer={DayOffer} >{product.name}</ProductInfoText>
+            <ProductPriceText DayOffer={DayOffer} >R${product.price}</ProductPriceText>
           </WrapperProducts>
       )})}
     </ProductArea>  

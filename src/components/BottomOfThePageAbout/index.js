@@ -7,13 +7,13 @@ import {
   DescriptionTitle
 } from './styles'
 
-export default ({item})=> {
+export default ({product})=> {
 
   return (
     <Container>
       <DescriptionTitle>Descrição do produto
       </DescriptionTitle>
-        <DescriptionText>{item.description}</DescriptionText>
+        <DescriptionText>{product?.description}</DescriptionText>
     </Container>
   )
 }

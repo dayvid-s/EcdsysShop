@@ -12,43 +12,51 @@ import { useRoute } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
 import {useDispatch} from 'react-redux'
 import { addToCart } from '../../redux/features/cartSlice'
-import { firebase } from './../../services/firebase-config';
+import { firebase, firestore } from './../../services/firebase-config';
 import { useSelector } from 'react-redux'
 import { Alert } from 'react-native'
+import {doc,updateDoc, collection, query, where, getDocs, onSnapshot, FirestoreError } from "firebase/firestore";
+import { useState } from 'react';
 
-export default ({item})=> {
+
+export default ({product})=> {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user.userData); 
   const cart = useSelector((state) => state.cart.cartItems);
+  const cartRef = collection(firestore, "cartItems");
+  var hasProductInCart 
 
-  // const handleAddToCart = (product)=>{
-    //   }
-    const handleAddToCart = (product)=>{
-      // Alert.alert(product.id)
-      cart.forEach(element => {
-        if(element.product.id == product.id){
-          // console.log(product.id,'é igual', element.product.id)
-          //significa que já tem o produto no carrinho
-          
-          
-          
-        }else{
-          // console.log(product.id,'é diferente de ', element.product.id)
-          // significa que não tem o produto no carrinho.
-          let uid = user.uid
-            firebase.firestore().collection('cartItems')  
-            .add({
-              uid: uid,
-              product: product,
-              quantity:1
-            })
-              dispatch(addToCart(product))
-      }
-    });
-    Alert.alert(product.id)  
-    // if(product.id)
+  const handleAddToCart= (product)=>{
+    firebase.firestore().collection('cartItems')  
+    .add({
+      uid: user.uid,
+      product: product,
+      productId: product.productId,
+      quantity:1,
+    })
+    dispatch(addToCart(product))
   }
-
+  
+  const validateToSendProduct = async (product)=>{
+    if(cart.lenght==0){
+      handleAddToCart(product)
+    }else{
+      const q1 = query(cartRef, where("productId", "==", product.productId), where("uid", "==", user.uid));
+      const querySnapshot = await getDocs(q1);
+      var hasProductInCart= !querySnapshot.empty  // if has the same product at cart, this 
+      //var will be true. it's a query at firestorethat returns true, if it's empty.
+      
+      if(hasProductInCart){
+        querySnapshot.forEach( async (doc) => {
+          await firestore.collection('cartItems').doc(doc.id)
+          .update({
+            quantity:doc.data().quantity+1
+          })});
+      }else{
+        handleAddToCart(product)
+      }
+    }
+  }
   return (
     <ButtonsWrapper>
               
@@ -68,7 +76,7 @@ export default ({item})=> {
         </LinearGradient>
           </Button>
     
-      <ButtonSendToCart onPress={()=>{handleAddToCart(item) }} >
+      <ButtonSendToCart onPress={()=>{validateToSendProduct(product) }} >
         <ButtonText purple={true} >Adicionar no carrinho</ButtonText>
       </ButtonSendToCart>
   
