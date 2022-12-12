@@ -13,7 +13,28 @@ export const FirstIcon = styled.View`
     padding-right:10px
     `
     
-    export const IconsWrapper = styled.TouchableOpacity`
+export const IconsWrapper = styled.TouchableOpacity`
     opacity:0.6
     margin-right:20px
     `
+
+export const TotalProductsWrapper = styled.View`
+    /* background-color: ${props => props.theme.roseBlue}; */
+    padding: 13px;
+
+    margin-top: -16px;
+    /* margin-left:30px; */
+    right:-4px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius:30px;
+    `
+export const TotalProductsText = styled.Text`
+    color: ${props => props.theme.onBackGround}
+    margin-top: 10px
+    position: absolute;
+    /* margin-left:50px */
+    font-weight: 800
+    font-size:14px
+`

@@ -71,10 +71,13 @@ font-weight: 400
     
     `
     export const ProductRemoveWrapper = styled.TouchableOpacity`
-    `
+        align-items: center;
+        justify-content: center;
+        margin-left:50px;
+        margin-top: 7px;
+        `
     export const RemoveProductText = styled.Text`
         color: ${props => props.theme.roseBlue}
         font-size:15px
-        margin-left: 30%
         font-weight: 700
     `

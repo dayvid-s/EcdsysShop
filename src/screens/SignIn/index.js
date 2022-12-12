@@ -46,7 +46,6 @@ export default () => {
   
   
   const validate = () => {
-    {console.log}
     let error = false
     setErrorEmail(null)
     setPasswordError(null)
@@ -93,7 +92,6 @@ export default () => {
               setAuthLoading(false)
             }else{ 
             setErrorEmail("Email ou senha incorretos.")
-            {console.log("User does not exist")} 
             setAuthLoading(false)
           }
         })

@@ -77,10 +77,7 @@ export default ({product})=> {
                   <ProductSpecifications specification={product.specifications[0]}  ></ProductSpecifications>
                 </ProductSpecsWrapper>
                 <ProductSpecsWrapper state={state01} onPress={()=>{
-                  setState00(false) ,setState01(true),setState02(false),setState03(false)
-                }}
-              
-                >
+                  setState00(false) ,setState01(true),setState02(false),setState03(false)}}>
                   <ProductSpecifications specification={product.specifications[1]} 
                   ></ProductSpecifications>
                 </ProductSpecsWrapper  >

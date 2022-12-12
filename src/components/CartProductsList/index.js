@@ -22,50 +22,35 @@ import {
   FontAwesome5
  } from '@expo/vector-icons';
 import { Image, Alert } from 'react-native';
-import { useSelector} from 'react-redux'
-import {useDispatch} from 'react-redux'
-import { retrieveCart, increaseQuantity } from '../../redux/features/cartSlice';
+import { useSelector, useDispatch} from 'react-redux'
+import { retrieveCart, increaseQuantity, getTotals } from '../../redux/features/cartSlice';
 import { firebase, firestore } from './../../services/firebase-config';
 import {doc,updateDoc, collection, query, where, getDocs, onSnapshot, FirestoreError } from "firebase/firestore";
 import { ActivityIndicator } from 'react-native-paper';
 import { useState } from 'react';
 
 
-
-export default () => {
+export default ({product}) => {
   const theme = useTheme()
   const navigation = useNavigation()
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart.cartItems); 
   const user = useSelector((state) => state.user.userData);
+  const totalQuantity = useSelector(state => state.cart.cartTotalAmount)
   const cartRef = collection(firestore, "cartItems");
   const [loading, setLoading]= useState(false)
-
+    
+  
   useEffect(()=>{
-    firebase.firestore().collection('cartItems')
-    .where('uid', '==', user.uid)
-    .onSnapshot(snapshot =>{          // this onSnapshot it means that the firebase will be 
-      const cartProducts= []          // locking for data on realtime
-      snapshot.forEach( doc =>{       // and snapshot it is all the data.
-        cartProducts.push({
-          ...doc.data(),
-          id:doc.id
-        })
-      })
-        dispatch(retrieveCart(cartProducts))
-    })
-
-
+    dispatch(getTotals())
   },[])
 
   const goToAbout =(product)=>{
-    // {console.log(product.product)}
     navigation.push('About', {
       product: product.product,
     })
   }
   const decreaseQuantity  = async (product)=>{
-    // console.log(product)
     setLoading(true)
     if(product.quantity ==1){
       const q1 = query(cartRef, 
@@ -110,7 +95,6 @@ export default () => {
             
     const removeProductFromCart = async (product)=>{
       setLoading(true)
-      // console.log(product)
       const q1 = query(cartRef, 
         where("productId", "==", product.productId),where("uid", "==", user.uid));
         const querySnapshot = await getDocs(q1);
@@ -125,11 +109,11 @@ export default () => {
   return (
    
     <Container>
-    {             
+    {/* {             
       cart?.map((product,id) =>{     
-      return(                    
+      return(                     */}
 
-        <ProductArea key={id}>
+        <ProductArea >
           {loading?
             <ActivityIndicator style={{top:20,marginBottom:-80}}
             animating={true} color={"#7159c1"}  size={80}
@@ -171,7 +155,6 @@ export default () => {
               </ProductInfoWrapper>
           </ProductsWrapper>
         </ProductArea>
-    )})} 
+    {/* )})}  */}
   </Container>
-  )
-}
+)}

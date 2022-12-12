@@ -19,12 +19,15 @@ import {
 import { Products } from './../../data/products';
 import { Image} from 'react-native';
 import { Modal} from 'react-native-paper';
+import { useSelector} from 'react-redux'
 
 export default () => {
   const [modalVisibility,setModalVisibility] = useState(false)
   const theme = useTheme()
   const navigation = useNavigation()
   const item = Products[0]
+  const user = useSelector((state) => state.user.userData); 
+
   const showModal = () => setModalVisibility(true);
   const hideModal = () => setModalVisibility(false);  
   const containerStyle = {
@@ -64,7 +67,7 @@ export default () => {
             }}
             ></Image>
           </ImageWrapper>
-        <UserInfoText>Carlos oliveira</UserInfoText>
+        <UserInfoText>{user.name}</UserInfoText>
       </UserInfoArea>
 
       </Container>

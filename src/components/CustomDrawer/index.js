@@ -21,9 +21,12 @@ import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
 import { retrieveCart } from '../../redux/features/cartSlice';
+import { useSelector} from 'react-redux'
 
 export function CustomDrawer(props) {
+  
   const dispatch = useDispatch()
+  const user = useSelector((state) => state.user.userData); 
   const handleLogout= ()=> {
     AsyncStorage.clear()
     firebase.auth().signOut()
@@ -37,7 +40,7 @@ export function CustomDrawer(props) {
         {...props}
         contentContainerStyle={{flex:1,backgroundColor: '#171717'}}>
         <HeaderArea>
-          <GreetingsText>Olá, Carlos Santana</GreetingsText>
+          <GreetingsText>Olá, {user.name}</GreetingsText>
 
 
         </HeaderArea>

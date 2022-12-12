@@ -12,7 +12,6 @@ const cartSlice = createSlice({
     reducers:{
         addToCart(state, action){
             state.cartItems.push(action.payload);
-            state.cartTotalAmount= state.cartTotalAmount+1
         },
         increaseQuantity(state, action){
             state.cartItems.map((product=>{         // this is the concept of offline first.
@@ -20,15 +19,28 @@ const cartSlice = createSlice({
                     product.quantity = action.payload.quantity+1
                 }
             }))
-            // console.log("ele",action.payload)
-            // state.cartItems.quantity[action.payload.id] = action.;
         },
         retrieveCart(state,action){
             state.cartItems= action.payload
-        }
+        },
+        getTotals(state, action) {
+            let accumulator = 0
+            let sum = 0
+            
+            // total = parseFloat(total.toFixed(2));
+            state.cartTotalQuantity = state.cartItems.reduce(
+                (prevVal, elem) =>prevVal 
+                +elem.quantity, 0 )
+
+            state.cartItems.map((product)=>{
+                let sum= product.quantity*product.product.price
+                accumulator= accumulator+sum
+            })
+            state.cartTotalAmount=  (accumulator)
     },
+    }
 })
 
-export const {addToCart, retrieveCart, increaseQuantity} = cartSlice.actions
+export const {addToCart, retrieveCart, increaseQuantity, getTotals} = cartSlice.actions
 
 export default cartSlice.reducer;

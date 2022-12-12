@@ -14,6 +14,10 @@ export const  CheckoutWrapper = styled.View`
     justify-content: space-between
     flex-direction:row
     `
+export const  TextArea = styled.View`
+    /* flex-direction:row */
+    /* margin-left:360px */
+    `
 export const ProductInfoText = styled.Text`
     flex:1
     color: ${props => props.theme.onBackGround}

@@ -1,17 +1,18 @@
 import React from 'react'
 import { 
-  Container, FirstIcon, IconsWrapper,
+  Container, FirstIcon, IconsWrapper, TotalProductsText, TotalProductsWrapper,
  } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'styled-components'
-
+import { useSelector} from 'react-redux'
 import { AntDesign } from '@expo/vector-icons';
 import Cart from '../../assets/icons/shopping-cart-svgrepo-com.svg'
 
 export default () => {
   const navigation = useNavigation()
   const theme = useTheme()
-  
+  const cartAmount = useSelector((state) => state.cart);
+  {console.log(cartAmount.cartTotalQuantity)}
   return (
     <Container>
       <FirstIcon>
@@ -23,6 +24,12 @@ export default () => {
       {Cart?
         <IconsWrapper onPress={() => navigation.push('Cart')} >
           <Cart width={24} height={24} fill={theme.onBackGround} ></Cart>
+         {cartAmount.cartTotalQuantity>0?
+          <TotalProductsWrapper>
+            <TotalProductsText>{cartAmount.cartTotalQuantity}</TotalProductsText>
+          </TotalProductsWrapper>
+          :null
+         }
         </IconsWrapper>
         : null}
 

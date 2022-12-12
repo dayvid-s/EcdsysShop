@@ -18,11 +18,14 @@ import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons';
 import { Products } from './../../data/products';
 import { Image } from 'react-native';
+import { useSelector} from 'react-redux'
 
 export default () => {
   const theme = useTheme()
   const navigation = useNavigation()
   const item = Products[0]
+  const user = useSelector((state) => state.user.userData); 
+
   return (
     <Container>
       <UserInfoArea>
@@ -31,7 +34,7 @@ export default () => {
         </TitleInfoText>
         
         <TextAreaAndEdit>
-          <InfoText>Carlos Oliveira</InfoText>
+          <InfoText>{user.name}</InfoText>
           <EditButton>
             <EditButtonText>Editar</EditButtonText>
           </EditButton>
@@ -40,7 +43,7 @@ export default () => {
           Email
         </TitleInfoText>
         <TextAreaAndEdit>
-          <InfoText>CarlosOliveira@gmail.com</InfoText>
+          <InfoText>{user.email}</InfoText>
           <EditButton>
             <EditButtonText>Editar</EditButtonText>
           </EditButton>

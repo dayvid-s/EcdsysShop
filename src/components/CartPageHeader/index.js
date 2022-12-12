@@ -14,7 +14,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useSelector} from 'react-redux'
 
 
-export default () => {
+export default ({loading}) => {
   const theme = useTheme()
   const navigation = useNavigation()
   const cart = useSelector((state) => state.cart.cartItems); 
@@ -27,12 +27,20 @@ export default () => {
         <HeaderTitle></HeaderTitle>
         <TitleArea>
           <HeaderTitle>{'Meu carrinho'}</HeaderTitle>
-          {cart.length>1 ?
+        {
+          loading == false &&
+          (
+            <>
+
+          {cart.length>1    &&
             <SmallTitle>{cart.length} items</SmallTitle>
-            :
+            }
+          {cart.length==1 &&
             <SmallTitle>{cart.length} item</SmallTitle>
           }
+      </>
+        )}
         </TitleArea>
+      
       </IconsArea>
-  )
-}
+)}
