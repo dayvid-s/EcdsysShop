@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, {  useState, useEffect } from 'react'
 import { 
   AntDesign, 
   FontAwesome,
@@ -15,24 +15,60 @@ import {
   TextWithSearches,
 } from './styles'
 import { useTheme } from 'styled-components'
-import { StatusBar } from 'react-native';
+import { Alert, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import ViewProducts from '../../components/ViewProducts';
+import { useSelector } from 'react-redux';
+import { firestore } from '../../services/firebase-config';
+import { collection, query, where,doc, setDoc, getDocs  } from "firebase/firestore";
+
 
 export default ()=> {
-
-  const userSearches= [ 'Geladeira consul',' Ventilador 40CM coluna','Geladeira',]
+  const user = useSelector((state) => state.user.userData);
+  var searchesData=[]
+  const [userSearches, setUserSearches] = useState([])
   const theme = useTheme()
-  const searchRef = useRef()
   const navigation = useNavigation()
   const [statusBarColor,setStatusBarColor]= useState('#7159c1')
+  const [searchResult,setSearchResult]= useState(false)
+  const [search, setSearch]= useState('')
+  const userRef = doc(collection(firestore, "userSearches"));
+  const searchesRef = collection(firestore, "userSearches");
+  const searchesQuery = query(searchesRef, where("uid", "==", user.uid));
+  let data
+
+  useEffect (()=>{
+    const retrieveSearches= async ()=>{
+      const querySnapshot = await getDocs(searchesQuery)
+      querySnapshot.forEach( (doc) => {
+        searchesData.push(doc.data().search)
+        setUserSearches([...searchesData])
+      })
+    }
+    retrieveSearches()
+  },[searchResult])
+
+  
+
   const goBack=()=>{
       //this is to solve the bug of status bar delay in change color.
     setStatusBarColor('#010101')
     navigation.goBack()
   }
-  
-  setTimeout(()=>{searchRef.current.focus()},100)
-  
+  const validate = ()=>{
+     let error= false
+    if (search === ''){
+      Alert.alert('Escreva algo')
+      error = true
+    }
+    return !error
+  }
+  const SearchProduct= async ()=>{
+      if(validate()){
+        setSearchResult(true)
+        await setDoc(userRef,  data={search , uid: user.uid});
+        
+  }}
   return (
   
   <Container>
@@ -44,23 +80,35 @@ export default ()=> {
       <InputArea>
         <FontAwesome style={{opacity:0.7}} name="search" size={24} color="#FFF" />
         <TextInputToSearch
-          ref={searchRef}
+          returnKeyType={"search"}
+          autoFocus= {true}
+          onSubmitEditing ={()=>{SearchProduct()}}
+          onChangeText={setSearch}
+          onFocus={()=>{setSearchResult(false)}}
         ></TextInputToSearch>
           {/*on focus pra here  */}
       </InputArea>
     </HeaderArea>
-
-    {userSearches.map((item,index) =>{   
+  {searchResult== false?
+      <>
+      
+    {userSearches?.map((item,index) =>{   
       return(                  
         <SearchHistoryArea key={index}>
-          <Entypo name="cross" size={27} color="gray" />
-          <TextWithSearches>
-          {item}
-          </TextWithSearches>
-          <MaterialIcons name="keyboard-arrow-right" size={32} color="gray" />
-      </SearchHistoryArea>
-    )})}
+        <Entypo name="cross" size={27} color="gray" />
+        <TextWithSearches>
+        {item}
+        </TextWithSearches>
+        <MaterialIcons name="keyboard-arrow-right" size={32} color="gray" />
+        </SearchHistoryArea>
+        )})}
 
+        </>
+        
+        :<ViewProducts Text='Resultados' typeOfPage='SearchProduct' 
+        searchWord={search}
+        width={170} height={170} ></ViewProducts>
+      }
   </Container>
 
     )

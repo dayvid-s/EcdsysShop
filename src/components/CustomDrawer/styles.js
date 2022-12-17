@@ -5,14 +5,18 @@ export const Container = styled.View`
     `
 export const HeaderArea = styled.View`
     /* flex:1 */
-    padding:50px
+    padding:30px
     background-color:#171717
+`
+export const ImageArea = styled.TouchableOpacity`
 `
 export const GreetingsText = styled.Text`
     color:#fff
     font-size:18px
     margin-top:-25px
     font-family: "Medium"
+    margin-left:70px
+    top:-10px
 `
 export const DrawerWrapper = styled.View`
 flex: 1 

@@ -18,23 +18,12 @@ export default() =>{
     const verifyUser = async ()=>{
         const storageUser = await AsyncStorage.getItem('userData')
         if(storageUser){
-            dispatch(changeUserInfo(JSON.parse(storageUser)))   //its passing a payload that authenticates the user 
+            dispatch(changeUserInfo(JSON.parse(storageUser))) 
             setLoadingAuth(false)
         }
         setLoadingAuth(false)}
         verifyUser()
     },[])
-
-    // function onAuthStateChanged(user){
-    //     {console.log(user,"user da autenticação")}
-    //     dispatch(changeUserInfo(user))
-    //     if(loadingAuth) setLoadingAuth(false);
-    // }
-
-    // useEffect(()=>{
-    //     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged)
-    //     return subscriber;
-    // },[])
     
     if(loadingAuth) return <Preload/>
 

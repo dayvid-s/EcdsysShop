@@ -9,12 +9,12 @@ const userSlice = createSlice({
         changeUserInfo(state,action){
             state.userData = action.payload
         },
-        loading(state, action){
-            // state.
+        changeUserAvatar(state, action){
+            state.userData.userAvatar = action.payload
         }
     },
 })
     
-export const {changeUserInfo, } = userSlice.actions
+export const {changeUserInfo, changeUserAvatar } = userSlice.actions
 
 export default userSlice.reducer;

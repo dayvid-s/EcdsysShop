@@ -13,36 +13,34 @@ import { useNavigation } from '@react-navigation/native'
 import {useDispatch} from 'react-redux'
 import { productsFetch } from '../../redux/features/productsSlice'
 import { useSelector} from 'react-redux'
-export default ({DayOffer, Text, height, width, }) => {
-
+export default ({typeOfPage, searchWord, Text, height, width, }) => {
   const navigation= useNavigation()
   const products = useSelector((state) => state.products);
-  const recommendedProducts = products.items.filter(checkProducts);
+  const productsFiltered = products.items.filter(checkProducts);
 
+  // console.log(products[2])
   function checkProducts(product) {
-    if(DayOffer ==true){
-    if( product.isDayOffer == true){
+    if(typeOfPage== "DayOffer" && product.isDayOffer){
         return product };
-      }else{
-        if( product.isRecommended == true){
-        return product }}}
-
+    if ( typeOfPage=="Recommended" && product.isRecommended == true){
+      return product }
+    if ( typeOfPage=="SearchProduct" && product.name.includes(searchWord)  ){
+      return product }
+    }
+   
+  
   const dispatch = useDispatch()
-  const selectItem = (product) => dispatch({
-    type: 'ADD_TO_CART', payload:product,
-  })
-    
+
   useEffect(() => {
     dispatch(productsFetch())
-    // para preservar mémoria
   }, [dispatch]);
-
+// {console.log(productsFiltered.length)}
 return (
   <Container>
     <TextInfo>{Text}</TextInfo>
-    <ProductArea>
+    <ProductArea quantity={productsFiltered.length} >
       {             // aqui vai ser uma renderização condicional, mas de uma f
-      recommendedProducts?.map((product,id) =>{     //forma diferente, pois eu passo como props
+      productsFiltered?.map((product,id) =>{     //forma diferente, pois eu passo como props
         return(                   // o product que vai ser mapeado 
           <WrapperProducts key={id} 
           onPress={()=>{  navigation.push('About', {
@@ -63,8 +61,8 @@ return (
               ></Image>
             </LinearGradient>
             <ProductInfoText></ProductInfoText>
-            <ProductInfoText DayOffer={DayOffer} >{product.name}</ProductInfoText>
-            <ProductPriceText DayOffer={DayOffer} >R${product.price}</ProductPriceText>
+            <ProductInfoText typeOfPage={typeOfPage} >{product.name}</ProductInfoText>
+            <ProductPriceText typeOfPage={typeOfPage} >R${product.price}</ProductPriceText>
           </WrapperProducts>
       )})}
     </ProductArea>  

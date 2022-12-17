@@ -15,18 +15,19 @@ export const HeaderArea = styled.View`
 export const InputArea = styled.View`
     flex-direction: row
     /* margin-top:20px */
-    padding:7px
+    padding:9px
     /* padding-right:73% */
     background-color:#121212
     border-radius:10px
     border-width:2px
     border-color:gray
+    max-width:85%
     `
 export const TextInputToSearch = styled.TextInput`
-padding:2px
-padding-right:73%
-    
-`
+    flex:1
+    color: ${props => props.theme.onBackGround}
+    margin-left:10px    
+    `
 
 export const SearchHistoryArea = styled.TouchableOpacity`
     flex-direction: row;

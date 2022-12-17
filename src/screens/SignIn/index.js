@@ -58,7 +58,7 @@ export default () => {
       setPasswordError("Preencha sua senha")
       error = true
     }
-    return !error
+    return !error    // just pass when don't have error.
   }
   const dispatch = useDispatch()
 
@@ -84,9 +84,10 @@ export default () => {
             let data = {
               uid:uid,
               name: snapshot.data().name,
-              email:snapshot.data().email
-              
+              email:snapshot.data().email,
+              userAvatar:snapshot.data().picture? snapshot.data().picture  : null
             }
+            {console.log(data)}
               storageUser(data)
               dispatch(changeUserInfo(data))  
               setAuthLoading(false)

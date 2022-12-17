@@ -76,11 +76,8 @@ export default ({product}) => {
           }
           
         }
-        // dispatch(increaseQuantity)
         const handleIncreaseQuantity = async (product)=>{
-          // console.log(product.quantity)
           setLoading(true)
-          // dispatch(increaseQuantity(product))
           const q1 = query(cartRef, 
             where("productId", "==", product.productId),where("uid", "==", user.uid));
             const querySnapshot = await getDocs(q1);

@@ -31,8 +31,8 @@ export default () => {
       */}
 
 
-        <ViewProducts   Text='Produtos recomendados' width={170} height={170} /> 
-        <ViewProducts DayOffer Text="Oferta do dia" width={360} height={360} /> 
+        <ViewProducts typeOfPage= "Recommended"  text='Produtos recomendados' width={170} height={170} /> 
+        <ViewProducts typeOfPage="DayOffer" text="Oferta do dia" width={360} height={360} /> 
 
         {/* <ViewProducts> </ViewProducts>  */}
         {/* view concreta, talves você se interesse. componente externo

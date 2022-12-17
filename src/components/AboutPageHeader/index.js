@@ -33,9 +33,9 @@ export default () => {
         </IconsWrapper>
         : null}
 
-      <IconsWrapper >
-        <AntDesign name="hearto" size={24} color={theme.onBackGround} />
-      </IconsWrapper>
+        <IconsWrapper >
+          <AntDesign name="hearto" size={24} color={theme.onBackGround} />
+        </IconsWrapper>
     </Container>
     )
 }

@@ -25,7 +25,7 @@ export default ()=> {
   return (
     <ScrollView>
       <Container>
-        <AboutPageHeader/>
+        <AboutPageHeader heartIcon={true}/>
         <AnimatedImages product={product}></AnimatedImages>
         {/* i need put 8 times that he is dividido 8 sem juros, more one data at products */} 
         <ProductInfo product={product} />
