@@ -16,16 +16,15 @@ import {
   AntDesign,
   Entypo
 } from '@expo/vector-icons';
-import { Products } from './../../data/products';
 import { Image} from 'react-native';
 import { Modal} from 'react-native-paper';
 import { useSelector} from 'react-redux'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default () => {
   const [modalVisibility,setModalVisibility] = useState(false)
   const theme = useTheme()
   const navigation = useNavigation()
-  const item = Products[0]
   const user = useSelector((state) => state.user.userData); 
 
   const showModal = () => setModalVisibility(true);
@@ -41,6 +40,8 @@ export default () => {
 
   };
   return (
+    <GestureHandlerRootView>
+
     <Container >
     <IconsArea >
         <IconsWrapper onPress={() => navigation.goBack()}>
@@ -51,15 +52,15 @@ export default () => {
           <HeaderTitle>Minha Conta</HeaderTitle>
         </TitleArea>
 
-        <IconsWrapper>
-          {/* <Entypo  name="dots-three-vertical" size={22} color="#FFF" /> */}
-        </IconsWrapper>
       </IconsArea>
 
       <UserInfoArea>
         <ImageWrapper>
 
-          <Image source={item.productImage} 
+          <Image source={{uri: user.userAvatar!= null? user.userAvatar 
+              :
+              "https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png"
+            }} 
             style={{
               width:90,
               height:90,
@@ -71,5 +72,6 @@ export default () => {
       </UserInfoArea>
 
       </Container>
+    </GestureHandlerRootView>
   )
 }

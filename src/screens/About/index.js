@@ -16,14 +16,15 @@ import ProductInfo from '../../components/ProductInfo'
 import FinalizePurchase from '../../components/FinalizePurchase'
 import BottomOfThePageAbout from '../../components/BottomOfThePageAbout'
 import ViewProducts from '../../components/ViewProducts'
+import { useEffect } from 'react';
+import { StatusBar } from 'react-native';
 export default ()=> {
-  const navigation= useNavigation()
+ const navigation= useNavigation()
   const route= useRoute()
-  // {console.log(product)}
   const { product } = route.params;
-  // {console.log(product)}
   return (
     <ScrollView>
+      <StatusBar backgroundColor = {'#000'}   ></StatusBar>
       <Container>
         <AboutPageHeader heartIcon={true}/>
         <AnimatedImages product={product}></AnimatedImages>

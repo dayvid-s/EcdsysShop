@@ -11,7 +11,6 @@ export default() =>{
     const user = useSelector((state) => state.user);
     const [loadingAuth, setLoadingAuth ]= useState(false)
     const dispatch = useDispatch()
-    
    
     useEffect (() =>{
     setLoadingAuth(true)
@@ -27,7 +26,7 @@ export default() =>{
     
     if(loadingAuth) return <Preload/>
 
-    return (user.userData !=null?  //here should be user.  
-    <MainStack/> : <AuthRoutes/>
+    return (user.userData !=null?  
+        <MainStack/> : <AuthRoutes/>
         )}
 

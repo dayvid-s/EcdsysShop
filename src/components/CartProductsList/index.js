@@ -104,12 +104,7 @@ export default ({product}) => {
 
 
   return (
-   
     <Container>
-    {/* {             
-      cart?.map((product,id) =>{     
-      return(                     */}
-
         <ProductArea >
           {loading?
             <ActivityIndicator style={{top:20,marginBottom:-80}}
@@ -152,6 +147,5 @@ export default ({product}) => {
               </ProductInfoWrapper>
           </ProductsWrapper>
         </ProductArea>
-    {/* )})}  */}
   </Container>
 )}

@@ -5,7 +5,7 @@ export const Container = styled.View`
     flex:1
 `
 export const HeaderArea = styled.View`
-    background-color: ${props => props.theme.roseBlue}
+    background-color: ${props => props.theme.backGround}
     flex-direction: row
     padding:10px
     padding-bottom:10px
@@ -17,7 +17,7 @@ export const InputArea = styled.View`
     /* margin-top:20px */
     padding:9px
     /* padding-right:73% */
-    background-color:#121212
+    background-color:${props => props.theme.backGround}
     border-radius:10px
     border-width:2px
     border-color:gray

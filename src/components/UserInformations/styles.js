@@ -3,14 +3,12 @@ export const Container = styled.View`
    ` 
 export const UserInfoArea = styled.View`
    background-color:#1C1C26
-   /* background-color:${props => props.theme.roseBlue} */
    padding:30px
    margin-left:5%
    margin-right:5%
    padding-bottom:4%;
    margin-bottom:20px
    border-radius:20px
-   /* align-items:space-between */
    
    `
 export const TitleInfoText = styled.Text`
@@ -63,4 +61,12 @@ export const SignOutArea =styled(UserInfoArea)`
    padding-bottom: 5%;
    align-items: center
    justify-content: center
+`
+export const BottomSheetArea =styled.View`
+   flex:1
+   padding:90px
+   padding-top:200px
+   padding-bottom:600px
+   margin-top:-490px
+
 `

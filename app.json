@@ -7,7 +7,8 @@
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "android": {
-      "userInterfaceStyle": "automatic" },
+      "userInterfaceStyle": "automatic" ,
+      "softwareKeyboardLayoutMode": "pan" },  //this to evitad keyboard go up
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"

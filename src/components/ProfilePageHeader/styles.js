@@ -29,6 +29,7 @@ export const IconsWrapper = styled.TouchableOpacity`
     color: ${props => props.theme.onBackGround}    
     align-self:center
     font-size:25px
+    margin-right:30px
     `
     export const UserInfoArea = styled.View`
     margin-right:5%

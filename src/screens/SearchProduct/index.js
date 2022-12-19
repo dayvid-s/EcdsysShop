@@ -21,7 +21,7 @@ import ViewProducts from '../../components/ViewProducts';
 import { useSelector } from 'react-redux';
 import { firestore } from '../../services/firebase-config';
 import { collection, query, where,doc, setDoc, getDocs  } from "firebase/firestore";
-
+import { TouchableOpacity } from 'react-native';
 
 export default ()=> {
   const user = useSelector((state) => state.user.userData);
@@ -69,10 +69,15 @@ export default ()=> {
         await setDoc(userRef,  data={search , uid: user.uid});
         
   }}
+
+  const seeProduct = (item)=>{
+    setSearch(item)
+    setSearchResult(true)
+  }
   return (
   
   <Container>
-    <StatusBar backgroundColor = {statusBarColor}   ></StatusBar>
+    {/* <StatusBar backgroundColor = {statusBarColor}   ></StatusBar> */}
     <HeaderArea>
       <AntDesign onPress={()=>{goBack()}}
         style={{marginTop:3, opacity:0.8, marginLeft:6,marginRight:6}}
@@ -83,26 +88,31 @@ export default ()=> {
           returnKeyType={"search"}
           autoFocus= {true}
           onSubmitEditing ={()=>{SearchProduct()}}
+          onChange={()=>{setSearchResult(false)
+          {setSearch}
+          }}
           onChangeText={setSearch}
           onFocus={()=>{setSearchResult(false)}}
+          value={search}
         ></TextInputToSearch>
-          {/*on focus pra here  */}
       </InputArea>
     </HeaderArea>
   {searchResult== false?
       <>
       
     {userSearches?.map((item,index) =>{   
-      return(                  
-        <SearchHistoryArea key={index}>
-        <Entypo name="cross" size={27} color="gray" />
-        <TextWithSearches>
-        {item}
-        </TextWithSearches>
-        <MaterialIcons name="keyboard-arrow-right" size={32} color="gray" />
+      // {console.log(typeof(item))} 
+      return(         
+        <SearchHistoryArea key={index} onPress={()=>{seeProduct(item)}}
+                                      // onPress={()=>{decreaseQuantity(product)}} 
+        >
+          {/* <TouchableOpacity onPress={()=>{Searcct(item)}} > */}
+
+          <Entypo name="cross" size={27} color="gray" />
+          <TextWithSearches>{item}</TextWithSearches>
+          <MaterialIcons name="keyboard-arrow-right" size={32} color="gray" />
         </SearchHistoryArea>
         )})}
-
         </>
         
         :<ViewProducts Text='Resultados' typeOfPage='SearchProduct' 

@@ -173,7 +173,6 @@ export default () => {
               secureTextEntry={true}
               passWord={true}
               />
-            {/* tava moscando por causa das chavrs */}
             <CustomButton onPress={()=>{ handleSignUp(email,password, name)}}>
               {
                 loadingAuth?

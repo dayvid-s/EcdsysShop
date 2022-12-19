@@ -42,6 +42,12 @@ export default () => (
             }
         }} >
         
+            <Drawer.Screen name ='Minha conta' component={Profile}
+                options={{
+                    drawerIcon: () => (
+                        <Feather name="user" size={24} color="#rgb(178,180,183)" />                    ),
+                    }}
+            ></Drawer.Screen>
         
         <Drawer.Screen name ='Início' component={Home}
             options={{
@@ -73,12 +79,6 @@ export default () => (
             options={{
                 drawerIcon: () => (
                     <MaterialCommunityIcons name="help" size={24} color="#rgb(178,180,183)" />                    ),
-                }}
-        ></Drawer.Screen>
-        <Drawer.Screen name ='Minha conta' component={Profile}
-            options={{
-                drawerIcon: () => (
-                    <Feather name="user" size={24} color="#rgb(178,180,183)" />                    ),
                 }}
         ></Drawer.Screen>
         <Drawer.Screen name ='Configurações' component={Settings}

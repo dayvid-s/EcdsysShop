@@ -8,6 +8,7 @@ import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as ReduxProvider } from 'react-redux'
+import { StatusBar } from 'react-native';
 import store from './src/redux/store'
 import Routes from './src/routes';
 
@@ -44,8 +45,11 @@ export default function App() {
         <NavigationContainer
         theme={{ colors: { background: deviceTheme === 'dark' ? '#000' : '#fff'}}}
         // I already have a theme with styled components, but this is to solve 
-        //when the page stays flickering at navigation.
+        //when the page render at white color in the navigation
         >
+
+            <StatusBar animated={true} backgroundColor = "black"   ></StatusBar>
+            
           <Routes></Routes>
         </NavigationContainer>
       </ThemeProvider>
