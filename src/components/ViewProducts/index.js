@@ -13,12 +13,13 @@ import { useNavigation } from '@react-navigation/native'
 import {useDispatch} from 'react-redux'
 import { productsFetch } from '../../redux/features/productsSlice'
 import { useSelector} from 'react-redux'
-export default ({typeOfPage, searchWord, text, height, width, productOnScreen }) => {
+import { addToHistoric } from '../../redux/features/productHistoricSlice'
+export default ({typeOfPage, searchWord, text, height, width, productOnScreen, lastProduct }) => {
   const navigation= useNavigation()
   const products = useSelector((state) => state.products);
   const productsFiltered = products.items?.filter(checkProducts);
-
-  // console.log(products[2])
+  const dispatch = useDispatch()
+  const historic= useSelector((state) => state.historic)
   function checkProducts(product) {
     if(typeOfPage== "DayOffer" && product.isDayOffer){
         return product };
@@ -29,6 +30,13 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen })
     if ( typeOfPage=="SearchProduct" && product.name.includes(searchWord)  ){
       return product }
     
+    if ( typeOfPage=="YourInterest" && product.category== lastProduct?.category  ){
+      return product }
+
+    if ( typeOfPage=="SeenBefore" && product.isRecommended == true  ){
+      
+      return product }
+    
     if ( typeOfPage=="About" && product.name!= productOnScreen.name 
           && product.category == productOnScreen.category ){ 
       return product }
@@ -36,7 +44,14 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen })
     }
    
   
-  const dispatch = useDispatch()
+
+  const viewProduct=(product)=>{
+    dispatch(addToHistoric(product))
+    navigation.push('About', {
+      product: product,
+    })
+
+  }
 
   useEffect(() => {
     dispatch(productsFetch())
@@ -50,10 +65,7 @@ return (
       {             
       productsFiltered?.map((product,id) =>{     
         return(                   
-          <WrapperProducts typeOfPage={typeOfPage}  key={id} 
-          onPress={()=>{  navigation.push('About', {
-            product: product,
-          });}}
+          <WrapperProducts typeOfPage={typeOfPage}  key={id} onPress={()=> viewProduct(product)}
           >
             <LinearGradient style={{borderRadius:12,zIndex: 0}}
               colors={["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"]}

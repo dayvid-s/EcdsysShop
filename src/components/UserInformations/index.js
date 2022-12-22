@@ -37,7 +37,6 @@ export default () => {
   const bottomSheetRef = useRef();
   const openBottomSheet = () => bottomSheetRef.current?.expand()
   const closeBottomSheet = () => bottomSheetRef.current?.close()
-{console.log(user.email)}  
   const openModal= ()=> {
       // setVisible(true)
     setTimeout(() => {

@@ -15,6 +15,11 @@ import ProductsList from '../../components/ProductsList'
 
 export default () => {
   const user = useSelector((state) => state.user)
+  const historic= useSelector((state) => state.historic.userProductHistoric)
+  const lastProductSeen = historic?.length>1?
+  'Com base no seu interesse em '.concat(historic[historic?.length -1].knownBy) : null
+  const lastProduct=(historic[historic?.length -1])
+
   return (
     
     <Container>
@@ -32,21 +37,17 @@ export default () => {
 
         <ViewProducts typeOfPage= "Recommended"  text='Produtos recomendados' width={170} height={170} /> 
         <ViewProducts typeOfPage="DayOffer" text="Oferta do dia" width={360} height={360} /> 
-        <ViewProducts typeOfPage="YourSearch" text={"Com base na sua pesquisa em fones de ouvido "  } width={170} height={170} /> 
-        {/* <ProductsList typeOfPage= "Recommended"  text='Produtos recomendados' width={170} height={170} > */}
-
-        {/* </ProductsList> */}
-        {/* <ViewProducts> </ViewProducts>  */}
-        {/* view concreta, talves você se interesse. componente externo
-        que se passa o tipo de produto que terá que renderizar, o texto, e só
-        casó ja tenha pesquisa, ele mostra algo relacionado a pesquisa, senao, ele 
-        mostra um item aleatorio
-        */} 
-
-        
-        {/* <ViewProducts> </ViewProducts>  */}
-        {/* Visto recentemente  */}
-
+        {
+          historic?.length>1? 
+          <>
+            <ViewProducts typeOfPage="YourInterest" text={lastProductSeen} width={170} height={170}
+            lastProduct={lastProduct}
+            /> 
+            <ViewProducts typeOfPage="SeenBefore" text={"Visto recentemente"  } width={170} height={170} /> 
+            </>
+            :
+          <ViewProducts typeOfPage="YourSearch" text={"Talvez você se interesse"  } width={170} height={170} /> 
+        }
     
       </ScrollView>
     </Container>

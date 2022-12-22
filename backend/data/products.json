@@ -17,7 +17,8 @@
         "evaluationsTotal": 234,
         "isAvailable": true,
         "isDayOffer": false,
-        "isRecommended": false   
+        "isRecommended": false,
+        "knownBy": "computadores "   
     },
     {
         "productId": "2",
@@ -36,7 +37,8 @@
         "evaluationsTotal": 234,
         "isAvailable": true,
         "isDayOffer": false,
-        "isRecommended": true   
+        "isRecommended": true,
+        "knownBy": "eletrônicos"   
     },
     {
         "productId": "3",
@@ -51,7 +53,8 @@
         "evaluationsTotal": 234,
         "isAvailable": true,
         "isDayOffer": false,
-        "isRecommended": true   
+        "isRecommended": true,
+        "knownBy": "games"   
     },
     {
         "productId": "4",
@@ -70,7 +73,8 @@
         "evaluationsTotal": 534,
         "isAvailable": true,
         "isDayOffer": true,
-        "isRecommended": false   
+        "isRecommended": false,
+        "knownBy": "celulares"   
     }
     ,
     {
@@ -89,7 +93,8 @@
         "evaluationsTotal": 354,
         "isAvailable": true,
         "isDayOffer": false,
-        "isRecommended": true   
+        "isRecommended": true,
+        "knownBy": "computadores "   
     },
     {
         "productId": "6",
@@ -106,7 +111,8 @@
         "evaluationsTotal": 134,
         "isAvailable": true,
         "isDayOffer": false,
-        "isRecommended": true   
+        "isRecommended": true,
+        "knownBy": "fones de ouvido"   
     },
     {
         "productId": "7",
@@ -125,6 +131,7 @@
         "evaluationsTotal": 234,
         "isAvailable": true,
         "isDayOffer": false,
-        "isRecommended": false   
+        "isRecommended": false,
+        "knownBy": "fones de ouvido"   
     }
 ]
