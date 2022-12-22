@@ -27,16 +27,15 @@ const cartSlice = createSlice({
             let accumulator = 0
             let sum = 0
             
-            // total = parseFloat(total.toFixed(2));
             state.cartTotalQuantity = state.cartItems.reduce(
                 (prevVal, elem) =>prevVal 
                 +elem.quantity, 0 )
 
             state.cartItems.map((product)=>{
-                let sum= product.quantity*product.product.price
+                sum= product.quantity*product.product.price
                 accumulator= accumulator+sum
             })
-            state.cartTotalAmount=  (accumulator)
+            state.cartTotalAmount=  parseFloat(accumulator.toFixed(2))
     },
     }
 })

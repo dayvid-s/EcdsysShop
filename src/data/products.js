@@ -47,7 +47,7 @@ export const Products = [
     rating: 4.5,
     evaluationsTotal : 234,
     description:
-    'Mergulhe no som estéreo de 20 W RMS com o poderoso alto-falante Bluetooth Party Pal 50. Defina as vibrações da festa da maneira certa com os LEDs RGB. Mantenha as preocupações afastadas e festeje à beira da piscina com IPX5 resistente a respingos! Get, set, grooving como Party Pal 50 vem com uma reprodução poderosa de 4,5 horas. Acesse o Instant Voice Assistant e aproveite os vários modos de conectividade - USB, AUX, Bluetooth v5.1 e FM.',
+    'Os fones de ouvido JBL TUNE 710BT reproduzem um som que você merece, com graves puros e grande potência sonora. O design over-ear é leve e compacto, com almofadas de ouvido macias proporcionando o máximo conforto para poder usar por períodos prolongados. Os fones são dobráveis, o que permite levá-lo para qualquer lugar com muita praticidade. O JBL TUNE 710 conta ainda com a conectividade multipontos que permite alternar entre dispositivos com Bluetooth. A concha dos fones possui botões de controle que comandam o som, tornando possível gerenciar com facilidade as chamadas e o acesso aos assistentes de v',
     isOff: true,
     offPercentage: 10,
     productImage: {uri:'https://www.jbl.com.br/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw021189f9/1.JBL_TUNE_710BT_Product%20Image_Hero_White.png'},
@@ -71,7 +71,7 @@ export const Products = [
     offPercentage: 10,
     productImage: require('../assets/images/notebookAcer05.png'),
     isAvailable: true,
-    isRecomended: true,
+    isRecomended: false,
     specifications: ['Branco', 'Preto']
     // productImageList: [
       // require('../assets/images/Mi1.png'),

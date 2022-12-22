@@ -28,16 +28,14 @@ export default ()=> {
       <Container>
         <AboutPageHeader heartIcon={true}/>
         <AnimatedImages product={product}></AnimatedImages>
-        {/* i need put 8 times that he is dividido 8 sem juros, more one data at products */} 
         <ProductInfo product={product} />
         <FinalizePurchase product={product}/>
         <BottomOfThePageAbout product={product} ></BottomOfThePageAbout>
-        {/* i will put the frete page here. frete like lum */}
         
-        {/* i need create a horizontal scrollabe here. */}
-        <ViewProducts Text='Leve também' width={160} height={160} ></ViewProducts>
-        <ViewProducts Text='Quem viu este produto também comprou' width={160} height={160} ></ViewProducts>
-        <ViewProducts Text='Compre também' width={160} height={160} ></ViewProducts>
+        <ViewProducts productOnScreen={product} typeOfPage={'About'}  
+        text='Quem viu este produto também comprou' width={160} height={160} 
+        ></ViewProducts>
+      
       </Container>
     </ScrollView>
   )

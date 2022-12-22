@@ -1,6 +1,9 @@
 import styled from "styled-components"
 export const Container = styled.View`
    ` 
+export const ModalText = styled.Text`
+   color:#000
+   ` 
 export const UserInfoArea = styled.View`
    background-color:#1C1C26
    padding:30px
@@ -9,6 +12,7 @@ export const UserInfoArea = styled.View`
    padding-bottom:4%;
    margin-bottom:20px
    border-radius:20px
+   /* opacity:0.1 */
    
    `
 export const TitleInfoText = styled.Text`
@@ -63,6 +67,14 @@ export const SignOutArea =styled(UserInfoArea)`
    justify-content: center
 `
 export const BottomSheetArea =styled.View`
+   flex:1
+   padding:90px
+   padding-top:200px
+   padding-bottom:600px
+   margin-top:-700px
+
+`
+export const Modal =styled.Modal`
    flex:1
    padding:90px
    padding-top:200px

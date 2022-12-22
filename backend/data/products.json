@@ -4,7 +4,7 @@
         "productId": "1",
         "category":"pc",
         "name":"MacBook Pro",
-        "price": 21.779,
+        "price": 21779,
         "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463365/EcdsyShop/mbp14_sdldqi.png",
         "secondaryPhotos":[
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463365/EcdsyShop/mbp14_sdldqi.png",
@@ -23,7 +23,7 @@
         "productId": "2",
         "category":"eletronic",
         "name":"Boat Partypal 50",
-        "price": 3.199,
+        "price": 3199,
         "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/boat_kjvakp.png",
         "secondaryPhotos":[
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/boat_kjvakp.png",
@@ -42,7 +42,7 @@
         "productId": "3",
         "category":"gamer",
         "name":"Playstation 5",
-        "price": 4.599,
+        "price": 4599,
         "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/ps5_ma9dtz.png",
         "secondaryPhotos":["https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/ps5_ma9dtz.png"],
         "description": "Desfrute do carregamento extremamente rápido com o SSD de altíssima velocidade, uma imersão mais profunda com suporte a feedback tátil, gatilhos adaptáveis e áudio 3D, além de uma geração inédita de jogos incríveis para PlayStation®.",
@@ -57,7 +57,7 @@
         "productId": "4",
         "category":"cellPhone",
         "name":"Iphone 11",
-        "price": 2.799,
+        "price": 2799,
         "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463365/EcdsyShop/iphone113_kh7ktt.png",
         "secondaryPhotos":[
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463365/EcdsyShop/iphone_ibxjpe.png",
@@ -70,6 +70,61 @@
         "evaluationsTotal": 534,
         "isAvailable": true,
         "isDayOffer": true,
+        "isRecommended": false   
+    }
+    ,
+    {
+        "productId": "5",
+        "category":"pc",
+        "name":"Notebook Acer Nitro 5",
+        "price": 4099,
+        "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/notebookAcer05_ux5fdy.png",
+        "secondaryPhotos":[
+        "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/notebookAcer05_ux5fdy.png",
+        "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/NotebookAcer2_p7vvrl.png"
+        ],
+        "description":" Um trem expresso direto para o centro da ação está chegando. O notebook gamer Acer Aspire Nitro 5 é a nova geração, com uma configuração que não treme para os jogos mais pesados. Embarque agora e prepare-se para a potência máxima.       Processador Intel Core i5 10ª Geração ",
+        "specifications": ["Branco", "Preto "],
+        "rating": 3.8,
+        "evaluationsTotal": 354,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": true   
+    },
+    {
+        "productId": "6",
+        "category":"headPhone",
+        "name":"Fone JBL 710BT",
+        "price": 280,
+        "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463364/EcdsyShop/FoneJbl_rchhll.png",
+        "secondaryPhotos":[
+        "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463364/EcdsyShop/FoneJbl_rchhll.png"
+        ],
+        "description": "Os fones de ouvido JBL TUNE 710BT reproduzem um som que você merece, com graves puros e grande potência sonora. O design over-ear é leve e compacto, com almofadas de ouvido macias proporcionando o máximo conforto para poder usar por períodos prolongados. Os fones são dobráveis, o que permite levá-lo para qualquer lugar com muita praticidade. O JBL TUNE 710 conta ainda com a conectividade multipontos que permite alternar entre dispositivos com Bluetooth. A concha dos fones possui botões de controle que comandam o som, tornando possível gerenciar com facilidade as chamadas e o acesso aos assistentes de v",
+        "specifications": null,
+        "rating": 5.0,
+        "evaluationsTotal": 134,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": true   
+    },
+    {
+        "productId": "7",
+        "category":"eletronic",
+        "name":"Auto Falante Boat Partypal 50",
+        "price": 3199,
+        "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/boat_kjvakp.png",
+        "secondaryPhotos":[
+        "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/boat_kjvakp.png",
+        "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463364/EcdsyShop/BoatPartypal503_gg8krn.png",
+        "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463364/EcdsyShop/BoatPartypal504_heoohz.png"
+        ],
+        "description": "Criado para todos os tipos de criativos, incluindo desenvolvedores, fotógrafos, cineastas, artistas 3D, produtores musicais e muito mais, o MacBook Pro de 14,2 da Apple com M1 Pro Chip é a estação de trabalho móvel profissional definitiva para o usuário final.O sistema possui o chip Apple M1 Pro 8-Core, que fornece a potência e o desempenho necessários para lidar com seus fluxos de trabalho profissionais.",
+        "specifications": null,
+        "rating": 4.5,
+        "evaluationsTotal": 234,
+        "isAvailable": true,
+        "isDayOffer": false,
         "isRecommended": false   
     }
 ]

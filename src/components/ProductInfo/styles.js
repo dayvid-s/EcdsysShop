@@ -30,7 +30,7 @@ export const ProductName = styled.Text`
     font-size:22px;
     color: ${props => props.theme.onBackGround}
     text-decoration-line: line-through
-    opacity:0.2
+    opacity:0.4
     margin-left:5px
     margin-top:15px
     margin-bottom:-4px

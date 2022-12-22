@@ -26,12 +26,12 @@ export default ()=> {
       {cartAmount.cartTotalQuantity >1?
         <CheckoutWrapper>
           <ProductInfoText>({cartAmount.cartTotalQuantity}) Produtos no total</ProductInfoText>
-          <ProductInfoPrice>R$ {cartAmount.cartTotalAmount}</ProductInfoPrice>
+          <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</ProductInfoPrice>
         </CheckoutWrapper>
       :
         <CheckoutWrapper>
           <ProductInfoText>(1) Produto</ProductInfoText>
-          <ProductInfoPrice>R$ {cartAmount.cartTotalAmount}</ProductInfoPrice>
+          <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</ProductInfoPrice>
         </CheckoutWrapper>
       }
     {
@@ -43,19 +43,20 @@ export default ()=> {
     :
     <CheckoutWrapper>
       <ProductInfoText>Custo de envio</ProductInfoText>
-      <ProductInfoPrice>R$ {(((cartAmount.cartTotalAmount)/200)*1000).toFixed(2)}</ProductInfoPrice>
+      <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount*0.009).toFixed(2)}</ProductInfoPrice>
+      {/* <ProductInfoPrice>R$460</ProductInfoPrice> */}
   </CheckoutWrapper>
     }
 
     {cartAmount.cartTotalQuantity>2?
       <CheckoutWrapper>
         <TotalText>Total</TotalText>
-        <TotalText>R$ {(cartAmount.cartTotalAmount)}</TotalText>
+        <TotalText>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</TotalText>
       </CheckoutWrapper>
       :
       <CheckoutWrapper>
         <TotalText>Total</TotalText>
-        <TotalText>R$ {(((cartAmount.cartTotalAmount+ cartAmount.cartTotalAmount/200))*1000).toFixed(2)}</TotalText>
+        <TotalText>R$ {(cartAmount.cartTotalAmount+ cartAmount.cartTotalAmount*0.009).toFixed(2)}</TotalText>
       </CheckoutWrapper>
     }
     <CheckoutButton>

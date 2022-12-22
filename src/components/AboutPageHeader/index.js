@@ -12,7 +12,6 @@ export default () => {
   const navigation = useNavigation()
   const theme = useTheme()
   const cartAmount = useSelector((state) => state.cart);
-  {console.log(cartAmount.cartTotalQuantity)}
   return (
     <Container>
       <FirstIcon>

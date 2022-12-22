@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Image,ScrollView } from 'react-native'
+import { Image, ScrollView } from 'react-native'
 import {
   Container,
   TextInfo,
@@ -24,8 +24,6 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen })
         return product };
     if ( typeOfPage=="Recommended" && product.isRecommended == true){
       return product }
-    if ( typeOfPage=="YourSearch" && product.isRecommended == true){
-      return product }
     if ( typeOfPage=="SearchProduct" && product.name.includes(searchWord)  ){
       return product }
     
@@ -44,9 +42,9 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen })
 return (
   <Container>
     <TextInfo>{ productsFiltered.length>=1? text : ''}</TextInfo>
-      <ScrollView horizontal={typeOfPage=='YourSearch'? true: false}  >
-    <ProductArea quantity={productsFiltered.length} >
+    <ScrollView horizontal={true} >
 
+    <ProductArea quantity={productsFiltered.length} >
       {             
       productsFiltered?.map((product,id) =>{     
         return(                   

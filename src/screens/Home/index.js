@@ -11,11 +11,10 @@ import ViewProducts from '../../components/ViewProducts'
 import { ScrollView } from 'react-native'
 import { StatusBar } from 'react-native';
 import { useSelector } from 'react-redux'
-import  AsyncStorage  from '@react-native-async-storage/async-storage';
+import ProductsList from '../../components/ProductsList'
 
 export default () => {
   const user = useSelector((state) => state.user)
-  // AsyncStorage.clear()
   return (
     
     <Container>
@@ -33,7 +32,10 @@ export default () => {
 
         <ViewProducts typeOfPage= "Recommended"  text='Produtos recomendados' width={170} height={170} /> 
         <ViewProducts typeOfPage="DayOffer" text="Oferta do dia" width={360} height={360} /> 
+        <ViewProducts typeOfPage="YourSearch" text={"Com base na sua pesquisa em fones de ouvido "  } width={170} height={170} /> 
+        {/* <ProductsList typeOfPage= "Recommended"  text='Produtos recomendados' width={170} height={170} > */}
 
+        {/* </ProductsList> */}
         {/* <ViewProducts> </ViewProducts>  */}
         {/* view concreta, talves você se interesse. componente externo
         que se passa o tipo de produto que terá que renderizar, o texto, e só

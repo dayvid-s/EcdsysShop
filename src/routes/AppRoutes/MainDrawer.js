@@ -42,12 +42,6 @@ export default () => (
             }
         }} >
         
-            <Drawer.Screen name ='Minha conta' component={Profile}
-                options={{
-                    drawerIcon: () => (
-                        <Feather name="user" size={24} color="#rgb(178,180,183)" />                    ),
-                    }}
-            ></Drawer.Screen>
         
         <Drawer.Screen name ='Início' component={Home}
             options={{
@@ -74,7 +68,7 @@ export default () => (
                 drawerIcon: () => (
                     <FontAwesome5 name="heart" size={24} color="#rgb(178,180,183)" />                    ),
                 }}
-        ></Drawer.Screen>
+                ></Drawer.Screen>
         <Drawer.Screen name ='Ajuda' component={HelpScreen}
             options={{
                 drawerIcon: () => (
@@ -85,6 +79,12 @@ export default () => (
             options={{
                 drawerIcon: () => (
                     <SimpleLineIcons name="settings" size={24} color="#rgb(178,180,183)" />                    ),
+                }}
+                ></Drawer.Screen>
+        <Drawer.Screen name ='Minha conta' component={Profile}
+            options={{
+                drawerIcon: () => (
+                    <Feather name="user" size={24} color="#rgb(178,180,183)" />                    ),
                 }}
         ></Drawer.Screen>
     </Drawer.Navigator>

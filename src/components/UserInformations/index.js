@@ -7,45 +7,68 @@ import {
   EditButton,
   EditButtonText,
   InfoText,
+  ModalText,
   NormalText,
   SignOutArea,
   TextAreaAndEdit,
   TitleInfoText,
   TouchableArea,
   UserInfoArea,
-
 } from './styles'
 import { useTheme } from 'styled-components'
 import { useNavigation } from '@react-navigation/native'
-import { AntDesign } from '@expo/vector-icons';
 import { useSelector} from 'react-redux'
 import BottomSheet from '@gorhom/bottom-sheet';
-import BottomSheetz from '../../components/BottomSheetz'
+import BottomSheetComponent from '../../components/BottomSheetComponent'
+import { Keyboard, } from 'react-native';
+import { Modal, Portal} from 'react-native-paper';
+
+
 export default () => {
+  const [visible, setVisible] = useState(false);
+  const hideModal = () => setVisible(false);
+  const containerStyle = {backgroundColor: 'white', padding: 20};
   const [emailOrName, setEmailOrName]= useState()
   const [text, setText]= useState()
-
+  const [indexz, setIndexz]= useState('80%')
   const theme = useTheme()
   const navigation = useNavigation()
   const user = useSelector((state) => state.user.userData); 
   const bottomSheetRef = useRef();
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
-  const handleSheetChanges = useCallback((index) => {
-  }, []);
-  const openBottomSheet =()=>{
-    bottomSheetRef.current?.expand()
+  const openBottomSheet = () => bottomSheetRef.current?.expand()
+  const closeBottomSheet = () => bottomSheetRef.current?.close()
+{console.log(user.email)}  
+  const openModal= ()=> {
+      // setVisible(true)
+    setTimeout(() => {
+      setVisible(true)
+    }, 500)  
+    setTimeout(() => {
+      setVisible(false)
+    }, 3500)  
   }
 
   return (
     <Container>
+      <Portal  >
+        <Modal
+          visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}> 
+          <ModalText >
+            {emailOrName=='email'? 'Email Alterado com sucesso'
+            :
+            "Nome alterado com sucesso."
+            }
+            </ModalText> 
+        </Modal> 
+      </Portal>
+
       <UserInfoArea>
-       
         <TitleInfoText>
           Nome
         </TitleInfoText>
         <TextAreaAndEdit>
           <InfoText>{user.name}</InfoText>
-          <EditButton onPress={()=>{openBottomSheet(), setEmailOrName('nome')}}   >
+          <EditButton onPress={()=>{openBottomSheet(), setEmailOrName('name'), setText('') }}   >
             <EditButtonText>Editar</EditButtonText>
           </EditButton>
         </TextAreaAndEdit>
@@ -56,25 +79,44 @@ export default () => {
         </TitleInfoText>
         <TextAreaAndEdit >
           <InfoText>{user.email}</InfoText>
-          <EditButton onPress={()=>{openBottomSheet(), setEmailOrName('email')}}  >
+          <EditButton onPress={()=>{openBottomSheet(), setEmailOrName('email'), setText('')}}  >
             <EditButtonText>Editar</EditButtonText>
           </EditButton>
         </TextAreaAndEdit>
         
         <TitleInfoText>
-          Senha
+        Favoritos
         </TitleInfoText>
         <TextAreaAndEdit>
-          <InfoText>°°°°°°°°°</InfoText>
-          <EditButton >
-            <EditButtonText>Mudar</EditButtonText>
-          </EditButton>
+          <InfoText>3</InfoText>
+          {/* <EditButton > */}
+            {/* <EditButtonText>0</EditButtonText> */}
+          {/* </EditButton> */}
+        </TextAreaAndEdit>
+
+        <TitleInfoText>
+        Histórico de compras
+        </TitleInfoText>
+        <TextAreaAndEdit>
+          <InfoText>Vazio</InfoText>
+          {/* <EditButton > */}
+            {/* <EditButtonText>0</EditButtonText> */}
+          {/* </EditButton> */}
+        </TextAreaAndEdit>
+
+        <TitleInfoText>
+          Produtos salvos
+        </TitleInfoText>
+        <TextAreaAndEdit>
+          <InfoText>0</InfoText>
+          {/* <EditButton >
+            <EditButtonText>Ver</EditButtonText>
+          </EditButton> */}
         </TextAreaAndEdit>
       
       </UserInfoArea>
 
       <TouchableArea>
-
       <SignOutArea>
         <NormalText>Sair da conta</NormalText>  
       </SignOutArea>  
@@ -84,19 +126,23 @@ export default () => {
         backgroundStyle={{backgroundColor:'#d1d1d1'}}
         enablePanDownToClose={true}
         ref={bottomSheetRef}
-        index={1}
-        snapPoints={[1,'80%']}
-        onChange={handleSheetChanges}
-        keyboardBehavior={'fillParent'}
+        index={-1}
+        snapPoints={[1,indexz]}
+        onChange={()=>{Keyboard.dismiss()}}
+        keyboardBehavior='interactive'
         >
-          <BottomSheetz
+          <BottomSheetComponent
             value={text}
             setText={setText}
             changeInfo = {emailOrName}
-            >
-          </BottomSheetz>
+            setIndex={setIndexz}
+            closeBottomSheet={()=>{closeBottomSheet()}}  // function that when is called, set the 
+            openModal={()=>{openModal()}}                 //father component, incredible.  
+          >                                
+          </BottomSheetComponent>
         </BottomSheet>
       </BottomSheetArea>
+
     </Container>
   )
 }

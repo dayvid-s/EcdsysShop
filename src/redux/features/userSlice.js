@@ -11,10 +11,16 @@ const userSlice = createSlice({
         },
         changeUserAvatar(state, action){
             state.userData.userAvatar = action.payload
+        },
+        changeUserEmail(state, action){
+            state.userData.email = action.payload
+        },
+        changeUserName(state, action){
+            state.userData.name = action.payload
         }
     },
 })
     
-export const {changeUserInfo, changeUserAvatar } = userSlice.actions
+export const {changeUserInfo, changeUserAvatar, changeUserEmail, changeUserName } = userSlice.actions
 
 export default userSlice.reducer;

@@ -16,9 +16,8 @@ export const ProductArea = styled.View`
 export const WrapperProducts = styled.TouchableOpacity`
     margin-top:10px;
     max-width:${props => props.typeOfPage == 'DayOffer'? '100%' : '50%'};
-    margin-right:${props => props.typeOfPage == 'YourSearch'? '10px' : '0px'};
-
-`
+    margin-right:10px
+    `
     
 export const TextInfo = styled.Text`
     color: ${props => props.theme.onBackGround}

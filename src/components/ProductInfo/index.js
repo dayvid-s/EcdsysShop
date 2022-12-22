@@ -31,8 +31,8 @@ export default ({product})=> {
   let stars= [0,0,0,0,0]
   let ratingInDecimal = Math.floor(product.rating)
   let remainder = product.rating - ratingInDecimal
-  var shippingCost= ((4/100)* (parseInt(product.price))).toString().replace('.',',')
-  var oldProductValue= ((20/100)+ (product.price)).toString().replace('.',',')
+  var shippingCost= (parseFloat(product.price*0.009).toFixed(2))
+  var oldProductValue= parseFloat(product.price*1.25).toFixed(2)
   for(var i =0; i<ratingInDecimal ; i++){
     stars[i]=2;
   }

@@ -60,11 +60,11 @@ export default () => {
       setErrorName("Preencha o seu nome")
       error = true
     }
-    if (name.length <= 2){
+    if (name <= 2){
       setErrorName("Preencha o seu nome")
       error = true
     }
-    if (password.length <= 4){
+    if (password <= 4){
       setPasswordError("Sua senha precisa ter mais de 4 digitos")
       error = true
     }
