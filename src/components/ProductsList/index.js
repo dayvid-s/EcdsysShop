@@ -24,10 +24,10 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen })
         return product };
     if ( typeOfPage=="Recommended" && product.isRecommended == true){
       return product }
-    if ( typeOfPage=="SearchProduct" && product.name.includes(searchWord)  ){
+    if ( typeOfPage=="SearchProduct" && product?.name.includes(searchWord)  ){
       return product }
     
-    if ( typeOfPage=="About" && product.name!= productOnScreen.name 
+    if ( typeOfPage=="About" && product?.name!= productOnScreen.name 
           && product.category == productOnScreen.category ){ 
       return product }
     
@@ -57,7 +57,7 @@ return (
               colors={["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"]}
             >
               <Image
-              source={{uri:product.mainPhoto}}
+              source={{uri:product?.mainPhoto}}
               style={{
                 borderRadius:10,
                 width:width,
@@ -67,8 +67,8 @@ return (
               ></Image>
             </LinearGradient>
             <ProductInfoText></ProductInfoText>
-            <ProductInfoText typeOfPage={typeOfPage} >{product.name}</ProductInfoText>
-            <ProductPriceText typeOfPage={typeOfPage} >R${product.price}</ProductPriceText>
+            <ProductInfoText typeOfPage={typeOfPage} >{product?.name}</ProductInfoText>
+            <ProductPriceText typeOfPage={typeOfPage} >R${product?.price}</ProductPriceText>
           </WrapperProducts>
       )})}
     </ProductArea>  

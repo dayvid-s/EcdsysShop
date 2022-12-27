@@ -21,7 +21,7 @@ export const GreetingsText = styled.Text`
 export const DrawerWrapper = styled.View`
 flex: 1 
     background-color:#101010
-    paddingTop: 10px
+    padding-Top: 10px
 `
 export const BottomArea = styled.View`
     padding:20px
@@ -30,7 +30,8 @@ export const BottomArea = styled.View`
     background-color:#101010
 `
 export const LogoutArea = styled.View`
-    padding-top:15px
+    /* padding-top:15px */
+    /* margin: 5%; */
     `
 export const LogoutWrapper = styled.TouchableOpacity`
     flex-direction: row; 

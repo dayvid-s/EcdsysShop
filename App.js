@@ -1,26 +1,24 @@
 import React, { useEffect } from 'react';
-import {useColorScheme} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-import MainStack from './src/routes/AppRoutes/MainStack';
 import { ThemeProvider } from 'styled-components';
 import themes from './src/theme'
 import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 import { Provider as PaperProvider } from 'react-native-paper';
-import { Provider as ReduxProvider } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { StatusBar } from 'react-native';
-import store from './src/redux/store'
 import Routes from './src/routes';
 
 export default function App() {
-  const deviceTheme = useColorScheme();
-  const theme = themes[deviceTheme] || theme.dark
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const theme = themes[currentTheme] || theme.dark
+
+
   let [fontsLoaded,error] = useFonts({
       "Hard": require('./src/assets/fonts/Roboto-Bold.ttf'),
       "Medium": require('./src/assets/fonts/Roboto-Medium.ttf'),
       'Easy': require('./src/assets/fonts/Roboto-Regular.ttf')
   })
-
   
   useEffect(() => {
     if (!fontsLoaded) {
@@ -39,21 +37,21 @@ export default function App() {
   }
 
   return (
-  <ReduxProvider store={store} >
     <PaperProvider>
-      <ThemeProvider theme={theme}>
-        <NavigationContainer
-        theme={{ colors: { background: deviceTheme === 'dark' ? '#000' : '#fff'}}}
+      <ThemeProvider theme={theme} themename={'#fff'}>
+        <NavigationContainer    //this isn't working 
+        // theme={{ colors: { background: deviceTheme === 'dark' ? '#000' : '#fff'}}}
+        //this isn't working
         // I already have a theme with styled components, but this is to solve 
         //when the page render at white color in the navigation
         >
 
-            <StatusBar animated={true} backgroundColor = "black"   ></StatusBar>
+            <StatusBar animated={true} 
+            backgroundColor={currentTheme==='light'? '#fff': '#000'}   ></StatusBar>
             
           <Routes></Routes>
         </NavigationContainer>
       </ThemeProvider>
     </PaperProvider>
-  </ReduxProvider>
   );
 }

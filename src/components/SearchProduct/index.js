@@ -9,10 +9,12 @@ import {
  import SearchIcon from '../../assets/icons/search-svgrepo-com.svg'
 import { useTheme } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 export default () => {
   const navigation = useNavigation()
   const theme = useTheme()
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
 
   return (
     <Container>
@@ -21,8 +23,8 @@ export default () => {
       <SearchInputArea 
       activeOpacity={1.1}
       onPress={() => navigation.push('SearchProduct')}>
-        <SearchInputText>Pesquisar</SearchInputText>
-        <SearchIconWrapper>
+        <SearchInputText currentTheme={currentTheme} >Pesquisar</SearchInputText>
+        <SearchIconWrapper currentTheme={currentTheme} >
         
           {
           SearchIcon?

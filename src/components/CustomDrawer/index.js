@@ -22,7 +22,7 @@ import {useDispatch} from 'react-redux'
 import {changeUserAvatar, changeUserInfo} from '../../redux/features/userSlice'
 import { retrieveCart } from '../../redux/features/cartSlice';
 import { useSelector} from 'react-redux'
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useEffect } from 'react';
 import { Firestore, firebase, storage, firestore } from '../../services/firebase-config';
@@ -31,12 +31,15 @@ import { addDoc } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
 import { updateDoc } from 'firebase/firestore';
 import { doc } from 'firebase/firestore';
- 
+import { View, Switch, StyleSheet } from "react-native";
+import { changeTheme } from '../../redux/features/themeSlice';
 export function CustomDrawer(props) {
   const [image, setImage] = useState(null);
   const [picture, setPicture] = useState()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user.userData); 
+  const theme = useSelector((state) => state.theme.toggleTheme);
+  
   const handleLogout= ()=> {
     AsyncStorage.clear()
     firebase.auth().signOut()
@@ -173,8 +176,17 @@ export function CustomDrawer(props) {
           <DrawerItemList {...props} />
         </DrawerWrapper>
 
-        
       <BottomArea>
+      <View style={{top:-30}}  >
+        <Text style={{color:'#fff', top:30, right: -5, fontSize:16}} >Tema escuro</Text>
+        <Switch  
+        trackColor={{ false: "#767577", true: "green" }}
+        thumbColor={"#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={()=>{dispatch(changeTheme())}}
+        value={theme}
+        />
+    </View>
         <LogoutArea>
           <LogoutWrapper onPress={handleLogout} >
             <Ionicons name="exit-outline" size={25} color={'#rgb(178,180,183)'} />
@@ -186,5 +198,3 @@ export function CustomDrawer(props) {
     </Container>
   );
 };
-
-// export default CustomDrawer;

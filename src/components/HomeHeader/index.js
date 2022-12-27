@@ -24,7 +24,8 @@ export default () => {
   const cartAmount = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.userData);
   const dispatch = useDispatch()
-  
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+
   useEffect(()=>{
     firebase.firestore().collection('cartItems')
     .where('uid', '==', user.uid)
@@ -37,7 +38,7 @@ export default () => {
         })
       })
       dispatch(retrieveCart(cartProducts))
-       dispatch(getTotals())
+        dispatch(getTotals())
 
     })
   },[])
@@ -45,22 +46,23 @@ export default () => {
     <IconsArea >
         {Menu?
         <IconsWrapper onPress={() => navigation.openDrawer()}>
-          <Menu opacity={0.6}  width={24} height={24} fill={theme.onBackGround} ></Menu>
+          <Menu 
+          opacity={currentTheme=='light'? 1: 0.6}
+          width={24} height={24} fill={theme.onBackGround} ></Menu>
         </IconsWrapper>
         : null}
 
-        {/* {Cart? */}
         <IconsWrapper onPress={() => navigation.push('Cart')} >
-          <Cart   opacity={0.6} width={24} height={24} fill={theme.onBackGround} ></Cart>
-          {/* <Feather name="shopping-cart" size={24} color="#fff" /> */}
-            {cartAmount.cartTotalQuantity>0?
-          <TotalProductsWrapper>
-            <TotalProductsText>{cartAmount.cartTotalQuantity}</TotalProductsText>
-          </TotalProductsWrapper>
-          : null  
-          }
+          <Cart   
+            opacity={currentTheme=='light'? 1: 0.6} 
+            width={24} height={24} fill={theme.onBackGround} ></Cart>
+          {cartAmount.cartTotalQuantity>0?
+            <TotalProductsWrapper>
+              <TotalProductsText>{cartAmount.cartTotalQuantity}</TotalProductsText>
+            </TotalProductsWrapper>
+            : null  
+            }
         </IconsWrapper>
-        {/* : null} */}
         
       </IconsArea>
   )

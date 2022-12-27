@@ -11,40 +11,37 @@ import ViewProducts from '../../components/ViewProducts'
 import { ScrollView } from 'react-native'
 import { StatusBar } from 'react-native';
 import { useSelector } from 'react-redux'
+import { Image } from 'react-native'
 import ProductsList from '../../components/ProductsList'
+import DiscountBanner from '../../components/DiscountBanner'
 
 export default () => {
   const user = useSelector((state) => state.user)
   const historic= useSelector((state) => state.historic.userProductHistoric)
-  const lastProductSeen = historic?.length>1?
+  const lastProductSeen = historic?.length>0?
   'Com base no seu interesse em '.concat(historic[historic?.length -1].knownBy) : null
   const lastProduct=(historic[historic?.length -1])
 
   return (
     
     <Container>
-      <StatusBar animated={true} backgroundColor = "black"   ></StatusBar>
+      {/* <StatusBar animated={true} backgroundColor = "#fff"   ></StatusBar> */}
       <ScrollView> 
         <HomeHeader/>  
         <SearchProduct/> 
         <Categories/> 
-      
-        {/* <ViewProducts> </ViewProducts>  */}
-      {/* conditional render, com base na sua pesquisa em [nome da pesquisa]
-        else, fica null, e mostra o próximo
-      */}
 
 
         <ViewProducts typeOfPage= "Recommended"  text='Produtos recomendados' width={170} height={170} /> 
+        <DiscountBanner/>
         <ViewProducts typeOfPage="DayOffer" text="Oferta do dia" width={360} height={360} /> 
+  
+  
         {
-          historic?.length>1? 
-          <>
+          historic?.length>0? 
             <ViewProducts typeOfPage="YourInterest" text={lastProductSeen} width={170} height={170}
             lastProduct={lastProduct}
             /> 
-            <ViewProducts typeOfPage="SeenBefore" text={"Visto recentemente"  } width={170} height={170} /> 
-            </>
             :
           <ViewProducts typeOfPage="YourSearch" text={"Talvez você se interesse"  } width={170} height={170} /> 
         }

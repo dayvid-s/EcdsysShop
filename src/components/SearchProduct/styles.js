@@ -26,9 +26,11 @@ export const SearchInputText =styled.Text`
     margin-left:15px
     font-size:18px
     opacity:0.5
-`
-export const SearchIconWrapper =styled.View`
+    opacity:${props => props.currentTheme =='dark' ? '0.5' : '1'};
+    
+    `
+    export const SearchIconWrapper =styled.View`
     padding:14px
-    background-color:${props => props.theme.roseBlue}
+    background-color:${props => props.currentTheme =='light' ? props.theme.secondary : props.theme.roseBlue};
     border-radius:20px
     `

@@ -87,7 +87,6 @@ export default () => {
               email:snapshot.data().email,
               userAvatar:snapshot.data().picture? snapshot.data().picture  : null
             }
-            {console.log(data)}
               storageUser(data)
               dispatch(changeUserInfo(data))  
               setAuthLoading(false)

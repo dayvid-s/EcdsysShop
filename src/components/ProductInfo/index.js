@@ -31,8 +31,8 @@ export default ({product})=> {
   let stars= [0,0,0,0,0]
   let ratingInDecimal = Math.floor(product.rating)
   let remainder = product.rating - ratingInDecimal
-  var shippingCost= (parseFloat(product.price*0.009).toFixed(2))
-  var oldProductValue= parseFloat(product.price*1.25).toFixed(2)
+  var shippingCost= (parseFloat(product?.price*0.009).toFixed(2))
+  var oldProductValue= parseFloat(product?.price*1.25).toFixed(2)
   for(var i =0; i<ratingInDecimal ; i++){
     stars[i]=2;
   }
@@ -44,7 +44,7 @@ export default ({product})=> {
   return (
     <Container>
       <ProductName>
-        {product.name}
+        {product?.name}
       </ProductName>
       <ProductRatingArea>
         {stars.map((star,index) =>{
@@ -63,7 +63,7 @@ export default ({product})=> {
       </ProductRatingArea >
         <OldProductValue>R$ {oldProductValue}</OldProductValue>
       <ProductPriceArea>
-        <ProductPriceText>R$ {product.price}</ProductPriceText>
+        <ProductPriceText>R$ {product?.price}</ProductPriceText>
         <ShippingValueText>+R$ {shippingCost} de envio </ShippingValueText>
       </ProductPriceArea>
       {product.specifications !=null &&(

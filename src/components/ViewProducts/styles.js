@@ -1,4 +1,3 @@
-import LinearGradient from 'react-native-linear-gradient'
 import styled from 'styled-components';
 
 
@@ -25,8 +24,8 @@ export const TextInfo = styled.Text`
     margin-top:2%
     font-size:18px
     font-weight: 500
-    color:#rgb(178,180,183)
-`
+    color: ${props => props.theme.onBackGround}
+    `
 
 export const ProductInfoText = styled.Text`
     margin-top:${props => props.typeOfPage == 'DayOffer'? '-10px' : '-6px'};

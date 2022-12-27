@@ -33,10 +33,6 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
     if ( typeOfPage=="YourInterest" && product.category== lastProduct?.category  ){
       return product }
 
-    if ( typeOfPage=="SeenBefore" && product.isRecommended == true  ){
-      
-      return product }
-    
     if ( typeOfPage=="About" && product.name!= productOnScreen.name 
           && product.category == productOnScreen.category ){ 
       return product }
@@ -58,7 +54,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
   }, [dispatch]);
 return (
   <Container>
-    <TextInfo>{ productsFiltered.length>=1? text : ''}</TextInfo>
+    <TextInfo>{ productsFiltered.length>0? text : ''}</TextInfo>
       <ScrollView horizontal={typeOfPage=='YourSearch'? true: false}  >
     <ProductArea quantity={productsFiltered.length} >
 

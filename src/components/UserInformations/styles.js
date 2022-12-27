@@ -69,7 +69,7 @@ export const SignOutArea =styled(UserInfoArea)`
 export const BottomSheetArea =styled.View`
    flex:1
    padding:90px
-   padding-top:200px
+   padding-top:800px
    padding-bottom:600px
    margin-top:-700px
 
