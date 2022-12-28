@@ -30,7 +30,7 @@ export default () => {
   const containerStyle = {backgroundColor: 'white', padding: 20};
   const [emailOrName, setEmailOrName]= useState()
   const [text, setText]= useState()
-  const [indexz, setIndexz]= useState('80%')
+  const [indexz, setIndexz]= useState('100%')
   const theme = useTheme()
   const navigation = useNavigation()
   const user = useSelector((state) => state.user.userData); 
@@ -82,25 +82,15 @@ export default () => {
             <EditButtonText>Editar</EditButtonText>
           </EditButton>
         </TextAreaAndEdit>
-        
-        <TitleInfoText>
-        Favoritos
-        </TitleInfoText>
-        <TextAreaAndEdit>
-          <InfoText>3</InfoText>
-          {/* <EditButton > */}
-            {/* <EditButtonText>0</EditButtonText> */}
-          {/* </EditButton> */}
-        </TextAreaAndEdit>
 
         <TitleInfoText>
         Histórico de compras
         </TitleInfoText>
         <TextAreaAndEdit>
           <InfoText>Vazio</InfoText>
-          {/* <EditButton > */}
-            {/* <EditButtonText>0</EditButtonText> */}
-          {/* </EditButton> */}
+          <EditButton > 
+            <EditButtonText>Ver produtos </EditButtonText> 
+          </EditButton>
         </TextAreaAndEdit>
 
         <TitleInfoText>
@@ -108,9 +98,9 @@ export default () => {
         </TitleInfoText>
         <TextAreaAndEdit>
           <InfoText>0</InfoText>
-          {/* <EditButton >
-            <EditButtonText>Ver</EditButtonText>
-          </EditButton> */}
+          <EditButton >
+            <EditButtonText>Ver produtos </EditButtonText>
+          </EditButton>
         </TextAreaAndEdit>
       
       </UserInfoArea>
@@ -128,7 +118,6 @@ export default () => {
         index={-1}
         snapPoints={[1,indexz]}
         onChange={()=>{Keyboard.dismiss()}}
-        keyboardBehavior='interactive'
         >
           <BottomSheetComponent
             value={text}

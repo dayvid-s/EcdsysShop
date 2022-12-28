@@ -5,7 +5,9 @@ export const ModalText = styled.Text`
    color:#000
    ` 
 export const UserInfoArea = styled.View`
-   background-color:#1C1C26
+   /* background-color:#1C1C26 */
+   background-color:${props=> props.theme.secondary}
+   /* background-color:#1C1C26 */
    padding:30px
    margin-left:5%
    margin-right:5%
@@ -16,20 +18,22 @@ export const UserInfoArea = styled.View`
    
    `
 export const TitleInfoText = styled.Text`
-   color:${props => props.theme.onBackGround}
-   font-Size:15px
+   color:${props => props.theme.roseBlue}
+   font-Size:17px
    font-family:'Hard'
-   opacity:0.3
+   /* opacity:0.4 */
+   /* color: #fff */
    ` 
 export const TextAreaAndEdit = styled.View`
-   flex-direction: row;
-   align-items: center;
+flex-direction: row;
+align-items: center;
    justify-content: center;
    ` 
 export const InfoText = styled.Text`
    color:${props => props.theme.onBackGround}
+   /* color: #fff */
    font-Size:15px
-   font-family:'Hard'
+   font-family:'Medium'
    margin-top:2%
    margin-bottom:5%
    flex:1
@@ -41,15 +45,19 @@ export const EditButton = styled.TouchableOpacity`
    padding-left:15px
    padding-right:15px
    border-radius:10px
-   background-color:#373644
+   background-color:${props => props.theme.roseBlue}
+   /* background-color:#373644 */
    margin-top:-30px
    ` 
 export const EditButtonText = styled.Text`
-   color:${props => props.theme.onBackGround}
+   /* color:${props => props.theme.onBackGround} */
+   color:#fff
    font-size:15px
+   font-family:'Medium'
    ` 
 export const NormalText = styled.Text`
-   color:${props => props.theme.onBackGround}
+   /* color:${props => props.theme.onBackGround} */
+   color:#fff
    font-Size:20px
    font-family:'Hard'
    ` 
@@ -65,20 +73,17 @@ export const SignOutArea =styled(UserInfoArea)`
    padding-bottom: 5%;
    align-items: center
    justify-content: center
+   background-color: ${props=> props.theme.roseBlue}
 `
 export const BottomSheetArea =styled.View`
    flex:1
-   padding:90px
-   padding-top:800px
-   padding-bottom:600px
-   margin-top:-700px
-
+   position: absolute
+   padding:200px
+   padding-bottom:350px
+   top:50px
 `
 export const Modal =styled.Modal`
-   flex:1
+   flex:1   
+   position: absolute
    padding:90px
-   padding-top:200px
-   padding-bottom:600px
-   margin-top:-490px
-
 `

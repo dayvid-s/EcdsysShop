@@ -8,7 +8,7 @@ export const ProductName = styled.Text`
     color: ${props => props.theme.onBackGround}
     margin-top:6px
     font-weight: 600
-    opacity:0.6
+    opacity:${props => props.currentTheme =='light' ? '1' : '0.6'};
     `
     export const ProductRatingArea = styled.View`
     flex-direction: row;
@@ -71,5 +71,5 @@ export const ProductName = styled.Text`
     align-items: center
     justify-content: center
     border-width:2px
-    border-color: ${props => props.state ? "#5159c1" : '#000'};
+    border-color: ${props => props.state ? "#5159c1" : '#2C2B2B'};
     `

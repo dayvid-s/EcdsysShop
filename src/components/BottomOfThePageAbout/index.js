@@ -11,8 +11,7 @@ export default ({product})=> {
 
   return (
     <Container>
-      <DescriptionTitle>Descrição do produto
-      </DescriptionTitle>
+      <DescriptionTitle>Descrição do produto</DescriptionTitle>
         <DescriptionText>{product?.description}</DescriptionText>
     </Container>
   )

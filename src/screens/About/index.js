@@ -18,13 +18,19 @@ import BottomOfThePageAbout from '../../components/BottomOfThePageAbout'
 import ViewProducts from '../../components/ViewProducts'
 import { useEffect } from 'react';
 import { StatusBar } from 'react-native';
+import { useSelector } from 'react-redux'
+import { useTheme } from 'styled-components';
+
+
 export default ()=> {
- const navigation= useNavigation()
+  const navigation= useNavigation()
   const route= useRoute()
+  const theme= useTheme()
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
   const { product } = route.params;
   return (
     <ScrollView>
-      <StatusBar backgroundColor = {'#000'}   ></StatusBar>
+      <StatusBar backgroundColor = {theme.backgroundColor}   ></StatusBar>
       <Container>
         <AboutPageHeader heartIcon={true}/>
         <AnimatedImages product={product}></AnimatedImages>

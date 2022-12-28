@@ -32,9 +32,10 @@ import {signInWithEmailAndPassword} from "firebase/auth";
 import { auth, firestore } from '../../services/firebase-config'
 import { ActivityIndicator } from 'react-native-paper'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
 import {firebase} from '../../services/firebase-config'
+import { useTheme } from 'styled-components';
 export default () => {
   const navigation = useNavigation()
   const passwordRef = useRef()
@@ -43,8 +44,10 @@ export default () => {
   const [loadingAuth, setAuthLoading] = useState(false)
   const [errorEmail, setErrorEmail] = useState(null)
   const [errorPassword, setPasswordError] = useState(null)
-  
-  
+  const theme = useTheme()
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+ 
+ 
   const validate = () => {
     let error = false
     setErrorEmail(null)
@@ -112,7 +115,7 @@ export default () => {
       <KeyboardAwareScrollView  extraScrollHeight={150}  >
         <HeaderArea>
           <WrapperIcon onPress={()=>{navigation.navigate('SignUp')}} >
-            <IconBack IconBack width={20} heigth={20} fill='#FFF' ></IconBack>
+            <IconBack  IconBack width={20} heigth={20} fill={theme.onBackGround} ></IconBack>
           </WrapperIcon>
           <HeaderText>Entrar</HeaderText>
         </HeaderArea> 

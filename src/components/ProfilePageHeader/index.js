@@ -31,21 +31,18 @@ export default () => {
   const hideModal = () => setModalVisibility(false);  
   const containerStyle = {
     backgroundColor: '#1a1C26',
-    // paddingLeft: 10,
     marginLeft:'30%',
     marginTop:'-20%',
     marginRight:'5%',
-    // zIndex:1,
     elevation:0.2
 
   };
   return (
     <GestureHandlerRootView>
-
-    <Container >
-    <IconsArea >
+      <Container >
+      <IconsArea >
         <IconsWrapper onPress={() => navigation.goBack()}>
-          <AntDesign name="left" size={22} color="#FFF" />
+          <AntDesign name="left" size={22} color={theme.onBackGround} />
         </IconsWrapper>
         
         <TitleArea>

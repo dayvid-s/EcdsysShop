@@ -33,6 +33,7 @@ export const ProductInfoText = styled.Text`
     font-size:${props => props.typeOfPage == 'DayOffer'? '20px' : '15px'};
     font-weight: 400
     margin-left:${props => props.typeOfPage == 'DayOffer'? '25px' : 0};
+    font-family: 'Medium'
     `
     
 export const ProductPriceText = styled.Text`

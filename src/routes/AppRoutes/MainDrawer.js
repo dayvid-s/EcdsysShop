@@ -12,6 +12,7 @@ import HelpScreen from '../../screens/HelpScreen';
 import SearchProduct from '../../screens/SearchProduct';
 // drawer navigator it's oppening in sign in and sign up page
 import {CustomDrawer } from '../../components/CustomDrawer'
+import { useTheme } from 'styled-components';
 import { 
     Ionicons,
     FontAwesome5, 
@@ -24,21 +25,24 @@ import {
   
 const Drawer = createDrawerNavigator();
 
-export default () => (
-    <Drawer.Navigator 
+export default () =>{
+    const theme= useTheme()
+
+    return(
+
+        <Drawer.Navigator 
         
         drawerContent={(props) => <CustomDrawer {...props}/>}
         screenOptions={{
             headerShown: false,
             drawerActiveBackgroundColor:'#18212A',
-            drawerActiveTintColor:'#rgb(178,180,183)',
-            drawerInactiveTintColor:'#rgb(178,180,183)',
-            drawerStyle:{width:310},
+            drawerActiveTintColor:'#fff',
+            drawerInactiveTintColor:theme.onBackGround,
+            drawerStyle: {width:310,}, 
             drawerLabelStyle:{
                 marginLeft:-10,
-                // fontFamily: 'Roboto-Medium'
-                fontSize:15,
-                fontFamily: "Medium"
+                fontSize:16,
+                fontFamily: "Medium",
             }
         }} >
         
@@ -46,46 +50,58 @@ export default () => (
         <Drawer.Screen name ='Início' component={Home}
             options={{
                 drawerIcon: () => (
-                    <Ionicons name="home-outline" size={22} color={'#rgb(178,180,183)'} />
+                    <Ionicons name="home-outline" size={22} color={theme.onBackGround} />
                     ),
+                    drawerItemStyle:{opacity:0.7}
                 }}
-        ></Drawer.Screen>
+                ></Drawer.Screen>
         <Drawer.Screen name ='Meu carrinho' component={Cart} 
             options={{
                 drawerIcon: () => (
-                    <Feather name="shopping-bag" size={24} color="#rgb(178,180,183)" />                    ),
+                    <Feather name="shopping-bag" size={24} color={theme.onBackGround} />                    
+                    ),
+                    drawerItemStyle:{opacity:0.7}
                 }}
-        ></Drawer.Screen>
+                ></Drawer.Screen>
         <Drawer.Screen name ='Pesquisar' component={SearchProduct}
             options={{
                 drawerIcon: () => (
-                    <Ionicons name="search-sharp" size={24} color="#rgb(178,180,183)" />
+                    <Ionicons name="search-sharp" size={24} color={theme.onBackGround} />
                     ),
+                    drawerItemStyle:{opacity:0.7}
                 }}
-        ></Drawer.Screen>
+                ></Drawer.Screen>
         <Drawer.Screen name ='Favoritos' component={Favorites}
             options={{
                 drawerIcon: () => (
-                    <FontAwesome5 name="heart" size={24} color="#rgb(178,180,183)" />                    ),
+                    <FontAwesome5 name="heart" size={24} color={theme.onBackGround} />                    
+                    ),
+                    drawerItemStyle:{opacity:0.7}
                 }}
                 ></Drawer.Screen>
         <Drawer.Screen name ='Ajuda' component={HelpScreen}
             options={{
                 drawerIcon: () => (
-                    <MaterialCommunityIcons name="help" size={24} color="#rgb(178,180,183)" />                    ),
+                    <MaterialCommunityIcons name="help" size={24} color={theme.onBackGround} />                    
+                    ),
+                    drawerItemStyle:{opacity:0.7}
                 }}
-        ></Drawer.Screen>
+                ></Drawer.Screen>
         <Drawer.Screen name ='Configurações' component={Settings}
             options={{
                 drawerIcon: () => (
-                    <SimpleLineIcons name="settings" size={24} color="#rgb(178,180,183)" />                    ),
+                    <SimpleLineIcons name="settings" size={24} color={theme.onBackGround} />                    
+                    ),
+                    drawerItemStyle:{opacity:0.7}
                 }}
                 ></Drawer.Screen>
         <Drawer.Screen name ='Minha conta' component={Profile}
             options={{
                 drawerIcon: () => (
-                    <Feather name="user" size={24} color="#rgb(178,180,183)" />                    ),
+                    <Feather name="user" size={24} color={theme.onBackGround} />                    
+                    ),
+                    drawerItemStyle:{opacity:0.7}
                 }}
         ></Drawer.Screen>
     </Drawer.Navigator>
-    )
+    )} 

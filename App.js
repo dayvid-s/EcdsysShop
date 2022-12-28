@@ -39,15 +39,15 @@ export default function App() {
   return (
     <PaperProvider>
       <ThemeProvider theme={theme} themename={'#fff'}>
-        <NavigationContainer    //this isn't working 
-        // theme={{ colors: { background: deviceTheme === 'dark' ? '#000' : '#fff'}}}
+        <NavigationContainer   
+        theme={{ colors: { background: currentTheme === 'dark' ? '#000' : '#fff'}}}
         //this isn't working
         // I already have a theme with styled components, but this is to solve 
         //when the page render at white color in the navigation
         >
 
             <StatusBar animated={true} 
-            backgroundColor={currentTheme==='light'? '#fff': '#000'}   ></StatusBar>
+          backgroundColor={currentTheme==='light'? '#fcfcfc': '#000'}   ></StatusBar>
             
           <Routes></Routes>
         </NavigationContainer>

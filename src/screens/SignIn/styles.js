@@ -27,6 +27,7 @@ export const WrapperIcon = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    /* opacity:0.8 */
     `
 
 export const HeaderText = styled.Text`

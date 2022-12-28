@@ -19,6 +19,7 @@ export const ProductsWrapper = styled.View`
 
     `
 export const ImageWrapper = styled.TouchableOpacity`
+    border-radius: 15px;
     `
 
 export const ProductTextWrapper = styled.View`

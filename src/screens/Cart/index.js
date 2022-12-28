@@ -18,13 +18,18 @@ import {useDispatch} from 'react-redux'
 import { retrieveCart } from '../../redux/features/cartSlice';
 import { useState } from 'react'
 import { ActivityIndicator } from 'react-native-paper'
+import { useTheme } from 'styled-components';
 
 export default ()=> {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.userData);
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const theme =useTheme()
 
+
+  
   useEffect(()=>{
     setLoading(true)
     firebase.firestore().collection('cartItems')
@@ -50,7 +55,6 @@ export default ()=> {
       ></ActivityIndicator>
     </Container>
   )
-
   return (
     <Container >
       <CartPageHeader loading={loading} ></CartPageHeader>

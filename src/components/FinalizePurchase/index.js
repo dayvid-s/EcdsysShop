@@ -24,6 +24,7 @@ export default ({product})=> {
   const user = useSelector((state) => state.user.userData); 
   const cart = useSelector((state) => state.cart.cartItems);
   const cartRef = collection(firestore, "cartItems");
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
   var hasProductInCart 
 
   const handleAddToCart= (product)=>{
@@ -43,7 +44,7 @@ export default ({product})=> {
     }else{
       const q1 = query(cartRef, where("productId", "==", product.productId), where("uid", "==", user.uid));
       const querySnapshot = await getDocs(q1);
-      var hasProductInCart= !querySnapshot.empty  // if has the same product at cart, this 
+      hasProductInCart= !querySnapshot.empty  // if has the same product at cart, this 
       //var will be true. it's a query at firestorethat returns true, if it's empty.
       
       if(hasProductInCart){
@@ -72,12 +73,12 @@ export default ({product})=> {
           flexDirection:'row'
       }}
         colors={["#circle at 10% 20%, rgb(61, 0, 131) 0%", "rgb(83, 03, 121) 90.2%)"]}>
-          <ButtonText>Comprar agora</ButtonText>
+          <ButtonText currentTheme={currentTheme} >Comprar agora</ButtonText>
         </LinearGradient>
           </Button>
     
       <ButtonSendToCart onPress={()=>{validateToSendProduct(product) }} >
-        <ButtonText purple={true} >Adicionar no carrinho</ButtonText>
+        <ButtonText currentTheme={currentTheme}  purple={true} >Adicionar no carrinho</ButtonText>
       </ButtonSendToCart>
   
     

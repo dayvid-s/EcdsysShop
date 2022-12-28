@@ -22,8 +22,10 @@ import { useRoute } from '@react-navigation/native'
 import FullStar from '../../assets/icons/star-svgrepo-com.svg'
 import HalfStar from '../../assets/icons/half-star-svgrepo-com.svg'
 import ProductSpecifications from '../ProductSpecifications'
+import { useSelector } from 'react-redux'
 
 export default ({product})=> {
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
   const [state00,setState00 ] = useState(false)
   const [state01,setState01 ] = useState(false)
   const [state02,setState02 ] = useState(false)
@@ -43,9 +45,7 @@ export default ({product})=> {
 
   return (
     <Container>
-      <ProductName>
-        {product?.name}
-      </ProductName>
+      <ProductName currentTheme={currentTheme} >{product?.name}</ProductName>
       <ProductRatingArea>
         {stars.map((star,index) =>{
           return(
@@ -69,7 +69,6 @@ export default ({product})=> {
       {product.specifications !=null &&(
         <>
               <ProductSpecText>Especificações do produto:</ProductSpecText>
-              {/* very gambiarra, and I know this. */}
               <ProductSpecsArea>
                 <ProductSpecsWrapper state={state00}  onPress={()=>{
                   setState00(true),setState01(false),setState02(false),setState03(false)}}>

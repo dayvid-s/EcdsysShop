@@ -21,7 +21,6 @@ import ViewProducts from '../../components/ViewProducts';
 import { useSelector } from 'react-redux';
 import { firestore } from '../../services/firebase-config';
 import { collection, query, where,doc, setDoc, getDocs  } from "firebase/firestore";
-import { TouchableOpacity } from 'react-native';
 
 export default ()=> {
   const user = useSelector((state) => state.user.userData);
@@ -52,7 +51,7 @@ export default ()=> {
 
   const goBack=()=>{
       //this is to solve the bug of status bar delay in change color.
-    setStatusBarColor('#010101')
+    setStatusBarColor(theme.background)
     navigation.goBack()
   }
   const validate = ()=>{
@@ -77,14 +76,17 @@ export default ()=> {
   return (
   
   <Container>
-    {/* <StatusBar backgroundColor = {statusBarColor}   ></StatusBar> */}
+    <StatusBar backgroundColor = {statusBarColor}   ></StatusBar>
     <HeaderArea>
       <AntDesign onPress={()=>{goBack()}}
         style={{marginTop:3, opacity:0.8, marginLeft:6,marginRight:6}}
-      name="arrowleft" size={30} color="#FFF" />
+      name="arrowleft" size={30} color={theme.onBackGround} />
       <InputArea>
-        <FontAwesome style={{opacity:0.7}} name="search" size={24} color="#FFF" />
+        <FontAwesome name="search" size={24} color={theme.roseBlue} />
         <TextInputToSearch
+        placeholder={'Busque um produto'}
+        placeholderTextColor={theme.gray300}
+
           returnKeyType={"search"}
           autoFocus= {true}
           onSubmitEditing ={()=>{SearchProduct()}}
@@ -101,16 +103,13 @@ export default ()=> {
       <>
       
     {userSearches?.map((item,index) =>{   
-      // {console.log(typeof(item))} 
       return(         
         <SearchHistoryArea key={index} onPress={()=>{seeProduct(item)}}
-                                      // onPress={()=>{decreaseQuantity(product)}} 
         >
-          {/* <TouchableOpacity onPress={()=>{Searcct(item)}} > */}
 
-          <Entypo name="cross" size={27} color="gray" />
+          <Entypo name="cross" size={27} color={theme.onBackGround} />
           <TextWithSearches>{item}</TextWithSearches>
-          <MaterialIcons name="keyboard-arrow-right" size={32} color="gray" />
+          <MaterialIcons name="keyboard-arrow-right" size={32} color={theme.onBackGround} />
         </SearchHistoryArea>
         )})}
         </>

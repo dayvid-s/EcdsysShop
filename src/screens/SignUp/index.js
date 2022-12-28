@@ -33,6 +33,7 @@ import {useDispatch} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
 import { useSelector } from 'react-redux'
 import { ScrollView } from 'react-native-gesture-handler'
+import { useTheme } from 'styled-components';
 
 export default () => {
   const navigation = useNavigation()
@@ -46,6 +47,11 @@ export default () => {
   const [errorPassword, setPasswordError] = useState(null)
   const [loadingAuth, setAuthLoading] = useState(false)
   const dispatch = useDispatch()
+  const theme = useTheme()
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+ 
+
+
   const validate = () => {
     let error = false
     setErrorEmail(null)

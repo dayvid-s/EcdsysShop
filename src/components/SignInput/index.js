@@ -8,6 +8,11 @@ import {
 } from './styles'
 import Hide from '../../assets/icons/eyeClosed.svg'
 import ShowPassword from '../../assets/icons/eyePassword.svg'
+import { useSelector } from 'react-redux';
+import { useTheme } from 'styled-components';
+import { Entypo } from '@expo/vector-icons'; 
+
+
 
 export default ({
     inputRef,
@@ -25,7 +30,12 @@ export default ({
     // const app = initializeApp(firebaseConfig);
     const [inputBorderColor, setInputBorderColor] = useState('#434344')
     const [showPassword, setShowPassword] = useState(false)
+    const currentTheme = useSelector((state) => state.theme.currentTheme);
+    const theme = useTheme()
+
     // const [errorEmail, setErrorEmail] = useState(null)
+
+
     useEffect(()=>{
         if(secureTextEntry== true){
             setShowPassword(true)
@@ -64,7 +74,7 @@ export default ({
                     onBlur={handleOnBlur}  
                     placeholder={placeholder} 
                     ref={inputRef} 
-                    placeholderTextColor={'gray'}  
+                    placeholderTextColor={currentTheme=='dark'? 'gray': '#000'}  
                     secureTextEntry={showPassword}
                     onSubmitEditing={onSubmitEditing}
                     returnKeyType={returnKeyType}
@@ -74,10 +84,11 @@ export default ({
                 {passWord==true?
                     <TouchableOpacity onPress={handleShowAndHidePassword}>
                         {showPassword==false ?
-                            <Hide opacity="0.4" width="28" height="28" fill="#FFF" />
+                            <Hide opacity="0.4" width="28" height="28" fill={theme.onBackGround} />
                             :   
-                            <ShowPassword opacity="0.4" width="33" height="33" fill="#FFF" />}
-                    </TouchableOpacity>  
+                            <ShowPassword opacity="0.4" width="33" height="33" fill={theme.onBackGround} />
+                            }
+                            </TouchableOpacity>  
                 :null
                 } 
             </InputArea>

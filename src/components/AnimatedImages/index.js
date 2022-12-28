@@ -30,8 +30,8 @@ export default ({product})=> {
                           // data of flatlist.
           <Image source={{uri:item}} 
           style={{
-            width:385,
-            height:260,
+            width:425,
+            height:300,
             resizeMode:'contain',
           }}
           ></Image>)}

@@ -21,7 +21,7 @@ export default ({loading}) => {
   return (
     <IconsArea >
         <IconsWrapper onPress={() => navigation.goBack()}>
-          <AntDesign name="left" size={25} color="#FFF" />
+          <AntDesign name="left" size={25} color={theme.onBackGround} />
         </IconsWrapper>
         
         <HeaderTitle></HeaderTitle>

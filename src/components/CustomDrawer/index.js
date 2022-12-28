@@ -8,7 +8,9 @@ import {
   LogoutArea,
   LogoutWrapper,
   LogoutText,
-  ImageArea
+  ImageArea,
+  SwitchArea,
+  SwitchText
 } from './styles' 
 import {
   DrawerContentScrollView,
@@ -31,15 +33,20 @@ import { addDoc } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
 import { updateDoc } from 'firebase/firestore';
 import { doc } from 'firebase/firestore';
-import { View, Switch, StyleSheet } from "react-native";
+import { Switch} from "react-native";
 import { changeTheme } from '../../redux/features/themeSlice';
+import { useTheme } from 'styled-components';
+
+
 export function CustomDrawer(props) {
   const [image, setImage] = useState(null);
   const [picture, setPicture] = useState()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user.userData); 
-  const theme = useSelector((state) => state.theme.toggleTheme);
-  
+  const currentTheme = useSelector((state) => state.theme.toggleTheme);
+  const theme= useTheme()
+
+
   const handleLogout= ()=> {
     AsyncStorage.clear()
     firebase.auth().signOut()
@@ -150,7 +157,7 @@ export function CustomDrawer(props) {
     <Container >
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{flex:1,backgroundColor: '#171717'}}>
+        contentContainerStyle={{flex:1,backgroundColor: theme.backGround}}>
         <HeaderArea>
           <ImageArea
               onPress={pickImage}       
@@ -177,19 +184,19 @@ export function CustomDrawer(props) {
         </DrawerWrapper>
 
       <BottomArea>
-      <View style={{top:-30}}  >
-        <Text style={{color:'#fff', top:30, right: -5, fontSize:16}} >Tema escuro</Text>
+      <SwitchArea>
+        <SwitchText>Tema escuro</SwitchText>
         <Switch  
         trackColor={{ false: "#767577", true: "green" }}
         thumbColor={"#f4f3f4"}
         ios_backgroundColor="#3e3e3e"
         onValueChange={()=>{dispatch(changeTheme())}}
-        value={theme}
+        value={currentTheme}
         />
-    </View>
+    </SwitchArea>
         <LogoutArea>
           <LogoutWrapper onPress={handleLogout} >
-            <Ionicons name="exit-outline" size={25} color={'#rgb(178,180,183)'} />
+            <Ionicons name="exit-outline" size={25} color={theme.onBackGround} />
             <LogoutText>Sair da conta</LogoutText>
           </LogoutWrapper>
         </LogoutArea>

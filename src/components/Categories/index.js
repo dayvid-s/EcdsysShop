@@ -12,9 +12,12 @@ import { useNavigation } from '@react-navigation/native';
 import { FlatList} from 'react-native';
 import { SvgXml } from 'react-native-svg' ;     
 import {files} from '../../assets/icons/categories'
+import { useSelector } from 'react-redux';
 
 export default () => {
   const navigation = useNavigation()
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+
 
   return (
     <Container>
@@ -27,7 +30,7 @@ export default () => {
         renderItem={({item}) =>(
           <CategoriesArea>
                 <WrapperCategories>
-                  <CategoriesIconWrapper>
+                  <CategoriesIconWrapper currentTheme={currentTheme}>
                     <SvgXml 
                       xml={item.icon}
                       width={item.width? item.width : 38} 
@@ -35,7 +38,7 @@ export default () => {
                       fill={'#224'} 
                       />  
                   </CategoriesIconWrapper>
-                <CategoriesText >{item.name}</CategoriesText>
+                <CategoriesText currentTheme={currentTheme}  >{item.name}</CategoriesText>
                 </WrapperCategories>
               </CategoriesArea>
             

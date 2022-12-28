@@ -1,7 +1,5 @@
 import styled from "styled-components"
 export const Container = styled.View`
-    z-index: 0;
-    /* opacity:${props => props.ModalOpacity ? '0.1' : 1}; */
 ` 
 export const IconsArea = styled.View`
     flex-direction: row;
@@ -14,9 +12,8 @@ export const IconsArea = styled.View`
 export const IconsWrapper = styled.TouchableOpacity`
 
     padding:12px
-    background-color:#111010
+    background-color:${props => props.theme.secondary}
     border-radius: 12px
-    opacity:0.6
     `
     export const TitleArea = styled.View`
     align-items: center;
@@ -45,7 +42,6 @@ export const IconsWrapper = styled.TouchableOpacity`
     margin-left: 5%;
     `
     export const UserInfoText = styled.Text`
-    /* margin-top:-70px */
     font-family: Medium;
     color: ${props => props.theme.onBackGround}    
     align-self:center

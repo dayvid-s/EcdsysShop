@@ -7,11 +7,9 @@ export const Title = styled.Text`
     font-size:20px
     margin-top:10px
     font-weight:600
-    /* opacity:0.4 */
     `
 export const CategoriesArea =styled.View`
     margin-top: 2%
-    /* background-color: ${props => props.theme.secondary} */
     padding:8px
     border-radius:20px
     justify-content: space-between
@@ -24,10 +22,6 @@ export const CategoriesArea =styled.View`
 export const WrapperCategories = styled.TouchableOpacity`
     justify-content:center
     align-items:center
-    /* padding-right: 5px */
-    /* padding-left:5px */
-    /* margin-right:2px */
-    /* margin-left: 12px */
     
     `
 
@@ -35,11 +29,12 @@ export const WrapperCategories = styled.TouchableOpacity`
     color: ${props => props.theme.onBackGround}
     font-weight:600
     font-size:12px
-    opacity:0.5
+    opacity:${props => props.currentTheme =='light' ? '1' : '0.5'};
 `
 export const CategoriesIconWrapper =styled.View`
     border-color:#224
     border-width:3px
+    border-width:${props => props.currentTheme =='light' ? '0px' : '3px'};
     justify-content: center
     align-items: center    
     padding:30px
@@ -47,7 +42,6 @@ export const CategoriesIconWrapper =styled.View`
     max-height:50px
     max-width:50px
     border-radius:50px
-    /* margin-left: 12px */
     `
 export const FlatlistArea = styled.View`
     margin-left: 14px;

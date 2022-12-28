@@ -15,6 +15,9 @@ import { View } from 'react-native';
 
 export default ()=> {
   const cartAmount = useSelector(state => state.cart)
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+
+
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(getTotals())
@@ -25,24 +28,24 @@ export default ()=> {
 
       {cartAmount.cartTotalQuantity >1?
         <CheckoutWrapper>
-          <ProductInfoText>({cartAmount.cartTotalQuantity}) Produtos no total</ProductInfoText>
+          <ProductInfoText currentTheme={currentTheme} >({cartAmount.cartTotalQuantity}) Produtos no total</ProductInfoText>
           <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</ProductInfoPrice>
         </CheckoutWrapper>
       :
         <CheckoutWrapper>
-          <ProductInfoText>(1) Produto</ProductInfoText>
+          <ProductInfoText currentTheme={currentTheme} >(1) Produto</ProductInfoText>
           <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</ProductInfoPrice>
         </CheckoutWrapper>
       }
     {
       cartAmount.cartTotalQuantity>2?
       <CheckoutWrapper>
-        <ProductInfoText>Custo de envio</ProductInfoText>
+        <ProductInfoText currentTheme={currentTheme} >Custo de envio</ProductInfoText>
         <ProductInfoPrice>Gratuito</ProductInfoPrice>
       </CheckoutWrapper>
     :
     <CheckoutWrapper>
-      <ProductInfoText>Custo de envio</ProductInfoText>
+      <ProductInfoText currentTheme={currentTheme} >Custo de envio</ProductInfoText>
       <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount*0.009).toFixed(2)}</ProductInfoPrice>
       {/* <ProductInfoPrice>R$460</ProductInfoPrice> */}
   </CheckoutWrapper>
