@@ -38,11 +38,10 @@ export default function App() {
 
   return (
     <PaperProvider>
-      <ThemeProvider theme={theme} themename={'#fff'}>
+      <ThemeProvider theme={theme}>
         <NavigationContainer   
         theme={{ colors: { background: currentTheme === 'dark' ? '#000' : '#fff'}}}
-        //this isn't working
-        // I already have a theme with styled components, but this is to solve 
+        // I already have a theme with styled components, but this is to solve the bug
         //when the page render at white color in the navigation
         >
 

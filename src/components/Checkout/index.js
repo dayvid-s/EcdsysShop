@@ -12,10 +12,14 @@ import {
 import { useSelector, useDispatch} from 'react-redux'
 import { getTotals } from '../../redux/features/cartSlice';
 import { View } from 'react-native';
+import { numberFormat } from '../../utils/numberFormat';
+
 
 export default ()=> {
   const cartAmount = useSelector(state => state.cart)
   const currentTheme = useSelector((state) => state.theme.currentTheme);
+
+
 
 
   const dispatch = useDispatch()
@@ -29,16 +33,16 @@ export default ()=> {
       {cartAmount.cartTotalQuantity >1?
         <CheckoutWrapper>
           <ProductInfoText currentTheme={currentTheme} >({cartAmount.cartTotalQuantity}) Produtos no total</ProductInfoText>
-          <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</ProductInfoPrice>
+          <ProductInfoPrice>{numberFormat(cartAmount.cartTotalAmount)}</ProductInfoPrice>
         </CheckoutWrapper>
       :
         <CheckoutWrapper>
           <ProductInfoText currentTheme={currentTheme} >(1) Produto</ProductInfoText>
-          <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</ProductInfoPrice>
+          <ProductInfoPrice>{numberFormat(cartAmount.cartTotalAmount)}</ProductInfoPrice>
         </CheckoutWrapper>
       }
     {
-      cartAmount.cartTotalQuantity>2?
+      cartAmount.cartTotalAmount>400?
       <CheckoutWrapper>
         <ProductInfoText currentTheme={currentTheme} >Custo de envio</ProductInfoText>
         <ProductInfoPrice>Gratuito</ProductInfoPrice>
@@ -46,20 +50,20 @@ export default ()=> {
     :
     <CheckoutWrapper>
       <ProductInfoText currentTheme={currentTheme} >Custo de envio</ProductInfoText>
-      <ProductInfoPrice>R$ {(cartAmount.cartTotalAmount*0.009).toFixed(2)}</ProductInfoPrice>
+      <ProductInfoPrice>{numberFormat(cartAmount.cartTotalAmount*0.05)}</ProductInfoPrice>
       {/* <ProductInfoPrice>R$460</ProductInfoPrice> */}
   </CheckoutWrapper>
     }
 
-    {cartAmount.cartTotalQuantity>2?
+    {cartAmount.cartTotalAmount>500?
       <CheckoutWrapper>
         <TotalText>Total</TotalText>
-        <TotalText>R$ {(cartAmount.cartTotalAmount).toFixed(2)}</TotalText>
+        <TotalText>{numberFormat(cartAmount.cartTotalAmount)}</TotalText>
       </CheckoutWrapper>
       :
       <CheckoutWrapper>
         <TotalText>Total</TotalText>
-        <TotalText>R$ {(cartAmount.cartTotalAmount+ cartAmount.cartTotalAmount*0.009).toFixed(2)}</TotalText>
+        <TotalText>{numberFormat(cartAmount.cartTotalAmount+ cartAmount.cartTotalAmount*0.05)}</TotalText>
       </CheckoutWrapper>
     }
     <CheckoutButton>

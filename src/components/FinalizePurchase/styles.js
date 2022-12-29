@@ -26,3 +26,10 @@ export const ButtonSendToCart = styled.TouchableOpacity`
     border-width: 2px;
     border-color: #6159c1;
     `
+export const BottomSheetArea =styled.View`
+    flex:1
+    padding:50px
+    padding-bottom:160px
+    margin-bottom:-130px
+    top:-130px
+ `

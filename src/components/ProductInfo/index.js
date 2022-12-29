@@ -23,6 +23,7 @@ import FullStar from '../../assets/icons/star-svgrepo-com.svg'
 import HalfStar from '../../assets/icons/half-star-svgrepo-com.svg'
 import ProductSpecifications from '../ProductSpecifications'
 import { useSelector } from 'react-redux'
+import { numberFormat } from './../../utils/numberFormat';
 
 export default ({product})=> {
   const currentTheme = useSelector((state) => state.theme.currentTheme);
@@ -33,8 +34,9 @@ export default ({product})=> {
   let stars= [0,0,0,0,0]
   let ratingInDecimal = Math.floor(product.rating)
   let remainder = product.rating - ratingInDecimal
-  var shippingCost= (parseFloat(product?.price*0.009).toFixed(2))
-  var oldProductValue= parseFloat(product?.price*1.25).toFixed(2)
+  var shippingCost= (product?.price*0.05)
+
+  var oldProductValue= (product?.price*1.25)
   for(var i =0; i<ratingInDecimal ; i++){
     stars[i]=2;
   }
@@ -61,10 +63,16 @@ export default ({product})=> {
 
         <TotalUserRatings>{product.evaluationsTotal} avaliações do produto </TotalUserRatings>
       </ProductRatingArea >
-        <OldProductValue>R$ {oldProductValue}</OldProductValue>
+        <OldProductValue>{numberFormat(oldProductValue)}</OldProductValue>
       <ProductPriceArea>
-        <ProductPriceText>R$ {product?.price}</ProductPriceText>
-        <ShippingValueText>+R$ {shippingCost} de envio </ShippingValueText>
+        <ProductPriceText>{numberFormat(product?.price)}</ProductPriceText>
+        <ShippingValueText>
+          {
+            product?.price>1000? 'Frete grátis':
+              (numberFormat(shippingCost) + ' de envio')    
+          }
+          
+          </ShippingValueText>
       </ProductPriceArea>
       {product.specifications !=null &&(
         <>

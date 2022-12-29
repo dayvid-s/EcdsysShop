@@ -35,7 +35,7 @@ const cartSlice = createSlice({
                 sum= product.quantity*product.product.price
                 accumulator= accumulator+sum
             })
-            state.cartTotalAmount=  parseFloat(accumulator.toFixed(2))
+            state.cartTotalAmount=  accumulator
     },
     }
 })

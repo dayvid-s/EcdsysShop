@@ -28,7 +28,7 @@ import { firebase, firestore } from './../../services/firebase-config';
 import {doc,updateDoc, collection, query, where, getDocs, onSnapshot, FirestoreError } from "firebase/firestore";
 import { ActivityIndicator } from 'react-native-paper';
 import { useState } from 'react';
-
+import { numberFormat } from '../../utils/numberFormat';
 
 export default ({product}) => {
   const theme = useTheme()
@@ -127,7 +127,7 @@ export default ({product}) => {
               <ProductTextWrapper>
                 <ProductInfoText  >{product.product?.name}</ProductInfoText>
               </ProductTextWrapper>
-                <ProductPriceText  >R$ {product.product?.price}</ProductPriceText>
+                <ProductPriceText  >{numberFormat(product.product?.price)}</ProductPriceText>
               </InfoWrapper>
               <BottomIconsArea>
                 <TouchableIconArea onPress={()=>{decreaseQuantity(product)}}>

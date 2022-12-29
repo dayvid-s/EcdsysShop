@@ -24,7 +24,6 @@ export default ({loading}) => {
           <AntDesign name="left" size={25} color={theme.onBackGround} />
         </IconsWrapper>
         
-        <HeaderTitle></HeaderTitle>
         <TitleArea>
           <HeaderTitle>{'Meu carrinho'}</HeaderTitle>
         {

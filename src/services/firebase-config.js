@@ -2,6 +2,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import { getStorage } from 'firebase/storage';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDndAT0o-Q5oW8mujaVZSk8FGP8GJdw9Xs",
   authDomain: "ecdysshop.firebaseapp.com",
@@ -11,12 +12,16 @@ export const firebaseConfig = {
   appId: "1:450020217967:web:693938e8d4726e4b54699a"
 };
 
-const firestoreSettings = {
-  useFetchStreams: false
-}
+// const firestoreSettings = {
+//   useFetchStreams: false
+// }
 let app  
 if (firebase.apps.length === 0) {
-  app = firebase.initializeApp(firebaseConfig, firestoreSettings)
+  // app = firebase.initializeApp(firebaseConfig, firestoreSettings)
+  app = firebase.initializeApp(firebaseConfig)
+  firebase.firestore().settings({ experimentalAutoDetectLongPolling: true, merge:true });
+                                //this is to solve some lags that appear sometimes in firebase.
+
 } else {
   app = firebase.app();
 }

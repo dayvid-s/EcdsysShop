@@ -14,6 +14,7 @@ import {useDispatch} from 'react-redux'
 import { productsFetch } from '../../redux/features/productsSlice'
 import { useSelector} from 'react-redux'
 import { addToHistoric } from '../../redux/features/productHistoricSlice'
+import { numberFormat } from '../../utils/numberFormat'
 
 
 
@@ -25,6 +26,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
   const historic= useSelector((state) => state.historic)
   const currentTheme = useSelector((state) => state.theme.currentTheme);
   
+
   
   
   function checkProducts(product) {
@@ -86,7 +88,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
               </LinearGradient>
               <ProductInfoText></ProductInfoText>
               <ProductInfoText typeOfPage={typeOfPage} >{product.name}</ProductInfoText>
-              <ProductPriceText typeOfPage={typeOfPage} >R${product.price}</ProductPriceText>
+              <ProductPriceText typeOfPage={typeOfPage} >{numberFormat(product.price)}</ProductPriceText>
             </WrapperProducts>
         )})}
       </ProductArea>  

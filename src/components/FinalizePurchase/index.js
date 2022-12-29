@@ -4,7 +4,8 @@ import {
   ButtonsWrapper,
   Button,
   ButtonText,
-  ButtonSendToCart
+  ButtonSendToCart,
+  BottomSheetArea
 } from './styles'
 
 import { useNavigation } from '@react-navigation/native'
@@ -14,12 +15,19 @@ import {useDispatch} from 'react-redux'
 import { addToCart } from '../../redux/features/cartSlice'
 import { firebase, firestore } from './../../services/firebase-config';
 import { useSelector } from 'react-redux'
-import { Alert } from 'react-native'
+import { Alert, Keyboard, View } from 'react-native'
 import {doc,updateDoc, collection, query, where, getDocs, onSnapshot, FirestoreError } from "firebase/firestore";
 import { useState } from 'react';
-
+import BottomSheet from '@gorhom/bottom-sheet';
+import { useRef } from 'react';
+import { Text } from 'react-native';
+import CartBottomSheetComponent from '../CartBottomSheetComponent'
 
 export default ({product})=> {
+  const bottomSheetRef = useRef();
+  const [indexz, setIndexz]= useState('100%')
+  const openBottomSheet = () => bottomSheetRef.current?.expand()
+  const closeBottomSheet = () => bottomSheetRef.current?.close()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user.userData); 
   const cart = useSelector((state) => state.cart.cartItems);
@@ -36,6 +44,7 @@ export default ({product})=> {
       quantity:1,
     })
     dispatch(addToCart(product))
+    openBottomSheet()
   }
   
   const validateToSendProduct = async (product)=>{
@@ -53,9 +62,11 @@ export default ({product})=> {
           .update({
             quantity:doc.data().quantity+1
           })});
-      }else{
-        handleAddToCart(product)
-      }
+          openBottomSheet()
+        }else{
+          handleAddToCart(product)
+          openBottomSheet()
+        }
     }
   }
   return (
@@ -80,10 +91,40 @@ export default ({product})=> {
       <ButtonSendToCart onPress={()=>{validateToSendProduct(product) }} >
         <ButtonText currentTheme={currentTheme}  purple={true} >Adicionar no carrinho</ButtonText>
       </ButtonSendToCart>
-  
+      
+      
     
+      <BottomSheetArea>
+        <BottomSheet
+        handleIndicatorStyle={{color:'#000'}}
+          handleStyle={{color:'#000'}}
+          backgroundStyle={{backgroundColor:'#fff',}}
+          enablePanDownToClose={true}
+          ref={bottomSheetRef}
+          index={-1}
+          snapPoints={[1,indexz]}
+          onChange={()=>{Keyboard.dismiss()}}
+          detached={false}
+          >
+                        {/* <View style={{ backgroundColor:'#000', zIndex:0.8}} >
+              <Text>eae</Text>
+            </View> */}
+
+          <CartBottomSheetComponent
+              product={product}
+              // value={text}
+              // setText={setText}
+              // changeInfo = {emailOrName}
+              setIndex={setIndexz}
+              closeBottomSheet={()=>{closeBottomSheet()}}  // function that when is called, set the 
+              openModal={()=>{openModal()}}                 //father component, incredible.  
+            >                                
+          </CartBottomSheetComponent>  
+        </BottomSheet>
+      </BottomSheetArea>
     </ButtonsWrapper>
-   
-   
+
+
+
     )
 }

@@ -17,7 +17,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
-
 export default function ({value, setText, changeInfo, closeBottomSheet, openModal}) {
   const auth = getAuth();
   const user = useSelector((state) => state.user.userData); 
