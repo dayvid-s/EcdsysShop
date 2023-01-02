@@ -5,7 +5,10 @@ import {
   Button,
   ButtonText,
   ButtonSendToCart,
-  BottomSheetArea
+  ModalText,
+  ModalArea,
+  Image,
+  ModalTextArea
 } from './styles'
 
 import { useNavigation } from '@react-navigation/native'
@@ -18,22 +21,35 @@ import { useSelector } from 'react-redux'
 import { Alert, Keyboard, View } from 'react-native'
 import {doc,updateDoc, collection, query, where, getDocs, onSnapshot, FirestoreError } from "firebase/firestore";
 import { useState } from 'react';
-import BottomSheet from '@gorhom/bottom-sheet';
-import { useRef } from 'react';
-import { Text } from 'react-native';
-import CartBottomSheetComponent from '../CartBottomSheetComponent'
+import { Modal, Portal} from 'react-native-paper';
+import { numberFormat } from '../../utils/numberFormat'
+import { useEffect } from 'react';
+
+
 
 export default ({product})=> {
-  const bottomSheetRef = useRef();
-  const [indexz, setIndexz]= useState('100%')
-  const openBottomSheet = () => bottomSheetRef.current?.expand()
-  const closeBottomSheet = () => bottomSheetRef.current?.close()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user.userData); 
   const cart = useSelector((state) => state.cart.cartItems);
   const cartRef = collection(firestore, "cartItems");
   const currentTheme = useSelector((state) => state.theme.currentTheme);
-  var hasProductInCart 
+
+  var hasProductInCart
+  
+  const [visible, setVisible] = useState(false);
+  const hideModal = () => setVisible(false);
+  const containerStyle = {backgroundColor: '#7159c1', padding:50, paddingBottom:90,top:330};
+  
+  const openModal= ()=> {
+    // setVisible(true)
+  setTimeout(() => {
+    setVisible(true)
+  }, 500)  
+  setTimeout(() => {
+    setVisible(false)
+  }, 3500)  
+}
+
 
   const handleAddToCart= (product)=>{
     firebase.firestore().collection('cartItems')  
@@ -44,7 +60,7 @@ export default ({product})=> {
       quantity:1,
     })
     dispatch(addToCart(product))
-    openBottomSheet()
+    openModal()
   }
   
   const validateToSendProduct = async (product)=>{
@@ -62,17 +78,17 @@ export default ({product})=> {
           .update({
             quantity:doc.data().quantity+1
           })});
-          openBottomSheet()
+          openModal()
         }else{
           handleAddToCart(product)
-          openBottomSheet()
+          openModal()
         }
     }
   }
   return (
     <ButtonsWrapper>
               
-      <Button >
+      <Button onPress={()=>{doThat()}} >
         <LinearGradient style={{
           padding:16,
           borderRadius: 8,
@@ -92,39 +108,23 @@ export default ({product})=> {
         <ButtonText currentTheme={currentTheme}  purple={true} >Adicionar no carrinho</ButtonText>
       </ButtonSendToCart>
       
-      
-    
-      <BottomSheetArea>
-        <BottomSheet
-        handleIndicatorStyle={{color:'#000'}}
-          handleStyle={{color:'#000'}}
-          backgroundStyle={{backgroundColor:'#fff',}}
-          enablePanDownToClose={true}
-          ref={bottomSheetRef}
-          index={-1}
-          snapPoints={[1,indexz]}
-          onChange={()=>{Keyboard.dismiss()}}
-          detached={false}
-          >
-                        {/* <View style={{ backgroundColor:'#000', zIndex:0.8}} >
-              <Text>eae</Text>
-            </View> */}
 
-          <CartBottomSheetComponent
-              product={product}
-              // value={text}
-              // setText={setText}
-              // changeInfo = {emailOrName}
-              setIndex={setIndexz}
-              closeBottomSheet={()=>{closeBottomSheet()}}  // function that when is called, set the 
-              openModal={()=>{openModal()}}                 //father component, incredible.  
-            >                                
-          </CartBottomSheetComponent>  
-        </BottomSheet>
-      </BottomSheetArea>
+
+      <Portal >
+        <Modal 
+          visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}> 
+            <ModalText > Produto Adicionado no carrinho </ModalText> 
+          <ModalArea>
+            <Image source= {{uri:product.mainPhoto}}></Image>
+            <ModalTextArea >
+              <ModalText >{product.name}</ModalText> 
+              <ModalText >{ numberFormat(product.price)}</ModalText> 
+            </ModalTextArea>  
+          
+          </ModalArea>
+        </Modal> 
+      </Portal>
     </ButtonsWrapper>
-
-
 
     )
 }

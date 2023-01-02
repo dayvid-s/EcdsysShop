@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-export const ButtonsWrapper = styled.View`
-`
 
 export const Button = styled.TouchableOpacity`
 `
@@ -26,10 +24,25 @@ export const ButtonSendToCart = styled.TouchableOpacity`
     border-width: 2px;
     border-color: #6159c1;
     `
-export const BottomSheetArea =styled.View`
-    flex:1
-    padding:50px
-    padding-bottom:160px
-    margin-bottom:-130px
-    top:-130px
- `
+export const ModalArea = styled.View`
+    flex-direction: row;
+    align-items: center;
+    top: -30px
+`
+export const Image = styled.Image`
+    width:100px
+    height:100px
+`
+
+export const ModalTextArea = styled.View`
+    top: 35px
+`
+
+export const ModalText = styled.Text`
+    top: -30px
+   font-family: "Medium";
+   color:#FFF
+   font-size:18px
+` 
+export const ButtonsWrapper = styled.View`
+   `

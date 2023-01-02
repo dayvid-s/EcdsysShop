@@ -8,6 +8,8 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { useSelector } from 'react-redux'
 import { StatusBar } from 'react-native';
 import Routes from './src/routes';
+import * as NavigationBar from 'expo-navigation-bar';
+
 
 export default function App() {
   const currentTheme = useSelector((state) => state.theme.currentTheme);
@@ -45,8 +47,15 @@ export default function App() {
         //when the page render at white color in the navigation
         >
 
-            <StatusBar animated={true} 
-          backgroundColor={currentTheme==='light'? '#fcfcfc': '#000'}   ></StatusBar>
+            <StatusBar 
+            animated={true}  
+            
+            barStyle={currentTheme === 'dark' ? 'light-content' : 'dark-content'}
+            //  StatusBarStyle={currentTheme === 'dark' ? 'light' : 'dark'}
+            // currentTheme === 'dark' ? '#000' : '#fff'
+            // style ={currentTheme === 'dark' ? 'light' : 'dark'}
+          backgroundColor={currentTheme==='light'? '#fcfcfc': '#000'}
+             ></StatusBar>
             
           <Routes></Routes>
         </NavigationContainer>

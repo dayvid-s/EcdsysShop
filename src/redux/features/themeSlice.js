@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import * as NavigationBar from 'expo-navigation-bar';
 
 const initialState = {
     toggleTheme: true,
@@ -12,8 +13,14 @@ const themeSlice = createSlice({
             state.toggleTheme= !state.toggleTheme
             if(state.currentTheme=== 'dark'){
                 state.currentTheme= 'light'
+                setTimeout(() => {
+                    NavigationBar.setBackgroundColorAsync("white");
+                }, 300);
                 
             }else{
+                setTimeout(() => {
+                    NavigationBar.setBackgroundColorAsync("#000");
+                }, 300);
                 state.currentTheme= 'dark'
             }
         },

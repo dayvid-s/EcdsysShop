@@ -24,6 +24,7 @@ export default ()=> {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.userData);
   const [loading, setLoading] = useState(true)
+  // const 
   const dispatch = useDispatch()
   const currentTheme = useSelector((state) => state.theme.currentTheme);
   const theme =useTheme()
