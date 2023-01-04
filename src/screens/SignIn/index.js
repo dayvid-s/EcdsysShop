@@ -111,8 +111,12 @@ export default () => {
 
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
+      <KeyboardAwareScrollView 
+      enableOnAndroid={true}
+      keyboardOpeningTime	={330}
+      enableAutomaticScroll	
+      extraHeight={190}  >
       <Container>
-      <KeyboardAwareScrollView  extraScrollHeight={150}  >
         <HeaderArea>
           <WrapperIcon onPress={()=>{navigation.navigate('SignUp')}} >
             <IconBack  IconBack width={20} heigth={20} fill={theme.onBackGround} ></IconBack>
@@ -174,8 +178,8 @@ export default () => {
           <SignMessageButtonText>Não possui uma conta?  </SignMessageButtonText>
           <SignMessageButtonTextBold>Cadastre-se</SignMessageButtonTextBold>
         </SignMessageButton>
-    </KeyboardAwareScrollView>
       </Container>
+    </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
 
   )

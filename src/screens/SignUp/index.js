@@ -32,7 +32,6 @@ import { ActivityIndicator } from 'react-native-paper'
 import {useDispatch} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
 import { useSelector } from 'react-redux'
-import { ScrollView } from 'react-native-gesture-handler'
 import { useTheme } from 'styled-components';
 
 export default () => {
@@ -120,15 +119,15 @@ export default () => {
       {console.log(error)}
     }))}}    
   return (
-    // <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
-       <KeyboardAvoidingView
-      // behavior={Platform.OS == "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={80}  style={{flex:1}}
-      
-      > 
-      <ScrollView>
+    <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
+      <KeyboardAwareScrollView 
+      enableOnAndroid={true}
+      keyboardOpeningTime	={330}
+      enableAutomaticScroll	
+      extraHeight={190}
+      >
+      <Container >
 
-        {/* <Container > */}
           <HeaderArea>
             <HeaderText>Cadastrar</HeaderText>
           </HeaderArea> 
@@ -195,9 +194,8 @@ export default () => {
             <SignMessageButtonText>Já possui uma conta? </SignMessageButtonText>
             <SignMessageButtonTextBold>Faça login</SignMessageButtonTextBold>
           </SignMessageButton>
-        {/* </Container> */}
-      </ScrollView>
-      </KeyboardAvoidingView>
-    // </TouchableWithoutFeedback>
+    </Container>
+      </KeyboardAwareScrollView>
+    </TouchableWithoutFeedback>
   )
 }

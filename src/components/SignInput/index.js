@@ -11,6 +11,7 @@ import ShowPassword from '../../assets/icons/eyePassword.svg'
 import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
 import { Entypo } from '@expo/vector-icons'; 
+import { KeyboardAvoidingView } from 'react-native';
 
 
 
@@ -33,7 +34,6 @@ export default ({
     const currentTheme = useSelector((state) => state.theme.currentTheme);
     const theme = useTheme()
 
-    // const [errorEmail, setErrorEmail] = useState(null)
 
 
     useEffect(()=>{
@@ -54,6 +54,7 @@ export default ({
         setShowPassword(!showPassword)}
 
     return(
+
         <Container>
             <TextInfo>{Text}</TextInfo>
             <InputArea custom={inputBorderColor} >
@@ -67,18 +68,18 @@ export default ({
                     //     // this is calling two functions at the change text of textInput.
                     //     // its like passing props for the father... but we are just changing 
                     //     // the state of the father component.
-                    }}
-
-                    value={value}
-                    onFocus={handleOnFocus}
-                    onBlur={handleOnBlur}  
-                    placeholder={placeholder} 
-                    ref={inputRef} 
-                    placeholderTextColor={currentTheme=='dark'? 'gray': '#000'}  
-                    secureTextEntry={showPassword}
-                    onSubmitEditing={onSubmitEditing}
-                    returnKeyType={returnKeyType}
-                    
+                }}
+                
+                value={value}
+                onFocus={handleOnFocus}
+                onBlur={handleOnBlur}  
+                placeholder={placeholder} 
+                ref={inputRef} 
+                placeholderTextColor={currentTheme=='dark'? 'gray': '#000'}  
+                secureTextEntry={showPassword}
+                onSubmitEditing={onSubmitEditing}
+                returnKeyType={returnKeyType}
+                
                 />
                 
                 {passWord==true?
@@ -87,7 +88,7 @@ export default ({
                             <Hide opacity="0.4" width="28" height="28" fill={theme.onBackGround} />
                             :   
                             <ShowPassword opacity="0.4" width="33" height="33" fill={theme.onBackGround} />
-                            }
+                        }
                             </TouchableOpacity>  
                 :null
                 } 

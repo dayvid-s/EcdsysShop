@@ -10,8 +10,9 @@
       "userInterfaceStyle": "automatic" ,
       "softwareKeyboardLayoutMode": "pan" },  //this to evitad keyboard go up
     "splash": {
+      // "image": "",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

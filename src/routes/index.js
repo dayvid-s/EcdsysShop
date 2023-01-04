@@ -6,12 +6,14 @@ import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux'
 import { useSelector} from 'react-redux'
 import {changeUserInfo} from '../redux/features/userSlice'
-import {firebase} from '../services/firebase-config'
+
+
+
 export default() =>{
     const user = useSelector((state) => state.user);
     const [loadingAuth, setLoadingAuth ]= useState(false)
     const dispatch = useDispatch()
-   
+    
     useEffect (() =>{
     setLoadingAuth(true)
     const verifyUser = async ()=>{

@@ -8,7 +8,6 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { useSelector } from 'react-redux'
 import { StatusBar } from 'react-native';
 import Routes from './src/routes';
-import * as NavigationBar from 'expo-navigation-bar';
 
 
 export default function App() {
@@ -16,7 +15,7 @@ export default function App() {
   const theme = themes[currentTheme] || theme.dark
 
 
-  let [fontsLoaded,error] = useFonts({
+  let [fontsLoaded] = useFonts({
       "Hard": require('./src/assets/fonts/Roboto-Bold.ttf'),
       "Medium": require('./src/assets/fonts/Roboto-Medium.ttf'),
       'Easy': require('./src/assets/fonts/Roboto-Regular.ttf')
@@ -26,10 +25,10 @@ export default function App() {
     if (!fontsLoaded) {
         return undefined;
       }
-    async function prepare() {
+    async function getFonts() {
       await SplashScreen.preventAutoHideAsync();
     }
-    prepare();
+    getFonts();
   }, []);
 
   if (!fontsLoaded) {
@@ -46,16 +45,11 @@ export default function App() {
         // I already have a theme with styled components, but this is to solve the bug
         //when the page render at white color in the navigation
         >
-
             <StatusBar 
             animated={true}  
-            
             barStyle={currentTheme === 'dark' ? 'light-content' : 'dark-content'}
-            //  StatusBarStyle={currentTheme === 'dark' ? 'light' : 'dark'}
-            // currentTheme === 'dark' ? '#000' : '#fff'
-            // style ={currentTheme === 'dark' ? 'light' : 'dark'}
-          backgroundColor={currentTheme==='light'? '#fcfcfc': '#000'}
-             ></StatusBar>
+            backgroundColor={currentTheme==='light'? '#fcfcfc': '#000'}
+            ></StatusBar>
             
           <Routes></Routes>
         </NavigationContainer>

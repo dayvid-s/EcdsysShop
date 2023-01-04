@@ -17,6 +17,8 @@ export const InputArea = styled.View`
     padding-left: 15px;
     justify-content:space-around;
     border-color: ${(props) => props.custom}
+    /* margin:50px */
+    /* margin-bottom:50px */
 `
 
 export const TextInfo = styled.Text `

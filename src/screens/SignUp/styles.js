@@ -26,7 +26,6 @@ export const LoginIconsArea = styled.View`
     margin-left: 10% ;
     `
 export const SubmitArea = styled.View`
-
 `
 export const ErrorArea = styled.TouchableOpacity`
     /* margin-top:10px */
