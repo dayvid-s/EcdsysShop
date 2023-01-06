@@ -17,15 +17,12 @@ export const InputArea = styled.View`
     padding-left: 15px;
     justify-content:space-around;
     border-color: ${(props) => props.custom}
-    /* margin:50px */
-    /* margin-bottom:50px */
 `
 
 export const TextInfo = styled.Text `
     margin-left: 15px;
     margin-bottom: 8px
     font-size:18px
-    /* opacity:0.5 */
     color: ${props => props.theme.onBackGround};
     `
 
@@ -34,7 +31,6 @@ export const Input = styled.TextInput`
     font-size:16px;
     color: ${props => props.theme.onBackGround};
     margin-left: 10px;
-    /* max-width: 80%; */
 `
 export const TouchableOpacity = styled.TouchableOpacity `
     margin-right:10px

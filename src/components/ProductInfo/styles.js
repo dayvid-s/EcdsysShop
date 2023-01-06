@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.View`
-margin-left:5%
+    margin-left:5%
     `
 export const ProductName = styled.Text`
     font-size:30px;
@@ -10,23 +10,23 @@ export const ProductName = styled.Text`
     font-weight: 600
     opacity:${props => props.currentTheme =='light' ? '1' : '0.6'};
     `
-    export const ProductRatingArea = styled.View`
+export const ProductRatingArea = styled.View`
     flex-direction: row;
     `
-    export const StarWrapper = styled.View`
+export const StarWrapper = styled.View`
     `
-    export const TotalUserRatings = styled.Text`
+export const TotalUserRatings = styled.Text`
     font-size:15px;
     color: ${props => props.theme.roseBlue}
     margin-left:5px
     font-weight: 500
     margin-top:1px
     `
-    export const ProductPriceArea = styled.View`
+export const ProductPriceArea = styled.View`
     flex-direction: row;
     align-items: center;
     `
-    export const OldProductValue = styled.Text`
+export const OldProductValue = styled.Text`
     font-size:22px;
     color: ${props => props.theme.onBackGround}
     text-decoration-line: line-through
@@ -35,12 +35,12 @@ export const ProductName = styled.Text`
     margin-top:15px
     margin-bottom:-4px
     `
-    export const ProductPriceText = styled.Text`
+export const ProductPriceText = styled.Text`
     font-size:34px;
     color: ${props => props.theme.onBackGround}
     font-weight: 600
     `
-    export const ShippingValueText = styled.Text`
+export const ShippingValueText = styled.Text`
     font-size:15px;
     color: ${props => props.theme.gray300}
     font-weight: 600
@@ -49,18 +49,18 @@ export const ProductName = styled.Text`
     color: ${props => props.theme.roseBlue}
     opacity:0.7
     `
-    export const ProductSpecText = styled.Text`
+export const ProductSpecText = styled.Text`
     color: #FFF
     font-weight: 700    
     margin-top:6px
     margin-bottom:6px
     margin-left:3px
     `
-    export const ProductSpecsArea = styled.View`
+export const ProductSpecsArea = styled.View`
     flex-direction: row;
     align-items: center;
     `
-    export const  ProductSpecsWrapper = styled.TouchableOpacity`
+export const  ProductSpecsWrapper = styled.TouchableOpacity`
     padding:8px
     padding-right:10px
     padding-left:10px 

@@ -8,10 +8,10 @@ const Stack = createStackNavigator()
 
 export default () =>{
   return (
-    <Stack.Navigator>
-        <Stack.Screen name='SignUp' component={SignUp} options={{headerShown:false}}/>
-        <Stack.Screen name='SignIn' component={SignIn} options={{headerShown:false}} />
-        <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{headerShown:false}} />
+    <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen name='SignUp' component={SignUp} />
+        <Stack.Screen name='SignIn' component={SignIn} />
+        <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
     </Stack.Navigator>
     )
 }

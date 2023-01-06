@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 
@@ -73,7 +72,6 @@ export const ErrorArea = styled.View`
 
 export const ErrorText = styled.Text`
     color:red
-    /* color:#7159c1  */
     align-self: flex-end
     font-weight: 600
     opacity:0.8

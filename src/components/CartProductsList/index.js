@@ -11,32 +11,30 @@ import {
   TouchableIconArea,
   RemoveProductText,
   ImageWrapper,
+  Image,
   InfoWrapper,
   ProductRemoveWrapper,
   ProductArea,
+  ActivityIndicator
 } from './styles'
-import { useTheme } from 'styled-components'
 import { useNavigation } from '@react-navigation/native'
 import { 
   AntDesign,
-  FontAwesome5
- } from '@expo/vector-icons';
-import { Image, Alert } from 'react-native';
+} from '@expo/vector-icons'
+
+
 import { useSelector, useDispatch} from 'react-redux'
-import { retrieveCart, increaseQuantity, getTotals } from '../../redux/features/cartSlice';
-import { firebase, firestore } from './../../services/firebase-config';
-import {doc,updateDoc, collection, query, where, getDocs, onSnapshot, FirestoreError } from "firebase/firestore";
-import { ActivityIndicator } from 'react-native-paper';
+import { getTotals } from '../../redux/features/cartSlice';
+import { firestore } from './../../services/firebase-config';
+import {collection, query, where, getDocs} from "firebase/firestore";
 import { useState } from 'react';
 import { numberFormat } from '../../utils/numberFormat';
 
 export default ({product}) => {
-  const theme = useTheme()
   const navigation = useNavigation()
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart.cartItems); 
   const user = useSelector((state) => state.user.userData);
-  const totalQuantity = useSelector(state => state.cart.cartTotalAmount)
   const cartRef = collection(firestore, "cartItems");
   const [loading, setLoading]= useState(false)
     
@@ -107,43 +105,41 @@ export default ({product}) => {
     <Container>
         <ProductArea >
           {loading?
-            <ActivityIndicator style={{top:20,marginBottom:-80}}
-            animating={true} color={"#7159c1"}  size={80}
-              ></ActivityIndicator>
+            <ActivityIndicator 
+                animating={true} color={"#7159c1"}  size={80}>
+            </ActivityIndicator>
             :null   }
           <ProductsWrapper loading={loading} >
               <ImageWrapper onPress={()=>{ goToAbout(product)}}>
                 <Image
                 source={{uri:product.product?.mainPhoto}}
-                style={{
-                  borderRadius:10, width:130,
-                  height:100, resizeMode:'contain',
-                  marginLeft:-20,
-                }}
                 ></Image>
               </ImageWrapper>
+
+
               <ProductInfoWrapper>
-              <InfoWrapper onPress={()=>{ goToAbout(product)}}>
-              <ProductTextWrapper>
-                <ProductInfoText  >{product.product?.name}</ProductInfoText>
-              </ProductTextWrapper>
-                <ProductPriceText  >{numberFormat(product.product?.price)}</ProductPriceText>
-              </InfoWrapper>
-              <BottomIconsArea>
-                <TouchableIconArea onPress={()=>{decreaseQuantity(product)}}>
-                  <AntDesign 
-                name="minus" size={20} color="#fff" 
-                />
-                </TouchableIconArea>
-                <TextInfo  >    {product.quantity}   </TextInfo>
-                <TouchableIconArea onPress={()=>{handleIncreaseQuantity(product)}} >
-                  <AntDesign 
-                  name="plus" size={20} color="#fff" />
-                </TouchableIconArea>
-                <ProductRemoveWrapper onPress={()=>{removeProductFromCart(product)}} >
-                  <RemoveProductText>Remover</RemoveProductText>
-                </ProductRemoveWrapper>
-              </BottomIconsArea>
+                <InfoWrapper onPress={()=>{ goToAbout(product)}}>
+                <ProductTextWrapper>
+                  <ProductInfoText  >{product.product?.name}</ProductInfoText>
+                </ProductTextWrapper>
+                  <ProductPriceText  >{numberFormat(product.product?.price)}</ProductPriceText>
+                </InfoWrapper>
+                <BottomIconsArea>
+
+                  
+                  <TouchableIconArea onPress={()=>{decreaseQuantity(product)}}>
+                    <AntDesign name="minus" size={20} color="#fff" />
+                  </TouchableIconArea>
+                  <TextInfo  >    {product.quantity}   </TextInfo>
+                  <TouchableIconArea onPress={()=>{handleIncreaseQuantity(product)}} >
+                    <AntDesign  name="plus" size={20} color="#fff" />
+                  </TouchableIconArea>
+
+
+                  <ProductRemoveWrapper onPress={()=>{removeProductFromCart(product)}} >
+                    <RemoveProductText>Remover</RemoveProductText>
+                  </ProductRemoveWrapper>
+                </BottomIconsArea>
               </ProductInfoWrapper>
           </ProductsWrapper>
         </ProductArea>

@@ -1,5 +1,3 @@
-//TODO: API DO CORREIO/
-
 import React, { useState } from 'react'
 import {
   Container,
@@ -14,11 +12,8 @@ import {
   ProductSpecsArea,
   ProductSpecText,
   ProductSpecsWrapper,
-  DescriptionText
 } from './styles'
 
-import { useNavigation } from '@react-navigation/native'
-import { useRoute } from '@react-navigation/native'
 import FullStar from '../../assets/icons/star-svgrepo-com.svg'
 import HalfStar from '../../assets/icons/half-star-svgrepo-com.svg'
 import ProductSpecifications from '../ProductSpecifications'
@@ -27,10 +22,10 @@ import { numberFormat } from './../../utils/numberFormat';
 
 export default ({product})=> {
   const currentTheme = useSelector((state) => state.theme.currentTheme);
-  const [state00,setState00 ] = useState(false)
-  const [state01,setState01 ] = useState(false)
-  const [state02,setState02 ] = useState(false)
-  const [state03,setState03 ] = useState(false)
+  const [firstSpec,setFirstSpec ] = useState(false)
+  const [secondSpec,setSecondSpec ] = useState(false)
+  const [thirdSpec,setThirdSpec ] = useState(false)
+  const [fourthSpec,setFourthSpec ] = useState(false)
   let stars= [0,0,0,0,0]
   let ratingInDecimal = Math.floor(product.rating)
   let remainder = product.rating - ratingInDecimal
@@ -78,26 +73,26 @@ export default ({product})=> {
         <>
               <ProductSpecText>Especificações do produto:</ProductSpecText>
               <ProductSpecsArea>
-                <ProductSpecsWrapper state={state00}  onPress={()=>{
-                  setState00(true),setState01(false),setState02(false),setState03(false)}}>
+                <ProductSpecsWrapper state={firstSpec}  onPress={()=>{
+                  setFirstSpec(true),setSecondSpec(false),setThirdSpec(false),setFourthSpec(false)}}>
                   
                   <ProductSpecifications specification={product.specifications[0]}  ></ProductSpecifications>
                 </ProductSpecsWrapper>
-                <ProductSpecsWrapper state={state01} onPress={()=>{
-                  setState00(false) ,setState01(true),setState02(false),setState03(false)}}>
+                <ProductSpecsWrapper state={secondSpec} onPress={()=>{
+                  setFirstSpec(false) ,setSecondSpec(true),setThirdSpec(false),setFourthSpec(false)}}>
                   <ProductSpecifications specification={product.specifications[1]} 
                   ></ProductSpecifications>
                 </ProductSpecsWrapper  >
                   {product.specifications[2] != undefined   &&
-                <ProductSpecsWrapper state={state02} onPress={()=>{
-                  setState00(false) ,setState01(false),setState02(true),setState03(false)
+                <ProductSpecsWrapper state={thirdSpec} onPress={()=>{
+                  setFirstSpec(false) ,setSecondSpec(false),setthirdSpec(true),setFourthSpec(false)
                   }} >
                     <ProductSpecifications specification={product.specifications[2]}></ProductSpecifications>  
                 </ProductSpecsWrapper>
                   }
                 {product.specifications[3] != undefined   &&
-                  <ProductSpecsWrapper state={state03} onPress={()=>{
-                    setState00(false) ,setState01(false),setState02(false),setState03(true)
+                  <ProductSpecsWrapper state={fourthSpec} onPress={()=>{
+                    setFirstSpec(false) ,setSecondSpec(false),setthirdSpec(false),setFourthSpec(true)
                     }} >
                   <ProductSpecifications specification={product.specifications[3]}></ProductSpecifications>  
                   </ProductSpecsWrapper>

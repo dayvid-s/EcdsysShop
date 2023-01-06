@@ -15,14 +15,15 @@ export default() =>{
     const dispatch = useDispatch()
     
     useEffect (() =>{
-    setLoadingAuth(true)
-    const verifyUser = async ()=>{
-        const storageUser = await AsyncStorage.getItem('userData')
-        if(storageUser){
-            dispatch(changeUserInfo(JSON.parse(storageUser))) 
+        setLoadingAuth(true)
+        const verifyUser = async ()=>{
+            const storageUser = await AsyncStorage.getItem('userData')
+            if(storageUser){
+                dispatch(changeUserInfo(JSON.parse(storageUser))) 
+                setLoadingAuth(false)
+        }
             setLoadingAuth(false)
         }
-        setLoadingAuth(false)}
         verifyUser()
     },[])
     

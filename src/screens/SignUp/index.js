@@ -1,8 +1,3 @@
-//TODO: Solve keyboard avoiding view
-//TODO: on send file, buttom stay with scroll indicator, 'app barber' maybe.
-//TODO: animation on out of the page. like nubank
-//TODO: put some comments explaining firebase, cuz stood a little bit complex
-
 import React, { useRef, useState } from 'react'
 import {
     TouchableWithoutFeedback,
@@ -24,15 +19,14 @@ import EmailIcon from '../../assets/icons/email.svg'
 import Lock from '../../assets/icons/lock.svg'
 import User from '../../assets/icons/user.svg'
 import { useNavigation } from '@react-navigation/native'
-import { Keyboard, KeyboardAvoidingView, Platform, View } from 'react-native'
+import { Keyboard} from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {firebase} from '../../services/firebase-config'
 import { ActivityIndicator } from 'react-native-paper'
 import {useDispatch} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
-import { useSelector } from 'react-redux'
-import { useTheme } from 'styled-components';
+
 
 export default () => {
   const navigation = useNavigation()
@@ -46,8 +40,6 @@ export default () => {
   const [errorPassword, setPasswordError] = useState(null)
   const [loadingAuth, setAuthLoading] = useState(false)
   const dispatch = useDispatch()
-  const theme = useTheme()
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
  
 
 
@@ -84,49 +76,32 @@ export default () => {
 
   const handleSignUp = async (email, password, name)=>{
     if(validate()){
-
       setAuthLoading(true)
       await firebase.auth().createUserWithEmailAndPassword(email,password)
-      .then(()=>{
-        firebase.auth().currentUser.sendEmailVerification({
-        handleCodeInApp: true,
-        url:'https://ecdysshop.firebaseapp.com',
-      }).then(()=>{
-        let uid = firebase.auth().currentUser.uid
-        firebase.firestore().collection('users')  //creating a collection at firestore
-        .doc(uid)  //its getting the uid of user to match with firestore
-        .set({           
-          name: name,
-          email: email
-        })
-        .then(()=>{
+      .then((userCredential)=>{
           let data={
-            uid:uid,
+            uid:userCredential.user.uid,
             name:name,
-            email: email
-          }
-          dispatch(changeUserInfo(data))   //saving user data at redux for be global
-          storageUser(data)               
-          })
+            email: email,
+            userAvatar: null
 
-      }).catch((error)=>{
-        setAuthLoading(false)
-        {console.log(error)}
-      })
-    })
-    .catch((error=>{
+          }
+          dispatch(changeUserInfo(data))   //saving user data at redux 
+          storageUser(data)       
+          }).catch((error)=>{
       setAuthLoading(false)
       {console.log(error)}
-    }))}}    
+    })
+  }}    
+
+
+
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
       <KeyboardAwareScrollView 
-      enableOnAndroid={true}
-      keyboardOpeningTime	={330}
-      enableAutomaticScroll	
-      extraHeight={190}
-      >
-      <Container >
+      enableOnAndroid={true} keyboardOpeningTime	={330}
+      enableAutomaticScroll	extraHeight={190}>
+        <Container >
 
           <HeaderArea>
             <HeaderText>Cadastrar</HeaderText>
@@ -194,7 +169,7 @@ export default () => {
             <SignMessageButtonText>Já possui uma conta? </SignMessageButtonText>
             <SignMessageButtonTextBold>Faça login</SignMessageButtonTextBold>
           </SignMessageButton>
-    </Container>
+        </Container>
       </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
   )

@@ -1,5 +1,8 @@
 import styled from "styled-components";
-
+import { 
+    AntDesign, 
+  } from '@expo/vector-icons'; 
+  
 export const Container = styled.View`
     background-color:${props => props.theme.backGround}
     flex:1
@@ -12,6 +15,12 @@ export const HeaderArea = styled.View`
     align-items: center
     
     `
+export const GoBackIcon = styled(AntDesign)`
+    margin-top:3px
+    opacity:0.8 
+    margin-left:6px
+    margin-right:6px
+`
 export const InputArea = styled.View`
     flex-direction: row
     padding:9px

@@ -1,5 +1,4 @@
 import { 
-  Image,
   Dimensions,
   Animated,
  } from 'react-native'
@@ -7,6 +6,7 @@ import React from 'react'
 import {
   ImageWrapper,
   ImageList,
+  Image,
   AnimatedLines
 } from './styles'
 
@@ -14,10 +14,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
 
 export default ({product})=> {
-  const navigation= useNavigation()
-  const route= useRoute()
   const width = Dimensions.get('window').width;
-  // console.log(product.secondaryPhotos)
   const scrollX = new Animated.Value(0);
   let position = Animated.divide(scrollX, width);
   return (
@@ -28,23 +25,16 @@ export default ({product})=> {
       renderItem={
         ({item}) =>(    //in this item, it's the url of secondary photos. they were saved at 
                           // data of flatlist.
-          <Image source={{uri:item}} 
-          style={{
-            width:425,
-            height:300,
-            resizeMode:'contain',
-          }}
-          ></Image>)}
-          
-          showsHorizontalScrollIndicator={false}
-          decelerationRate={0.8}
-          snapToInterval={width}
-          bounces={false}
-          onScroll={Animated.event(
-            [{nativeEvent: {contentOffset: {x: scrollX}}}],
-            {useNativeDriver: false},
-            )}
-            />
+          <Image source={{uri:item}} ></Image>)}
+            showsHorizontalScrollIndicator={false}
+            decelerationRate={0.8}
+            snapToInterval={width}
+            bounces={false}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {x: scrollX}}}],
+              {useNativeDriver: false},
+              )}
+              />
   
       <AnimatedLines>
         {product.secondaryPhotos

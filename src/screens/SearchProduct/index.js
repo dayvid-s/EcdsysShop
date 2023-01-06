@@ -1,6 +1,5 @@
 import React, {  useState, useEffect } from 'react'
 import { 
-  AntDesign, 
   FontAwesome,
   Entypo, 
   MaterialIcons    
@@ -13,6 +12,8 @@ import {
   TextInputToSearch,
   SearchHistoryArea,
   TextWithSearches,
+  GoBackIcon,
+  
 } from './styles'
 import { useTheme } from 'styled-components'
 import { Alert, StatusBar } from 'react-native';
@@ -21,6 +22,8 @@ import ViewProducts from '../../components/ViewProducts';
 import { useSelector } from 'react-redux';
 import { firestore } from '../../services/firebase-config';
 import { collection, query, where,doc, setDoc, getDocs  } from "firebase/firestore";
+
+
 
 export default ()=> {
   const user = useSelector((state) => state.user.userData);
@@ -38,7 +41,7 @@ export default ()=> {
 
   useEffect (()=>{
     const retrieveSearches= async ()=>{
-      const querySnapshot = await getDocs(searchesQuery)
+      const querySnapshot = await getDocs(searchesQuery)  // retrieving user' searches.
       querySnapshot.forEach( (doc) => {
         searchesData.push(doc.data().search)
         setUserSearches([...searchesData])
@@ -78,15 +81,13 @@ export default ()=> {
   <Container>
     <StatusBar backgroundColor = {statusBarColor}   ></StatusBar>
     <HeaderArea>
-      <AntDesign onPress={()=>{goBack()}}
-        style={{marginTop:3, opacity:0.8, marginLeft:6,marginRight:6}}
+      <GoBackIcon onPress={()=>{goBack()}}
       name="arrowleft" size={30} color={theme.onBackGround} />
       <InputArea>
         <FontAwesome name="search" size={24} color={theme.roseBlue} />
         <TextInputToSearch
-        placeholder={'Busque um produto'}
-        placeholderTextColor={theme.gray300}
-
+          placeholder={'Busque um produto'}
+          placeholderTextColor={theme.gray300}
           returnKeyType={"search"}
           autoFocus= {true}
           onSubmitEditing ={()=>{SearchProduct()}}

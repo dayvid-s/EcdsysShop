@@ -21,7 +21,6 @@ export default () => {
 
   return (
     <Container>
-      {/* <Title>Categorias </Title> */}
           <FlatlistArea>
       <FlatList
       showsHorizontalScrollIndicator={false}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Image,ScrollView } from 'react-native'
 import {
   Container,
@@ -23,7 +23,6 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
   const products = useSelector((state) => state.products);
   const productsFiltered = products.items?.filter(checkProducts);
   const dispatch = useDispatch()
-  const historic= useSelector((state) => state.historic)
   const currentTheme = useSelector((state) => state.theme.currentTheme);
   
 
@@ -57,7 +56,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
   }
   useEffect(() => {
     dispatch(productsFetch())
-  }, [dispatch]);
+  }, []);
 
 
   return (
@@ -71,7 +70,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
           return(                   
             <WrapperProducts typeOfPage={typeOfPage}  key={id} onPress={()=> viewProduct(product)}
             >
-              <LinearGradient style={{borderRadius:12,zIndex: 0}}
+              <LinearGradient style={{borderRadius:12}}
               colors={currentTheme=='dark'?
               ["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"] :
               ["#circle at 10% 20%, rgb(230,230,230) 0%", "rgb(240,240, 240) 90.2%)"]

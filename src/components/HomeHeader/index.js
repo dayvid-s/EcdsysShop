@@ -1,8 +1,6 @@
-//TODO: put use memo in colors of icons
 import React from 'react'
 import Cart from '../../assets/icons/shopping-cart-svgrepo-com.svg'
 import Menu from '../../assets/icons/menu-svgrepo-com (1).svg'
-import { Feather } from '@expo/vector-icons'; 
 import { useDispatch, useSelector} from 'react-redux'
 import { getTotals, retrieveCart } from '../../redux/features/cartSlice';
 
@@ -14,7 +12,7 @@ import {
   } from './styles'
 import { useTheme } from 'styled-components'
 import { useNavigation } from '@react-navigation/native'
-import { firebase, firestore } from './../../services/firebase-config';
+import { firebase } from './../../services/firebase-config';
 import { useEffect } from 'react';
 
 
@@ -38,7 +36,7 @@ export default () => {
         })
       })
       dispatch(retrieveCart(cartProducts))
-        dispatch(getTotals())
+      dispatch(getTotals())
 
     })
   },[])

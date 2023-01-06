@@ -10,8 +10,6 @@ import Hide from '../../assets/icons/eyeClosed.svg'
 import ShowPassword from '../../assets/icons/eyePassword.svg'
 import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
-import { Entypo } from '@expo/vector-icons'; 
-import { KeyboardAvoidingView } from 'react-native';
 
 
 
@@ -28,7 +26,6 @@ export default ({
     setText,
     setError,
     }) =>{
-    // const app = initializeApp(firebaseConfig);
     const [inputBorderColor, setInputBorderColor] = useState('#434344')
     const [showPassword, setShowPassword] = useState(false)
     const currentTheme = useSelector((state) => state.theme.currentTheme);
@@ -39,7 +36,7 @@ export default ({
     useEffect(()=>{
         if(secureTextEntry== true){
             setShowPassword(true)
-        }    else{
+        }else{
             setShowPassword(false)
         }
     },[])

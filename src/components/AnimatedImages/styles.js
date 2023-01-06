@@ -8,6 +8,12 @@ export const ImageWrapper = styled.View`
 
 export const ImageList = styled.FlatList``
 
+export const Image = styled.Image`
+    width:425px
+    height:300px
+    resize-mode:contain
+`
+
 export const AnimatedLines = styled.View`
     width: 100%;
     flex-direction: row;

@@ -8,7 +8,13 @@ export const HeaderArea = styled.View`
     background-color:#171717
     background-color:${props=> props.theme.backGround}
     `
-    export const ImageArea = styled.TouchableOpacity`
+export const ImageArea = styled.TouchableOpacity`
+`
+export const Image = styled.Image`
+    width:60px
+    height:60px
+    resize-mode:contain
+    border-radius:30px
 `
 export const GreetingsText = styled.Text`
     color:${props=> props.theme.onBackGround}

@@ -1,6 +1,3 @@
-//TODO: Solve keyboard avoiding view
-//TODO: put icons with all kind of color.
-//TODO: see if toogle keyboard its right, or its another way
 import React, { useRef, useState } from 'react'
 import {
     TouchableWithoutFeedback,
@@ -29,13 +26,15 @@ import { useNavigation } from '@react-navigation/native'
 import { Keyboard } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {signInWithEmailAndPassword} from "firebase/auth";
-import { auth, firestore } from '../../services/firebase-config'
+import { auth } from '../../services/firebase-config'
 import { ActivityIndicator } from 'react-native-paper'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {changeUserInfo} from '../../redux/features/userSlice'
 import {firebase} from '../../services/firebase-config'
-import { useTheme } from 'styled-components';
+import { useTheme } from 'styled-components'
+
+
 export default () => {
   const navigation = useNavigation()
   const passwordRef = useRef()
@@ -45,7 +44,6 @@ export default () => {
   const [errorEmail, setErrorEmail] = useState(null)
   const [errorPassword, setPasswordError] = useState(null)
   const theme = useTheme()
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
  
  
   const validate = () => {
@@ -79,7 +77,7 @@ export default () => {
       setAuthLoading(true)
       signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        let uid = auth.currentUser.uid
+        let uid = userCredential.user.uid
         firebase.firestore().collection('users')
         .doc(uid).get()
         .then((snapshot) =>{        
@@ -116,70 +114,69 @@ export default () => {
       keyboardOpeningTime	={330}
       enableAutomaticScroll	
       extraHeight={190}  >
-      <Container>
-        <HeaderArea>
-          <WrapperIcon onPress={()=>{navigation.navigate('SignUp')}} >
-            <IconBack  IconBack width={20} heigth={20} fill={theme.onBackGround} ></IconBack>
-          </WrapperIcon>
-          <HeaderText>Entrar</HeaderText>
-        </HeaderArea> 
-          <HeaderTextLittle>Que bom ter você de volta!</HeaderTextLittle>
+        <Container>
+          <HeaderArea>
+            <WrapperIcon onPress={()=>{navigation.navigate('SignUp')}} >
+              <IconBack  IconBack width={20} heigth={20} fill={theme.onBackGround} ></IconBack>
+            </WrapperIcon>
+            <HeaderText>Entrar</HeaderText>
+          </HeaderArea> 
+            <HeaderTextLittle>Que bom ter você de volta!</HeaderTextLittle>
 
-        <LoginOptions  Text={'Faça login com uma das seguintes opções'}></LoginOptions>    
+          <LoginOptions  Text={'Faça login com uma das seguintes opções'}></LoginOptions>    
 
-        <SubmitArea>
-          <ErrorArea >
-            <ErrorText > {errorEmail} </ErrorText>
-          </ErrorArea>
-          <SignInput
-            value={email}
-            setText={setEmail}
-            setError= {setErrorEmail}
-            placeholder="tim@apple.com"
-            Text='Email'
-            Icon={EmailIcon}
-            returnKeyType='next'
-            secureTextEntry={false} 
-            onSubmitEditing={()=> passwordRef.current.focus()}
-            />
-          <ErrorArea>
-            <ErrorText > {errorPassword} </ErrorText>
-          </ErrorArea>
-          <SignInput
-            value={password}
-            setText={setPassword}
-            setError= {setPasswordError}
-            inputRef={passwordRef}
-            Text="Senha"
-            placeholder="Entre com sua senha" 
-            Icon={Lock}
-            returnKeyType='done'
-            secureTextEntry={true} 
-            // onSubmitEditing={handleSignIn}
-            passWord={true}
-            />
-          <ForgotPasswordArea onPress={()=>{navigation.navigate("ForgotPassword")}}>
-            <ForgotPasswordText> Esqueceu a senha? </ForgotPasswordText>
-          </ForgotPasswordArea>
+          <SubmitArea>
+            <ErrorArea >
+              <ErrorText > {errorEmail} </ErrorText>
+            </ErrorArea>
+            <SignInput
+              value={email}
+              setText={setEmail}
+              setError= {setErrorEmail}
+              placeholder="tim@apple.com"
+              Text='Email'
+              Icon={EmailIcon}
+              returnKeyType='next'
+              secureTextEntry={false} 
+              onSubmitEditing={()=> passwordRef.current.focus()}
+              />
+            <ErrorArea>
+              <ErrorText > {errorPassword} </ErrorText>
+            </ErrorArea>
+            <SignInput
+              value={password}
+              setText={setPassword}
+              setError= {setPasswordError}
+              inputRef={passwordRef}
+              Text="Senha"
+              placeholder="Entre com sua senha" 
+              Icon={Lock}
+              returnKeyType='done'
+              secureTextEntry={true} 
+              passWord={true}
+              />
+            <ForgotPasswordArea onPress={()=>{navigation.navigate("ForgotPassword")}}>
+              <ForgotPasswordText> Esqueceu a senha? </ForgotPasswordText>
+            </ForgotPasswordArea>
 
-          <CustomButton onPress={()=> handleSignIn()}>
-          {
-              loadingAuth?
-                <ActivityIndicator
-                animating={true} color={"#7159c1"} 
-                ></ActivityIndicator>
-                :
-                <CustomButtonText>Entrar</CustomButtonText>
-            }
-          </CustomButton>
-        </SubmitArea>
+            <CustomButton onPress={()=> handleSignIn()}>
+            {
+                loadingAuth?
+                  <ActivityIndicator
+                  animating={true} color={"#7159c1"} 
+                  ></ActivityIndicator>
+                  :
+                  <CustomButtonText>Entrar</CustomButtonText>
+              }
+            </CustomButton>
+          </SubmitArea>
 
-        <SignMessageButton onPress={handleGoSignUp}>
-          <SignMessageButtonText>Não possui uma conta?  </SignMessageButtonText>
-          <SignMessageButtonTextBold>Cadastre-se</SignMessageButtonTextBold>
-        </SignMessageButton>
-      </Container>
-    </KeyboardAwareScrollView>
+          <SignMessageButton onPress={handleGoSignUp}>
+            <SignMessageButtonText>Não possui uma conta?  </SignMessageButtonText>
+            <SignMessageButtonTextBold>Cadastre-se</SignMessageButtonTextBold>
+          </SignMessageButton>
+        </Container>
+      </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
 
   )

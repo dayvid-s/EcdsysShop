@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const TouchableWithoutFeedback = styled.TouchableWithoutFeedback`
@@ -28,7 +27,6 @@ export const LoginIconsArea = styled.View`
 export const SubmitArea = styled.View`
 `
 export const ErrorArea = styled.TouchableOpacity`
-    /* margin-top:10px */
     margin-bottom:-25px
     margin-right:20px
     `

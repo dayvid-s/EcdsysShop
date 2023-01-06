@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import {
   Container,
@@ -6,8 +5,8 @@ import {
    EmptyCartBigText,
    EmptyCartMediumText,
    ScrollView,
+} from './styles'
 
-}from './styles'
 import CartPageHeader from '../../components/CartPageHeader'
 import CartProductsList  from '../../components/CartProductsList'
 import Checkout from '../../components/Checkout'
@@ -24,29 +23,26 @@ export default ()=> {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.userData);
   const [loading, setLoading] = useState(true)
-  // const 
   const dispatch = useDispatch()
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
-  const theme =useTheme()
 
 
   
-  useEffect(()=>{
-    setLoading(true)
-    firebase.firestore().collection('cartItems')
-    .where('uid', '==', user.uid)
-    .onSnapshot(snapshot =>{          // this onSnapshot it means that the firebase will be 
-      const cartProducts= []          // locking for data on realtime
-      snapshot.forEach( doc =>{       // and snapshot it is all the data.
-        cartProducts.push({
-          ...doc.data(),
-          id:doc.id
-        })
-      })
-      dispatch(retrieveCart(cartProducts))
-      setLoading(false);
-    })
-  },[])
+  // useEffect(()=>{
+  //   setLoading(true)
+  //   firebase.firestore().collection('cartItems')
+  //   .where('uid', '==', user.uid)
+  //   .onSnapshot(snapshot =>{          // this onSnapshot it means that the firebase will be 
+  //     const cartProducts= []          // locking for data on realtime
+  //     snapshot.forEach( doc =>{       // and snapshot it is all the data.
+  //       cartProducts.push({
+  //         ...doc.data(),
+  //         id:doc.id
+  //       })
+  //     })
+  //     dispatch(retrieveCart(cartProducts))
+  //     setLoading(false);
+  //   })
+  // },[])
 
   if(loading == true)(
     <Container>

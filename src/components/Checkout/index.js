@@ -11,7 +11,6 @@ import {
 } from './styles'
 import { useSelector, useDispatch} from 'react-redux'
 import { getTotals } from '../../redux/features/cartSlice';
-import { View } from 'react-native';
 import { numberFormat } from '../../utils/numberFormat';
 
 

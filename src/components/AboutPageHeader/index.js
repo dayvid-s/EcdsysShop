@@ -1,6 +1,10 @@
 import React from 'react'
 import { 
-  Container, FirstIcon, IconsWrapper, TotalProductsText, TotalProductsWrapper,
+  Container, 
+  FirstIcon,
+  IconsWrapper,
+  TotalProductsText,
+  TotalProductsWrapper,
  } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'styled-components'

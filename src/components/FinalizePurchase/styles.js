@@ -1,7 +1,18 @@
 import styled from "styled-components"
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export const Button = styled.TouchableOpacity`
+`
+export const GradientButton = styled(LinearGradient)`
+    padding:16px
+    border-radius: 8px
+    margin-left: 20px
+    margin-right: 20px
+    justify-content: center
+    align-items: center 
+    margin-top: 35px
+    flex-direction:row
 `
 
 export const ButtonText = styled.Text`

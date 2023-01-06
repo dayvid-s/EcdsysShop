@@ -1,6 +1,4 @@
 import React from 'react'
-import Cart from '../../assets/icons/shopping-cart-svgrepo-com.svg'
-import Menu from '../../assets/icons/menu-svgrepo-com (1).svg'
 import {
   HeaderTitle,
   IconsArea,
