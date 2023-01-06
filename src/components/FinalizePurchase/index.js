@@ -1,14 +1,14 @@
 import React from 'react'
 import {
   ButtonsWrapper,
-  Button,
+  ButtonArea,
   ButtonText,
   ButtonSendToCart,
   ModalText,
   ModalArea,
   Image,
   ModalTextArea,
-  GradientButton
+  GradientButton,
 } from './styles'
 
 import {useDispatch} from 'react-redux'
@@ -82,12 +82,12 @@ export default ({product})=> {
   return (
     <ButtonsWrapper>
               
-      <Button  >
+      <ButtonArea  >
         <GradientButton
-          colors={["#circle at 10% 20%, rgb(61, 0, 131) 0%", "rgb(83, 03, 121) 90.2%)"]}>
+          colors={["#circle at 10% 20%, rgb(61, 0, 131) 0%", "rgb(93, 03, 121) 90.2%)"]}>
           <ButtonText currentTheme={currentTheme} >Comprar agora</ButtonText>
         </GradientButton>
-      </Button>
+      </ButtonArea>
     
       <ButtonSendToCart onPress={()=>{validateToSendProduct(product) }} >
         <ButtonText currentTheme={currentTheme}  purple={true} >Adicionar no carrinho</ButtonText>

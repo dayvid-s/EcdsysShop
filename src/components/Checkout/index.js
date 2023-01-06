@@ -7,7 +7,6 @@ import {
   TotalText,
   CheckoutButton,
   CheckoutButtonText,
-  TextArea,
 } from './styles'
 import { useSelector, useDispatch} from 'react-redux'
 import { getTotals } from '../../redux/features/cartSlice';
@@ -18,28 +17,26 @@ export default ()=> {
   const cartAmount = useSelector(state => state.cart)
   const currentTheme = useSelector((state) => state.theme.currentTheme);
 
-
-
-
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(getTotals())
   },[cartAmount])
 
+
   return (
     <Container>
 
-      {cartAmount.cartTotalQuantity >1?
         <CheckoutWrapper>
-          <ProductInfoText currentTheme={currentTheme} >({cartAmount.cartTotalQuantity}) Produtos no total</ProductInfoText>
+          <ProductInfoText currentTheme={currentTheme} >
+          {cartAmount.cartTotalQuantity>1?  
+           "("+cartAmount.cartTotalQuantity +")" + " Produtos no total"
+            :
+            "(1) Produto"
+          }
+          </ProductInfoText>
           <ProductInfoPrice>{numberFormat(cartAmount.cartTotalAmount)}</ProductInfoPrice>
         </CheckoutWrapper>
-      :
-        <CheckoutWrapper>
-          <ProductInfoText currentTheme={currentTheme} >(1) Produto</ProductInfoText>
-          <ProductInfoPrice>{numberFormat(cartAmount.cartTotalAmount)}</ProductInfoPrice>
-        </CheckoutWrapper>
-      }
+
     {
       cartAmount.cartTotalAmount>400?
       <CheckoutWrapper>
@@ -50,7 +47,6 @@ export default ()=> {
     <CheckoutWrapper>
       <ProductInfoText currentTheme={currentTheme} >Custo de envio</ProductInfoText>
       <ProductInfoPrice>{numberFormat(cartAmount.cartTotalAmount*0.05)}</ProductInfoPrice>
-      {/* <ProductInfoPrice>R$460</ProductInfoPrice> */}
   </CheckoutWrapper>
     }
 

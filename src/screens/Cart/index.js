@@ -22,7 +22,7 @@ import { useTheme } from 'styled-components';
 export default ()=> {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.userData);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
 
 

@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-export const Button = styled.TouchableOpacity`
+export const ButtonArea = styled.TouchableOpacity`
 `
 export const GradientButton = styled(LinearGradient)`
     padding:16px
@@ -19,7 +19,6 @@ export const ButtonText = styled.Text`
     color: ${props => props.purple ? "#5159c1" : "white"};
     font-family: 'Medium'
     font-size:20px
-    opacity:${props => props.currentTheme =='light' ? '1' : '0.8'};
     
 `
 export const ButtonSendToCart = styled.TouchableOpacity`

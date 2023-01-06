@@ -12,6 +12,8 @@ import {
   ProductSpecsArea,
   ProductSpecText,
   ProductSpecsWrapper,
+  InstallmentArea,
+  InstallmentText
 } from './styles'
 
 import FullStar from '../../assets/icons/star-svgrepo-com.svg'
@@ -69,6 +71,18 @@ export default ({product})=> {
           
           </ShippingValueText>
       </ProductPriceArea>
+
+      <InstallmentArea>
+        <InstallmentText currentTheme={currentTheme} >
+          {product.price<1000?
+            "Em até 5x de " + numberFormat(product?.price/5) + " sem juros" 
+          :
+            "Em até 12x de " + numberFormat(((product?.price)+product.price*0.06)/12) + " com juros"
+          }
+        </InstallmentText>
+      </InstallmentArea>
+
+
       {product.specifications !=null &&(
         <>
               <ProductSpecText>Especificações do produto:</ProductSpecText>

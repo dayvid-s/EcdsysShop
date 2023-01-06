@@ -62,7 +62,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
   return (
     <Container>
       <TextInfo>{ productsFiltered.length>0? text : ''}</TextInfo>
-        <ScrollView horizontal={typeOfPage=='YourSearch'? true: false}  >
+        <ScrollView horizontal={typeOfPage=== 'YourSearch'|| typeOfPage=== 'YourInterest' ? true: false}  >
       <ProductArea quantity={productsFiltered.length} >
 
         {             

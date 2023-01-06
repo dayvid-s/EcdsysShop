@@ -46,8 +46,11 @@
         "name":"Playstation 5",
         "price": 4599,
         "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/ps5_ma9dtz.png",
-        "secondaryPhotos":["https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/ps5_ma9dtz.png"],
+        "secondaryPhotos":["https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/ps5_ma9dtz.png",
+        "https://s2.glbimg.com/5412ft5nc5QPrG44sEvPUay_-3A=/0x0:1279x720/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/v/p/BLZh9QQ62E0I8JEHb75g/ps5.jpg"
+        ],
         "description": "Desfrute do carregamento extremamente rápido com o SSD de altíssima velocidade, uma imersão mais profunda com suporte a feedback tátil, gatilhos adaptáveis e áudio 3D, além de uma geração inédita de jogos incríveis para PlayStation®.",
+        
         "specifications": null,
         "rating": 4.0,
         "evaluationsTotal": 234,
@@ -82,13 +85,12 @@
         "category":"pc",
         "name":"Notebook Acer Nitro 5",
         "price": 4099,
-        "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/notebookAcer05_ux5fdy.png",
+        "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/notebookAcer05_ux5fdy",
         "secondaryPhotos":[
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/notebookAcer05_ux5fdy.png",
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/NotebookAcer2_p7vvrl.png"
         ],
         "description":" Um trem expresso direto para o centro da ação está chegando. O notebook gamer Acer Aspire Nitro 5 é a nova geração, com uma configuração que não treme para os jogos mais pesados. Embarque agora e prepare-se para a potência máxima.       Processador Intel Core i5 10ª Geração ",
-        "specifications": ["Branco", "Preto "],
         "rating": 3.8,
         "evaluationsTotal": 354,
         "isAvailable": true,
@@ -101,21 +103,102 @@
         "category":"headPhone",
         "name":"Fone JBL 710BT",
         "price": 280,
-        "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463364/EcdsyShop/FoneJbl_rchhll.png",
+        "mainPhoto": "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw90b3e13a/2.JBL_TUNE_710BT_Product%20Image_Front_White.png?sw=537&sfrm=png",
         "secondaryPhotos":[
-        "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463364/EcdsyShop/FoneJbl_rchhll.png"
+            "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw90b3e13a/2.JBL_TUNE_710BT_Product%20Image_Front_White.png?sw=537&sfrm=png",
+            "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw0de3893e/JBL_TUNE_710BT_Product%20Image_Drama_White.png?sw=537&sfrm=png",
+            "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw4c1fb574/4.JBL_TUNE_710BT_Product%20Image_Buttons_White.png?sw=537&sfrm=png"
         ],
         "description": "Os fones de ouvido JBL TUNE 710BT reproduzem um som que você merece, com graves puros e grande potência sonora. O design over-ear é leve e compacto, com almofadas de ouvido macias proporcionando o máximo conforto para poder usar por períodos prolongados. Os fones são dobráveis, o que permite levá-lo para qualquer lugar com muita praticidade. O JBL TUNE 710 conta ainda com a conectividade multipontos que permite alternar entre dispositivos com Bluetooth. A concha dos fones possui botões de controle que comandam o som, tornando possível gerenciar com facilidade as chamadas e o acesso aos assistentes de v",
-        "specifications": null,
         "rating": 5.0,
         "evaluationsTotal": 134,
         "isAvailable": true,
         "isDayOffer": false,
         "isRecommended": true,
-        "knownBy": "fones de ouvido"   
+        "knownBy": "fones de ouvido",   
+        "specifications": ["Branco", "Preto "]
     },
     {
         "productId": "7",
+        "category":"headPhone",
+        "name":"Fone JBL Quantum 200",
+        "price": 190,
+        "mainPhoto": "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw390a28ab/JBL_Quantum_200_Product%20Image_Front.png?sw=537&sfrm=png",
+        "secondaryPhotos":[
+            "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw201cce73/JBL_Quantum_200_Product%20Image_Side%20Hero%20Mic%20Up.png?sw=537&sfrm=png",
+            "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw160d0ddd/JBL_Quantum_200_Product%20Image_Side%20Hero.png?sw=537&sfrm=png"
+        ],
+        "description": "De pequenos passos até a explosão mais alta, o exclusivo JBL QuantumSOUND torna cada cena épica e cada jogador mais competitivo. Com o auxílio de drivers de 50 mm, nosso áudio exclusivo entrega o ambiente sonoro mais realista para uma vantagem competitiva em qualquer batalha.",
+        "rating": 5.0,
+        "evaluationsTotal": 134,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "fones de ouvido",   
+        "specifications": ["Branco", "Preto "]
+    },
+    {
+        "productId": "7",
+        "category":"headPhone",
+        "name":"Fone JBL Endurance RUNBT",
+        "price": 159,
+        "mainPhoto": "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw3dfa1679/JBL_EnduranceRunBT_Product-Photo_Hero_Black_Lime-1605x1605px.png?sw=537&sfrm=png",
+        "secondaryPhotos":[
+            "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw201cce73/JBL_Quantum_200_Product%20Image_Side%20Hero%20Mic%20Up.png?sw=537&sfrm=png",
+            "https://www.jbl.com.br/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw160d0ddd/JBL_Quantum_200_Product%20Image_Side%20Hero.png?sw=537&sfrm=png"
+        ],
+        "description": "Os resultados importam, e quando você tem os fones de ouvido perfeitos, não há nada entre você e o seu exercício. Com reprodução de músicas sem fio, os Endurance RUNBT da JBL garantem a motivação necessária para superar seus limites do potente som da JBL. Com seu mecanismo FlipHook™ , eles se adaptam ao encaixe dentro do ouvido e atrás da orelha para maior conveniência. A combinação confortável de ponteiras de ouvido FlexSoft™ e tecnologia TwistLock™ significa que esses fones têm a garantia de nunca machucar ou cair. Graças à resistência a suor IPX5, os fones de ouvido Endurance RUNBT da JBL garantem seu melhor desempenho a todo momento para que nem o suor nem a chuva impeçam seus exercícios. Com reprodução de seis horas, os Endurance RUNBT da JBL incluem um microfone integrado e controlador remoto para controle de som e chamadas de viva-voz. As ponteiras magnéticas garantem o encaixe prático dos Endurance RUNBT em volta de seu pescoço quando não estão sendo usados. Aproveite seus exercícios!",
+        "rating": 3.8,
+        "evaluationsTotal": 66,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "fones de ouvido",   
+        "specifications": null
+    },
+    {
+        "productId": "7",
+        "category":"headPhone",
+        "name":"Headset Sem Fio Logitech G PRO X",
+        "price": 1169,
+        "mainPhoto": "https://www.logitechstore.com.br/media/catalog/product/cache/1/small_image/260x260/9df78eab33525d08d6e5fb8d27136e95/l/o/logitech-g-pro-wireless-020.png",
+        "secondaryPhotos":[
+            "https://www.logitechstore.com.br/media/catalog/product/cache/1/small_image/260x260/9df78eab33525d08d6e5fb8d27136e95/l/o/logitech-g-pro-wireless-020.png",
+            "https://www.logitechstore.com.br/media/catalog/product/cache/1/image/634x545/9df78eab33525d08d6e5fb8d27136e95/l/o/logitech-g-pro-wireless-010.png",
+            "https://www.logitechstore.com.br/media/catalog/product/cache/1/image/634x545/9df78eab33525d08d6e5fb8d27136e95/l/o/logitech-g-pro-wireless-030.png"
+        ],
+        "description": "O Headset Gamer Logitech G PRO X Wireless LIGHTSPEED foi projetado com o mesmo desempenho extremo do PRO X - agora com LIGHTSPEED de 2,4 GHz sem fio, oferecendo mais de 20 horas de bateria com apenas uma única carga e uma conexão sem fio robusta com até 13 m de distância. A tecnologia Blue VO!CE usa filtros em tempo real para aperfeiçoar sua voz e obter um som limpo e profissional, enquanto o som surround de precisão ajuda você a saber exatamente onde seus oponentes estão antes que o encontrem. Os drivers Pro-G de 50 mm e as almofadas dos fones em couro sintético com isolamento acústico proporcionam um áudio preciso. A construção resistente em aço e alumínio do headset cria o equilíbrio perfeito de peso e força, com fones de ouvido com espuma viscoelástica macia para oferecer um conforto de ponta. Play to win",
+        "rating": 3.8,
+        "evaluationsTotal": 34,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "fones de ouvido",   
+        "specifications": null
+    },
+    {
+        "productId": "7",
+        "category":"headPhone",
+        "name":"Headset Logitech G332 ",
+        "price": 379,
+        "mainPhoto": "https://www.logitechstore.com.br/media/catalog/product/cache/1/small_image/260x260/9df78eab33525d08d6e5fb8d27136e95/f/o/fone_de_ouvido_para_jogos_stereo_logitech_g332_3_.png",
+        "secondaryPhotos":[
+            "https://www.logitechstore.com.br/media/catalog/product/cache/1/small_image/260x260/9df78eab33525d08d6e5fb8d27136e95/f/o/fone_de_ouvido_para_jogos_stereo_logitech_g332_3_.png",
+            "https://www.logitechstore.com.br/media/catalog/product/cache/1/image/634x545/9df78eab33525d08d6e5fb8d27136e95/h/i/high_resolution_png-g332-fob-red-leatherette2_1.png",
+            "https://www.logitechstore.com.br/media/catalog/product/cache/1/image/634x545/9df78eab33525d08d6e5fb8d27136e95/h/i/high_resolution_png-g332-se-fob.png",
+            "https://www.logitechstore.com.br/media/catalog/product/cache/1/image/634x545/9df78eab33525d08d6e5fb8d27136e95/f/o/fone_de_ouvido_para_jogos_stereo_logitech_g332_4_.png"
+        ],
+        "description": "O Headset Gamer Logitech G PRO X Wireless LIGHTSPEED foi projetado com o mesmo desempenho extremo do PRO X - agora com LIGHTSPEED de 2,4 GHz sem fio, oferecendo mais de 20 horas de bateria com apenas uma única carga e uma conexão sem fio robusta com até 13 m de distância. A tecnologia Blue VO!CE usa filtros em tempo real para aperfeiçoar sua voz e obter um som limpo e profissional, enquanto o som surround de precisão ajuda você a saber exatamente onde seus oponentes estão antes que o encontrem. Os drivers Pro-G de 50 mm e as almofadas dos fones em couro sintético com isolamento acústico proporcionam um áudio preciso. A construção resistente em aço e alumínio do headset cria o equilíbrio perfeito de peso e força, com fones de ouvido com espuma viscoelástica macia para oferecer um conforto de ponta. Play to win",
+        "rating": 3.2,
+        "evaluationsTotal": 14,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "fones de ouvido",   
+        "specifications": ["Preto ","Vermelho"]
+    },
+    {
+        "productId": "8",
         "category":"eletronic",
         "name":"Auto Falante Boat Partypal 50",
         "price": 3199,

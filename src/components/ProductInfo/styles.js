@@ -49,6 +49,27 @@ export const ShippingValueText = styled.Text`
     color: ${props => props.theme.roseBlue}
     opacity:0.7
     `
+export const InstallmentArea = styled.View`
+    margin-top: 5px;
+    padding:16px
+    border-radius: 8px
+    margin-right: 35%
+    justify-content: center
+    align-items: center 
+    background-color:#9246fc
+    flex-direction:row
+    opacity:0.7
+`
+
+export const InstallmentText = styled.Text`
+    color: white
+    font-family: 'Medium'
+    font-size:13px
+    opacity:${props => props.currentTheme =='light' ? '1' : '0.8'};
+    align-self:center
+    justify-self:center
+
+`
 export const ProductSpecText = styled.Text`
     color: #FFF
     font-weight: 700    
