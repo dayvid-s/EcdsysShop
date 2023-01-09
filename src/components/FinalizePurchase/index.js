@@ -4,11 +4,12 @@ import {
   ButtonArea,
   ButtonText,
   ButtonSendToCart,
-  ModalText,
   ModalArea,
   Image,
   ModalTextArea,
   GradientButton,
+  ModalTextInfo,
+  ModalText
 } from './styles'
 
 import {useDispatch} from 'react-redux'
@@ -98,7 +99,7 @@ export default ({product})=> {
       <Portal >
         <Modal 
           visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}> 
-            <ModalText > Produto Adicionado no carrinho </ModalText> 
+            <ModalTextInfo > Produto Adicionado no carrinho </ModalTextInfo> 
           <ModalArea>
             <Image source= {{uri:product.mainPhoto}}></Image>
             <ModalTextArea >

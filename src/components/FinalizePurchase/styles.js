@@ -48,11 +48,14 @@ export const ModalTextArea = styled.View`
     top: 35px
 `
 
-export const ModalText = styled.Text`
-    top: -30px
+export const ModalTextInfo = styled.Text`
+   top: -30px
    font-family: "Medium";
    color:#FFF
    font-size:18px
+` 
+export const ModalText = styled(ModalTextInfo)`
+   max-width:180px
 ` 
 export const ButtonsWrapper = styled.View`
    `

@@ -78,21 +78,33 @@ export default () => {
     if(validate()){
       setAuthLoading(true)
       await firebase.auth().createUserWithEmailAndPassword(email,password)
-      .then((userCredential)=>{
+      .then(()=>{
+        let uid = firebase.auth().currentUser.uid
+        firebase.firestore().collection('users')  //creating a collection at firestore
+        .doc(uid)  //its getting the uid of user to match with firestore
+        .set({           
+          name: name,
+          email: email
+        })
+        .then(()=>{
           let data={
-            uid:userCredential.user.uid,
+            uid:uid,
             name:name,
-            email: email,
-            userAvatar: null
-
+            email: email
           }
-          dispatch(changeUserInfo(data))   //saving user data at redux 
-          storageUser(data)       
-          }).catch((error)=>{
-      setAuthLoading(false)
+          dispatch(changeUserInfo(data))   //saving user data at redux for be global
+          storageUser(data)               
+          })
+
+      }).catch((error)=>{
+        setAuthLoading(false)
+        setErrorEmail("Email já em uso, use outro email ")
+        {console.log(error)}
+      })
+      .catch((error=>{
+        setAuthLoading(false)
       {console.log(error)}
-    })
-  }}    
+    }))}}    
 
 
 

@@ -19,9 +19,8 @@ import { Ionicons } from '@expo/vector-icons';
 import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux'
 import {changeUserAvatar, changeUserInfo} from '../../redux/features/userSlice'
-import { retrieveCart } from '../../redux/features/cartSlice';
+import { retrieveCart, clearCart } from '../../redux/features/cartSlice';
 import { useSelector} from 'react-redux'
-// import { Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useEffect } from 'react';
 import { firebase, storage, firestore } from '../../services/firebase-config';
@@ -31,6 +30,7 @@ import { doc } from 'firebase/firestore';
 import { Switch} from "react-native";
 import { changeTheme } from '../../redux/features/themeSlice';
 import { useTheme } from 'styled-components';
+import { clearHistoric } from '../../redux/features/productHistoricSlice';
 
 
 export function CustomDrawer(props) {
@@ -45,9 +45,10 @@ export function CustomDrawer(props) {
   const handleLogout= ()=> {
     AsyncStorage.clear()
     firebase.auth().signOut()
-    dispatch(changeUserInfo(null))
     dispatch(retrieveCart(null))
-
+    dispatch(clearHistoric())
+    dispatch(clearCart([]))
+    dispatch(changeUserInfo(null))
   }
 
   const pickImage = async () => {
@@ -124,6 +125,7 @@ export function CustomDrawer(props) {
 
   const uploadCategory = async ({downloadURL})=>{
     const userRef = doc(firestore, "users", user.uid)
+    {console.log(userRef)}
     await updateDoc(userRef,{
       picture: downloadURL
     })

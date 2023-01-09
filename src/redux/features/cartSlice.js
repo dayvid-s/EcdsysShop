@@ -23,6 +23,10 @@ const cartSlice = createSlice({
         retrieveCart(state,action){
             state.cartItems= action.payload
         },
+        clearCart(state,action){
+            state.cartTotalAmount= 0
+            state.cartTotalQuantity=0
+        },
         getTotals(state, action) {
             let accumulator = 0
             let sum = 0
@@ -40,6 +44,6 @@ const cartSlice = createSlice({
     }
 })
 
-export const {addToCart, retrieveCart, increaseQuantity, getTotals} = cartSlice.actions
+export const {addToCart, retrieveCart, increaseQuantity, getTotals, clearCart} = cartSlice.actions
 
 export default cartSlice.reducer;

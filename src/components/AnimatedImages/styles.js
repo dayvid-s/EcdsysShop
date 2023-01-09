@@ -12,6 +12,7 @@ export const Image = styled.Image`
     width:425px
     height:300px
     resize-mode:contain
+
 `
 
 export const AnimatedLines = styled.View`

@@ -14,8 +14,8 @@ export const ProductArea = styled.View`
 `
 export const WrapperProducts = styled.TouchableOpacity`
     margin-top:10px;
-    max-width:${props => props.typeOfPage == 'DayOffer' || props.typeOfPage=='YourInterest' ? '100%' : '50%'};
-    margin-right:${props => props.typeOfPage == 'YourSearch' || props.typeOfPage=='YourInterest' ? '10px' : '0px'};
+    max-width:${props => props.typeOfPage == 'DayOffer'  ? '100%' : '50%'};
+    margin-right:${props => props.typeOfPage == 'RandomProducts' || props.typeOfPage=='YourInterest' ? '10px' : '0px'};
 
 `
     
@@ -34,6 +34,7 @@ export const ProductInfoText = styled.Text`
     font-weight: 400
     margin-left:${props => props.typeOfPage == 'DayOffer'? '25px' : 0};
     font-family: 'Medium'
+    max-width:200px
     `
     
 export const ProductPriceText = styled.Text`

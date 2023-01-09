@@ -22,8 +22,48 @@
     },
     {
         "productId": "2",
+        "category":"pc",
+        "name":"Notebook Dell Inspiron 15 3000",
+        "price": 1790,
+        "mainPhoto": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/inspiron-15-3511/media-gallery/in3511nt_cnb_00000ff090_bk.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402&chrss=full",
+        "secondaryPhotos":[
+        "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/inspiron-15-3511/media-gallery/in3511nt_cnb_00000ff090_bk.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/inspiron-15-3511/media-gallery/in3511nt_cnb_00055rf110_bk.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/inspiron-15-3511/media-gallery/in3511nt-cnb-90000td110-bk-fpr-backlit-pt-br.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=553&qlt=100,1&resMode=sharp2&size=553,402&chrss=full"
+        ],
+        "description": "Suas tarefas concluídas com eficiência A velocidade de que você precisa: Um desempenho responsivo e silencioso, contando com opções de configuração que incluem processadores Intel® Core™ de 11ª geração e armazenamento SSD PCI-E.        Perfeito para você: Tenha um teclado expansivo com keypad numérico, teclas 6,4% maiores e um touchpad espaçoso que facilita a sua navegação.Design pensado para seu dia a dia: Trabalhe confortavelmente graças a uma dobradiça de elevação que ergue seu notebook em um ângulo ergonômico, proporcionando um ângulo de digitação mais confortável.        Agradável aos olhos: As soluções de software Low Blue Light do Dell ComfortView ajudam a reduzir as emissões nocivas de luz azul e otimizam o conforto ocular. Há mais para ver: Veja mais detalhes na tela em um notebook de 15,6' Full HD com bordas estreitas em três lados e tenha uma experiência de visualização mais imersiva.",   
+        "specifications": ["SSD 128 GB ","SSD 512 GB"],
+        "rating": 4.6,
+        "evaluationsTotal": 434,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "computadores "   
+    },
+    {
+        "productId": "3",
+        "category":"pc",
+        "name":"Notebook Dell Vostro 15 3515",
+        "price": 3390,
+        "mainPhoto": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/15-3515/media-gallery/archive/dv3515nt_cnb_00000ff090_gy.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402&chrss=full",
+        "secondaryPhotos":[
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/15-3510/media-gallery/black/notebook_vostro_15_3510_bk_gallery_7.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=653&qlt=100,1&resMode=sharp2&size=653,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/15-3515/media-gallery/archive/dv3515nt_cnb_00055rf110_gy.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/inspiron-15-3511/media-gallery/in3511nt-cnb-90000td110-bk-fpr-backlit-pt-br.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=553&qlt=100,1&resMode=sharp2&size=553,402&chrss=full"
+        ],
+        "description": "Um touchpad grande, teclas 6,4% maiores que as da última geração, e uma dobradiça de elevação para propiciar ângulos mais ergonômicos para o pulso, tudo isso para gerar um uso mais relaxante. Além disso, a dobradiça de elevação proporciona um fluxo de ar maior que deixa seu dispositivo mais frio.",   
+        "specifications": null,
+        "rating": 4.2,
+        "evaluationsTotal": 361,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": true,
+        "knownBy": "computadores "   
+    },
+    {
+        "productId": "4",
         "category":"eletronic",
-        "name":"Boat Partypal 50",
+        "name":"Auto Falante Boat Partypal 50",
         "price": 3199,
         "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/boat_kjvakp.png",
         "secondaryPhotos":[
@@ -41,7 +81,7 @@
         "knownBy": "eletrônicos"   
     },
     {
-        "productId": "3",
+        "productId": "5",
         "category":"gamer",
         "name":"Playstation 5",
         "price": 4599,
@@ -60,7 +100,81 @@
         "knownBy": "games"   
     },
     {
-        "productId": "4",
+        "productId": "6",
+        "category":"gamer",
+        "name":"XBOX SERIES X",
+        "price": 3989,
+        "mainPhoto": "https://assets.xboxservices.com/assets/fb/d2/fbd2cb56-5c25-414d-9f46-e6a164cdf5be.png?n=XBX_A-BuyBoxBGImage01-D.png",
+        "secondaryPhotos":["hhttps://assets.xboxservices.com/assets/fb/d2/fbd2cb56-5c25-414d-9f46-e6a164cdf5be.png?n=XBX_A-BuyBoxBGImage01-D.png",
+        "https://assets.xboxservices.com/assets/b2/51/b2518691-0175-4bf4-8c2e-9086e8a2c2db.png?n=XBX_A-BuyBoxBGImage02-D.png",
+        "https://assets.xboxservices.com/assets/39/66/39663ac6-e98d-44ce-8fc1-f15a796fe6d6.png?n=XBX_A-BuyBoxBGImage03-D.png",
+        "https://assets.xboxservices.com/assets/13/85/138560bf-8a3b-47d2-b32c-ab5a053a25ab.png?n=XBX_A-BuyBoxBGImage04-D.png"
+        ],
+        "description": "Com seu console Xbox Series x você terá entretenimento garantido todos os dias. Sua tecnologia foi criada para colocar novos desafios para jogadores novatos e especialistas. A nova geração de consoles é comandada por Xbox Series x que chegou ao mercado para surpreender a todos. Sua potência e alto desempenho permitirão que você reduza consideravelmente as horas de download de jogos e conteúdo em comparação com outros consoles. Além disso, você poderá jogar por horas enquanto se diverte com jogadores de todo o mundo.",
+        "specifications": null,
+        "rating": 4.9,
+        "evaluationsTotal": 347,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "games"   
+    },
+    {
+        "productId": "7",
+        "category":"gamer",
+        "name":"XBOX SERIES S",
+        "price": 1999,
+        "mainPhoto": "https://assets.xboxservices.com/assets/0b/28/0b2854b9-a7e7-47dd-b4f8-a371567854b2.png?n=Xbox-Series-S_Buy-Box_0_01_829x799.png",
+        "secondaryPhotos":["https://assets.xboxservices.com/assets/0b/28/0b2854b9-a7e7-47dd-b4f8-a371567854b2.png?n=Xbox-Series-S_Buy-Box_0_01_829x799.png",
+        "https://assets.xboxservices.com/assets/c3/f3/c3f38dad-d83e-4b9c-b1ba-11458b1efa5c.png?n=0202999-BuyBox03_Image-D.png",
+        "https://assets.xboxservices.com/assets/53/c1/53c1d1c1-f52a-407d-9714-fae7021ed5fe.png?n=Xbox-Series-S_Buy-Box_0_02_829x799.png",
+        "https://assets.xboxservices.com/assets/e8/9d/e89d1ce3-1665-48b2-8c96-3058903d9eaa.png?n=0202999-BuyBox04_Image-D.png"
+        ],
+        "description": "Xbox Series S, o menor e mais elegante de todos os tempos. Com taxas de quadros mais altas, tempos de carregamento mais rápidos e mundos mais ricos e dinâmicos, o Xbox Series S oferece desempenho e velocidade de última geração em um formato compacto e totalmente digital. Retrocompatibilidade com milhares de jogos. Prepare-se para tempos de carregamento mais rápidos, resolução mais alta, taxas de quadros mais estáveis e melhor latência de entrada em milhares de jogos Xbox One, Xbox 360 e Xbox Original.",
+        "specifications": null,
+        "rating": 4.4,
+        "evaluationsTotal": 547,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "games"   
+    },
+    {
+        "productId": "8",
+        "category":"gamer",
+        "name":"Playstation 4",
+        "price": 2490,
+        "mainPhoto": "https://gmedia.playstation.com/is/image/SIEPDC/ps4-slim-image-block-01-en-24jul20?$1600px--t$",
+        "secondaryPhotos":["https://gmedia.playstation.com/is/image/SIEPDC/ps4-slim-image-block-01-en-24jul20?$1600px--t$"
+        ],
+        "description": "Console bivolt de última geração, versão slim. Agora com melhor desempenho e 300 gramas mais leve. O playstation4 é o melhor lugar para jogar jogos dinâmicos e conectados, com gráfico rico e alta velocidade, personalização inteligente, funcionalidades sociais altamente integradas e recursos de segunda tela inovadores. Combinando conteúdo sem igual, experiências de jogo envolventes, todos os seus aplicativos favoritos de entretenimento digital e as exclusividades do playstation, o ps4 é centrado nos jogadores, permitindo-lhes que joguem quando, onde e como quiserem. O ps4 permite que os melhores desenvolvedores de jogos do mundo liberem sua criatividade e estendam os limites do jogo por meio de um sistema que está sintonizado especificamente com suas necessidades.",
+        "specifications": ["512 GB","1 TB"],
+        "rating": 5,
+        "evaluationsTotal": 847,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "games"   
+    },
+    {
+        "productId": "9",
+        "category":"gamer",
+        "name":"Playstation 4 Pro ",
+        "price": 3190,
+        "mainPhoto": "https://gmedia.playstation.com/is/image/SIEPDC/ps4-pro-console-02-en-26oct18?$1600px--t$",
+        "secondaryPhotos":["https://gmedia.playstation.com/is/image/SIEPDC/ps4-pro-console-02-en-26oct18?$1600px--t$"
+        ],
+        "description": "Console bivolt de última geração, versão slim. Agora com melhor desempenho e 300 gramas mais leve. O playstation4 é o melhor lugar para jogar jogos dinâmicos e conectados, com gráfico rico e alta velocidade, personalização inteligente, funcionalidades sociais altamente integradas e recursos de segunda tela inovadores. Combinando conteúdo sem igual, experiências de jogo envolventes, todos os seus aplicativos favoritos de entretenimento digital e as exclusividades do playstation, o ps4 é centrado nos jogadores, permitindo-lhes que joguem quando, onde e como quiserem. O ps4 permite que os melhores desenvolvedores de jogos do mundo liberem sua criatividade e estendam os limites do jogo por meio de um sistema que está sintonizado especificamente com suas necessidades.",
+        "specifications": ["512 GB","1 TB"],
+        "rating": 5,
+        "evaluationsTotal": 847,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "games"   
+    },
+    {
+        "productId": "10",
         "category":"cellPhone",
         "name":"Iphone 11",
         "price": 2799,
@@ -70,7 +184,7 @@
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463365/EcdsyShop/iphone113_kh7ktt.png",
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463365/EcdsyShop/iphone_ibxjpe.png"
         ],
-        "description": "Criado para todos os tipos de criativos, incluindo desenvolvedores, fotógrafos, cineastas, artistas 3D, produtores musicais e muito mais, o MacBook Pro de 14,2 da Apple com M1 Pro Chip é a estação de trabalho móvel profissional definitiva para o usuário final.O sistema possui o chip Apple M1 Pro 8-Core, que fornece a potência e o desempenho necessários para lidar com seus fluxos de trabalho profissionais.",
+        "description": "Grave vídeos 4K, faça belos retratos e capture paisagens inteiras com o novo sistema de câmera dupla. Tire fotos incríveis com pouca luz usando o modo Noite. Veja cores fiéis em fotos, vídeos e jogos na tela Liquid Retina de 6.1 polegadas***. Leve o desempenho sem precedentes do chip A13 Bionic para seus games, realidade aumentada e fotografia. Faça muito e recarregue pouco com a bateria para o dia todo**. E conte com resistência à água de até dois metros por até 30 minutos*.",
         "specifications": ["64 GB","128 GB","256 GB","512 GB"],
         "rating": 5.0,
         "evaluationsTotal": 534,
@@ -78,10 +192,9 @@
         "isDayOffer": true,
         "isRecommended": false,
         "knownBy": "celulares"   
-    }
-    ,
+    },
     {
-        "productId": "5",
+        "productId": "11",
         "category":"pc",
         "name":"Notebook Acer Nitro 5",
         "price": 4099,
@@ -91,15 +204,36 @@
         "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/NotebookAcer2_p7vvrl.png"
         ],
         "description":" Um trem expresso direto para o centro da ação está chegando. O notebook gamer Acer Aspire Nitro 5 é a nova geração, com uma configuração que não treme para os jogos mais pesados. Embarque agora e prepare-se para a potência máxima.       Processador Intel Core i5 10ª Geração ",
+        "specifications": null,
         "rating": 3.8,
         "evaluationsTotal": 354,
         "isAvailable": true,
         "isDayOffer": false,
-        "isRecommended": true,
+        "isRecommended": false,
         "knownBy": "computadores "   
     },
     {
-        "productId": "6",
+        "productId": "12",
+        "category":"pc",
+        "name":"Notebook Samsung Galaxy Book S",
+        "price": 2999,
+        "mainPhoto": "https://images.samsung.com/is/image/samsung/p6pim/br/np767xcm-k04br/gallery/br-galaxy-book-s-intel-424326-np767xcm-k04br-thumb-532472095?$240_240_PNG$",
+        "secondaryPhotos":[
+        "https://images.samsung.com/is/image/samsung/p6pim/br/np767xcm-k04br/gallery/br-galaxy-book-s-intel-424326-np767xcm-k04br-thumb-532472095?$240_240_PNG$",
+        "https://images.samsung.com/is/image/samsung/p6pim/br/np767xcm-k04br/gallery/br-galaxy-book-s-intel-424326-np767xcm-k04br-thumb-532472046?$240_240_PNG$",
+        "https://images.samsung.com/is/image/samsung/p6pim/br/feature/164259908/br-feature-galaxy-book-s-intel-424326-534033435"
+        ],
+        "description":"O Samsung Galaxy Book S traz as vantagens de um smartphone para um novo dispositivo de computação rápido e ultraleve. Ele liga instantaneamente e dura mais tempo entre as cargas para que você possa fazer mais do que nunca com o Wi-Fi 6 de alta velocidade.",
+        "specifications": null,
+        "rating": 3.2,
+        "evaluationsTotal": 128,
+        "isAvailable": true,
+        "isDayOffer": false,
+        "isRecommended": false,
+        "knownBy": "computadores "   
+    },
+    {
+        "productId": "13",
         "category":"headPhone",
         "name":"Fone JBL 710BT",
         "price": 280,
@@ -119,7 +253,7 @@
         "specifications": ["Branco", "Preto "]
     },
     {
-        "productId": "7",
+        "productId": "14",
         "category":"headPhone",
         "name":"Fone JBL Quantum 200",
         "price": 190,
@@ -138,7 +272,7 @@
         "specifications": ["Branco", "Preto "]
     },
     {
-        "productId": "7",
+        "productId": "15",
         "category":"headPhone",
         "name":"Fone JBL Endurance RUNBT",
         "price": 159,
@@ -157,7 +291,7 @@
         "specifications": null
     },
     {
-        "productId": "7",
+        "productId": "16",
         "category":"headPhone",
         "name":"Headset Sem Fio Logitech G PRO X",
         "price": 1169,
@@ -177,7 +311,7 @@
         "specifications": null
     },
     {
-        "productId": "7",
+        "productId": "17",
         "category":"headPhone",
         "name":"Headset Logitech G332 ",
         "price": 379,
@@ -198,8 +332,8 @@
         "specifications": ["Preto ","Vermelho"]
     },
     {
-        "productId": "8",
-        "category":"eletronic",
+        "productId": "18",
+        "category":"Speaker",
         "name":"Auto Falante Boat Partypal 50",
         "price": 3199,
         "mainPhoto": "https://res.cloudinary.com/difhg2l3l/image/upload/v1669463366/EcdsyShop/boat_kjvakp.png",
@@ -215,6 +349,6 @@
         "isAvailable": true,
         "isDayOffer": false,
         "isRecommended": false,
-        "knownBy": "fones de ouvido"   
+        "knownBy": "Auto Falantes"   
     }
 ]

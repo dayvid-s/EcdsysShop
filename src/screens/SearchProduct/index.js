@@ -22,6 +22,7 @@ import ViewProducts from '../../components/ViewProducts';
 import { useSelector } from 'react-redux';
 import { firestore } from '../../services/firebase-config';
 import { collection, query, where,doc, setDoc, getDocs  } from "firebase/firestore";
+import { useLayoutEffect } from 'react';
 
 
 
@@ -49,7 +50,13 @@ export default ()=> {
     }
     retrieveSearches()
   },[searchResult])
-
+  
+  
+  useLayoutEffect(() => {
+    return () => {
+        setStatusBarColor(theme.background)
+    }
+}, [])
   
 
   const goBack=()=>{

@@ -11,9 +11,12 @@ const  historicSlice = createSlice({
         addToHistoric(state, action){
             state.userProductHistoric.push(action.payload);
         },
+        clearHistoric(state,action){
+            state.userProductHistoric= []
+        },
     }
 })
 
-export const {addToHistoric} = historicSlice.actions
+export const {addToHistoric,clearHistoric} = historicSlice.actions
 
 export default historicSlice.reducer;

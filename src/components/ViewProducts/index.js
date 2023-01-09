@@ -17,7 +17,6 @@ import { addToHistoric } from '../../redux/features/productHistoricSlice'
 import { numberFormat } from '../../utils/numberFormat'
 
 
-
 export default ({typeOfPage, searchWord, text, height, width, productOnScreen, lastProduct }) => {
   const navigation= useNavigation()
   const products = useSelector((state) => state.products);
@@ -33,12 +32,17 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
         return product };
     if ( typeOfPage=="Recommended" && product.isRecommended == true){
       return product }
-    if ( typeOfPage=="YourSearch" && product.isRecommended == true){
+    if ( typeOfPage=="RandomProducts" && product.isRecommended== false && product.isDayOffer== false
+          &&  product.price <= 5000
+    ){
       return product }
     if ( typeOfPage=="SearchProduct" && product.name.includes(searchWord)  ){
       return product }
     
-    if ( typeOfPage=="YourInterest" && product.category== lastProduct?.category  ){
+    if ( typeOfPage=="YourInterest" && product.category== lastProduct?.category 
+    && product.productId != lastProduct?.productId
+   
+    ){
       return product }
 
     if ( typeOfPage=="About" && product.name!= productOnScreen.name 
@@ -62,7 +66,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
   return (
     <Container>
       <TextInfo>{ productsFiltered.length>0? text : ''}</TextInfo>
-        <ScrollView horizontal={typeOfPage=== 'YourSearch'|| typeOfPage=== 'YourInterest' ? true: false}  >
+        <ScrollView horizontal={typeOfPage=== 'RandomProducts'|| typeOfPage=== 'YourInterest' ? true: false}  >
       <ProductArea quantity={productsFiltered.length} >
 
         {             
@@ -82,6 +86,7 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
                     width:width,
                     height:height,
                     resizeMode:'contain',
+                    // backgroundColor:'rgb(230,230,230)'
                 }}
                 ></Image>
               </LinearGradient>

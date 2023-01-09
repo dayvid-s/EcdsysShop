@@ -10,6 +10,7 @@ import { StatusBar } from 'react-native';
 import Routes from './src/routes';
 
 
+
 export default function App() {
   const currentTheme = useSelector((state) => state.theme.currentTheme);
   const theme = themes[currentTheme] || theme.dark
@@ -22,6 +23,7 @@ export default function App() {
   })
   
   useEffect(() => {
+
     if (!fontsLoaded) {
         return undefined;
       }
@@ -50,7 +52,6 @@ export default function App() {
             barStyle={currentTheme === 'dark' ? 'light-content' : 'dark-content'}
             backgroundColor={currentTheme==='light'? '#fcfcfc': '#000'}
             ></StatusBar>
-            
           <Routes></Routes>
         </NavigationContainer>
       </ThemeProvider>

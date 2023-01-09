@@ -33,7 +33,7 @@ export default () => {
             lastProduct={lastProduct}
             /> 
             :
-          <ViewProducts typeOfPage="YourSearch" text={"Talvez você se interesse"  } width={170} height={170} /> 
+          <ViewProducts typeOfPage="RandomProducts" text={"Talvez você se interesse"  } width={170} height={170} /> 
         }
     
       </ScrollView>

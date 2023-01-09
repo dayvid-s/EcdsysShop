@@ -20,11 +20,10 @@ export default ()=> {
   const theme= useTheme()
   const { product } = route.params;
 
-
   return (
     <ScrollView>
-      <StatusBar backgroundColor = {theme.backgroundColor}   ></StatusBar>
       <Container>
+      <StatusBar backgroundColor = {theme.backGround}   ></StatusBar>
         <AboutPageHeader heartIcon={true}/>
         <AnimatedImages product={product}></AnimatedImages>
         <ProductInfo product={product} />
