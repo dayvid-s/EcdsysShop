@@ -1,35 +1,52 @@
 # ECDYSSHOP
+  
+  
+### EcdsysShop its an electronic products store.
+  
+  
+  
+  ### Features
 
+* Backend in Node.js using express framework
+* Login Authentication with firebase auth
+* Business rules being controlled by redux toolkit
+* User data being stored in the firestore database
+*  Light and dark theme available
 
+ 
+ <br/>
+ <br/>
 
+<div align="center" >
+<img src="https://user-images.githubusercontent.com/96401650/212193014-a4e5206b-2da7-4832-9cdc-1b14c44161cd.jpg" width="300px" />
+ 
+<img src="https://user-images.githubusercontent.com/96401650/212193202-99321ae2-6ea9-4604-8d2d-92d2c6d9fd7e.jpg" width="300px" />
 
-<div align="center" justify-Content="space-between">
-<img src="https://user-images.githubusercontent.com/96401650/194762170-27622e47-d525-4ced-94fc-00b626101076.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212193353-f7016ba5-80b7-4080-8ed5-ecc726f27f72.jpg" width="300px" />
   
-<img src="https://user-images.githubusercontent.com/96401650/194763089-7bb9c1ec-773a-4d3c-af0d-371f03eedcd4.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212193430-2948897f-3847-4623-a48e-51539e22201e.jpg" width="300px" />
   
-<img src="https://user-images.githubusercontent.com/96401650/194763185-d1528590-18ea-48d6-b5ac-e85f65a652e5.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212193788-342ddb97-7a1e-4baf-b187-8c37739a87fb.jpg" width="300px" />
   
-<img src="https://user-images.githubusercontent.com/96401650/194763241-c6356061-8091-45ed-8ded-e18f0599fa13.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212201749-d1369aa4-9f55-4e30-a4b7-d8bcccc4b12c.jpg" width="300px" />
   
-<img src="https://user-images.githubusercontent.com/96401650/194763623-58c07621-39fe-4a4e-a258-8387d427be31.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212201853-cee004d6-78ab-41c7-86e1-b2470905aa84.jpg" width="300px" />
   
-<img src="https://user-images.githubusercontent.com/96401650/194763703-255e4d14-209e-470f-9e92-fdb8f591f5f6.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212202025-af31ec02-1938-4763-8636-211c0062cf2a.jpg" width="300px" />
   
-<img src="https://user-images.githubusercontent.com/96401650/194763720-06c049d6-6f15-4ef3-be81-c2d71f3b76f4.jpeg" width="300px" />
-  
-<img src="https://user-images.githubusercontent.com/96401650/194763746-e81403b6-4bb9-4579-ac83-214658c9832c.jpeg" width="300px" />
-  
-<img src="https://user-images.githubusercontent.com/96401650/194763771-456878cd-f761-40df-a047-153ea16d819e.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212202079-a691d00e-208a-4bca-a9aa-9fce2d85b67c.jpg" width="300px" />
 
-<img src="https://user-images.githubusercontent.com/96401650/194763797-d502ad75-ef85-4b58-9ace-32e67c0849e7.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212202181-691704a7-3c3a-417b-acd3-12677b29e574.jpg" width="300px" />
 
-<img src="https://user-images.githubusercontent.com/96401650/194763849-de9977c9-322c-4799-b46a-d7d9e37aced1.jpeg" width="300px" />
+<img src="https://user-images.githubusercontent.com/96401650/212202278-1c8e7521-41c4-42b5-9f95-9eef9f70ff62.jpg" width="300px" />
 
-<img src="https://user-images.githubusercontent.com/96401650/194763877-e6ac45c6-2d10-404d-b7fa-3b4f568f760f.jpeg" width="300px" />
-  
+<img src="https://user-images.githubusercontent.com/96401650/212202551-ced2f4d5-38b5-4e4b-bb43-6c10286eac5a.jpg" width="300px" />
+
+<img  src="https://user-images.githubusercontent.com/96401650/212202648-2cbc2792-d227-4a27-adf3-1b561e6909f2.jpg" width="300px" />
+
 </div>
 
+                           
 
 # License
 MIT
