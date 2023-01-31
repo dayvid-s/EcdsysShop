@@ -14,7 +14,7 @@ import {
 
 import {useDispatch} from 'react-redux'
 import { addToCart } from '../../redux/features/cartSlice'
-import { firebase, firestore } from './../../services/firebase-config';
+import { firebase, firestore } from '../../services/firebase-config';
 import { useSelector } from 'react-redux'
 import {collection, query, where, getDocs} from "firebase/firestore";
 import { useState } from 'react';
