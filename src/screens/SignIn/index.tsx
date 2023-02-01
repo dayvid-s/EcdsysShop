@@ -35,7 +35,7 @@ import {firebase} from '../../services/firebase-config'
 import { useTheme } from 'styled-components'
 
 
-export default () => {
+export const SignIn = () => {
   const navigation = useNavigation()
   const passwordRef = useRef()
   const [email, setEmail] = useState('')

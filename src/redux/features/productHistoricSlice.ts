@@ -1,22 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
+import { IProduct } from './cartSlice';
+
+ export interface IProductHistoric{
+    userProductHistoric:Array<IProduct>
+ }
 
 const initialState={
-    userProductHistoric:[]
+  userProductHistoric:[]
 }
 
 const  historicSlice = createSlice({
-    name: 'historic',
-    initialState,
-    reducers:{
-        addToHistoric(state, action){
-            state.userProductHistoric.push(action.payload);
-        },
-        clearHistoric(state,action){
-            state.userProductHistoric= []
-        },
-    }
+  name: 'historic',
+  initialState,
+  reducers:{
+    addToHistoric(state, action ){
+      state.userProductHistoric.push(action.payload)
+    },
+    clearHistoric(state){
+      state.userProductHistoric= []
+    },
+  }
 })
 
 export const {addToHistoric,clearHistoric} = historicSlice.actions
 
-export default historicSlice.reducer;
+export default historicSlice.reducer

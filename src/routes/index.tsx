@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import MainStack from './AppRoutes/MainStack'
-import AuthRoutes from './AuthRoutes'
+import {AuthRoutes} from './AuthRoutes'
 import Preload from '../screens/Preload'
 import  AsyncStorage  from '@react-native-async-storage/async-storage'
 import {useDispatch} from 'react-redux'

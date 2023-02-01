@@ -20,7 +20,7 @@ import { Keyboard } from 'react-native'
 import { ActivityIndicator } from 'react-native-paper'
 import {firebase} from '../../services/firebase-config'
 
-export default () => {
+export const ForgotPassword = () => {
   const navigation = useNavigation()
   const [email, setEmail] = useState('')
   const [loadingAuth, setAuthLoading] = useState(false)
