@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface ICartProducts {
+export interface IProduct {
     quantity: number
     product:{
       productId: string
@@ -20,7 +20,7 @@ interface ICartProducts {
   
 }
 interface cartState{  
-    cartItems: ICartProducts[]
+    cartItems: IProduct[]
     cartTotalQuantity: number
     cartTotalAmount: number
 }
