@@ -1,10 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 import * as NavigationBar from 'expo-navigation-bar'
 
-const initialState = {
+interface themeState{
+  toggleTheme: boolean
+  currentTheme: 'dark' | 'light'
+  
+}
+
+const initialState : themeState = {
   toggleTheme: true,
   currentTheme: 'dark'
 }
+
 const themeSlice = createSlice({
   name: 'theme',
   initialState,

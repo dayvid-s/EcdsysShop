@@ -5,14 +5,14 @@ import themes from './theme'
 import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import { Provider as PaperProvider } from 'react-native-paper'
-import { useSelector } from 'react-redux'
 import { StatusBar } from 'react-native'
 import Routes from './routes'
+import { useAppSelector } from './hooks/useAppSelector'
 
 
 
 export function App () {
-  const currentTheme = useSelector((state) => state.theme.currentTheme)
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme)
   const theme = currentTheme == 'light'? themes.lightTheme : themes.darkTheme  
   //will get default theme, otherwise will be dark theme
 

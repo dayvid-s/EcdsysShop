@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import { Provider, useSelector } from 'react-redux'
+import React from 'react'
+import { Provider } from 'react-redux'
 import { App } from './src/App'
-import store from './src/redux/store'
+import {store}from './src/redux/store'
 
 export default function Index (){
   return(
