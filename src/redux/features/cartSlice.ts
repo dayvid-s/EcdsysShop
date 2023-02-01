@@ -1,13 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-// interface cartState{
-//     cartItems: Array<['user','']>
-//     cartTotalQuantity: number
-//     cartTotalAmount: number
-// }
+interface ICartProducts {
+    quantity: number
+    product:{
+      productId: string
+      category:string
+      name:string
+      price: number
+      mainPhoto: string
+      secondaryPhotos: string[]
+      description: string
+      specifications: string[]
+      rating: number
+      evaluationsTotal: number
+      isDayOffer: boolean
+      isRecommended: boolean
+      knownBy: string 
+    }
+  
+}
+interface cartState{  
+    cartItems: ICartProducts[]
+    cartTotalQuantity: number
+    cartTotalAmount: number
+}
 
-// const initialState : cartState = {
-const initialState  = {
+const initialState : cartState = {
   cartItems: [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0 
@@ -19,13 +37,6 @@ const cartSlice = createSlice({
   reducers:{
     addToCart(state, action){
       state.cartItems.push(action.payload)
-    },
-    increaseQuantity(state, action){
-      state.cartItems.map((product=>{         // this is the concept of offline first.
-        if (product.productId == action.payload.productId){
-          product.quantity = action.payload.quantity+1
-        }
-      }))
     },
     retrieveCart(state,action){
       state.cartItems= action.payload
@@ -51,6 +62,6 @@ const cartSlice = createSlice({
   }
 })
 
-export const {addToCart, retrieveCart, increaseQuantity, getTotals, clearCart} = cartSlice.actions
+export const {addToCart, retrieveCart, getTotals, clearCart} = cartSlice.actions
 
 export default cartSlice.reducer
