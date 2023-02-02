@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler'
 import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { ThemeProvider } from 'styled-components'
@@ -6,7 +7,7 @@ import {useFonts} from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { StatusBar } from 'react-native'
-import Routes from './routes'
+import {Routes} from './routes'
 import { useAppSelector } from './hooks/useAppSelector'
 
 

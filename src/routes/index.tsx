@@ -4,13 +4,13 @@ import {AuthRoutes} from './AuthRoutes'
 import Preload from '../screens/Preload'
 import  AsyncStorage  from '@react-native-async-storage/async-storage'
 import {useDispatch} from 'react-redux'
-import { useSelector} from 'react-redux'
 import {changeUserInfo} from '../redux/features/userSlice'
+import { useAppSelector } from '../hooks/useAppSelector'
 
 
 
-export default() =>{
-  const user = useSelector((state) => state.user)
+export function Routes () {
+  const user = useAppSelector((state) => state.user)
   const [loadingAuth, setLoadingAuth ]= useState(false)
   const dispatch = useDispatch()
     

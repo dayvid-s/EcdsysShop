@@ -19,36 +19,36 @@ import { numberFormat } from '../../utils/numberFormat'
 
 export default ({typeOfPage, searchWord, text, height, width, productOnScreen, lastProduct }) => {
   const navigation= useNavigation()
-  const products = useSelector((state) => state.products);
-  const productsFiltered = products.items?.filter(checkProducts);
+  const products = useSelector((state) => state.products)
+  const productsFiltered = products.items?.filter(checkProducts)
   const dispatch = useDispatch()
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const currentTheme = useSelector((state) => state.theme.currentTheme)
   
 
   
   
   function checkProducts(product) {
-    if(typeOfPage== "DayOffer" && product.isDayOffer){
-        return product };
-    if ( typeOfPage=="Recommended" && product.isRecommended == true){
+    if(typeOfPage== 'DayOffer' && product.isDayOffer){
       return product }
-    if ( typeOfPage=="RandomProducts" && product.isRecommended== false && product.isDayOffer== false
+    if ( typeOfPage=='Recommended' && product.isRecommended == true){
+      return product }
+    if ( typeOfPage=='RandomProducts' && product.isRecommended== false && product.isDayOffer== false
           &&  product.price <= 5000
     ){
       return product }
-    if ( typeOfPage=="SearchProduct" && product.name.includes(searchWord)  ){
+    if ( typeOfPage=='SearchProduct' && product.name.includes(searchWord)  ){
       return product }
     
-    if ( typeOfPage=="YourInterest" && product.category== lastProduct?.category 
+    if ( typeOfPage=='YourInterest' && product.category== lastProduct?.category 
     && product.productId != lastProduct?.productId
    
     ){
       return product }
 
-    if ( typeOfPage=="About" && product.name!= productOnScreen.name 
+    if ( typeOfPage=='About' && product.name!= productOnScreen.name 
           && product.category == productOnScreen.category ){ 
       return product }
-    }
+  }
   
 
   const viewProduct=(product)=>{
@@ -60,42 +60,42 @@ export default ({typeOfPage, searchWord, text, height, width, productOnScreen, l
   }
   useEffect(() => {
     dispatch(productsFetch())
-  }, []);
+  }, [])
 
 
   return (
     <Container>
       <TextInfo>{ productsFiltered.length>0? text : ''}</TextInfo>
-        <ScrollView horizontal={typeOfPage=== 'RandomProducts'|| typeOfPage=== 'YourInterest' ? true: false}  >
-      <ProductArea quantity={productsFiltered.length} >
+      <ScrollView horizontal={typeOfPage=== 'RandomProducts'|| typeOfPage=== 'YourInterest' ? true: false}  >
+        <ProductArea quantity={productsFiltered.length} >
 
-        {             
-        productsFiltered?.map((product,id) =>{     
-          return(                   
-            <WrapperProducts typeOfPage={typeOfPage}  key={id} onPress={()=> viewProduct(product)}
-            >
-              <LinearGradient style={{borderRadius:12}}
-              colors={currentTheme=='dark'?
-              ["#circle at 10% 20%, rgb(35,35,35) 0%", "rgb(20,20, 20) 90.2%)"] :
-              ["#circle at 10% 20%, rgb(230,230,230) 0%", "rgb(240,240, 240) 90.2%)"]
-            }
-              >
-                <Image source={{uri:product.mainPhoto}}
-                  style={{
-                    borderRadius:10,
-                    width:width,
-                    height:height,
-                    resizeMode:'contain',
-                    // backgroundColor:'rgb(230,230,230)'
-                }}
-                ></Image>
-              </LinearGradient>
-              <ProductInfoText></ProductInfoText>
-              <ProductInfoText typeOfPage={typeOfPage} >{product.name}</ProductInfoText>
-              <ProductPriceText typeOfPage={typeOfPage} >{numberFormat(product.price)}</ProductPriceText>
-            </WrapperProducts>
-        )})}
-      </ProductArea>  
-        </ScrollView>
+          {             
+            productsFiltered?.map((product,id) =>{     
+              return(                   
+                <WrapperProducts typeOfPage={typeOfPage}  key={id} onPress={()=> viewProduct(product)}
+                >
+                  <LinearGradient style={{borderRadius:12}}
+                    colors={currentTheme=='dark'?
+                      ['#circle at 10% 20%, rgb(35,35,35) 0%', 'rgb(20,20, 20) 90.2%)'] :
+                      ['#circle at 10% 20%, rgb(230,230,230) 0%', 'rgb(240,240, 240) 90.2%)']
+                    }
+                  >
+                    <Image source={{uri:product.mainPhoto}}
+                      style={{
+                        borderRadius:10,
+                        width:width,
+                        height:height,
+                        resizeMode:'contain',
+                        // backgroundColor:'rgb(230,230,230)'
+                      }}
+                    ></Image>
+                  </LinearGradient>
+                  <ProductInfoText></ProductInfoText>
+                  <ProductInfoText typeOfPage={typeOfPage} >{product.name}</ProductInfoText>
+                  <ProductPriceText typeOfPage={typeOfPage} >{numberFormat(product.price)}</ProductPriceText>
+                </WrapperProducts>
+              )})}
+        </ProductArea>  
+      </ScrollView>
     </Container>
-)}
+  )}

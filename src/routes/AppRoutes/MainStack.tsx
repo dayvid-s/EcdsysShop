@@ -5,8 +5,6 @@ import Cart from '../../screens/Cart'
 import About from '../../screens/About'
 import MainDrawer from './MainDrawer' 
 import SearchProduct from '../../screens/SearchProduct'
-import { RootStackParamList } from '../models'
-
 
 const Stack = createStackNavigator()
 
