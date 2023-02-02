@@ -35,9 +35,9 @@ export const SignUp = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errorEmail, setErrorEmail] = useState(null)
-  const [errorName, setErrorName] = useState(null)
-  const [errorPassword, setPasswordError] = useState(null)
+  const [errorEmail, setErrorEmail] = useState <string | null> (null)
+  const [errorName, setErrorName] = useState <string | null> (null)
+  const [errorPassword, setPasswordError] = useState <string | null> (null)
   const [loadingAuth, setAuthLoading] = useState(false)
   const dispatch = useDispatch()
  
@@ -68,7 +68,7 @@ export const SignUp = () => {
     return !error
   }
   
-  const storageUser = async (data) =>{
+  const storageUser = async (data: string[]) =>{
     await AsyncStorage.setItem('userData', JSON.stringify(data))}
 
   const handleGoSignIn = () => {
