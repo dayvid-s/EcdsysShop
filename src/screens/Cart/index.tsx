@@ -10,7 +10,7 @@ import {
 import CartPageHeader from '../../components/CartPageHeader'
 import CartProductsList  from '../../components/CartProductsList'
 import Checkout from '../../components/Checkout'
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
 import { useEffect } from 'react'
 import { firebase} from './../../services/firebase-config';
 import {useDispatch} from 'react-redux'
@@ -20,8 +20,8 @@ import { ActivityIndicator } from 'react-native-paper'
 import { useTheme } from 'styled-components';
 
 export default ()=> {
-  const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user.userData);
+  const cart = useAppSelector((state) => state.cart);
+  const user = useAppSelector((state) => state.user.userData);
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
 

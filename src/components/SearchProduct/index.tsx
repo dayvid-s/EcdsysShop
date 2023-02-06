@@ -9,12 +9,12 @@ import {
  import SearchIcon from '../../assets/icons/search-svgrepo-com.svg'
 import { useTheme } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from './../../hooks/useAppSelector';
 
 export default () => {
   const navigation = useNavigation()
   const theme = useTheme()
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
   return (
     <Container>

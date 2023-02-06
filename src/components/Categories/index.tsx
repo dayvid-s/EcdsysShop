@@ -12,11 +12,11 @@ import { useNavigation } from '@react-navigation/native';
 import { FlatList} from 'react-native';
 import { SvgXml } from 'react-native-svg' ;     
 import {files} from '../../assets/icons/categories'
-import { useSelector } from 'react-redux';
+import { useAppSelector } from './../../hooks/useAppSelector';
 
 export default () => {
   const navigation = useNavigation()
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
 
   return (

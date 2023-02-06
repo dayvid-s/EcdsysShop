@@ -12,17 +12,18 @@ import {LinearGradient} from 'expo-linear-gradient'
 import { useNavigation } from '@react-navigation/native'
 import {useDispatch} from 'react-redux'
 import { productsFetch } from '../../redux/features/productsSlice'
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
 import { addToHistoric } from '../../redux/features/productHistoricSlice'
 import { numberFormat } from '../../utils/numberFormat'
 
-
-export default ({typeOfPage, searchWord, text, height, width, productOnScreen, lastProduct }) => {
+export function ViewProducts ({typeOfPage, searchWord, text, height, width, productOnScreen, lastProduct }) {
   const navigation= useNavigation()
-  const products = useSelector((state) => state.products)
+  const products = useAppSelector((state) => state.products)
+  
   const productsFiltered = products.items?.filter(checkProducts)
   const dispatch = useDispatch()
-  const currentTheme = useSelector((state) => state.theme.currentTheme)
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme)
   
 
   

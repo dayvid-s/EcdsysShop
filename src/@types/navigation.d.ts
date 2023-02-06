@@ -2,12 +2,12 @@ export declare global {
 import { IProduct } from './../redux/features/cartSlice'
     namespace ReactNavigation{
         interface RootParamList  {
-            SignUp: product<IProduct>
+            SignUp: undefined
             SignIn: undefined
-            Home: undefined
+            Home: product<IProduct>
             MainDrawer: undefined
             Cart: undefined
-            About: undefined
+            About: {name: string}
             // SearchProduct: {
 
             // }

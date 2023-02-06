@@ -18,16 +18,16 @@ import {
 import { useTheme } from 'styled-components'
 import { Alert, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import ViewProducts from '../../components/ViewProducts';
-import { useSelector } from 'react-redux';
+import {ViewProducts} from '../../components/ViewProducts';
 import { firestore } from '../../services/firebase-config';
 import { collection, query, where,doc, setDoc, getDocs  } from "firebase/firestore";
 import { useLayoutEffect } from 'react';
+import { useAppSelector } from './../../hooks/useAppSelector';
 
 
 
 export default ()=> {
-  const user = useSelector((state) => state.user.userData);
+  const user = useAppSelector((state) => state.user.userData);
   var searchesData=[]
   const [userSearches, setUserSearches] = useState([])
   const theme = useTheme()

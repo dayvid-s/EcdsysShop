@@ -20,7 +20,8 @@ import  AsyncStorage  from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux'
 import {changeUserAvatar, changeUserInfo} from '../../redux/features/userSlice'
 import { retrieveCart, clearCart } from '../../redux/features/cartSlice';
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useEffect } from 'react';
 import { firebase, storage, firestore } from '../../services/firebase-config';
@@ -37,8 +38,8 @@ export function CustomDrawer(props) {
   const [image, setImage] = useState(null);
   const [picture, setPicture] = useState()
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user.userData); 
-  const currentTheme = useSelector((state) => state.theme.toggleTheme);
+  const user = useAppSelector((state) => state.user.userData); 
+  const currentTheme = useAppSelector((state) => state.theme.toggleTheme);
   const theme= useTheme()
 
 

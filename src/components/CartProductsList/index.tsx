@@ -23,18 +23,39 @@ import {
 } from '@expo/vector-icons'
 
 
-import { useSelector, useDispatch} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { getTotals } from '../../redux/features/cartSlice';
 import { firestore } from './../../services/firebase-config';
 import {collection, query, where, getDocs} from "firebase/firestore";
 import { useState } from 'react';
 import { numberFormat } from '../../utils/numberFormat';
+import { useAppSelector } from './../../hooks/useAppSelector';
 
-export default ({product}) => {
+export interface IProduct {
+    product:{
+      productId: string
+      category:string
+      name:string
+      price: number
+      mainPhoto: string
+      secondaryPhotos: string[]
+      description: string
+      specifications: string[]
+      rating: number
+      evaluationsTotal: number
+      isDayOffer: boolean
+      isRecommended: boolean
+      knownBy: string 
+    }
+    
+  }
+
+
+export default ({product} : IProduct) => {
   const navigation = useNavigation()
   const dispatch = useDispatch()
-  const cart = useSelector((state) => state.cart.cartItems); 
-  const user = useSelector((state) => state.user.userData);
+  const cart = useAppSelector((state) => state.cart.cartItems); 
+  const user = useAppSelector((state) => state.user.userData);
   const cartRef = collection(firestore, "cartItems");
   const [loading, setLoading]= useState(false)
     

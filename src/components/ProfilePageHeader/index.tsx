@@ -18,14 +18,15 @@ import {
 } from '@expo/vector-icons';
 import { Image} from 'react-native';
 import { Modal} from 'react-native-paper';
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default () => {
   const [modalVisibility,setModalVisibility] = useState(false)
   const theme = useTheme()
   const navigation = useNavigation()
-  const user = useSelector((state) => state.user.userData); 
+  const user = useAppSelector((state) => state.user.userData); 
 
   const showModal = () => setModalVisibility(true);
   const hideModal = () => setModalVisibility(false);  

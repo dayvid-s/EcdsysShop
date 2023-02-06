@@ -1,8 +1,9 @@
 import React from 'react'
 import Cart from '../../assets/icons/shopping-cart-svgrepo-com.svg'
 import Menu from '../../assets/icons/menu-svgrepo-com (1).svg'
-import { useDispatch, useSelector} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { getTotals, retrieveCart } from '../../redux/features/cartSlice';
+
 
 import { 
   IconsArea,
@@ -14,15 +15,16 @@ import { useTheme } from 'styled-components'
 import { useNavigation } from '@react-navigation/native'
 import { firebase } from './../../services/firebase-config';
 import { useEffect } from 'react';
+import { useAppSelector } from './../../hooks/useAppSelector';
 
 
 export default () => {
   const theme = useTheme()
   const navigation = useNavigation()
-  const cartAmount = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user.userData);
+  const cartAmount = useAppSelector((state) => state.cart);
+  const user = useAppSelector((state) => state.user.userData);
   const dispatch = useDispatch()
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
   useEffect(()=>{
     firebase.firestore().collection('cartItems')

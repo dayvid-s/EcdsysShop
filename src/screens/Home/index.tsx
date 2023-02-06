@@ -4,13 +4,13 @@ import { Container }from './styles'
 import HomeHeader from '../../components/HomeHeader'
 import SearchProduct from '../../components/SearchProduct'
 import Categories from '../../components/Categories'
-import ViewProducts from '../../components/ViewProducts'
+import {ViewProducts} from '../../components/ViewProducts'
 import { ScrollView } from 'react-native'
-import { useSelector } from 'react-redux'
 import DiscountBanner from '../../components/DiscountBanner'
+import { useAppSelector } from './../../hooks/useAppSelector';
 
 export default () => {
-  const historic= useSelector((state) => state.historic.userProductHistoric)
+  const historic= useAppSelector((state) => state.historic.userProductHistoric)
   const lastProductSeen = historic?.length>0?
   'Com base no seu interesse em '.concat(historic[historic?.length -1].knownBy) : null
   const lastProduct=(historic[historic?.length -1])

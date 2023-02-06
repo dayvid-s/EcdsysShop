@@ -8,8 +8,8 @@ import {
 } from './styles'
 import Hide from '../../assets/icons/eyeClosed.svg'
 import ShowPassword from '../../assets/icons/eyePassword.svg'
-import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
+import { useAppSelector } from './../../hooks/useAppSelector';
 
 
 
@@ -28,7 +28,7 @@ export default ({
     }) =>{
     const [inputBorderColor, setInputBorderColor] = useState('#434344')
     const [showPassword, setShowPassword] = useState(false)
-    const currentTheme = useSelector((state) => state.theme.currentTheme);
+    const currentTheme = useAppSelector((state) => state.theme.currentTheme);
     const theme = useTheme()
 
 

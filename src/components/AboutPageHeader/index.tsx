@@ -8,14 +8,15 @@ import {
  } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'styled-components'
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
 import { AntDesign } from '@expo/vector-icons';
 import Cart from '../../assets/icons/shopping-cart-svgrepo-com.svg'
 
 export default () => {
   const navigation = useNavigation()
   const theme = useTheme()
-  const cartAmount = useSelector((state) => state.cart);
+  const cartAmount = useAppSelector((state) => state.cart);
   return (
     <Container>
       <FirstIcon>

@@ -9,13 +9,14 @@ import {
 import { useTheme } from 'styled-components'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons';
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
 
 
 export default ({loading}) => {
   const theme = useTheme()
   const navigation = useNavigation()
-  const cart = useSelector((state) => state.cart.cartItems); 
+  const cart = useAppSelector((state) => state.cart.cartItems); 
   return (
     <IconsArea >
         <IconsWrapper onPress={() => navigation.goBack()}>

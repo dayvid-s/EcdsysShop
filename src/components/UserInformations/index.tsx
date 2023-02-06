@@ -17,7 +17,8 @@ import {
 } from './styles'
 import { useTheme } from 'styled-components'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
 import BottomSheet from '@gorhom/bottom-sheet';
 import BottomSheetComponent from '../../components/BottomSheetComponent'
 import { Keyboard, } from 'react-native';
@@ -33,7 +34,7 @@ export default () => {
   const [indexz, setIndexz]= useState('100%')
   const theme = useTheme()
   const navigation = useNavigation()
-  const user = useSelector((state) => state.user.userData); 
+  const user = useAppSelector((state) => state.user.userData); 
   const bottomSheetRef = useRef();
   const openBottomSheet = () => bottomSheetRef.current?.expand()
   const closeBottomSheet = () => bottomSheetRef.current?.close()

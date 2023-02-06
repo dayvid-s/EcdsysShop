@@ -12,10 +12,11 @@ import {LinearGradient} from 'expo-linear-gradient'
 import { useNavigation } from '@react-navigation/native'
 import {useDispatch} from 'react-redux'
 import { productsFetch } from '../../redux/features/productsSlice'
-import { useSelector} from 'react-redux'
+import { useAppSelector } from '../../hooks/useAppSelector'
+
 export default ({typeOfPage, searchWord, text, height, width, productOnScreen }) => {
   const navigation= useNavigation()
-  const products = useSelector((state) => state.products);
+  const products = useAppSelector((state) => state.products);
   const productsFiltered = products.items?.filter(checkProducts);
 
   // console.log(products[2])

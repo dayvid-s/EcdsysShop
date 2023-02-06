@@ -10,7 +10,7 @@ import AnimatedImages from '../../components/AnimatedImages'
 import ProductInfo from '../../components/ProductInfo'
 import FinalizePurchase from '../../components/FinalizePurchase'
 import BottomOfThePageAbout from '../../components/BottomOfThePageAbout'
-import ViewProducts from '../../components/ViewProducts'
+import {ViewProducts} from '../../components/ViewProducts'
 import { StatusBar } from 'react-native';
 import { useTheme } from 'styled-components';
 

@@ -15,20 +15,20 @@ import {
 import {useDispatch} from 'react-redux'
 import { addToCart } from '../../redux/features/cartSlice'
 import { firebase, firestore } from '../../services/firebase-config';
-import { useSelector } from 'react-redux'
 import {collection, query, where, getDocs} from "firebase/firestore";
 import { useState } from 'react';
 import { Modal, Portal} from 'react-native-paper';
 import { numberFormat } from '../../utils/numberFormat'
+import { useAppSelector } from './../../hooks/useAppSelector';
 
 
 
 export default ({product})=> {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user.userData); 
-  const cart = useSelector((state) => state.cart.cartItems);
+  const user = useAppSelector((state) => state.user.userData); 
+  const cart = useAppSelector((state) => state.cart.cartItems);
   const cartRef = collection(firestore, "cartItems");
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
   var hasProductInCart
   

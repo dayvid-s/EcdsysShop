@@ -8,14 +8,14 @@ import {
   CheckoutButton,
   CheckoutButtonText,
 } from './styles'
-import { useSelector, useDispatch} from 'react-redux'
+import {  useDispatch} from 'react-redux'
 import { getTotals } from '../../redux/features/cartSlice';
 import { numberFormat } from '../../utils/numberFormat';
-
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 export default ()=> {
-  const cartAmount = useSelector(state => state.cart)
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const cartAmount = useAppSelector(state => state.cart)
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
   const dispatch = useDispatch()
   useEffect(()=>{

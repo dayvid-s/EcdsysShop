@@ -11,15 +11,16 @@ import { Alert, Keyboard } from 'react-native'
 import { getAuth, updateEmail } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import {firestore} from '../../services/firebase-config'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeUserEmail, changeUserName } from '../../redux/features/userSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 
 
 export default function ({value, setText, changeInfo, closeBottomSheet, openModal}) {
   const auth = getAuth();
-  const user = useSelector((state) => state.user.userData); 
+  const user = useAppSelector((state) => state.user.userData); 
   const dispatch = useDispatch()
 
   const washingtonRef = doc(firestore,'users', user.uid);

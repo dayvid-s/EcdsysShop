@@ -1,12 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks/useAppSelector';
 import {
   Container,
   Image
 } from './styles'
 
+
 export default () => {
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
 
   return (
     <Container>

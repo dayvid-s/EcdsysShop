@@ -19,11 +19,11 @@ import {
 import FullStar from '../../assets/icons/star-svgrepo-com.svg'
 import HalfStar from '../../assets/icons/half-star-svgrepo-com.svg'
 import ProductSpecifications from '../ProductSpecifications'
-import { useSelector } from 'react-redux'
 import { numberFormat } from './../../utils/numberFormat';
+import { useAppSelector } from '../../hooks/useAppSelector'
 
 export default ({product})=> {
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
   const [firstSpec,setFirstSpec ] = useState(false)
   const [secondSpec,setSecondSpec ] = useState(false)
   const [thirdSpec,setThirdSpec ] = useState(false)
