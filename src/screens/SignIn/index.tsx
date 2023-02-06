@@ -1,31 +1,31 @@
 import React, { useRef, useState } from 'react'
 import {
-    TouchableWithoutFeedback,
-    Container,
-    HeaderArea,
-    WrapperIcon,
-    HeaderText, 
-    CustomButton,
-    CustomButtonText,
-    SignMessageButton,
-    SignMessageButtonText,
-    SignMessageButtonTextBold,
-    SubmitArea,
-    HeaderTextLittle,
-    ErrorArea,
-    ErrorText,
-    ForgotPasswordArea,
-    ForgotPasswordText
-  } from './styles'
+  TouchableWithoutFeedback,
+  Container,
+  HeaderArea,
+  WrapperIcon,
+  HeaderText, 
+  CustomButton,
+  CustomButtonText,
+  SignMessageButton,
+  SignMessageButtonText,
+  SignMessageButtonTextBold,
+  SubmitArea,
+  HeaderTextLittle,
+  ErrorArea,
+  ErrorText,
+  ForgotPasswordArea,
+  ForgotPasswordText
+} from './styles'
 import LoginOptions from '../../components/LoginOptions'
-import SignInput from '../../components/SignInput'
+import {SignInput} from '../../components/SignInput'
 import EmailIcon from '../../assets/icons/email.svg'
 import Lock from '../../assets/icons/lock.svg'
 import IconBack from '../../assets/icons/IconBack.svg'
 import { useNavigation } from '@react-navigation/native'
 import { Keyboard } from 'react-native'
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {signInWithEmailAndPassword} from "firebase/auth";
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+import {signInWithEmailAndPassword} from 'firebase/auth'
 import { auth } from '../../services/firebase-config'
 import { ActivityIndicator } from 'react-native-paper'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -52,11 +52,11 @@ export const SignIn = () => {
     setPasswordError(null)
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!re.test(String(email).toLowerCase())){
-      setErrorEmail("Preencha seu e-mail corretamente")
+      setErrorEmail('Preencha seu e-mail corretamente')
       error = true
     }
     if (password === ''){
-      setPasswordError("Preencha sua senha")
+      setPasswordError('Preencha sua senha')
       error = true
     }
     return !error    // just pass when don't have error.
@@ -76,44 +76,44 @@ export const SignIn = () => {
     if(validate()){
       setAuthLoading(true)
       signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        let uid = userCredential.user.uid
-        firebase.firestore().collection('users')
-        .doc(uid).get()
-        .then((snapshot) =>{        
-          if(snapshot.exists){
-            let data = {
-              uid:uid,
-              name: snapshot.data().name,
-              email:snapshot.data().email,
-              userAvatar:snapshot.data().picture? snapshot.data().picture  : null
-            }
-              storageUser(data)
-              dispatch(changeUserInfo(data))  
-              setAuthLoading(false)
-            }else{ 
-            setErrorEmail("Email ou senha incorretos.")
-            setAuthLoading(false)
-          }
+        .then((userCredential) => {
+          const uid = userCredential.user.uid
+          firebase.firestore().collection('users')
+            .doc(uid).get()
+            .then((snapshot) =>{        
+              if(snapshot.exists){
+                const data = {
+                  uid:uid,
+                  name: snapshot.data().name,
+                  email:snapshot.data().email,
+                  userAvatar:snapshot.data().picture? snapshot.data().picture  : null
+                }
+                storageUser(data)
+                dispatch(changeUserInfo(data))  
+                setAuthLoading(false)
+              }else{ 
+                setErrorEmail('Email ou senha incorretos.')
+                setAuthLoading(false)
+              }
+            })
         })
-      })
-      .catch((error) => {
-        setAuthLoading(false)
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setErrorEmail("Email ou senha incorretos.")
-        console.log(errorMessage)
-    })};  
+        .catch((error) => {
+          setAuthLoading(false)
+          const errorCode = error.code
+          const errorMessage = error.message
+          setErrorEmail('Email ou senha incorretos.')
+          console.log(errorMessage)
+        })}  
   }
 
 
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} >
       <KeyboardAwareScrollView 
-      enableOnAndroid={true}
-      keyboardOpeningTime	={330}
-      enableAutomaticScroll	
-      extraHeight={190}  >
+        enableOnAndroid={true}
+        keyboardOpeningTime	={330}
+        enableAutomaticScroll	
+        extraHeight={190}  >
         <Container>
           <HeaderArea>
             <WrapperIcon onPress={()=>{navigation.navigate('SignUp')}} >
@@ -121,7 +121,7 @@ export const SignIn = () => {
             </WrapperIcon>
             <HeaderText>Entrar</HeaderText>
           </HeaderArea> 
-            <HeaderTextLittle>Que bom ter você de volta!</HeaderTextLittle>
+          <HeaderTextLittle>Que bom ter você de volta!</HeaderTextLittle>
 
           <LoginOptions  Text={'Faça login com uma das seguintes opções'}></LoginOptions>    
 
@@ -139,7 +139,7 @@ export const SignIn = () => {
               returnKeyType='next'
               secureTextEntry={false} 
               onSubmitEditing={()=> passwordRef.current.focus()}
-              />
+            />
             <ErrorArea>
               <ErrorText > {errorPassword} </ErrorText>
             </ErrorArea>
@@ -154,16 +154,16 @@ export const SignIn = () => {
               returnKeyType='done'
               secureTextEntry={true} 
               passWord={true}
-              />
-            <ForgotPasswordArea onPress={()=>{navigation.navigate("ForgotPassword")}}>
+            />
+            <ForgotPasswordArea onPress={()=>{navigation.navigate('ForgotPassword')}}>
               <ForgotPasswordText> Esqueceu a senha? </ForgotPasswordText>
             </ForgotPasswordArea>
 
             <CustomButton onPress={()=> handleSignIn()}>
-            {
+              {
                 loadingAuth?
                   <ActivityIndicator
-                  animating={true} color={"#7159c1"} 
+                    animating={true} color={'#7159c1'} 
                   ></ActivityIndicator>
                   :
                   <CustomButtonText>Entrar</CustomButtonText>

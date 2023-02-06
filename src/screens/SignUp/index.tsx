@@ -14,7 +14,7 @@ import {
   ErrorText
 } from './styles'
 import LoginOptions from '../../components/LoginOptions'
-import SignInput from '../../components/SignInput'
+import {SignInput} from '../../components/SignInput'
 import EmailIcon from '../../assets/icons/email.svg'
 import Lock from '../../assets/icons/lock.svg'
 import User from '../../assets/icons/user.svg'
@@ -68,18 +68,18 @@ export const SignUp = () => {
     return !error
   }
   
-  const storageUser = async (data: string[]) =>{
+  const storageUser = async (data: object) =>{
     await AsyncStorage.setItem('userData', JSON.stringify(data))}
 
   const handleGoSignIn = () => {
     navigation.navigate('SignIn')}
 
-  const handleSignUp = async (email, password, name)=>{
+  const handleSignUp = async (email: string, password : string, name : string)=>{
     if(validate()){
       setAuthLoading(true)
       await firebase.auth().createUserWithEmailAndPassword(email,password)
-        .then(()=>{
-          const uid = firebase.auth().currentUser.uid
+        .then((cred)=>{
+          const uid = cred.user?.uid
           firebase.firestore().collection('users')  //creating a collection at firestore
             .doc(uid)  //its getting the uid of user to match with firestore
             .set({           
@@ -125,6 +125,7 @@ export const SignUp = () => {
               <ErrorText > {errorName} </ErrorText>
             </ErrorArea>
             <SignInput 
+              Icon={User}
               value={name}
               setText={setName}
               setError= {setErrorName}
@@ -133,7 +134,6 @@ export const SignUp = () => {
               returnKeyType='next'
               secureTextEntry={false} 
               onSubmitEditing={()=> emailRef.current.focus()}
-              IconSvg={User}
             />
             <ErrorArea>
               <ErrorText > {errorEmail} </ErrorText>
@@ -145,7 +145,7 @@ export const SignUp = () => {
               inputRef={emailRef}
               Text='Email'
               placeholder= "tim@apple.com"
-              IconSvg={EmailIcon}
+              Icon={EmailIcon}
               returnKeyType='next'
               onSubmitEditing={()=> passwordRef.current.focus()}
             />
@@ -154,13 +154,14 @@ export const SignUp = () => {
             </ErrorArea>
 
             <SignInput
+
               value={password}
               setText={setPassword}
               setError= {setPasswordError}
               inputRef={passwordRef}
               Text="Senha"
               placeholder="Escolha uma senha forte"
-              IconSvg={Lock}
+              Icon={Lock}
               returnKeyType='done'
               secureTextEntry={true}
               passWord={true}

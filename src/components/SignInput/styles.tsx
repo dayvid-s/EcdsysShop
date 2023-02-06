@@ -1,13 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components/native'
+
+interface IInputAreaProps {
+    custom: string
+}
+
 
 export const Container = styled.View`
     margin-left:5%
     margin-right:5%
 `
 
-export const InputArea = styled.View`
+export const InputArea = styled.View <IInputAreaProps>`
     background-color:${props => props.theme.secondary}
-    height:60px;
+    height: 60px
     border-radius: 20px;
     border-width: 2px;
     border-color: ${props => props.theme.gray300};

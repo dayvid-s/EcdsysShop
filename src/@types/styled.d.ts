@@ -3,7 +3,7 @@ import 'styled-components/native'
 declare module 'styled-components' {
   export interface DefaultTheme {
 
-    colors: {
+    // colors: {
       backGround: string;
       onBackGround: string;
       secondary: string;
@@ -11,6 +11,6 @@ declare module 'styled-components' {
       roseBlue: string;
       gray300: string;
       opacity?: number
-    };
+    // };
   }
 }
