@@ -13,7 +13,7 @@ import {
   ErrorArea,
   ErrorText
 } from './styles'
-import LoginOptions from '../../components/LoginOptions'
+import {LoginOptions} from '../../components/LoginOptions'
 import {SignInput} from '../../components/SignInput'
 import EmailIcon from '../../assets/icons/email.svg'
 import Lock from '../../assets/icons/lock.svg'

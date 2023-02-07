@@ -18,7 +18,7 @@ import { useEffect } from 'react';
 import { useAppSelector } from './../../hooks/useAppSelector';
 
 
-export default () => {
+export function HomeHeader ()  {
   const theme = useTheme()
   const navigation = useNavigation()
   const cartAmount = useAppSelector((state) => state.cart);

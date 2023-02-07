@@ -17,7 +17,7 @@ import {
   ForgotPasswordArea,
   ForgotPasswordText
 } from './styles'
-import LoginOptions from '../../components/LoginOptions'
+import {LoginOptions} from '../../components/LoginOptions'
 import {SignInput} from '../../components/SignInput'
 import EmailIcon from '../../assets/icons/email.svg'
 import Lock from '../../assets/icons/lock.svg'
@@ -41,8 +41,8 @@ export const SignIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loadingAuth, setAuthLoading] = useState(false)
-  const [errorEmail, setErrorEmail] = useState(null)
-  const [errorPassword, setPasswordError] = useState(null)
+  const [errorEmail, setErrorEmail] = useState <string | null>(null)
+  const [errorPassword, setPasswordError] = useState <string | null> (null)
   const theme = useTheme()
  
  
@@ -50,7 +50,7 @@ export const SignIn = () => {
     let error = false
     setErrorEmail(null)
     setPasswordError(null)
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!re.test(String(email).toLowerCase())){
       setErrorEmail('Preencha seu e-mail corretamente')
       error = true
@@ -63,7 +63,7 @@ export const SignIn = () => {
   }
   const dispatch = useDispatch()
 
-  const storageUser = async (data) =>{
+  const storageUser = async (data: object) =>{
     await AsyncStorage.setItem('userData', JSON.stringify(data))
   }
 
@@ -99,7 +99,7 @@ export const SignIn = () => {
         })
         .catch((error) => {
           setAuthLoading(false)
-          const errorCode = error.code
+          // const errorCode = error.code
           const errorMessage = error.message
           setErrorEmail('Email ou senha incorretos.')
           console.log(errorMessage)
@@ -117,7 +117,7 @@ export const SignIn = () => {
         <Container>
           <HeaderArea>
             <WrapperIcon onPress={()=>{navigation.navigate('SignUp')}} >
-              <IconBack  IconBack width={20} heigth={20} fill={theme.onBackGround} ></IconBack>
+              <IconBack width={20} height={50} fill={theme.onBackGround} ></IconBack>
             </WrapperIcon>
             <HeaderText>Entrar</HeaderText>
           </HeaderArea> 

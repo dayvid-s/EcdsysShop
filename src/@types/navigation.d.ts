@@ -4,9 +4,11 @@ import { IProduct } from './../redux/features/cartSlice'
         interface RootParamList  {
             SignUp: undefined
             SignIn: undefined
+            ForgotPassword: undefined
             Home: product<IProduct>
             MainDrawer: undefined
             Cart: undefined
+            About: {name: string}
             About: {name: string}
             // SearchProduct: {
 

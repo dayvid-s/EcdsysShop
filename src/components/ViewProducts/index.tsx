@@ -17,7 +17,20 @@ import { useAppSelector } from '../../hooks/useAppSelector'
 import { addToHistoric } from '../../redux/features/productHistoricSlice'
 import { numberFormat } from '../../utils/numberFormat'
 
-export function ViewProducts ({typeOfPage, searchWord, text, height, width, productOnScreen, lastProduct }) {
+interface IViewProdutsProps{
+  typeOfPage: 'Recommended' | 'DayOffer'  | 'YourInterest'  | 'RandomProducts' | 'SearchProduct'
+  searchWord: string
+  text: string | null
+}
+
+export function ViewProducts ({
+  typeOfPage,
+  searchWord,
+  text,
+  height,
+  width,
+  productOnScreen,
+  lastProduct } :IViewProdutsProps ) {
   const navigation= useNavigation()
   const products = useAppSelector((state) => state.products)
   

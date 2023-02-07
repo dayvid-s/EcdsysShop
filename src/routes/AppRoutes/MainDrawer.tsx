@@ -1,6 +1,6 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Home from '../../screens/Home'
+import {Home} from '../../screens/Home'
 import Cart from '../../screens/Cart';
 import Profile from '../../screens/Profile';
 import Favorites from '../../screens/Favorites';

@@ -15,7 +15,7 @@ import { TextInputProps } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 
 interface ISignInputProps extends TextInputProps {
-  inputRef: React.MutableRefObject<undefined>
+  inputRef?: React.MutableRefObject<undefined>
   Text : string
   Icon: React.FC<SvgProps>
   passWord?: boolean

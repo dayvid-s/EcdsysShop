@@ -1,13 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IProduct } from './cartSlice';
+export interface IProduct {
+  userProductHistoric:{
 
- export interface IProductHistoric{
-    userProductHistoric:Array<IProduct>
+      productId: string
+      category:string
+      name:string
+      price: number
+      mainPhoto: string
+      secondaryPhotos: string[]
+      description: string
+      specifications: string[]
+      rating: number
+      evaluationsTotal: number
+      isDayOffer: boolean
+      isRecommended: boolean
+      knownBy: string     // knownBy: string 
+  } |  object
+} export interface IProductHistoric{
+    userProductHistoric:IProduct
  }
 
-const initialState={
-  userProductHistoric:[]
-}
+const initialState :IProduct = {
+  userProductHistoric:[] 
+} 
 
 const  historicSlice = createSlice({
   name: 'historic',
