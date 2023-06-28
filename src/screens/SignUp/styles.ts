@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from "styled-components/native/native";
 
 export const TouchableWithoutFeedback = styled.TouchableWithoutFeedback`
 `
@@ -67,7 +67,7 @@ export const SignMessageButtonText = styled.Text`
     font-weight: 400;
 `
 
-export const SignMessageButtonTextBold =styled.Text`
+export const SignMessageButtonTextBold = styled.Text`
     color:${props => props.theme.onBackGround};
     font-weight: 800;
 

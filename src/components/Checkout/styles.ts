@@ -1,11 +1,11 @@
-import styled from "styled-components/native"
+import styled from "styled-components/native/native"
 
 export const Container = styled.View`
     margin-top: 10px
     margin-left:5%
     margin-right:5%
     `
-export const  CheckoutWrapper = styled.View`
+export const CheckoutWrapper = styled.View`
     border-top-color: ${props => props.theme.gray300};
     border-top-width: 1px;
     padding-top:12px
@@ -13,14 +13,14 @@ export const  CheckoutWrapper = styled.View`
     justify-content: space-between
     flex-direction:row
     `
-export const  TextArea = styled.View`
+export const TextArea = styled.View`
     `
 export const ProductInfoText = styled.Text`
     flex:1
     color: ${props => props.theme.onBackGround}
     font-size: 15px
     font-weight: 600
-    opacity:${props => props.currentTheme =='light' ? '1' : '0.6'};
+    opacity:${props => props.currentTheme == 'light' ? '1' : '0.6'};
     font-family:'Medium'
 
     `
@@ -43,14 +43,14 @@ export const TotalText = styled(ProductPriceText)`
     color: ${props => props.theme.onBackGround}
     font-size:20px
     font-family:'Hard'
-  `  
+  `
 export const CheckoutButton = styled.TouchableOpacity`
     background-color: ${props => props.theme.roseBlue}
     padding:19px
     border-radius:30px
     justify-content: center;
     align-items: center;
-    `  
+    `
 export const CheckoutButtonText = styled.Text`
     font-size: 18px;
     color:white

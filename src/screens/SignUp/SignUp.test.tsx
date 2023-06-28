@@ -1,7 +1,7 @@
 import { render, RenderAPI } from '@testing-library/react-native'
 import 'jest-styled-components'
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import { ThemeProvider } from 'styled-components'

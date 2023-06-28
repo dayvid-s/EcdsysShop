@@ -1,8 +1,8 @@
-import styled from "styled-components/native";
-import { 
-    AntDesign, 
-  } from '@expo/vector-icons'; 
-  
+import styled from "styled-components/native/native";
+import {
+    AntDesign,
+} from '@expo/vector-icons';
+
 export const Container = styled.View`
     background-color:${props => props.theme.backGround}
     flex:1
@@ -45,7 +45,7 @@ export const SearchHistoryArea = styled.TouchableOpacity`
     opacity:0.7
 `
 export const TextWithSearches = styled.Text`
-    color: ${props=> props.theme.onBackGround}
+    color: ${props => props.theme.onBackGround}
     margin-top:4px;
     font-size: 18px
     flex:1

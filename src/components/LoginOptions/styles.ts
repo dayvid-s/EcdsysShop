@@ -1,19 +1,19 @@
 import React from "react";
-import styled from "styled-components/native";
+import styled from "styled-components/native/native";
 
 export const Container = styled.View`
     margin-left: 5%;
     margin-right : 12px;
-` 
+`
 
 export const LoginIconsArea = styled.View`
     flex-direction: row;
     margin-top: 5%;
-    ` 
+    `
 export const AreaText = styled.View`
     margin-top: 10%;
     margin-left: 3%
-    ` 
+    `
 export const OptionText = styled.Text`
     font-weight:500;
     font-size: 15px;

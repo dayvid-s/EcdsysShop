@@ -1,14 +1,14 @@
-import styled from "styled-components/native"
+import styled from "styled-components/native/native"
 
 export const Container = styled.View`
 margin-left:5%
     `
-export const  DescriptionTitle = styled.Text`
+export const DescriptionTitle = styled.Text`
     color: ${props => props.theme.onBackGround}    
     font-size: 20px
     font-family: 'Hard'
     `
-    export const  DescriptionText = styled.Text`
+export const DescriptionText = styled.Text`
     font-family: 'Medium'
     align-self: center
     margin-top:5px

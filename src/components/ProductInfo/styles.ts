@@ -1,4 +1,4 @@
-import styled from "styled-components/native"
+import styled from "styled-components/native/native"
 
 export const Container = styled.View`
     margin-left:5%
@@ -8,7 +8,7 @@ export const ProductName = styled.Text`
     color: ${props => props.theme.onBackGround}
     margin-top:6px
     font-weight: 600
-    opacity:${props => props.currentTheme =='light' ? '1' : '0.6'};
+    opacity:${props => props.currentTheme == 'light' ? '1' : '0.6'};
     `
 export const ProductRatingArea = styled.View`
     flex-direction: row;
@@ -65,7 +65,7 @@ export const InstallmentText = styled.Text`
     color: white
     font-family: 'Medium'
     font-size:13px
-    opacity:${props => props.currentTheme =='light' ? '1' : '0.8'};
+    opacity:${props => props.currentTheme == 'light' ? '1' : '0.8'};
     align-self:center
     justify-self:center
 
@@ -81,7 +81,7 @@ export const ProductSpecsArea = styled.View`
     flex-direction: row;
     align-items: center;
     `
-export const  ProductSpecsWrapper = styled.TouchableOpacity`
+export const ProductSpecsWrapper = styled.TouchableOpacity`
     padding:8px
     padding-right:10px
     padding-left:10px 

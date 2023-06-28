@@ -1,6 +1,6 @@
-import styled from "styled-components/native"
+import styled from "styled-components/native/native"
 export const Container = styled.View`
-` 
+`
 export const IconsArea = styled.View`
     flex-direction: row;
     margin-right : 5%
@@ -15,20 +15,20 @@ export const IconsWrapper = styled.TouchableOpacity`
     background-color:${props => props.theme.secondary}
     border-radius: 12px
     `
-    export const TitleArea = styled.View`
+export const TitleArea = styled.View`
     align-items: center;
     justify-content: center;
     flex:2
     margin-bottom:5px
     `
-    export const HeaderTitle = styled.Text`
+export const HeaderTitle = styled.Text`
     font-family: Medium;
     color: ${props => props.theme.onBackGround}    
     align-self:center
     font-size:25px
     margin-right:30px
     `
-    export const UserInfoArea = styled.View`
+export const UserInfoArea = styled.View`
     margin-right:5%
     margin-left:5%
     border-radius:20px
@@ -38,10 +38,10 @@ export const IconsWrapper = styled.TouchableOpacity`
     flex-direction:row;
     
     `
-    export const ImageWrapper = styled.View`
+export const ImageWrapper = styled.View`
     margin-left: 5%;
     `
-    export const UserInfoText = styled.Text`
+export const UserInfoText = styled.Text`
     font-family: Medium;
     color: ${props => props.theme.onBackGround}    
     align-self:center

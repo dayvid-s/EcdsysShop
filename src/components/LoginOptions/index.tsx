@@ -1,21 +1,21 @@
 import React from 'react'
-import { 
+import {
   LoginIconsArea,
-  WrapperIcons, 
-  OptionText, 
+  WrapperIcons,
+  OptionText,
   Container,
   AreaText
 } from './styles'
 import Facebook from '../../assets/icons/facebook-option-svgrepo-com.svg'
-import { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components/native'
 import Google from '../../assets/icons/google-svgrepo-com (2).svg'
 
-interface ILoginOptions{
-    Text: string
+interface ILoginOptions {
+  Text: string
 }
 
 
-export function LoginOptions ({Text}: ILoginOptions) {
+export function LoginOptions({ Text }: ILoginOptions) {
   const theme = useTheme()
 
   return (
@@ -26,17 +26,17 @@ export function LoginOptions ({Text}: ILoginOptions) {
 
       <LoginIconsArea>
         <WrapperIcons>
-          {Facebook? 
+          {Facebook ?
             <Facebook width="39" height="28" fill={theme.onBackGround} />
-            : null   }
+            : null}
         </WrapperIcons>
         <WrapperIcons>
-                
-          {Google? 
+
+          {Google ?
             <Google width="24" height="24" fill={theme.onBackGround} color={'blue'} />
-            : null   }
+            : null}
         </WrapperIcons>
-      </LoginIconsArea>   
+      </LoginIconsArea>
     </Container>
   )
 }

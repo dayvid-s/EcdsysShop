@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled from 'styled-components/native/native'
 
 interface IInputAreaProps {
     custom: string
@@ -24,7 +24,7 @@ export const InputArea = styled.View <IInputAreaProps>`
     border-color: ${(props) => props.custom}
 `
 
-export const TextInfo = styled.Text `
+export const TextInfo = styled.Text`
     margin-left: 15px;
     margin-bottom: 8px
     font-size:18px
@@ -37,7 +37,7 @@ export const Input = styled.TextInput`
     color: ${props => props.theme.onBackGround};
     margin-left: 10px;
 `
-export const TouchableOpacity = styled.TouchableOpacity `
+export const TouchableOpacity = styled.TouchableOpacity`
     margin-right:10px
 
 `

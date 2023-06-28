@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from "styled-components/native/native";
 
 export const Container = styled.View`
 `
@@ -8,7 +8,7 @@ export const Title = styled.Text`
     margin-top:10px
     font-weight:600
     `
-export const CategoriesArea =styled.View`
+export const CategoriesArea = styled.View`
     margin-top: 2%
     padding:8px
     border-radius:20px
@@ -25,16 +25,16 @@ export const WrapperCategories = styled.TouchableOpacity`
     
     `
 
-    export const CategoriesText =styled.Text`
+export const CategoriesText = styled.Text`
     color: ${props => props.theme.onBackGround}
     font-weight:600
     font-size:12px
-    opacity:${props => props.currentTheme =='light' ? '1' : '0.5'};
+    opacity:${props => props.currentTheme == 'light' ? '1' : '0.5'};
 `
-export const CategoriesIconWrapper =styled.View`
+export const CategoriesIconWrapper = styled.View`
     border-color:#224
     border-width:3px
-    border-width:${props => props.currentTheme =='light' ? '0px' : '3px'};
+    border-width:${props => props.currentTheme == 'light' ? '0px' : '3px'};
     justify-content: center
     align-items: center    
     padding:30px

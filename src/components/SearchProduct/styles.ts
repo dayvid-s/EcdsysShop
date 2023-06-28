@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from "styled-components/native/native";
 
 export const Container = styled.View`
 `
@@ -9,7 +9,7 @@ export const Title = styled.Text`
     margin-top: 1%
     font-weight:600
     `
-    export const SearchInputArea =styled.TouchableOpacity`
+export const SearchInputArea = styled.TouchableOpacity`
     margin-top: 5%
     margin-right: 5%;
     margin-left: 5%;
@@ -20,17 +20,17 @@ export const Title = styled.Text`
     flex-direction: row
     align-items: center
  `
-export const SearchInputText =styled.Text`
+export const SearchInputText = styled.Text`
     color: ${props => props.theme.onBackGround}
     font-weight:600
     margin-left:15px
     font-size:18px
     opacity:0.5
-    opacity:${props => props.currentTheme =='dark' ? '0.5' : '1'};
+    opacity:${props => props.currentTheme == 'dark' ? '0.5' : '1'};
     
     `
-    export const SearchIconWrapper =styled.View`
+export const SearchIconWrapper = styled.View`
     padding:14px
-    background-color:${props => props.currentTheme =='light' ? props.theme.secondary : props.theme.roseBlue};
+    background-color:${props => props.currentTheme == 'light' ? props.theme.secondary : props.theme.roseBlue};
     border-radius:20px
     `

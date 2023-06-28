@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 
 export const Container = styled.View`
@@ -15,7 +15,7 @@ export const ProductsWrapper = styled.View`
     margin-top:20px;
     margin-right: 5%;
     border-radius: 8px;
-    opacity:${props => props.loading ==true ? '0.4' : '10'};
+    opacity:${props => props.loading == true ? '0.4' : '10'};
 
 `
 export const ImageWrapper = styled.TouchableOpacity`
@@ -69,7 +69,7 @@ font-size:17px
 font-weight: 400
 
 `
-    
+
 export const ProductPriceText = styled.Text`
     color: ${props => props.theme.onBackGround}
     opacity:0.5
@@ -77,7 +77,7 @@ export const ProductPriceText = styled.Text`
     font-weight:600
     
     `
-    export const ProductRemoveWrapper = styled.TouchableOpacity`
+export const ProductRemoveWrapper = styled.TouchableOpacity`
         align-items: center;
         justify-content: center;
         margin-left:50px;

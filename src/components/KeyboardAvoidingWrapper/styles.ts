@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from "styled-components/native/native";
 
 export const Container = styled.View`
     margin-top:20px
@@ -12,7 +12,7 @@ export const FirstIcon = styled.View`
     opacity:0.6
     padding-right:10px
     `
-    
+
 export const IconsWrapper = styled.TouchableOpacity`
     opacity:0.6
     margin-right:20px

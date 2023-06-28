@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from "styled-components/native/native";
 
 export const Container = styled.View`
     flex: 1
@@ -20,7 +20,7 @@ export const InputArea = styled.View`
     margin-left:5%;
     `
 
-export const TextInfo = styled.Text `
+export const TextInfo = styled.Text`
     margin-left: 15px;
     margin-bottom: 8px
     font-size:18px

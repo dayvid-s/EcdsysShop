@@ -1,4 +1,4 @@
-import styled from "styled-components/native"
+import styled from "styled-components/native/native"
 import { LinearGradient } from 'expo-linear-gradient';
 
 
@@ -53,9 +53,9 @@ export const ModalTextInfo = styled.Text`
    font-family: "Medium";
    color:#FFF
    font-size:18px
-` 
+`
 export const ModalText = styled(ModalTextInfo)`
    max-width:180px
-` 
+`
 export const ButtonsWrapper = styled.View`
    `

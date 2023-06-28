@@ -1,5 +1,5 @@
 import LinearGradient from 'react-native-linear-gradient'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 
 export const Container = styled.View`
@@ -11,14 +11,14 @@ export const ProductArea = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    justify-content:${props => props.quantity >2?  "space-around" : "space-between" };
+    justify-content:${props => props.quantity > 2 ? "space-around" : "space-between"};
 `
 export const WrapperProducts = styled.TouchableOpacity`
     margin-top:10px;
-    max-width:${props => props.typeOfPage == 'DayOffer'? '100%' : '50%'};
+    max-width:${props => props.typeOfPage == 'DayOffer' ? '100%' : '50%'};
     margin-right:10px
     `
-    
+
 export const TextInfo = styled.Text`
     color: ${props => props.theme.onBackGround}
     margin-top:2%
@@ -28,19 +28,19 @@ export const TextInfo = styled.Text`
 `
 
 export const ProductInfoText = styled.Text`
-    margin-top:${props => props.typeOfPage == 'DayOffer'? '-10px' : '-6px'};
+    margin-top:${props => props.typeOfPage == 'DayOffer' ? '-10px' : '-6px'};
     color: ${props => props.theme.onBackGround}
-    font-size:${props => props.typeOfPage == 'DayOffer'? '20px' : '15px'};
+    font-size:${props => props.typeOfPage == 'DayOffer' ? '20px' : '15px'};
     font-weight: 400
-    margin-left:${props => props.typeOfPage == 'DayOffer'? '25px' : 0};
+    margin-left:${props => props.typeOfPage == 'DayOffer' ? '25px' : 0};
     `
-    
+
 export const ProductPriceText = styled.Text`
     margin-top:4px
     color: ${props => props.theme.onBackGround}
     font-size: 13px
     font-weight: 400
     color:gray    
-    margin-left:${props => props.typeOfPage == 'DayOffer'? '25px' : 0};
+    margin-left:${props => props.typeOfPage == 'DayOffer' ? '25px' : 0};
 
 `

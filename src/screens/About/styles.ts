@@ -1,4 +1,4 @@
-import styled from "styled-components/native"
+import styled from "styled-components/native/native"
 
 export const ScrollView = styled.ScrollView`
     `
@@ -20,17 +20,17 @@ export const ProductName = styled.Text`
     font-weight: 600
     max-width:300px
     `
-    
-    export const ProductDescription = styled.Text`
+
+export const ProductDescription = styled.Text`
     font-size:15px;
     /* color: ${props => props.theme.onBackGround} */
     color: gray
     margin-left:26px
     font-weight: 500
     `
-    export const ImageList = styled.FlatList`
+export const ImageList = styled.FlatList`
     `
-    export const AnimatedLines = styled.View`
+export const AnimatedLines = styled.View`
         width: 100%;
         flex-direction: row;
         align-items: center;
