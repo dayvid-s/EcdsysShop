@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native'
 
 
 export const Container = styled.View`
-    flex:1
-    margin-left: 5%
-    margin-right: 5%
+    flex:1;
+    margin-left: 5%;
+    margin-right: 5%;
 `
 export const Image = styled.Image`
-    width:360px
-    height:200px
+    width:360px;
+    height:200px;
 `
