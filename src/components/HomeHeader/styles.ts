@@ -1,4 +1,4 @@
-import styled from "styled-components/native/native"
+import styled from "styled-components/native"
 export const IconsArea = styled.View`
     flex-direction: row;
     justify-content: space-between;

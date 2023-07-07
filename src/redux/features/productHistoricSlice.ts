@@ -1,42 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit'
-export interface IProduct {
-  userProductHistoric:{
 
-      productId: string
-      category:string
-      name:string
-      price: number
-      mainPhoto: string
-      secondaryPhotos: string[]
-      description: string
-      specifications: string[]
-      rating: number
-      evaluationsTotal: number
-      isDayOffer: boolean
-      isRecommended: boolean
-      knownBy: string     // knownBy: string 
-  } |  object
-} export interface IProductHistoric{
-    userProductHistoric:IProduct
- }
+type Product = {
+  productId: string;
+  category: string;
+  name: string;
+  price: number;
+  mainPhoto: string;
+  secondaryPhotos: string[];
+  description: string;
+  specifications: string[];
+  rating: number;
+  evaluationsTotal: number;
+  isDayOffer: boolean;
+  isRecommended: boolean;
+  knownBy: string;
+}
 
-const initialState :IProduct = {
-  userProductHistoric:[] 
-} 
 
-const  historicSlice = createSlice({
+export interface IuserProductHistoric {
+  userProductHistoric: Product[] | []
+}
+export interface IuserAction {
+  state: Product
+  action: Product
+}
+
+const initialState: IuserProductHistoric = {
+  userProductHistoric: []
+}
+
+const historicSlice = createSlice({
   name: 'historic',
   initialState,
-  reducers:{
-    addToHistoric(state, action ){
+  reducers: {
+    addToHistoric(state, action): IuserAction {
+
       state.userProductHistoric.push(action.payload)
     },
-    clearHistoric(state){
-      state.userProductHistoric= []
+    clearHistoric(state) {
+      state.userProductHistoric = []
     },
   }
 })
 
-export const {addToHistoric,clearHistoric} = historicSlice.actions
+export const { addToHistoric, clearHistoric } = historicSlice.actions
 
 export default historicSlice.reducer

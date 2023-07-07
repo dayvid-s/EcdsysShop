@@ -6,13 +6,14 @@ import {
   DescriptionText,
   DescriptionTitle
 } from './styles'
+import { IProduct } from '../CartProductsList'
 
-export default ({product})=> {
+export default ({ product }: IProduct) => {
 
   return (
     <Container>
       <DescriptionTitle>Descrição do produto</DescriptionTitle>
-        <DescriptionText>{product?.description}</DescriptionText>
+      <DescriptionText>{product?.description}</DescriptionText>
     </Container>
   )
 }

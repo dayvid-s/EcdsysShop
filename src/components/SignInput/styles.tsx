@@ -1,4 +1,4 @@
-import styled from 'styled-components/native/native'
+import styled from 'styled-components/native'
 
 interface IInputAreaProps {
     custom: string

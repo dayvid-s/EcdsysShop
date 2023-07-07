@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components/native/native";
+import styled from "styled-components/native";
 
 export const Container = styled.View`
     margin-left: 5%;
